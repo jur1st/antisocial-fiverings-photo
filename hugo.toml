@@ -2,6 +2,9 @@ baseURL = 'https://jur1st.github.io/antisocial-fiverings-photo/'
 languageCode = 'en-us'
 title = 'antisocial.fiverings.photo'
 
+# Enable canonifyURLs for GitHub Pages subdirectory deployment
+canonifyURLs = true
+
 # Disable problematic features for development
 disableRSS = true
 disableKinds = ["RSS", "taxonomy", "term"]
