@@ -1,0 +1,124 @@
+{{ define "main" }}
+{{ if .Params.photos }}
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "ImageGallery",
+  "name": "{{ .Title }}",
+  "description": "{{ .Description | default .Site.Params.description }}",
+  "url": "{{ .Permalink }}",
+  "datePublished": "{{ .Date.Format "2006-01-02" }}",
+  "author": {
+    "@type": "Person",
+    "name": "{{ .Site.Params.author }}",
+    "url": "{{ .Site.BaseURL }}"
+  },
+  "image": [
+    {{ range $index, $photo := .Params.photos }}{{ if $index }},{{ end }}
+    {
+      "@type": "ImageObject",
+      "url": "{{ $photo.image | absURL }}",
+      "name": "{{ $photo.alt | default .Title }}",
+      "description": "{{ $photo.context | default "Photo from event" }}",
+      "datePublished": "{{ $photo.date | default ($.Date.Format "2006-01-02") }}",
+      "photographer": {
+        "@type": "Person",
+        "name": "{{ $.Site.Params.author }}"
+      }
+    }{{ end }}
+  ]
+}
+</script>
+{{ end }}
+
+<div class="fade-in">
+  <nav class="nav-breadcrumb">
+    <a href="{{ "/" | relURL }}">Gallery Home</a>
+    <span>/</span>
+    <span>{{ .Title }}</span>
+  </nav>
+
+  {{ .Content }}
+  
+  {{ if .Params.photos }}
+  <div class="featured-speakers">
+    <h2>Featured Speakers</h2>
+    <div class="featured-date">June 10, 2025 • Knuckleheads Garage</div>
+    <div class="featured-content">
+      <p>A historic night for SecKC - our first event at Knuckleheads, a place that feels like home where the best can be invited to present not only what their work is, but why. Tonight, jur1st introduced <em>that</em> Joe Grand to a community that has been building and producing some of the greatest minds in hacking for quite some time.</p>
+      <p>Joe "Kingpin" Grand delivered "Shot Through the Heart: An Introduction to Fault Injection" - a technique to intentionally cause systems to misbehave in ways beneficial to attackers. Once employed only by the hardcore, it's now accessible for any hardware hacker to add to their arsenal.</p>
+      <p>This collection of 22 photos captures the authentic moments of connection between expertise and community. From green room candids to the nerdcore rapper who exceeded all expectations, these images document not just a presentation, but a celebration of the hacker spirit that makes SecKC special.</p>
+    </div>
+    
+    <div class="featured-speakers-grid">
+      {{ range .Params.photos }}{{ if eq .photo_slug "2025-06-10-seckc-joe-grand-018" }}<a href="/photos/{{ .photo_slug }}/" class="featured-speaker-item">
+        <img src="{{ .image | relURL }}" alt="{{ .alt | default "Photo" }}" loading="lazy" width="280" height="200">
+        <div class="featured-speaker-info">
+          <div class="speaker-name">Joe Grand (Kingpin)</div>
+          <div class="speaker-title">Hardware Hacker & DEFCON Badge Creator</div>
+        </div>
+      </a>{{ end }}{{ if eq .photo_slug "2025-06-10-seckc-joe-grand-003" }}<a href="/photos/{{ .photo_slug }}/" class="featured-speaker-item">
+        <img src="{{ .image | relURL }}" alt="{{ .alt | default "Photo" }}" loading="lazy" width="280" height="200">
+        <div class="featured-speaker-info">
+          <div class="speaker-name">Chris Sistrunk</div>
+          <div class="speaker-title">Technical Leader, Mandiant Google Cloud Security</div>
+        </div>
+      </a>{{ end }}{{ end }}
+    </div>
+  </div>
+  
+  {{ end }}
+  
+  {{ if .Params.photos }}
+  <div class="gallery-grid">
+    {{ range $index, $photo := .Params.photos }}{{ if and (ne $photo.photo_slug "2025-06-10-seckc-joe-grand-018") (ne $photo.photo_slug "2025-06-10-seckc-joe-grand-003") }}<a href="/photos/{{ $photo.photo_slug }}/" class="gallery-item">
+      <img src="{{ $photo.image | relURL }}" alt="{{ $photo.alt | default "Photo" }}" loading="lazy" class="gallery-image" width="280" height="200">
+      <div class="gallery-info">
+        <div class="gallery-title">{{ $photo.camera_settings.aperture | default "f/2.8" }} • {{ $photo.camera_settings.shutter | default "1/125" }} • {{ $photo.camera_settings.iso | default "ISO 400" }}</div>
+        <div class="gallery-meta">{{ $photo.camera_settings.body | default "Nikon D850" }} • {{ $photo.camera_settings.lens | default "50mm f/1.8" }}</div>
+        <div class="gallery-filename">{{ substr $photo.photo_slug -3 3 }}</div>
+      </div>
+    </a>{{ end }}{{ end }}
+  </div>
+  {{ end }}
+</div>
+
+<div class="theme-controls">
+  <button id="theme-toggle" class="theme-toggle-btn">
+    <span class="theme-label">Flynn Mode</span>
+  </button>
+</div>
+
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+  const themeToggle = document.getElementById('theme-toggle');
+  const themeLabel = document.querySelector('.theme-label');
+  
+  if (themeToggle && themeLabel) {
+    // Load saved theme preference
+    const savedTheme = localStorage.getItem('theme');
+    if (savedTheme === 'flynn') {
+      document.documentElement.setAttribute('data-theme', 'flynn');
+      themeLabel.textContent = 'Light Mode';
+    } else {
+      document.documentElement.removeAttribute('data-theme');
+      themeLabel.textContent = 'Flynn Mode';
+    }
+    
+    themeToggle.addEventListener('click', function() {
+      const currentTheme = document.documentElement.getAttribute('data-theme');
+      
+      if (currentTheme === 'flynn') {
+        document.documentElement.removeAttribute('data-theme');
+        themeLabel.textContent = 'Flynn Mode';
+        localStorage.setItem('theme', 'light');
+      } else {
+        document.documentElement.setAttribute('data-theme', 'flynn');
+        themeLabel.textContent = 'Light Mode';
+        localStorage.setItem('theme', 'flynn');
+      }
+    });
+  }
+});
+</script>
+{{ end }}

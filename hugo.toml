@@ -1,0 +1,21 @@
+baseURL = 'http://localhost:1313/'
+languageCode = 'en-us'
+title = 'antisocial.fiverings.photo'
+
+# Disable problematic features for development
+disableRSS = true
+disableKinds = ["RSS", "taxonomy", "term"]
+
+[params]
+  title = 'antisocial.fiverings.photo'
+  description = 'Antisocial FiveRings Photography'
+  author = 'John Benson'
+
+[author]
+  name = 'John Benson'
+  email = 'john@darkolabs.io'
+
+[markup]
+  [markup.goldmark]
+    [markup.goldmark.renderer]
+      unsafe = true
