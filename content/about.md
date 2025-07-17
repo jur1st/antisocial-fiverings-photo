@@ -58,7 +58,7 @@ This gallery system represents a commitment to craft, authenticity, and technica
 
 <div class="theme-controls">
   <button id="theme-toggle" class="theme-toggle-btn">
-    <span class="theme-label">Flynn Mode</span>
+    <span class="theme-label">Night Mode</span>
   </button>
 </div>
 
@@ -74,7 +74,7 @@ document.addEventListener('DOMContentLoaded', function() {
     themeLabel.textContent = 'Light Mode';
   } else {
     document.documentElement.removeAttribute('data-theme');
-    themeLabel.textContent = 'Flynn Mode';
+    themeLabel.textContent = 'Night Mode';
   }
   
   themeToggle.addEventListener('click', function() {
@@ -82,7 +82,7 @@ document.addEventListener('DOMContentLoaded', function() {
     
     if (currentTheme === 'flynn') {
       document.documentElement.removeAttribute('data-theme');
-      themeLabel.textContent = 'Flynn Mode';
+      themeLabel.textContent = 'Night Mode';
       localStorage.setItem('theme', 'light');
     } else {
       document.documentElement.setAttribute('data-theme', 'flynn');
