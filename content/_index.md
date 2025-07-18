@@ -28,18 +28,6 @@ An invitation-only gallery experience where the work speaks for itself.
     </div>
   </a>
   
-  <a href="/events/america-no-kings/" class="gallery-item">
-    <div class="gallery-info">
-      <div class="gallery-title">America - No Kings</div>
-      <div class="gallery-meta">June 14, 2025 • 62 Photos</div>
-      <div class="gallery-speaker">American Spirit</div>
-      <div class="gallery-venue">Independence</div>
-    </div>
-    <div class="gallery-thumbnail">
-      <img src="/images/america-no-kings/2025-06-14-america-no-kings-001.jpg" alt="America No Kings" class="gallery-thumb-img">
-    </div>
-  </a>
-  
   <a href="/galleries/fvp-close-to-home-june/" class="gallery-item">
     <div class="gallery-info">
       <div class="gallery-title">FVP Close to Home June</div>
