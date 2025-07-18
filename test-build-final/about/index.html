@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="en-us">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>About | antisocial.fiverings.photo</title>
+    <meta name="description" content="Antisocial FiveRings Photography">
+    <meta name="author" content="John Benson">
+    
+    
+    <a href="#main-content" class="skip-link">Skip to main content</a>
+    
+    
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@300;400;500;600&family=Crimson+Text:ital,wght@0,400;0,600;1,400&display=swap" rel="stylesheet">
+    
+    <link rel="stylesheet" href="https://jur1st.github.io/antisocial-fiverings-photo/css/gallery.css">
+</head>
+<body>
+    <div class="container">
+        <main class="main-content" id="main-content">
+            
+
+
+<div class="fade-in">
+  <nav class="nav-breadcrumb">
+    <a href="https://jur1st.github.io/antisocial-fiverings-photo/">Gallery Home</a>
+    <span>/</span>
+    <span>About</span>
+  </nav>
+
+  <h1 id="technical-implementation">Technical Implementation</h1>
+<p>This gallery system represents a commitment to craft, authenticity, and technical excellence in web development.</p>
+<h2 id="architecture--performance">Architecture &amp; Performance</h2>
+<p><strong>Static Site Generation</strong>: Built with Hugo, delivering lightning-fast page loads and optimal performance. Every page is pre-rendered for immediate delivery.</p>
+<p><strong>Progressive Enhancement</strong>: Mobile-first responsive design with carefully crafted breakpoints ensuring optimal viewing from phone to ultra-wide desktop displays.</p>
+<p><strong>Typography System</strong>: Expert-level implementation featuring IBM Plex Sans for interface elements and Crimson Text for reading, with micro-adjustments to letter-spacing and line-height optimized for each font&rsquo;s characteristics.</p>
+<p><strong>Asset Optimization</strong>: Google Fonts preconnected for optimal loading, CSS custom properties for maintainable theming, and efficient image delivery.</p>
+<h2 id="code-quality-standards">Code Quality Standards</h2>
+<p><strong>Authentic Implementation</strong>: Zero synthetic content, no placeholder text, no fictional examples. Every element serves a real purpose with genuine data.</p>
+<p><strong>Clean Templates</strong>: Hugo templates built with semantic HTML5, proper accessibility features, and no orphaned elements.</p>
+<p><strong>Defensive CSS</strong>: Comprehensive responsive design with progressive typography refinements across all screen sizes (mobile through 1601px+ ultra-wide).</p>
+<p><strong>Performance-First</strong>: Optimized CSS delivery, efficient DOM structure, and minimal JavaScript for core functionality.</p>
+<h2 id="camera-integration">Camera Integration</h2>
+<p><strong>Real EXIF Data</strong>: Camera metadata extracted directly from image files using Python PIL, displaying authentic technical settings.</p>
+<p><strong>Metadata Panels</strong>: Technical information presented with monospace typography maintaining the authentic camera LCD aesthetic.</p>
+<p><strong>Photo Management</strong>: Structured content system supporting gallery organization, navigation, and contextual information.</p>
+<h2 id="professional-standards">Professional Standards</h2>
+<p><strong>Accessibility</strong>: Skip navigation links, proper semantic structure, and WCAG-compliant color contrast ratios.</p>
+<p><strong>SEO Optimization</strong>: Structured data, proper meta tags, and semantic HTML for search engine optimization.</p>
+<p><strong>Cross-Browser Compatibility</strong>: Tested across modern browsers with fallback typography stacks.</p>
+<p><strong>Network Accessibility</strong>: Local network binding for device testing and development workflow.</p>
+<h2 id="development-workflow">Development Workflow</h2>
+<p><strong>Version Control</strong>: Git-based workflow with descriptive commit messages and proper branching strategy.</p>
+<p><strong>Testing Infrastructure</strong>: Hugo development server with live reload, network accessibility for multi-device testing.</p>
+<p><strong>Code Organization</strong>: Modular CSS architecture, structured content management, and maintainable template system.</p>
+<p><strong>Documentation</strong>: Comprehensive inline documentation and standardized naming conventions.</p>
+<hr>
+<div class="theme-controls">
+  <button id="theme-toggle" class="theme-toggle-btn">
+    <span class="theme-label">Flynn Mode</span>
+  </button>
+</div>
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+  const themeToggle = document.getElementById('theme-toggle');
+  const themeLabel = document.querySelector('.theme-label');
+  
+  // Load saved theme preference
+  const savedTheme = localStorage.getItem('theme');
+  if (savedTheme === 'flynn') {
+    document.documentElement.setAttribute('data-theme', 'flynn');
+    themeLabel.textContent = 'Light Mode';
+  } else {
+    document.documentElement.removeAttribute('data-theme');
+    themeLabel.textContent = 'Flynn Mode';
+  }
+  
+  themeToggle.addEventListener('click', function() {
+    const currentTheme = document.documentElement.getAttribute('data-theme');
+    
+    if (currentTheme === 'flynn') {
+      document.documentElement.removeAttribute('data-theme');
+      themeLabel.textContent = 'Flynn Mode';
+      localStorage.setItem('theme', 'light');
+    } else {
+      document.documentElement.setAttribute('data-theme', 'flynn');
+      themeLabel.textContent = 'Light Mode';
+      localStorage.setItem('theme', 'flynn');
+    }
+  });
+});
+</script>
+  
+  
+  
+  
+</div>
+
+<div class="theme-controls">
+  <button id="theme-toggle" class="theme-toggle-btn">
+    <span class="theme-label">Flynn Mode</span>
+  </button>
+</div>
+
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+  const themeToggle = document.getElementById('theme-toggle');
+  const themeLabel = document.querySelector('.theme-label');
+  
+  if (themeToggle && themeLabel) {
+    
+    const savedTheme = localStorage.getItem('theme');
+    if (savedTheme === 'flynn') {
+      document.documentElement.setAttribute('data-theme', 'flynn');
+      themeLabel.textContent = 'Light Mode';
+    } else {
+      document.documentElement.removeAttribute('data-theme');
+      themeLabel.textContent = 'Flynn Mode';
+    }
+    
+    themeToggle.addEventListener('click', function() {
+      const currentTheme = document.documentElement.getAttribute('data-theme');
+      
+      if (currentTheme === 'flynn') {
+        document.documentElement.removeAttribute('data-theme');
+        themeLabel.textContent = 'Flynn Mode';
+        localStorage.setItem('theme', 'light');
+      } else {
+        document.documentElement.setAttribute('data-theme', 'flynn');
+        themeLabel.textContent = 'Light Mode';
+        localStorage.setItem('theme', 'flynn');
+      }
+    });
+  }
+});
+</script>
+
+        </main>
+    </div>
+</body>
+</html>

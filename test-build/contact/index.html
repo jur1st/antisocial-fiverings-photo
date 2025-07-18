@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="en-us">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact | antisocial.fiverings.photo</title>
+    <meta name="description" content="Antisocial FiveRings Photography">
+    <meta name="author" content="John Benson">
+    
+    
+    <a href="#main-content" class="skip-link">Skip to main content</a>
+    
+    
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@300;400;500;600&family=Crimson+Text:ital,wght@0,400;0,600;1,400&display=swap" rel="stylesheet">
+    
+    <link rel="stylesheet" href="/css/gallery.css">
+</head>
+<body>
+    <div class="container">
+        <main class="main-content" id="main-content">
+            
+
+
+<div class="fade-in">
+  <nav class="nav-breadcrumb">
+    <a href="/">Gallery Home</a>
+    <span>/</span>
+    <span>Contact</span>
+  </nav>
+
+  <div class="contact-container">
+<div class="contact-photo-section">
+<img src="/images/contact/john-profile.jpg" alt="John Benson" class="contact-photo">
+</div>
+<div class="contact-info-section">
+<h1>John Benson</h1>
+<p>Photographer & Creative Director</p>
+<div class="contact-details">
+<h2>Get in Touch</h2>
+<p>For photo requests, event documentation, or collaboration inquiries:</p>
+<a href="mailto:john@fiverings.photo" class="contact-email">john@fiverings.photo</a>
+</div>
+<div class="social-links">
+<h2>Connect</h2>
+<div class="social-grid">
+<a href="https://john-benson.com" target="_blank" class="social-link">
+<span class="social-platform">Personal Site</span>
+</a>
+<a href="https://www.facebook.com/profile.php?id=15913638" target="_blank" class="social-link">
+<span class="social-platform">Facebook</span>
+</a>
+<a href="https://www.instagram.com/jur1st/" target="_blank" class="social-link">
+<span class="social-platform">Instagram</span>
+</a>
+<a href="https://glass.photo/jur1st" target="_blank" class="social-link">
+<span class="social-platform">Glass</span>
+</a>
+<a href="https://www.linkedin.com/in/john-benson-kc/" target="_blank" class="social-link">
+<span class="social-platform">LinkedIn</span>
+</a>
+</div>
+</div>
+</div>
+</div>
+<hr>
+<div class="theme-controls">
+  <button id="theme-toggle" class="theme-toggle-btn">
+    <span class="theme-label">Flynn Mode</span>
+  </button>
+</div>
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+  const themeToggle = document.getElementById('theme-toggle');
+  const themeLabel = document.querySelector('.theme-label');
+  
+  // Load saved theme preference
+  const savedTheme = localStorage.getItem('theme');
+  if (savedTheme === 'flynn') {
+    document.documentElement.setAttribute('data-theme', 'flynn');
+    themeLabel.textContent = 'Light Mode';
+  } else {
+    document.documentElement.removeAttribute('data-theme');
+    themeLabel.textContent = 'Flynn Mode';
+  }
+  
+  themeToggle.addEventListener('click', function() {
+    const currentTheme = document.documentElement.getAttribute('data-theme');
+    
+    if (currentTheme === 'flynn') {
+      document.documentElement.removeAttribute('data-theme');
+      themeLabel.textContent = 'Flynn Mode';
+      localStorage.setItem('theme', 'light');
+    } else {
+      document.documentElement.setAttribute('data-theme', 'flynn');
+      themeLabel.textContent = 'Light Mode';
+      localStorage.setItem('theme', 'flynn');
+    }
+  });
+});
+</script>
+  
+  
+  
+  
+</div>
+
+<div class="theme-controls">
+  <button id="theme-toggle" class="theme-toggle-btn">
+    <span class="theme-label">Flynn Mode</span>
+  </button>
+</div>
+
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+  const themeToggle = document.getElementById('theme-toggle');
+  const themeLabel = document.querySelector('.theme-label');
+  
+  if (themeToggle && themeLabel) {
+    
+    const savedTheme = localStorage.getItem('theme');
+    if (savedTheme === 'flynn') {
+      document.documentElement.setAttribute('data-theme', 'flynn');
+      themeLabel.textContent = 'Light Mode';
+    } else {
+      document.documentElement.removeAttribute('data-theme');
+      themeLabel.textContent = 'Flynn Mode';
+    }
+    
+    themeToggle.addEventListener('click', function() {
+      const currentTheme = document.documentElement.getAttribute('data-theme');
+      
+      if (currentTheme === 'flynn') {
+        document.documentElement.removeAttribute('data-theme');
+        themeLabel.textContent = 'Flynn Mode';
+        localStorage.setItem('theme', 'light');
+      } else {
+        document.documentElement.setAttribute('data-theme', 'flynn');
+        themeLabel.textContent = 'Light Mode';
+        localStorage.setItem('theme', 'flynn');
+      }
+    });
+  }
+});
+</script>
+
+        </main>
+    </div>
+</body>
+</html>

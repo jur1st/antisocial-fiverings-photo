@@ -28,6 +28,18 @@ An invitation-only gallery experience where the work speaks for itself.
     </div>
   </a>
   
+  <a href="/events/america-no-kings/" class="gallery-item">
+    <div class="gallery-info">
+      <div class="gallery-title">America - No Kings</div>
+      <div class="gallery-meta">June 14, 2025 • 62 Photos</div>
+      <div class="gallery-speaker">American Spirit</div>
+      <div class="gallery-venue">Independence</div>
+    </div>
+    <div class="gallery-thumbnail">
+      <img src="/images/america-no-kings/2025-06-14-america-no-kings-001.jpg" alt="America No Kings" class="gallery-thumb-img">
+    </div>
+  </a>
+  
   <a href="/galleries/fvp-close-to-home-june/" class="gallery-item">
     <div class="gallery-info">
       <div class="gallery-title">FVP Close to Home June</div>
@@ -42,3 +54,41 @@ An invitation-only gallery experience where the work speaks for itself.
   
 </div>
 
+---
+
+<div class="theme-controls">
+  <button id="theme-toggle" class="theme-toggle-btn">
+    <span class="theme-label">Flynn Mode</span>
+  </button>
+</div>
+
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+  const themeToggle = document.getElementById('theme-toggle');
+  const themeLabel = document.querySelector('.theme-label');
+  
+  // Load saved theme preference
+  const savedTheme = localStorage.getItem('theme');
+  if (savedTheme === 'flynn') {
+    document.documentElement.setAttribute('data-theme', 'flynn');
+    themeLabel.textContent = 'Light Mode';
+  } else {
+    document.documentElement.removeAttribute('data-theme');
+    themeLabel.textContent = 'Flynn Mode';
+  }
+  
+  themeToggle.addEventListener('click', function() {
+    const currentTheme = document.documentElement.getAttribute('data-theme');
+    
+    if (currentTheme === 'flynn') {
+      document.documentElement.removeAttribute('data-theme');
+      themeLabel.textContent = 'Flynn Mode';
+      localStorage.setItem('theme', 'light');
+    } else {
+      document.documentElement.setAttribute('data-theme', 'flynn');
+      themeLabel.textContent = 'Light Mode';
+      localStorage.setItem('theme', 'flynn');
+    }
+  });
+});
+</script>

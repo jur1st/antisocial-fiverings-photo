@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en-us">
+<head>
+	<meta name="generator" content="Hugo 0.147.9">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Five Rings Anti-Social Media | antisocial.fiverings.photo</title>
+    <meta name="description" content="Antisocial FiveRings Photography">
+    <meta name="author" content="John Benson">
+    
+    
+    <a href="#main-content" class="skip-link">Skip to main content</a>
+    
+    
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@300;400;500;600&family=Crimson+Text:ital,wght@0,400;0,600;1,400&display=swap" rel="stylesheet">
+    
+    <link rel="stylesheet" href="https://jur1st.github.io/antisocial-fiverings-photo/css/gallery.css">
+</head>
+<body>
+    <div class="container">
+        <main class="main-content" id="main-content">
+            
+<h1 id="five-rings-anti-social-media">Five Rings Anti-Social Media</h1>
+<div class="site-tagline">
+An invitation-only gallery experience where the work speaks for itself.
+</div>
+<div class="site-navigation-prominent">
+  <a href="https://jur1st.github.io/antisocial-fiverings-photo/contact/" class="nav-link-prominent">Contact</a>
+  <a href="https://jur1st.github.io/antisocial-fiverings-photo/about/" class="nav-link-prominent">About</a>
+</div>
+<h2 id="recent-work">Recent Work</h2>
+<div class="gallery-grid">
+  <a href="https://jur1st.github.io/antisocial-fiverings-photo/events/seckc-joe-grand/" class="gallery-item">
+    <div class="gallery-info">
+      <div class="gallery-title">SecKC - Joe Grand</div>
+      <div class="gallery-meta">June 10, 2025 • 22 Photos</div>
+      <div class="gallery-speaker">Joe "Kingpin" Grand - Hardware Hacking Expert</div>
+      <div class="gallery-venue">Knuckleheads Garage</div>
+    </div>
+    <div class="gallery-thumbnail">
+      <img src="https://jur1st.github.io/antisocial-fiverings-photo/images/joe-grand-thumbnail.jpg" alt="Joe Grand" class="gallery-thumb-img">
+    </div>
+  </a>
+  <a href="https://jur1st.github.io/antisocial-fiverings-photo/galleries/fvp-close-to-home-june/" class="gallery-item">
+    <div class="gallery-info">
+      <div class="gallery-title">FVP Close to Home June</div>
+      <div class="gallery-meta">July 17, 2025 • 62 Photos</div>
+      <div class="gallery-speaker">Neighborhood Moments</div>
+      <div class="gallery-venue">Close to Home</div>
+    </div>
+    <div class="gallery-thumbnail">
+      <img src="https://jur1st.github.io/antisocial-fiverings-photo/images/fvp-close-to-home-june/2025-07-17-fvp-close-to-home-june-060.jpg" alt="FVP Close to Home" class="gallery-thumb-img">
+    </div>
+  </a>
+</div>
+
+
+<div class="theme-controls">
+  <button id="theme-toggle" class="theme-toggle-btn">
+    <span class="theme-label">Night Mode</span>
+  </button>
+</div>
+
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+  const themeToggle = document.getElementById('theme-toggle');
+  const themeLabel = document.querySelector('.theme-label');
+  
+  if (themeToggle && themeLabel) {
+    
+    const savedTheme = localStorage.getItem('theme');
+    if (savedTheme === 'flynn') {
+      document.documentElement.setAttribute('data-theme', 'flynn');
+      themeLabel.textContent = 'Light Mode';
+    } else {
+      document.documentElement.removeAttribute('data-theme');
+      themeLabel.textContent = 'Night Mode';
+    }
+    
+    themeToggle.addEventListener('click', function() {
+      const currentTheme = document.documentElement.getAttribute('data-theme');
+      
+      if (currentTheme === 'flynn') {
+        document.documentElement.removeAttribute('data-theme');
+        themeLabel.textContent = 'Night Mode';
+        localStorage.setItem('theme', 'light');
+      } else {
+        document.documentElement.setAttribute('data-theme', 'flynn');
+        themeLabel.textContent = 'Light Mode';
+        localStorage.setItem('theme', 'flynn');
+      }
+    });
+  }
+});
+</script>
+
+        </main>
+    </div>
+</body>
+</html>

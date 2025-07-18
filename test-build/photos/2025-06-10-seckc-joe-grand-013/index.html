@@ -1,0 +1,216 @@
+<!DOCTYPE html>
+<html lang="en-us">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SecKC - Joe Grand - Photo 13 | antisocial.fiverings.photo</title>
+    <meta name="description" content="Antisocial FiveRings Photography">
+    <meta name="author" content="John Benson">
+    
+    
+    <a href="#main-content" class="skip-link">Skip to main content</a>
+    
+    
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@300;400;500;600&family=Crimson+Text:ital,wght@0,400;0,600;1,400&display=swap" rel="stylesheet">
+    
+    <link rel="stylesheet" href="/css/gallery.css">
+</head>
+<body>
+    <div class="container">
+        <main class="main-content" id="main-content">
+            
+<div class="fade-in">
+  <nav class="nav-breadcrumb">
+    <a href="/">Gallery Home</a>
+    <span>/</span>
+    
+    <a href="/events/seckc-joe-grand">SecKC - Joe Grand</a>
+    <span>/</span>
+    
+    <span>SecKC - Joe Grand - Photo 13</span>
+  </nav>
+
+  <div class="photo-nav">
+    
+    <a href="/photos/2025-06-10-seckc-joe-grand-012" class="btn btn-secondary">← Previous</a>
+    
+    
+    <div class="photo-counter">
+      
+      Photo 13 of 22
+      
+    </div>
+    
+    
+    <a href="/photos/2025-06-10-seckc-joe-grand-014" class="btn btn-secondary">Next →</a>
+    
+  </div>
+
+  <div class="photo-display-container">
+    <div class="photo-container">
+      
+      <img src="/images/seckc-joe-grand/2025-06-10-seckc-joe-grand-013.jpg" alt="SecKC - Joe Grand - Photo 13" class="photo-main">
+      
+      
+      <div class="photo-actions">
+        
+        <a href="/images/seckc-joe-grand/2025-06-10-seckc-joe-grand-013.jpg" download class="btn btn-primary">
+          Download Original
+        </a>
+        
+        
+        <button id="sharePhotoBtn" class="btn btn-secondary">
+          Share Link
+        </button>
+        
+        <a href="#request-removal" class="btn btn-secondary">
+          Remove from Gallery
+        </a>
+      </div>
+    </div>
+
+    
+    
+    <div class="camera-metadata">
+      <h3 class="metadata-title">Camera Settings</h3>
+      <div class="metadata-grid">
+        <div class="metadata-item">
+          <span class="metadata-label">Aperture</span>
+          <span class="metadata-value">f/5.0</span>
+        </div>
+        <div class="metadata-item">
+          <span class="metadata-label">Shutter Speed</span>
+          <span class="metadata-value">1/320</span>
+        </div>
+        <div class="metadata-item">
+          <span class="metadata-label">ISO</span>
+          <span class="metadata-value">ISO 5000</span>
+        </div>
+        <div class="metadata-item">
+          <span class="metadata-label">Camera Body</span>
+          <span class="metadata-value">NIKON CORPORATION NIKON Z6_3</span>
+        </div>
+        <div class="metadata-item">
+          <span class="metadata-label">Lens</span>
+          <span class="metadata-value">NIKKOR Z 100-400mm f/4.5-5.6 VR S</span>
+        </div>
+        <div class="metadata-item">
+          <span class="metadata-label">Original File</span>
+          <span class="metadata-value">20250610_SecKC - JGrand - 5RP_0756.jpg</span>
+        </div>
+      </div>
+    </div>
+    
+  </div>
+
+
+</div>
+
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+  const shareBtn = document.getElementById('sharePhotoBtn');
+  const galleryImages = document.querySelectorAll('.gallery-image');
+  const photoMain = document.querySelector('.photo-main');
+  const displayContainer = document.querySelector('.photo-display-container');
+  
+  
+  if (photoMain && displayContainer) {
+    function checkOrientation() {
+      if (photoMain.naturalHeight > photoMain.naturalWidth) {
+        displayContainer.classList.add('portrait-layout');
+      } else {
+        displayContainer.classList.remove('portrait-layout');
+      }
+    }
+    
+    
+    if (photoMain.complete) {
+      checkOrientation();
+    } else {
+      photoMain.addEventListener('load', checkOrientation);
+    }
+    
+    
+    window.addEventListener('resize', checkOrientation);
+  }
+  
+  if (shareBtn) {
+    shareBtn.addEventListener('click', function() {
+      const url = window.location.href;
+      const title = 'SecKC - Joe Grand - Photo 13';
+      const text = 'Check out this photo by John Benson - Five Rings Photography';
+      
+      if (navigator.share) {
+        navigator.share({
+          title: title,
+          text: text,
+          url: url
+        }).catch(console.error);
+      } else {
+        navigator.clipboard.writeText(url + ' - ' + text).then(() => {
+          alert('Photo link copied to clipboard!');
+        }).catch(() => {
+          prompt('Copy this link to share:', url);
+        });
+      }
+    });
+  }
+  
+  
+  galleryImages.forEach(function(img) {
+    img.addEventListener('error', function() {
+      this.style.display = 'none';
+      const info = this.nextElementSibling;
+      if (info) {
+        info.style.paddingTop = '120px';
+        info.style.textAlign = 'center';
+      }
+    });
+  });
+});
+
+
+document.addEventListener('DOMContentLoaded', function() {
+  const themeToggle = document.getElementById('theme-toggle');
+  const themeLabel = document.querySelector('.theme-label');
+  
+  if (themeToggle && themeLabel) {
+    
+    const savedTheme = localStorage.getItem('theme');
+    if (savedTheme === 'flynn') {
+      document.documentElement.setAttribute('data-theme', 'flynn');
+      themeLabel.textContent = 'Light Mode';
+    } else {
+      document.documentElement.removeAttribute('data-theme');
+      themeLabel.textContent = 'Flynn Mode';
+    }
+    
+    themeToggle.addEventListener('click', function() {
+      const currentTheme = document.documentElement.getAttribute('data-theme');
+      
+      if (currentTheme === 'flynn') {
+        document.documentElement.removeAttribute('data-theme');
+        themeLabel.textContent = 'Flynn Mode';
+        localStorage.setItem('theme', 'light');
+      } else {
+        document.documentElement.setAttribute('data-theme', 'flynn');
+        themeLabel.textContent = 'Light Mode';
+        localStorage.setItem('theme', 'flynn');
+      }
+    });
+  }
+});
+</script>
+
+<div class="theme-controls">
+  <button id="theme-toggle" class="theme-toggle-btn">
+    <span class="theme-label">Flynn Mode</span>
+  </button>
+</div>
+
+        </main>
+    </div>
+</body>
+</html>

@@ -1,0 +1,23 @@
+=== CONTACT PHOTO TECHNICAL DATA ===
+
+CAMERA SYSTEM:
+  Body: NIKON CORPORATION NIKON Z6_3
+  Lens: Unknown
+
+EXPOSURE SETTINGS:
+  Aperture: Unknown
+  Shutter: Unknown
+  ISO: Unknown
+  Focal Length: Unknown
+
+IMAGE PROPERTIES:
+  Dimensions: 1365 x 2048
+  Color Space: Unknown
+  Orientation: Unknown
+
+CAPTURE INFO:
+  Date: 2025:07:14 00:38:01
+  White Balance: Unknown
+  Exposure Mode: Unknown
+  Metering: Unknown
+  Flash: Unknown
