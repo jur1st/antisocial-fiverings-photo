@@ -1,0 +1,86 @@
+{{ $photoSlug := .File.BaseFileName }}
+{{ $galleryPath := .Params.gallery }}
+{{ $cameraSettings := dict }}
+{{ $foundSettings := false }}
+
+{{ if $galleryPath }}
+  {{ $galleryPage := .Site.GetPage $galleryPath }}
+  {{ if $galleryPage }}
+    {{ range $galleryPage.Params.photos }}
+      {{ if eq .photo_slug $photoSlug }}
+        {{ $cameraSettings = .camera_settings }}
+        {{ $foundSettings = true }}
+      {{ end }}
+    {{ end }}
+  {{ end }}
+{{ end }}
+
+{{ if not $foundSettings }}
+  {{ $cameraSettings = dict "aperture" "f/2.8" "shutter" "1/125" "iso" "ISO 400" "body" "Camera" "lens" "Lens" }}
+{{ end }}
+
+<div class="camera-metadata">
+  <h3 class="metadata-title">Camera Settings</h3>
+  
+  <div class="metadata-section">
+    <div class="metadata-grid">
+      <!-- Core exposure triangle -->
+      <div class="metadata-item metadata-exposure">
+        <span class="metadata-label">Aperture</span>
+        <span class="metadata-value aperture-value">{{ $cameraSettings.aperture | default "f/2.8" }}</span>
+      </div>
+      
+      <div class="metadata-item metadata-exposure">
+        <span class="metadata-label">Shutter Speed</span>
+        <span class="metadata-value shutter-speed">{{ $cameraSettings.shutter | default "1/125" }}</span>
+      </div>
+      
+      <div class="metadata-item metadata-exposure">
+        <span class="metadata-label">ISO</span>
+        <span class="metadata-value iso-value">{{ $cameraSettings.iso | default "ISO 400" }}</span>
+      </div>
+    </div>
+  </div>
+  
+  <div class="metadata-section">
+    <div class="metadata-grid">
+      <!-- Camera equipment -->
+      <div class="metadata-item metadata-equipment">
+        <span class="metadata-label">Camera</span>
+        <span class="metadata-value camera-model">{{ $cameraSettings.body | default "Camera" }}</span>
+      </div>
+      
+      <div class="metadata-item metadata-equipment">
+        <span class="metadata-label">Lens</span>
+        <span class="metadata-value focal-length">{{ $cameraSettings.lens | default "Lens" }}</span>
+      </div>
+    </div>
+  </div>
+  
+  {{ if or .Params.speaker .Params.location .Params.original_filename }}
+  <div class="metadata-section">
+    <div class="metadata-grid">
+      {{ if .Params.speaker }}
+      <div class="metadata-item">
+        <span class="metadata-label">Speaker</span>
+        <span class="metadata-value">{{ .Params.speaker }}</span>
+      </div>
+      {{ end }}
+      
+      {{ if .Params.location }}
+      <div class="metadata-item">
+        <span class="metadata-label">Location</span>
+        <span class="metadata-value">{{ .Params.location }}</span>
+      </div>
+      {{ end }}
+      
+      {{ if .Params.original_filename }}
+      <div class="metadata-item">
+        <span class="metadata-label">Original</span>
+        <span class="metadata-value">{{ .Params.original_filename }}</span>
+      </div>
+      {{ end }}
+    </div>
+  </div>
+  {{ end }}
+</div>
