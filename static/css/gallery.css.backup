@@ -3,163 +3,47 @@
 /* Google Fonts loaded in HTML head for proper loading priority */
 
 :root {
-  /* Camera theme as default - Professional Photography Dark Theme */
-  /* Surface hierarchy */
-  --surface-base: #000000;
-  --surface-panel: #0a0a0a;
-  --surface-depth: #111111;
-  --surface-border: #252525;
-  --surface-overlay: #1a1a1a;
+  /* Stucco foundation light system - Default - Deeper for contrast */
+  --surface-base: #F0EDE5;
+  --surface-panel: #F7F7F7;
+  --surface-depth: #EEEEEE;
+  --surface-border: #E0E0E0;
+  --surface-overlay: #FFFFFF;
   
-  /* Dark mode text hierarchy */
-  --text-primary: #ffffff;
-  --text-secondary: #cccccc;
-  --text-tertiary: #999999;
-  --text-inverse: #000000;
-  --text-muted: #666666;
+  /* Light mode text hierarchy */
+  --text-primary: #1a1a1a;
+  --text-secondary: #333333;
+  --text-tertiary: #666666;
+  --text-inverse: #FFFFFF;
+  --text-muted: #999999;
   
-  /* Nikon signature yellow accent system */
-  --accent-primary: #FFD700;
-  --accent-primary-dim: #E6C200;
-  --accent-primary-glow: #FFED4E;
-  --accent-primary-dark: #B39700;
+  /* Tron User Blue accent system - Primary for light mode, darker for contrast */
+  --accent-primary: #0066CC;
+  --accent-primary-dim: #004499;
+  --accent-primary-glow: #0080FF;
+  --accent-primary-dark: #003366;
   
-  /* Technical UI accents */
+  /* Tron Agent Orange secondary system - Hover/interaction only */
   --accent-secondary: #FF8C00;
   --accent-secondary-dim: #CC7000;
   --accent-secondary-glow: #FFB366;
   --accent-secondary-dark: #B36200;
   
   /* Precision engineering typography system */
-  --font-display: 'DIN Next', 'Gotham', 'Futura PT', 'Univers', 'Akzidenz-Grotesk', 'Helvetica Neue', 'Arial', sans-serif;
+  --font-display: 'Gotham', 'Futura PT', 'DIN Next', 'Univers', 'Akzidenz-Grotesk', 'Helvetica Neue', 'Arial', sans-serif;
   --font-reading: 'Crimson Text', Georgia, 'Times New Roman', serif;
-  --font-technical: 'Berkeley Mono', 'Terminus', 'Monaco', ui-monospace, 'Cascadia Code', 'Roboto Mono', 'Liberation Mono', monospace;
+  --font-technical: 'SF Mono', 'Monaco', 'Cascadia Code', 'Roboto Mono', monospace;
   
-  /* Typography utilities - common sizes */
-  --text-xs: 0.75rem;    /* 12px */
-  --text-sm: 0.875rem;   /* 14px */
-  --text-base: 1rem;     /* 16px */
-  --text-lg: 1.125rem;   /* 18px */
-  --text-xl: 1.25rem;    /* 20px */
-  --text-2xl: 1.5rem;    /* 24px */
-  --text-3xl: 1.875rem;  /* 30px */
-  --text-4xl: 2.25rem;   /* 36px */
+  /* Spacing */
+  --spacing-xs: 0.5rem;
+  --spacing-sm: 1rem;
+  --spacing-md: 1.5rem;
+  --spacing-lg: 2rem;
+  --spacing-xl: 3rem;
   
-  /* Letter spacing utilities */
-  --tracking-tighter: -0.05em;
-  --tracking-tight: -0.025em;
-  --tracking-normal: 0;
-  --tracking-wide: 0.025em;
-  --tracking-wider: 0.05em;
-  --tracking-widest: 0.1em;
-  
-  /* Line height utilities */
-  --leading-none: 1;
-  --leading-tight: 1.25;
-  --leading-snug: 1.375;
-  --leading-normal: 1.5;
-  --leading-relaxed: 1.625;
-  --leading-loose: 2;
-  
-  /* Spacing - Comprehensive scale based on 4px/8px baseline */
-  --space-0: 0;
-  --space-1: 0.25rem;    /* 4px */
-  --space-2: 0.5rem;     /* 8px - was --spacing-xs */
-  --space-3: 0.75rem;    /* 12px */
-  --space-4: 1rem;       /* 16px - was --spacing-sm */
-  --space-5: 1.25rem;    /* 20px */
-  --space-6: 1.5rem;     /* 24px - was --spacing-md */
-  --space-8: 2rem;       /* 32px - was --spacing-lg */
-  --space-10: 2.5rem;    /* 40px */
-  --space-12: 3rem;      /* 48px - was --spacing-xl */
-  --space-16: 4rem;      /* 64px */
-  --space-20: 5rem;      /* 80px */
-  
-  /* Legacy spacing variables for backward compatibility */
-  --spacing-xs: var(--space-2);
-  --spacing-sm: var(--space-4);
-  --spacing-md: var(--space-6);
-  --spacing-lg: var(--space-8);
-  --spacing-xl: var(--space-12);
-  
-  /* Theme-aware shadows for camera (dark) theme */
-  --shadow-subtle: 0 2px 4px rgba(0, 0, 0, 0.5);
-  --shadow-medium: 0 4px 8px rgba(0, 0, 0, 0.6);
-  --shadow-strong: 0 8px 16px rgba(0, 0, 0, 0.8);
-  --shadow-glow: 0 0 20px rgba(255, 215, 0, 0.3);
-  --shadow-small: 0 2px 8px rgba(0, 0, 0, 0.4);
-  
-  /* Overlay colors for semi-transparent overlays */
-  --overlay-dark: rgba(0, 0, 0, 0.3);
-  --overlay-light: rgba(255, 255, 255, 0.3);
-  
-  /* Additional UI states */
-  --surface-border-hover: rgba(255, 215, 0, 0.3);
-  --accent-error: #FF0030;
-  
-  /* Border radius system */
-  --radius-none: 0;
-  --radius-sm: 3px;
-  --radius-md: 4px;
-  --radius-lg: 6px;
-  --radius-xl: 8px;
-  --radius-2xl: 12px;
-  --radius-3xl: 16px;
-  --radius-full: 9999px;
-  
-  /* Transition system */
-  --transition-fast: 0.15s;
-  --transition-base: 0.2s;
-  --transition-slow: 0.3s;
-  --transition-slower: 0.6s;
-  --ease-default: ease;
-  --ease-in-out: cubic-bezier(0.4, 0, 0.2, 1);
-  --ease-out: cubic-bezier(0, 0, 0.2, 1);
-  --ease-in: cubic-bezier(0.4, 0, 1, 1);
-  
-  /* Z-index scale */
-  --z-negative: -1;
-  --z-base: 0;
-  --z-dropdown: 10;
-  --z-sticky: 20;
-  --z-overlay: 30;
-  --z-modal: 40;
-  --z-popover: 50;
-  --z-tooltip: 60;
-  --z-notification: 70;
-  --z-maximum: 100;
-  
-  /* Opacity scale */
-  --opacity-0: 0;
-  --opacity-30: 0.3;
-  --opacity-50: 0.5;
-  --opacity-60: 0.6;
-  --opacity-70: 0.7;
-  --opacity-80: 0.8;
-  --opacity-90: 0.9;
-  --opacity-100: 1;
-  
-  /* Complete breakpoint system */
-  --breakpoint-xs: 480px;
-  --breakpoint-sm: 640px;
-  --breakpoint-md: 768px;
-  --breakpoint-lg: 1024px;
-  --breakpoint-xl: 1200px;
-  --breakpoint-2xl: 1440px;
-  --breakpoint-3xl: 1600px;
-  --breakpoint-4xl: 1920px;
-  
-  /* Legacy breakpoints for backward compatibility */
-  --mobile-max: 767px;   /* Use --breakpoint-md - 1px */
-  --tablet-max: 1023px;  /* Use --breakpoint-lg - 1px */
-  
-  /* Theme-agnostic fallbacks for camera-specific variables */
-  --black-matte: var(--surface-panel);
-  --black-deep: var(--surface-depth);
-  --gray-charcoal: var(--surface-border);
-  --gray-light: var(--text-tertiary);
-  --nikon-yellow: var(--accent-primary);
-  --nikon-yellow-dim: var(--accent-primary-dim);
+  /* Breakpoints */
+  --mobile-max: 767px;
+  --tablet-max: 1023px;
 }
 
 /* Flynn Mode - Dark theme with Tron elements */
@@ -191,36 +75,21 @@
   --accent-secondary-dark: #B36200;
   
   /* Precision engineering typography in Flynn mode */
-  --font-display: 'Berkeley Mono', 'Terminus', 'Monaco', ui-monospace, 'Menlo', 'Consolas', 'Liberation Mono', 'Courier New', monospace;
-  --font-reading: 'Berkeley Mono', 'Terminus', 'Monaco', ui-monospace, 'Menlo', 'Consolas', 'Liberation Mono', 'Courier New', monospace;
-  
-  /* Flynn theme Tron-inspired shadows */
-  --shadow-subtle: 0 2px 4px rgba(0, 212, 255, 0.2);
-  --shadow-medium: 0 4px 8px rgba(0, 212, 255, 0.3);
-  --shadow-strong: 0 8px 16px rgba(0, 212, 255, 0.4);
-  --shadow-glow: 0 0 20px rgba(0, 212, 255, 0.5);
-  --shadow-small: 0 2px 8px rgba(0, 212, 255, 0.2);
-  
-  /* Flynn overlay colors */
-  --overlay-dark: rgba(0, 0, 0, 0.5);
-  --overlay-light: rgba(0, 212, 255, 0.1);
-  
-  /* Flynn UI states */
-  --surface-border-hover: rgba(0, 212, 255, 0.5);
-  --accent-error: #FF0030;
+  --font-display: 'SF Mono', 'Monaco', 'Menlo', 'Consolas', 'Liberation Mono', 'Courier New', monospace;
+  --font-reading: 'SF Mono', 'Monaco', 'Menlo', 'Consolas', 'Liberation Mono', 'Courier New', monospace;
 }
 
 /* Flynn mode precision engineering typography refinements */
 [data-theme="flynn"] h1 {
-  letter-spacing: 0.02em;
-  font-weight: 300;
+  letter-spacing: 0.05em;
+  font-weight: 500;
   text-transform: uppercase;
   font-size: clamp(1.8rem, 5vw, 3.5rem);
 }
 
 [data-theme="flynn"] h2 {
-  letter-spacing: 0.01em;
-  font-weight: 300;
+  letter-spacing: 0.03em;
+  font-weight: 400;
   text-transform: uppercase;
 }
 
@@ -234,9 +103,9 @@
 
 [data-theme="flynn"] .gallery-title {
   font-family: var(--font-display);
-  letter-spacing: 0.01em;
+  letter-spacing: 0.03em;
   text-transform: uppercase;
-  font-weight: 400;
+  font-weight: 600;
 }
 
 [data-theme="flynn"] .gallery-meta {
@@ -252,168 +121,11 @@
   font-weight: 600;
 }
 
-/* Light Mode - Gallery aesthetic with stucco foundation */
-[data-theme="light"] {
-  /* Stucco foundation light surfaces */
-  --surface-base: #F0EDE5;
-  --surface-panel: #F7F7F7;
-  --surface-depth: #EEEEEE;
-  --surface-border: #E0E0E0;
-  --surface-overlay: #FFFFFF;
-  
-  /* Light mode text hierarchy */
-  --text-primary: #1a1a1a;
-  --text-secondary: #333333;
-  --text-tertiary: #666666;
-  --text-inverse: #FFFFFF;
-  --text-muted: #999999;
-  
-  /* Tron User Blue accent system for light mode */
-  --accent-primary: #0066CC;
-  --accent-primary-dim: #004499;
-  --accent-primary-glow: #0080FF;
-  --accent-primary-dark: #003366;
-  
-  /* Tron Agent Orange secondary system */
-  --accent-secondary: #FF8C00;
-  --accent-secondary-dim: #CC7000;
-  --accent-secondary-glow: #FFB366;
-  --accent-secondary-dark: #B36200;
-  
-  /* Light theme shadows */
-  --shadow-subtle: 0 2px 4px rgba(0, 0, 0, 0.1);
-  --shadow-medium: 0 4px 8px rgba(0, 0, 0, 0.15);
-  --shadow-strong: 0 8px 16px rgba(0, 0, 0, 0.2);
-  --shadow-glow: 0 0 20px rgba(0, 102, 204, 0.2);
-  --shadow-small: 0 2px 8px rgba(0, 0, 0, 0.1);
-  
-  /* Light overlay colors */
-  --overlay-dark: rgba(0, 0, 0, 0.1);
-  --overlay-light: rgba(255, 255, 255, 0.7);
-  
-  /* Light UI states */
-  --surface-border-hover: rgba(0, 102, 204, 0.3);
-  --accent-error: #d73a49;
-}
-
-/* Light theme typography - using serif for headers */
-[data-theme="light"] h1,
-[data-theme="light"] h2,
-[data-theme="light"] h3,
-[data-theme="light"] h4,
-[data-theme="light"] h5,
-[data-theme="light"] h6 {
-  font-family: var(--font-reading); /* Crimson Text serif */
-  font-weight: 400;
-  letter-spacing: -0.01em;
-}
-
-[data-theme="light"] h1 {
-  font-weight: 600; /* Slightly heavier for serif */
-  letter-spacing: -0.02em;
-}
-
-[data-theme="light"] h2 {
-  font-weight: 400;
-  letter-spacing: -0.015em;
-}
-
-[data-theme="light"] .site-title {
-  font-family: var(--font-reading); /* Crimson Text serif */
-  font-weight: 600;
-  letter-spacing: -0.01em;
-}
-
-[data-theme="light"] .gallery-title {
-  font-family: var(--font-reading); /* Crimson Text serif */
-  font-weight: 400;
-  letter-spacing: 0;
-}
-
 /* Reset and base styles */
 * {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
-}
-
-/* Site header */
-.site-header {
-  background: var(--surface-panel);
-  border-bottom: 1px solid var(--surface-border);
-  padding: var(--space-3) 0;
-  margin-bottom: var(--space-6);
-  position: sticky;
-  top: 0;
-  z-index: var(--z-50);
-  backdrop-filter: blur(10px);
-  background: color-mix(in srgb, var(--surface-panel) 95%, transparent);
-}
-
-.header-container {
-  max-width: 1440px;
-  margin: 0 auto;
-  padding: 0 var(--space-4);
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-}
-
-.site-branding {
-  flex: 1;
-}
-
-.site-title {
-  font-size: var(--text-2xl);
-  font-weight: 400;
-  text-decoration: none;
-  color: var(--text-primary);
-  letter-spacing: -0.025em;
-  transition: color 0.2s ease;
-}
-
-.site-title:hover {
-  color: var(--accent-primary);
-}
-
-/* Header theme toggle specific */
-.site-header .theme-toggle-btn {
-  padding: var(--space-2) var(--space-3);
-  font-size: var(--text-sm);
-}
-
-/* Mobile responsive header */
-@media (max-width: 640px) {
-  .header-container {
-    padding: 0 var(--space-3);
-  }
-  
-  .site-title {
-    font-size: var(--text-xl);
-  }
-  
-  .site-header .theme-toggle-btn {
-    padding: var(--space-1) var(--space-2);
-    font-size: var(--text-xs);
-  }
-  
-  /* Homepage navigation buttons - mobile */
-  .site-navigation-prominent {
-    flex-direction: column;
-    gap: var(--space-2);
-    padding: var(--space-3) 0;
-    margin: var(--space-3) 0 var(--space-4) 0;
-  }
-  
-  .nav-link-prominent {
-    width: 100%;
-    padding: var(--space-3) var(--space-4);
-    font-size: 1rem;
-    min-height: 44px; /* Accessibility touch target */
-    display: flex;
-    align-items: center;
-    justify-content: center;
-  }
 }
 
 body {
@@ -465,20 +177,19 @@ a:visited {
 h1, h2, h3, h4, h5, h6 {
   color: var(--accent-primary);
   font-family: var(--font-display);
-  font-weight: 300;
+  font-weight: 500;
   margin-bottom: var(--spacing-sm);
-  line-height: 1.2;
+  line-height: 1.3;
   font-feature-settings: "kern" 1, "liga" 1;
   font-variant-numeric: oldstyle-nums;
-  letter-spacing: -0.02em; /* Tighter tracking for less puffiness */
 }
 
 h1 {
   font-size: clamp(2.25rem, 6vw, 4.5rem);
   text-align: center;
   margin-bottom: var(--spacing-lg);
-  letter-spacing: -0.03em; /* Even tighter for large sizes */
-  font-weight: 400; /* Reduced from 600 */
+  letter-spacing: -0.012em; /* Optimized for IBM Plex Sans character width */
+  font-weight: 600; /* Increased from 500 for more impact */
   line-height: 1.1;
   color: var(--text-primary); /* Ensure high contrast */
 }
@@ -486,17 +197,17 @@ h1 {
 h2 {
   font-size: clamp(1.618rem, 4.5vw, 2.618rem);
   margin-bottom: var(--spacing-md);
-  font-weight: 300; /* Reduced from 400 */
-  letter-spacing: -0.025em; /* Tighter */
-  line-height: 1.2;
+  font-weight: 400;
+  letter-spacing: -0.008em; /* IBM Plex Sans rhythm optimization */
+  line-height: 1.25;
 }
 
 h3 {
   font-size: clamp(1.25rem, 3.5vw, 2rem);
   margin-bottom: var(--spacing-sm);
-  font-weight: 400; /* Reduced from 500 */
-  letter-spacing: -0.02em; /* Tighter */
-  line-height: 1.25;
+  font-weight: 500;
+  letter-spacing: -0.005em; /* Micro-adjustment for Plex Sans character width */
+  line-height: 1.3;
 }
 
 p {
@@ -521,13 +232,13 @@ p {
 /* Authentic camera body flat surfaces */
 .camera-surface {
   background: var(--surface-panel);
-  box-shadow: var(--shadow-subtle);
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
 }
 
 .camera-panel {
   background: var(--surface-panel);
   border: 1px solid var(--surface-border);
-  box-shadow: var(--shadow-medium);
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.08);
 }
 
 .main-content {
@@ -573,14 +284,14 @@ p {
   overflow: hidden;
   transition: transform 0.3s ease, box-shadow 0.3s ease, border-color 0.3s ease;
   cursor: pointer;
-  box-shadow: var(--shadow-medium);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
   display: flex;
   align-items: stretch;
 }
 
 .gallery-item:hover {
   transform: translateY(-4px);
-  box-shadow: var(--shadow-strong);
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.12);
   border-color: var(--accent-primary-dim);
 }
 
@@ -629,8 +340,8 @@ p {
   font-family: var(--font-display);
   font-size: 0.95rem;
   margin-bottom: var(--spacing-xs);
-  font-weight: 400;
-  letter-spacing: -0.01em; /* Tighter for less puffiness */
+  font-weight: 500;
+  letter-spacing: -0.003em; /* Subtle spacing for IBM Plex Sans at small sizes */
   line-height: 1.4;
 }
 
@@ -687,7 +398,7 @@ p {
   border-radius: 12px;
   overflow: hidden;
   margin: 0;
-  box-shadow: var(--shadow-strong);
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.08);
 }
 
 .photo-main {
@@ -735,7 +446,7 @@ p {
   background: var(--accent-primary);
   color: var(--text-inverse);
   transform: translateY(-2px);
-  box-shadow: var(--shadow-glow);
+  box-shadow: 0 4px 12px rgba(0, 102, 204, 0.3);
 }
 
 .btn-primary {
@@ -863,20 +574,6 @@ p {
   font-size: 0.9rem;
   font-weight: 500;
   text-align: right;
-}
-
-/* Small Tablet - Homepage button adjustments */
-@media (min-width: 641px) and (max-width: 767px) {
-  .site-navigation-prominent {
-    gap: var(--space-3);
-    padding: var(--space-3) 0;
-  }
-  
-  .nav-link-prominent {
-    padding: var(--space-2) var(--space-3);
-    font-size: 1rem;
-    min-width: 90px;
-  }
 }
 
 /* Responsive Design */
@@ -1163,7 +860,7 @@ p {
   
   .btn:hover {
     transform: translateY(-3px);
-    box-shadow: var(--shadow-glow);
+    box-shadow: 0 6px 16px rgba(255, 225, 0, 0.4);
   }
   
   /* Enhanced navigation buttons */
@@ -1235,7 +932,7 @@ p {
   
   .btn:hover {
     transform: translateY(-4px);
-    box-shadow: var(--shadow-glow);
+    box-shadow: 0 8px 20px rgba(255, 225, 0, 0.5);
   }
   
   /* Enhanced navigation buttons */
@@ -1318,7 +1015,7 @@ p {
   
   .btn:hover {
     transform: translateY(-5px);
-    box-shadow: var(--shadow-glow);
+    box-shadow: 0 10px 25px rgba(255, 225, 0, 0.6);
   }
   
   /* Enhanced navigation buttons */
@@ -1575,12 +1272,12 @@ p {
   background: var(--accent-primary);
   color: var(--text-inverse);
   transform: translateY(-2px);
-  box-shadow: var(--shadow-glow);
+  box-shadow: 0 6px 20px rgba(0, 102, 204, 0.3);
 }
 
 .nav-link-prominent:active {
   transform: translateY(0);
-  box-shadow: var(--shadow-medium);
+  box-shadow: 0 2px 8px rgba(0, 102, 204, 0.2);
 }
 
 /* Contact Page Styles */
@@ -1605,13 +1302,13 @@ p {
   border-radius: 12px;
   object-fit: cover;
   border: 2px solid var(--surface-border);
-  box-shadow: var(--shadow-strong);
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.08);
   transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
 .contact-photo:hover {
   transform: translateY(-4px);
-  box-shadow: var(--shadow-strong);
+  box-shadow: 0 12px 40px rgba(0, 0, 0, 0.12);
 }
 
 .contact-info-section {
@@ -1672,7 +1369,7 @@ p {
   background: var(--accent-primary);
   color: var(--text-inverse);
   transform: translateY(-2px);
-  box-shadow: var(--shadow-glow);
+  box-shadow: 0 4px 12px rgba(0, 102, 204, 0.3);
 }
 
 .social-links {
@@ -1711,7 +1408,7 @@ p {
 .social-link:hover {
   border-color: var(--accent-secondary-dim);
   transform: translateY(-2px);
-  box-shadow: var(--shadow-medium);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
 }
 
 .social-platform {
@@ -1776,7 +1473,10 @@ p {
 /* Theme Controls */
 .theme-controls {
   display: flex;
-  align-items: center;
+  justify-content: center;
+  margin: var(--spacing-xl) 0;
+  padding: var(--spacing-lg) 0;
+  border-top: 1px solid var(--surface-border);
 }
 
 .theme-toggle-btn {
@@ -1799,7 +1499,7 @@ p {
   color: var(--text-inverse);
   border-color: var(--accent-secondary);
   transform: translateY(-2px);
-  box-shadow: var(--shadow-glow);
+  box-shadow: 0 4px 12px rgba(255, 140, 0, 0.3);
 }
 
 .theme-label {

@@ -1,0 +1,381 @@
+/* Camera Theme Typography System - Mathematical Precision */
+/* Based on Design Agent's Typography Excellence Systems */
+
+:root {
+  /* Camera-inspired base system */
+  --camera-base: 16px;
+  --camera-ratio: 1.414; /* F-stop progression (√2) */
+  --camera-baseline: 8px;
+  
+  /* Typography scale using f-stop progression */
+  --text-f1: var(--camera-base);                              /* 16px - f/1.0 */
+  --text-f14: calc(var(--text-f1) * var(--camera-ratio));     /* 23px - f/1.4 */
+  --text-f2: calc(var(--text-f14) * var(--camera-ratio));     /* 32px - f/2.0 */
+  --text-f28: calc(var(--text-f2) * var(--camera-ratio));     /* 45px - f/2.8 */
+  --text-f4: calc(var(--text-f28) * var(--camera-ratio));     /* 64px - f/4.0 */
+  --text-f56: calc(var(--text-f4) * var(--camera-ratio));     /* 90px - f/5.6 */
+  
+  /* Technical/mono sizes for specifications */
+  --mono-xs: 12px;
+  --mono-sm: 13px;
+  --mono-md: 14px;
+  --mono-lg: 15px;
+  --mono-xl: 16px;
+  
+  /* Baseline grid spacing (8px multiples) */
+  --space-1: var(--camera-baseline);                    /* 8px */
+  --space-2: calc(var(--camera-baseline) * 2);          /* 16px */
+  --space-3: calc(var(--camera-baseline) * 3);          /* 24px */
+  --space-4: calc(var(--camera-baseline) * 4);          /* 32px */
+  --space-5: calc(var(--camera-baseline) * 5);          /* 40px */
+  --space-6: calc(var(--camera-baseline) * 6);          /* 48px */
+  --space-8: calc(var(--camera-baseline) * 8);          /* 64px */
+  
+  /* Line heights aligned to baseline grid */
+  --leading-tight: calc(var(--camera-baseline) * 2.5);  /* 20px */
+  --leading-normal: calc(var(--camera-baseline) * 3);   /* 24px */
+  --leading-relaxed: calc(var(--camera-baseline) * 4);  /* 32px */
+  --leading-loose: calc(var(--camera-baseline) * 5);    /* 40px */
+  
+  /* Golden ratio measurements for special cases */
+  --phi: 1.618;
+  --inverse-phi: 0.618;
+  
+  /* Focus distance inspired hierarchy */
+  --focus-macro: 2;      /* Very close, large text */
+  --focus-portrait: 1.5; /* Medium distance */
+  --focus-normal: 1;     /* Standard viewing */
+  --focus-landscape: 0.75; /* Distant, smaller text */
+  --focus-infinity: 0.618; /* Far distance (golden ratio inverse) */
+}
+
+/* Camera model/brand names */
+.camera-model {
+  font-size: var(--text-f2);
+  line-height: var(--leading-tight);
+  letter-spacing: -0.02em;
+  font-weight: 700;
+  text-transform: uppercase;
+  font-variant-numeric: lining-nums;
+}
+
+/* Camera technical specifications */
+.camera-specs {
+  font-family: 'Berkeley Mono', 'Terminus', 'Monaco', ui-monospace, 'JetBrains Mono', 'Fira Code', monospace;
+  font-size: var(--mono-md);
+  line-height: var(--leading-normal);
+  font-variant-numeric: tabular-nums lining-nums;
+  letter-spacing: -0.01em;
+  font-feature-settings: "kern" 1, "liga" 1, "calt" 1, "ss01" 1;
+}
+
+/* Camera descriptions */
+.camera-description {
+  font-size: var(--text-f1);
+  line-height: var(--leading-normal);
+  max-width: 66ch;
+  letter-spacing: 0.01em;
+}
+
+/* Technical badges (sensor size, mount type, etc.) */
+.tech-badge {
+  font-family: 'Berkeley Mono', 'Terminus', 'Monaco', ui-monospace, 'JetBrains Mono', monospace;
+  font-size: var(--mono-sm);
+  line-height: var(--leading-tight);
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  font-weight: 500;
+  font-variant-numeric: lining-nums;
+}
+
+/* Hero typography with fluid scaling */
+.hero-title {
+  font-size: clamp(var(--text-f2), 5vw, var(--text-f4));
+  line-height: 1.1;
+  letter-spacing: -0.03em;
+  font-weight: 900;
+  text-transform: uppercase;
+}
+
+.hero-subtitle {
+  font-size: clamp(var(--text-f1), 2.5vw, var(--text-f14));
+  line-height: var(--leading-normal);
+  opacity: 0.9;
+  letter-spacing: 0.02em;
+}
+
+/* Section headings with f-stop hierarchy */
+.section-title {
+  font-size: var(--text-f28);
+  line-height: var(--leading-tight);
+  letter-spacing: -0.02em;
+  margin-bottom: var(--space-3);
+  font-weight: 600;
+}
+
+.subsection-title {
+  font-size: var(--text-f2);
+  line-height: var(--leading-tight);
+  letter-spacing: -0.015em;
+  margin-bottom: var(--space-2);
+  font-weight: 500;
+}
+
+/* Navigation with technical precision */
+.nav-link {
+  font-family: 'Berkeley Mono', 'Terminus', 'Monaco', ui-monospace, 'JetBrains Mono', monospace;
+  font-size: var(--mono-md);
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  font-weight: 500;
+  line-height: var(--leading-tight);
+}
+
+/* Special camera value displays */
+.aperture-value {
+  font-size: var(--text-f14);
+  font-weight: 300;
+  font-variant-numeric: diagonal-fractions;
+  font-family: 'Berkeley Mono', 'Terminus', 'Monaco', ui-monospace, 'JetBrains Mono', monospace;
+}
+
+.aperture-value::before {
+  content: "f/";
+  font-size: 0.8em;
+  opacity: 0.7;
+}
+
+.shutter-speed {
+  font-family: 'Berkeley Mono', 'Terminus', 'Monaco', ui-monospace, 'JetBrains Mono', monospace;
+  font-variant-numeric: diagonal-fractions;
+  font-size: var(--mono-lg);
+  font-weight: 400;
+}
+
+.iso-value {
+  font-variant-numeric: lining-nums;
+  font-weight: 500;
+  font-family: 'Berkeley Mono', 'Terminus', 'Monaco', ui-monospace, 'JetBrains Mono', monospace;
+  font-size: var(--mono-lg);
+}
+
+.focal-length {
+  font-variant-numeric: lining-nums;
+  font-family: 'Berkeley Mono', 'Terminus', 'Monaco', ui-monospace, 'JetBrains Mono', monospace;
+  font-size: var(--mono-md);
+}
+
+.focal-length::after {
+  content: "mm";
+  font-size: 0.8em;
+  margin-left: 0.1em;
+  opacity: 0.7;
+}
+
+/* Metadata panel typography */
+.metadata-section {
+  margin-bottom: var(--space-3);
+}
+
+.metadata-title {
+  font-size: var(--text-f14);
+  line-height: var(--leading-tight);
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  margin-bottom: var(--space-2);
+  padding-bottom: var(--space-1);
+  border-bottom: 1px solid var(--border-subtle);
+}
+
+.metadata-grid {
+  display: grid;
+  gap: var(--space-2);
+}
+
+.metadata-label {
+  font-family: 'Berkeley Mono', 'Terminus', 'Monaco', ui-monospace, 'JetBrains Mono', monospace;
+  font-size: var(--mono-sm);
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  font-weight: 400;
+  opacity: 0.7;
+  line-height: var(--leading-tight);
+}
+
+.metadata-value {
+  font-family: 'Berkeley Mono', 'Terminus', 'Monaco', ui-monospace, 'JetBrains Mono', monospace;
+  font-size: var(--mono-lg);
+  font-weight: 500;
+  line-height: var(--leading-tight);
+  font-variant-numeric: tabular-nums lining-nums;
+}
+
+/* Photo counter with technical styling */
+.photo-counter {
+  font-family: 'Berkeley Mono', 'Terminus', 'Monaco', ui-monospace, 'JetBrains Mono', monospace;
+  font-size: var(--mono-md);
+  font-variant-numeric: lining-nums;
+  letter-spacing: 0.02em;
+  text-transform: uppercase;
+}
+
+/* Button typography */
+.btn {
+  font-family: 'Berkeley Mono', 'Terminus', 'Monaco', ui-monospace, 'JetBrains Mono', monospace;
+  font-size: var(--mono-md);
+  font-weight: 500;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  line-height: 1;
+}
+
+.btn-large {
+  font-size: var(--mono-lg);
+  padding: var(--space-2) var(--space-4);
+}
+
+/* Responsive typography scaling */
+@media (min-width: 640px) {
+  :root {
+    --camera-base: 18px;
+  }
+}
+
+@media (min-width: 1024px) {
+  :root {
+    --camera-base: 20px;
+  }
+  
+  .camera-specs {
+    font-size: var(--mono-lg);
+  }
+  
+  .metadata-value {
+    font-size: var(--mono-xl);
+  }
+}
+
+@media (min-width: 1440px) {
+  :root {
+    --camera-base: 22px;
+  }
+}
+
+/* Dark mode (Camera theme) adjustments */
+[data-theme="camera"] {
+  /* Adjust font weights for dark backgrounds */
+  .camera-description {
+    font-weight: 300;
+    letter-spacing: 0.015em;
+  }
+  
+  .camera-specs {
+    font-weight: 400;
+  }
+  
+  .metadata-label {
+    font-weight: 300;
+    opacity: 0.6;
+  }
+  
+  .metadata-value {
+    font-weight: 400;
+  }
+}
+
+/* Light theme typography refinements */
+[data-theme="light"],
+:root:not([data-theme]) {
+  /* Lighter weights for better readability on light backgrounds */
+  .camera-model {
+    font-weight: 600; /* down from 700 */
+    letter-spacing: -0.01em; /* tighter */
+  }
+  
+  .section-title {
+    font-weight: 500; /* down from 600 */
+    letter-spacing: -0.01em; /* tighter */
+  }
+  
+  .subsection-title {
+    font-weight: 400; /* down from 500 */
+    letter-spacing: -0.005em; /* tighter */
+  }
+  
+  .hero-title {
+    font-weight: 700; /* down from 900 */
+    letter-spacing: -0.02em; /* tighter */
+  }
+  
+  .metadata-title {
+    font-weight: 500; /* down from 600 */
+    letter-spacing: 0.06em; /* tighter from 0.08em */
+  }
+  
+  .metadata-value {
+    font-weight: 400; /* down from 500 */
+  }
+  
+  .nav-link {
+    font-weight: 400; /* down from 500 */
+    letter-spacing: 0.08em; /* tighter from 0.1em */
+  }
+  
+  .btn {
+    font-weight: 400; /* down from 500 */
+    letter-spacing: 0.06em; /* tighter from 0.08em */
+  }
+  
+  .tech-badge {
+    font-weight: 400; /* down from 500 */
+    letter-spacing: 0.04em; /* tighter from 0.05em */
+  }
+  
+  /* Overall tighter tracking for light theme */
+  h1, h2, h3, h4, h5, h6 {
+    letter-spacing: -0.01em;
+  }
+  
+  p {
+    letter-spacing: 0;
+  }
+}
+
+/* Utility classes for mathematical proportions */
+.text-golden {
+  font-size: calc(var(--text-f1) * var(--phi));
+  line-height: calc(var(--text-f1) * var(--phi) * 1.3);
+}
+
+.text-golden-inverse {
+  font-size: calc(var(--text-f1) * var(--inverse-phi));
+  line-height: var(--leading-tight);
+}
+
+/* Performance optimizations */
+.camera-model,
+.camera-specs,
+.metadata-value,
+.photo-counter {
+  /* Enable GPU acceleration for smooth scaling */
+  will-change: transform;
+  transform: translateZ(0);
+}
+
+/* Ensure consistent rendering */
+* {
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  text-rendering: optimizeLegibility;
+}
+
+/* Monospace elements should maintain exact character widths */
+.camera-specs,
+.metadata-value,
+.aperture-value,
+.shutter-speed,
+.iso-value {
+  font-kerning: none;
+  letter-spacing: 0;
+}
