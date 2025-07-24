@@ -1,6 +1,7 @@
 /* Camera Theme - Professional Photography Dark Theme */
 /* Inspired by Nikon professional camera interfaces */
 
+/* Camera-specific color definitions - only define unique camera colors */
 :root {
   /* Pure blacks and grays - camera body inspired */
   --black-pure: #000000;
@@ -27,7 +28,10 @@
   --tech-red: #FF0030;
   --tech-blue: #0080FF;
   --tech-orange: #FF8C00;
-  
+}
+
+/* Camera theme activation - only override when camera theme is active */
+[data-theme="camera"] {
   /* Surface hierarchy */
   --surface-base: var(--black-pure);
   --surface-panel: var(--black-matte);
@@ -49,11 +53,8 @@
   --shadow-medium: 0 4px 8px rgba(0, 0, 0, 0.6);
   --shadow-strong: 0 8px 16px rgba(0, 0, 0, 0.8);
   --shadow-glow: 0 0 20px var(--nikon-yellow-glow);
-}
-
-/* Camera theme activation */
-[data-theme="camera"] {
-  /* Apply all camera theme variables */
+  
+  /* Camera theme activation */
   background-color: var(--surface-base);
   color: var(--text-secondary);
 }
@@ -204,7 +205,7 @@
   color: var(--nikon-yellow);
   font-size: var(--mono-lg);
   font-weight: 500;
-  font-family: 'JetBrains Mono', monospace;
+  font-family: 'Berkeley Mono', 'Terminus', 'Monaco', ui-monospace, 'JetBrains Mono', monospace;
 }
 
 /* Enhanced button styling */

@@ -61,7 +61,7 @@
 
 /* Camera technical specifications */
 .camera-specs {
-  font-family: 'JetBrains Mono', 'SF Mono', 'Monaco', 'Fira Code', monospace;
+  font-family: 'Berkeley Mono', 'Terminus', 'Monaco', ui-monospace, 'JetBrains Mono', 'Fira Code', monospace;
   font-size: var(--mono-md);
   line-height: var(--leading-normal);
   font-variant-numeric: tabular-nums lining-nums;
@@ -79,7 +79,7 @@
 
 /* Technical badges (sensor size, mount type, etc.) */
 .tech-badge {
-  font-family: 'JetBrains Mono', 'SF Mono', monospace;
+  font-family: 'Berkeley Mono', 'Terminus', 'Monaco', ui-monospace, 'JetBrains Mono', monospace;
   font-size: var(--mono-sm);
   line-height: var(--leading-tight);
   text-transform: uppercase;
@@ -123,7 +123,7 @@
 
 /* Navigation with technical precision */
 .nav-link {
-  font-family: 'JetBrains Mono', 'SF Mono', monospace;
+  font-family: 'Berkeley Mono', 'Terminus', 'Monaco', ui-monospace, 'JetBrains Mono', monospace;
   font-size: var(--mono-md);
   text-transform: uppercase;
   letter-spacing: 0.1em;
@@ -136,7 +136,7 @@
   font-size: var(--text-f14);
   font-weight: 300;
   font-variant-numeric: diagonal-fractions;
-  font-family: 'JetBrains Mono', monospace;
+  font-family: 'Berkeley Mono', 'Terminus', 'Monaco', ui-monospace, 'JetBrains Mono', monospace;
 }
 
 .aperture-value::before {
@@ -146,7 +146,7 @@
 }
 
 .shutter-speed {
-  font-family: 'JetBrains Mono', monospace;
+  font-family: 'Berkeley Mono', 'Terminus', 'Monaco', ui-monospace, 'JetBrains Mono', monospace;
   font-variant-numeric: diagonal-fractions;
   font-size: var(--mono-lg);
   font-weight: 400;
@@ -155,13 +155,13 @@
 .iso-value {
   font-variant-numeric: lining-nums;
   font-weight: 500;
-  font-family: 'JetBrains Mono', monospace;
+  font-family: 'Berkeley Mono', 'Terminus', 'Monaco', ui-monospace, 'JetBrains Mono', monospace;
   font-size: var(--mono-lg);
 }
 
 .focal-length {
   font-variant-numeric: lining-nums;
-  font-family: 'JetBrains Mono', monospace;
+  font-family: 'Berkeley Mono', 'Terminus', 'Monaco', ui-monospace, 'JetBrains Mono', monospace;
   font-size: var(--mono-md);
 }
 
@@ -194,7 +194,7 @@
 }
 
 .metadata-label {
-  font-family: 'JetBrains Mono', monospace;
+  font-family: 'Berkeley Mono', 'Terminus', 'Monaco', ui-monospace, 'JetBrains Mono', monospace;
   font-size: var(--mono-sm);
   text-transform: uppercase;
   letter-spacing: 0.05em;
@@ -204,7 +204,7 @@
 }
 
 .metadata-value {
-  font-family: 'JetBrains Mono', monospace;
+  font-family: 'Berkeley Mono', 'Terminus', 'Monaco', ui-monospace, 'JetBrains Mono', monospace;
   font-size: var(--mono-lg);
   font-weight: 500;
   line-height: var(--leading-tight);
@@ -213,7 +213,7 @@
 
 /* Photo counter with technical styling */
 .photo-counter {
-  font-family: 'JetBrains Mono', monospace;
+  font-family: 'Berkeley Mono', 'Terminus', 'Monaco', ui-monospace, 'JetBrains Mono', monospace;
   font-size: var(--mono-md);
   font-variant-numeric: lining-nums;
   letter-spacing: 0.02em;
@@ -222,7 +222,7 @@
 
 /* Button typography */
 .btn {
-  font-family: 'JetBrains Mono', 'SF Mono', monospace;
+  font-family: 'Berkeley Mono', 'Terminus', 'Monaco', ui-monospace, 'JetBrains Mono', monospace;
   font-size: var(--mono-md);
   font-weight: 500;
   text-transform: uppercase;
@@ -281,6 +281,64 @@
   
   .metadata-value {
     font-weight: 400;
+  }
+}
+
+/* Light theme typography refinements */
+[data-theme="light"],
+:root:not([data-theme]) {
+  /* Lighter weights for better readability on light backgrounds */
+  .camera-model {
+    font-weight: 600; /* down from 700 */
+    letter-spacing: -0.01em; /* tighter */
+  }
+  
+  .section-title {
+    font-weight: 500; /* down from 600 */
+    letter-spacing: -0.01em; /* tighter */
+  }
+  
+  .subsection-title {
+    font-weight: 400; /* down from 500 */
+    letter-spacing: -0.005em; /* tighter */
+  }
+  
+  .hero-title {
+    font-weight: 700; /* down from 900 */
+    letter-spacing: -0.02em; /* tighter */
+  }
+  
+  .metadata-title {
+    font-weight: 500; /* down from 600 */
+    letter-spacing: 0.06em; /* tighter from 0.08em */
+  }
+  
+  .metadata-value {
+    font-weight: 400; /* down from 500 */
+  }
+  
+  .nav-link {
+    font-weight: 400; /* down from 500 */
+    letter-spacing: 0.08em; /* tighter from 0.1em */
+  }
+  
+  .btn {
+    font-weight: 400; /* down from 500 */
+    letter-spacing: 0.06em; /* tighter from 0.08em */
+  }
+  
+  .tech-badge {
+    font-weight: 400; /* down from 500 */
+    letter-spacing: 0.04em; /* tighter from 0.05em */
+  }
+  
+  /* Overall tighter tracking for light theme */
+  h1, h2, h3, h4, h5, h6 {
+    letter-spacing: -0.01em;
+  }
+  
+  p {
+    letter-spacing: 0;
   }
 }
 
