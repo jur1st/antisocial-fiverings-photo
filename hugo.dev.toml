@@ -1,0 +1,15 @@
+# Development-specific configuration
+# This overrides settings from hugo.toml for local development
+
+# Use the actual development URL
+baseURL = 'http://localhost:8080/antisocial-fiverings-photo/'
+canonifyURLs = false
+relativeURLs = true
+
+# Development server settings
+[server]
+  [[server.headers]]
+    for = '/**'
+    [server.headers.values]
+      # Allow access from any origin in development
+      Access-Control-Allow-Origin = '*'
