@@ -128,50 +128,5 @@ document.addEventListener('DOMContentLoaded', function() {
   });
 });
 
-// Enhanced theme toggle functionality
-document.addEventListener('DOMContentLoaded', function() {
-  const themeToggle = document.getElementById('theme-toggle');
-  const themeLabel = document.querySelector('.theme-label');
-  
-  if (themeToggle && themeLabel) {
-    // Define theme options
-    const themes = [
-      { name: 'light', label: 'Camera Mode', next: 'camera' },
-      { name: 'camera', label: 'Flynn Mode', next: 'flynn' },
-      { name: 'flynn', label: 'Light Mode', next: 'light' }
-    ];
-    
-    // Load saved theme preference
-    const savedTheme = localStorage.getItem('theme') || 'light';
-    const currentThemeConfig = themes.find(t => t.name === savedTheme);
-    
-    if (savedTheme !== 'light') {
-      document.documentElement.setAttribute('data-theme', savedTheme);
-    }
-    themeLabel.textContent = currentThemeConfig.label;
-    
-    themeToggle.addEventListener('click', function() {
-      const currentTheme = document.documentElement.getAttribute('data-theme') || 'light';
-      const themeConfig = themes.find(t => t.name === currentTheme);
-      const nextTheme = themeConfig.next;
-      const nextConfig = themes.find(t => t.name === nextTheme);
-      
-      if (nextTheme === 'light') {
-        document.documentElement.removeAttribute('data-theme');
-      } else {
-        document.documentElement.setAttribute('data-theme', nextTheme);
-      }
-      
-      themeLabel.textContent = nextConfig.label;
-      localStorage.setItem('theme', nextTheme);
-    });
-  }
-});
 </script>
-
-<div class="theme-controls">
-  <button id="theme-toggle" class="theme-toggle-btn">
-    <span class="theme-label">Camera Mode</span>
-  </button>
-</div>
 {{ end }}

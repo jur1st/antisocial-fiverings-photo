@@ -11,6 +11,7 @@ An invitation-only gallery experience where the work speaks for itself.
 <div class="site-navigation-prominent">
   <a href="/contact/" class="nav-link-prominent">Contact</a>
   <a href="/about/" class="nav-link-prominent">About</a>
+  <a href="/manual/" class="nav-link-prominent">Owner's Manual</a>
 </div>
 
 ## Recent Work
