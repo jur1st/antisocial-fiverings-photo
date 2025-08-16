@@ -55,8 +55,21 @@
 
   <!-- Photo removal section -->
   <div class="photo-removal-section" id="request-removal">
-    <h3>Request Photo Removal</h3>
-    <p>If you would like this photo removed from the gallery, please email <a href="mailto:privacy@fiverings.photo?subject=Photo%20Removal%20Request%20-%20{{ .Title | urlize }}" class="removal-email-link">privacy@fiverings.photo</a> with the photo details.</p>
+    <h3>Is This Your Photo?</h3>
+    <p>If you're in this photo and would like it removed from the gallery, I'm happy to honor that request.</p>
+    <div class="removal-options">
+      <p>You can:</p>
+      <div class="removal-actions">
+        <a href="mailto:privacy@fiverings.photo?subject=Photo%20Removal%20Request%20-%20{{ .Title | urlize }}" class="btn btn-secondary">
+          Request Removal via Email
+        </a>
+        <span class="option-separator">and if you'd like</span>
+        <a href="/about#support" class="btn btn-primary">
+          Support the Artist
+        </a>
+      </div>
+      <p class="removal-note">Your privacy matters. Removal requests are processed promptly, no questions asked.</p>
+    </div>
   </div>
 </div>
 
