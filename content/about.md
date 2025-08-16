@@ -17,10 +17,28 @@ Welcome to my antisocial photography platform. This is where I share my work dir
 
 Each image here represents a moment captured through my lens, shared on my terms. This isn't about going viral or accumulating likes. It's about authentic connection between photographer and viewer, unmediated by Silicon Valley's attention economy.
 
-<div class="contact-details">
-<h2>Get in Touch</h2>
-<p>For photo requests, event documentation, or collaboration inquiries:</p>
-<a href="mailto:john@fiverings.photo" class="contact-email">john@fiverings.photo</a>
+<div id="support" class="support-section">
+
+## Support the Artist
+
+If you enjoy these photographs and would like to support my work, you can:
+
+- **Venmo**: [@jbenson707](https://venmo.com/jbenson707)
+- **Email**: Say thanks at [privacy@fiverings.photo](mailto:privacy@fiverings.photo)
+
+Your support helps me continue creating and sharing photography outside the traditional social media ecosystem. Every contribution, whether financial or a simple thank you, is deeply appreciated.
+
+</div>
+
+<div class="metadata-grid">
+<div class="metadata-item">
+<span class="metadata-label">Email</span>
+<span class="metadata-value"><a href="mailto:john@fiverings.photo" class="contact-email">john@fiverings.photo</a></span>
+</div>
+<div class="metadata-item">
+<span class="metadata-label">For Inquiries</span>
+<span class="metadata-value">Photo requests, event documentation, collaborations</span>
+</div>
 </div>
 
 <div class="social-links">
@@ -42,19 +60,6 @@ Each image here represents a moment captured through my lens, shared on my terms
 <span class="social-platform">LinkedIn</span>
 </a>
 </div>
-</div>
-
-<div id="support" class="support-section">
-
-## Support the Artist
-
-If you enjoy these photographs and would like to support my work, you can:
-
-- **Venmo**: [@jbenson707](https://venmo.com/jbenson707)
-- **Email**: Say thanks at [privacy@fiverings.photo](mailto:privacy@fiverings.photo)
-
-Your support helps me continue creating and sharing photography outside the traditional social media ecosystem. Every contribution, whether financial or a simple thank you, is deeply appreciated.
-
 </div>
 
 </div>
