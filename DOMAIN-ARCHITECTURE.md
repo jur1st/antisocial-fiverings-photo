@@ -1,21 +1,27 @@
 # Domain Architecture - Five Rings Photography
 
 **Date**: 2025-08-16  
-**Purpose**: Document SSL fix and domain configuration  
+**Updated**: 2025-08-16 (Post SSL Fix)  
+**Purpose**: Document complete domain architecture and relationships  
+**Status**: ✅ Both domains operational with SSL  
 
 ## Domain Structure
 
 ### Primary Domain
 - **Domain**: fiverings.photo
-- **Purpose**: Main brand domain
-- **Current State**: Placeholder with redirect
-- **Hosting**: GitHub Pages
+- **Purpose**: Professional services gateway
+- **Current State**: Strategic landing page (live)
+- **Hosting**: GitHub Pages (workflow deployment)
+- **Repository**: jur1st/fiverings-photo
+- **Technology**: Static HTML (React/Next.js ready)
 
-### Subdomain
+### Subdomain (This Repository)
 - **Domain**: antisocial.fiverings.photo
-- **Purpose**: Active photography gallery
+- **Purpose**: Photography exhibition gallery
 - **Current State**: Fully operational
-- **Platform**: Hugo static site
+- **Platform**: Hugo static site generator
+- **Repository**: jur1st/antisocial-fiverings-photo
+- **Theme**: Flynn (Tron aesthetic) - Locked
 
 ## SSL Configuration
 
@@ -98,20 +104,45 @@ When ready to deploy full site to fiverings.photo:
 3. Update DNS if needed
 4. Maintain SSL continuity
 
+## Critical Lessons Learned
+
+### GitHub Actions Workflow Deployment
+When using GitHub Actions (not branch deployment):
+1. **CNAME file doesn't auto-configure domain**
+2. **Must use API to set custom domain**:
+   ```bash
+   gh api --method PUT repos/jur1st/[repo]/pages \
+     --field cname="domain.com"
+   ```
+3. **This applies to BOTH repositories**
+
+## Relationship Between Domains
+
+```mermaid
+graph LR
+    FP[fiverings.photo<br/>Gateway] --> AFP[antisocial.fiverings.photo<br/>Gallery]
+    FP --> FUTURE[Future Services<br/>Coming Soon]
+    
+    style FP fill:#FFD700
+    style AFP fill:#00D4FF
+```
+
 ## Troubleshooting
 
 ### SSL Certificate Errors
-- Verify DNS A records
-- Check CNAME file exists
-- Wait for DNS propagation
-- Confirm GitHub Pages settings
+1. **Check custom domain is set** (not just CNAME file)
+2. Use API command above to set domain
+3. Verify DNS A records point to GitHub
+4. Wait 10-30 minutes for provisioning
 
-### Redirect Not Working
-- Clear browser cache
-- Check meta refresh syntax
-- Verify target URL
+### Custom Domain Shows Null
+- This is THE most common issue with workflow deployment
+- Solution: Use gh api command to set domain
+- Trigger rebuild after setting
 
 ---
 
-**Status**: Implementation finished - awaiting validation  
-**Next Step**: Push to GitHub and monitor SSL provisioning
+**Status**: ✅ Fully Operational  
+**Main Domain**: https://fiverings.photo  
+**Gallery**: https://antisocial.fiverings.photo  
+**Infrastructure**: Complete and documented
