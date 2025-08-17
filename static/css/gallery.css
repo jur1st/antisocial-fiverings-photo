@@ -1948,3 +1948,195 @@ p {
   background: var(--surface-panel);
   box-shadow: var(--shadow-soft);
 }
+
+/* ============================= */
+/* MISSING COMPONENT CLASSES     */
+/* ============================= */
+
+/* Typography f-stop scale classes */
+.text-f1 {
+  font-size: var(--text-f1, 16px);
+  line-height: var(--leading-normal);
+}
+
+.text-f14 {
+  font-size: var(--text-f14, 23px);
+  line-height: var(--leading-tight);
+}
+
+.text-f2 {
+  font-size: var(--text-f2, 32px);
+  line-height: var(--leading-tight);
+}
+
+.text-f28 {
+  font-size: var(--text-f28, 45px);
+  line-height: var(--leading-tight);
+}
+
+.text-f4 {
+  font-size: var(--text-f4, 64px);
+  line-height: var(--leading-tight);
+}
+
+.text-f56 {
+  font-size: var(--text-f56, 90px);
+  line-height: var(--leading-tight);
+}
+
+/* Gallery image component */
+.gallery-image {
+  max-width: 100%;
+  height: auto;
+  display: block;
+  border-radius: var(--radius-sm);
+  box-shadow: var(--shadow-medium);
+}
+
+/* Camera-specific metadata classes */
+.aperture-value {
+  font-family: var(--font-technical);
+  font-variant-numeric: tabular-nums;
+  color: var(--accent-primary);
+}
+
+.shutter-speed {
+  font-family: var(--font-technical);
+  font-variant-numeric: tabular-nums;
+  color: var(--text-primary);
+}
+
+.iso-value {
+  font-family: var(--font-technical);
+  font-variant-numeric: tabular-nums;
+  color: var(--text-primary);
+}
+
+.focal-length {
+  font-family: var(--font-technical);
+  font-variant-numeric: tabular-nums;
+  color: var(--text-secondary);
+}
+
+/* Metadata section types */
+.metadata-exposure {
+  /* Exposure triangle emphasis */
+  border-left: 2px solid var(--accent-primary);
+  padding-left: var(--space-2);
+}
+
+.metadata-equipment {
+  /* Equipment information styling */
+  border-left: 2px solid var(--accent-secondary);
+  padding-left: var(--space-2);
+}
+
+.metadata-section {
+  margin-bottom: var(--space-4);
+}
+
+.metadata-section:last-child {
+  margin-bottom: 0;
+}
+
+/* Error page components */
+.error-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  min-height: 50vh;
+  text-align: center;
+  padding: var(--space-8);
+}
+
+.error-camera-icon {
+  font-size: 4rem;
+  margin-bottom: var(--space-4);
+  opacity: 0.6;
+}
+
+.error-title {
+  font-size: var(--text-f4);
+  font-weight: 900;
+  color: var(--accent-primary);
+  margin-bottom: var(--space-2);
+}
+
+.error-code {
+  font-family: var(--font-technical);
+  font-size: var(--text-sm);
+  color: var(--text-tertiary);
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  margin-bottom: var(--space-4);
+}
+
+.error-message {
+  font-size: var(--text-lg);
+  color: var(--text-secondary);
+  max-width: 600px;
+  margin-bottom: var(--space-6);
+  line-height: var(--leading-relaxed);
+}
+
+.error-suggestions {
+  display: flex;
+  gap: var(--space-4);
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+/* Component showcase utilities */
+.typography-showcase {
+  margin: var(--space-6) 0;
+  padding: var(--space-4);
+  background: var(--surface-panel);
+  border-radius: var(--radius-md);
+  border: 1px solid var(--surface-border);
+}
+
+.typography-showcase > * {
+  margin: var(--space-2) 0;
+}
+
+.button-showcase {
+  display: flex;
+  gap: var(--space-4);
+  flex-wrap: wrap;
+  margin: var(--space-4) 0;
+  padding: var(--space-4);
+  background: var(--surface-panel);
+  border-radius: var(--radius-md);
+}
+
+.color-swatches {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+  gap: var(--space-2);
+  margin: var(--space-4) 0;
+}
+
+.color-swatch {
+  padding: var(--space-3);
+  border-radius: var(--radius-sm);
+  text-align: center;
+  font-family: var(--font-technical);
+  font-size: var(--text-sm);
+  border: 1px solid var(--surface-border);
+}
+
+/* Hero subtitle */
+.hero-subtitle {
+  font-size: var(--text-f14);
+  color: var(--text-secondary);
+  font-weight: 400;
+  margin-top: var(--space-2);
+}
+
+/* Page content wrapper */
+.page-content {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: var(--space-6);
+}
