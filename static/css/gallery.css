@@ -518,45 +518,16 @@ p {
   padding: 0 var(--spacing-sm);
 }
 
-/* Authentic camera body flat surfaces */
-.camera-surface {
-  background: var(--surface-panel);
-  box-shadow: var(--shadow-subtle);
-}
-
-.camera-panel {
-  background: var(--surface-panel);
-  border: 1px solid var(--surface-border);
-  box-shadow: var(--shadow-medium);
-}
+/* Removed unused camera-surface and camera-panel classes */
 
 .main-content {
   min-height: 100vh;
   padding: var(--spacing-md) 0;
 }
 
-/* Event Context Sections */
-.event-context, .speaker-bio {
-  background: var(--surface-panel);
-  border: 1px solid var(--surface-border);
-  border-radius: 8px;
-  padding: var(--spacing-md);
-  margin: var(--spacing-md) 0;
-  font-family: var(--font-reading);
-}
 
-.event-context h3, .speaker-bio h3 {
-  color: var(--accent-primary);
-  font-size: 1.2rem;
-  margin-bottom: var(--spacing-sm);
-  font-family: var(--font-display);
-}
 
-.event-context p, .speaker-bio p {
-  color: var(--text-secondary);
-  line-height: 1.6;
-  font-size: 0.95rem;
-}
+/* Removed unused event-context and speaker-bio classes */
 
 /* Gallery Grid System */
 .gallery-grid {
