@@ -29,7 +29,55 @@
   <div class="photo-display-container">
     <div class="photo-container">
       {{ if .Params.image }}
-      <img src="{{ .Params.image | relURL }}" alt="{{ .Title }}" class="photo-main" loading="lazy">
+        {{ $imagePath := .Params.image }}
+        {{ $imageResource := resources.Get $imagePath }}
+        {{ if $imageResource }}
+          <!-- Generate responsive image sizes -->
+          {{ $thumbnail := $imageResource.Resize "400x" }}
+          {{ $medium := $imageResource.Resize "800x" }}
+          {{ $large := $imageResource.Resize "1200x" }}
+          {{ $xlarge := $imageResource.Resize "1920x" }}
+          
+          <!-- Generate WebP versions for modern browsers -->
+          {{ $thumbnailWebP := $thumbnail.Process "webp q85" }}
+          {{ $mediumWebP := $medium.Process "webp q85" }}
+          {{ $largeWebP := $large.Process "webp q85" }}
+          {{ $xlargeWebP := $xlarge.Process "webp q85" }}
+          
+          <picture>
+            <!-- WebP sources for modern browsers -->
+            <source 
+              srcset="{{ $thumbnailWebP.RelPermalink }} 400w,
+                      {{ $mediumWebP.RelPermalink }} 800w,
+                      {{ $largeWebP.RelPermalink }} 1200w,
+                      {{ $xlargeWebP.RelPermalink }} 1920w"
+              sizes="(max-width: 400px) 400px,
+                     (max-width: 800px) 800px,
+                     (max-width: 1200px) 1200px,
+                     1920px"
+              type="image/webp">
+            
+            <!-- JPEG fallback for older browsers -->
+            <img 
+              src="{{ $medium.RelPermalink }}"
+              srcset="{{ $thumbnail.RelPermalink }} 400w,
+                      {{ $medium.RelPermalink }} 800w,
+                      {{ $large.RelPermalink }} 1200w,
+                      {{ $xlarge.RelPermalink }} 1920w"
+              sizes="(max-width: 400px) 400px,
+                     (max-width: 800px) 800px,
+                     (max-width: 1200px) 1200px,
+                     1920px"
+              alt="{{ .Title }}" 
+              class="photo-main" 
+              loading="lazy"
+              width="{{ $medium.Width }}"
+              height="{{ $medium.Height }}">
+          </picture>
+        {{ else }}
+          <!-- Fallback for when image resource is not found -->
+          <img src="{{ .Params.image | relURL }}" alt="{{ .Title }}" class="photo-main" loading="lazy">
+        {{ end }}
       {{ end }}
       
       <div class="photo-actions">

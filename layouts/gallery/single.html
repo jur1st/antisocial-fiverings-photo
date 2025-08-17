@@ -42,14 +42,46 @@
   
   {{ if .Params.photos }}
   <div class="gallery-grid">
-    {{ range $index, $photo := .Params.photos }}<a href="/photos/{{ $photo.photo_slug }}/" class="gallery-item">
-      <img src="{{ $photo.image | relURL }}" alt="{{ $photo.alt | default "Photo" }}" loading="lazy" class="gallery-image" width="280" height="200">
-      <div class="gallery-info">
-        <div class="gallery-title">{{ $photo.camera_settings.aperture | default "f/2.8" }} • {{ $photo.camera_settings.shutter | default "1/125" }} • {{ $photo.camera_settings.iso | default "ISO 400" }}</div>
-        <div class="gallery-meta">{{ $photo.camera_settings.body | default "Camera" }} • {{ $photo.camera_settings.lens | default "Lens" }}</div>
-        <div class="gallery-filename">{{ substr $photo.photo_slug -3 3 }}</div>
-      </div>
-    </a>{{ end }}
+    {{ range $index, $photo := .Params.photos }}
+      {{ $imagePath := $photo.image }}
+      {{ $imageResource := resources.Get $imagePath }}
+      
+      <a href="/photos/{{ $photo.photo_slug }}/" class="gallery-item">
+        {{ if $imageResource }}
+          <!-- Generate optimized thumbnail -->
+          {{ $thumbnail := $imageResource.Resize "400x300" }}
+          {{ $thumbnailWebP := $thumbnail.Process "webp q85" }}
+          
+          <picture>
+            <!-- WebP for modern browsers -->
+            <source srcset="{{ $thumbnailWebP.RelPermalink }}" type="image/webp">
+            <!-- JPEG fallback -->
+            <img 
+              src="{{ $thumbnail.RelPermalink }}" 
+              alt="{{ $photo.alt | default "Photo" }}" 
+              loading="lazy" 
+              class="gallery-image" 
+              width="{{ $thumbnail.Width }}" 
+              height="{{ $thumbnail.Height }}">
+          </picture>
+        {{ else }}
+          <!-- Fallback for when image resource is not found -->
+          <img 
+            src="{{ $photo.image | relURL }}" 
+            alt="{{ $photo.alt | default "Photo" }}" 
+            loading="lazy" 
+            class="gallery-image" 
+            width="280" 
+            height="200">
+        {{ end }}
+        
+        <div class="gallery-info">
+          <div class="gallery-title">{{ $photo.camera_settings.aperture | default "f/2.8" }} • {{ $photo.camera_settings.shutter | default "1/125" }} • {{ $photo.camera_settings.iso | default "ISO 400" }}</div>
+          <div class="gallery-meta">{{ $photo.camera_settings.body | default "Camera" }} • {{ $photo.camera_settings.lens | default "Lens" }}</div>
+          <div class="gallery-filename">{{ substr $photo.photo_slug -3 3 }}</div>
+        </div>
+      </a>
+    {{ end }}
   </div>
   {{ end }}
 </div>

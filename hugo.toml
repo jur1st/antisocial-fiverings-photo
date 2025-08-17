@@ -9,10 +9,25 @@ canonifyURLs = true
 disableRSS = true
 disableKinds = ["RSS", "taxonomy", "term"]
 
+# Image processing configuration for performance optimization
+[imaging]
+  quality = 85
+  resampleFilter = "Lanczos"
+  anchor = "Smart"
+  # Enable modern formats with fallbacks
+  formats = ["webp", "jpg"]
+
 [params]
   title = 'antisocial.fiverings.photo'
   description = 'Antisocial FiveRings Photography'
   author = 'John Benson'
+  
+  # Image processing parameters for templates
+  [params.images]
+    thumbnail = "400x400"
+    gallery = "800x800"
+    full = ["1200x", "1920x", "2560x"]
+    formats = ["webp", "jpg"]
 
 [author]
   name = 'John Benson'

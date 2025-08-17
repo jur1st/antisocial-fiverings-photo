@@ -178,11 +178,11 @@
   --text-inverse: #1a1a1a;
   --text-muted: #666666;
   
-  /* Tron User Blue - primary for dark mode, brighter for dark backgrounds */
-  --accent-primary: #00D4FF;
-  --accent-primary-dim: #0099CC;
-  --accent-primary-glow: #33E6FF;
-  --accent-primary-dark: #006699;
+  /* Nikon yellow - primary for dark mode, brighter for dark backgrounds */
+  --accent-primary: #FFD700;
+  --accent-primary-dim: #E6C200;
+  --accent-primary-glow: #FFED4E;
+  --accent-primary-dark: #B39700;
   
   /* Tron Agent Orange - secondary for dark mode */
   --accent-secondary: #FF8C00;
@@ -194,19 +194,19 @@
   --font-display: 'Berkeley Mono', 'Terminus', 'Monaco', ui-monospace, 'Menlo', 'Consolas', 'Liberation Mono', 'Courier New', monospace;
   --font-reading: 'Berkeley Mono', 'Terminus', 'Monaco', ui-monospace, 'Menlo', 'Consolas', 'Liberation Mono', 'Courier New', monospace;
   
-  /* Flynn theme Tron-inspired shadows */
-  --shadow-subtle: 0 2px 4px rgba(0, 212, 255, 0.2);
-  --shadow-medium: 0 4px 8px rgba(0, 212, 255, 0.3);
-  --shadow-strong: 0 8px 16px rgba(0, 212, 255, 0.4);
-  --shadow-glow: 0 0 20px rgba(0, 212, 255, 0.5);
-  --shadow-small: 0 2px 8px rgba(0, 212, 255, 0.2);
+  /* Flynn theme Nikon yellow shadows */
+  --shadow-subtle: 0 2px 4px rgba(255, 215, 0, 0.2);
+  --shadow-medium: 0 4px 8px rgba(255, 215, 0, 0.3);
+  --shadow-strong: 0 8px 16px rgba(255, 215, 0, 0.4);
+  --shadow-glow: 0 0 20px rgba(255, 215, 0, 0.5);
+  --shadow-small: 0 2px 8px rgba(255, 215, 0, 0.2);
   
   /* Flynn overlay colors */
   --overlay-dark: rgba(0, 0, 0, 0.5);
-  --overlay-light: rgba(0, 212, 255, 0.1);
+  --overlay-light: rgba(255, 215, 0, 0.1);
   
   /* Flynn UI states */
-  --surface-border-hover: rgba(0, 212, 255, 0.5);
+  --surface-border-hover: rgba(255, 215, 0, 0.5);
   --accent-error: #FF0030;
 }
 
@@ -1932,8 +1932,8 @@ p {
 }
 
 [data-theme="flynn"] .support-section {
-  background: rgba(0, 212, 255, 0.05);
-  border-color: rgba(0, 212, 255, 0.2);
+  background: rgba(255, 215, 0, 0.05);
+  border-color: rgba(255, 215, 0, 0.2);
 }
 
 [data-theme="light"] .support-section {

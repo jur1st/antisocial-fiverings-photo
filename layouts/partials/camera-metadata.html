@@ -39,6 +39,27 @@
         <span class="metadata-label">ISO</span>
         <span class="metadata-value iso-value">{{ $cameraSettings.iso | default "ISO 400" }}</span>
       </div>
+      
+      {{ if $cameraSettings.focal_length }}
+      <div class="metadata-item metadata-exposure">
+        <span class="metadata-label">Focal Length</span>
+        <span class="metadata-value focal-length">{{ $cameraSettings.focal_length }}</span>
+      </div>
+      {{ end }}
+      
+      {{ if $cameraSettings.exposure_mode }}
+      <div class="metadata-item metadata-exposure">
+        <span class="metadata-label">Exposure Mode</span>
+        <span class="metadata-value exposure-mode">{{ $cameraSettings.exposure_mode }}</span>
+      </div>
+      {{ end }}
+      
+      {{ if $cameraSettings.metering_mode }}
+      <div class="metadata-item metadata-exposure">
+        <span class="metadata-label">Metering</span>
+        <span class="metadata-value metering-mode">{{ $cameraSettings.metering_mode }}</span>
+      </div>
+      {{ end }}
     </div>
   </div>
   
