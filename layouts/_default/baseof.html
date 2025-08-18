@@ -3,6 +3,16 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- Performance optimizations -->
+    <meta http-equiv="X-DNS-Prefetch-Control" content="on">
+    <meta name="referrer" content="origin-when-cross-origin">
+    <!-- iOS Safari specific optimizations -->
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <meta name="format-detection" content="telephone=no">
+    <!-- Theme color for mobile browsers -->
+    <meta name="theme-color" content="#FFD700" media="(prefers-color-scheme: dark)">
+    <meta name="theme-color" content="#0066CC" media="(prefers-color-scheme: light)">
     <title>{{ .Title }} | {{ .Site.Title }}</title>
     <meta name="description" content="{{ .Description | default .Site.Params.description }}">
     <meta name="author" content="{{ .Site.Params.author }}">
@@ -10,18 +20,44 @@
     <!-- Skip to main content for accessibility -->
     <a href="#main-content" class="skip-link">Skip to main content</a>
     
-    <!-- Typography - thoughtful, not tropey -->
+    <!-- Typography - Performance Optimized -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <!-- Add JetBrains Mono for technical specifications -->
+    <!-- DNS prefetch for performance -->
+    <link rel="dns-prefetch" href="https://fonts.googleapis.com">
+    <link rel="dns-prefetch" href="https://fonts.gstatic.com">
+    <!-- Optimized font loading with display=swap for performance -->
     <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@300;400;500;600&family=Crimson+Text:ital,wght@0,400;0,600;1,400&family=JetBrains+Mono:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <!-- Additional Berkeley Mono if available -->
+    <link rel="preload" href="https://fonts.googleapis.com/css2?family=Berkeley+Mono:wght@400;500;600&display=swap" as="style" onload="this.onload=null;this.rel='stylesheet'" crossorigin>
+    <noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Berkeley+Mono:wght@400;500;600&display=swap" crossorigin></noscript>
     
-    <!-- CSS Files in correct order -->
-    <link rel="stylesheet" href="{{ "/css/gallery.css" | relURL }}">
-    <link rel="stylesheet" href="{{ "/css/typography.css" | relURL }}">
-    <link rel="stylesheet" href="{{ "/css/camera-theme.css" | relURL }}">
+    <!-- CSS Performance Optimization -->
+    <!-- Preload critical CSS for faster rendering -->
+    <link rel="preload" href="{{ "/css/gallery.css" | relURL }}" as="style" onload="this.onload=null;this.rel='stylesheet'">
+    <noscript><link rel="stylesheet" href="{{ "/css/gallery.css" | relURL }}"></noscript>
+    <!-- CSS Files in optimal loading order -->
+    <link rel="stylesheet" href="{{ "/css/gallery.css" | relURL }}" media="print" onload="this.media='all'; this.onload=null;">
+    <link rel="stylesheet" href="{{ "/css/typography.css" | relURL }}" media="print" onload="this.media='all'; this.onload=null;">
+    <link rel="stylesheet" href="{{ "/css/camera-theme.css" | relURL }}" media="print" onload="this.media='all'; this.onload=null;">
     <!-- Manual Typography Enhancements -->
-    <link rel="stylesheet" href="{{ "/css/manual-typography.css" | relURL }}">
+    <link rel="stylesheet" href="{{ "/css/manual-typography.css" | relURL }}" media="print" onload="this.media='all'; this.onload=null;">
+    <!-- Enhanced reduced motion support -->
+    <style>
+        /* Critical CSS for faster initial render */
+        @media (prefers-reduced-motion: reduce) {
+            *, *::before, *::after {
+                animation-duration: 0.01ms !important;
+                animation-iteration-count: 1 !important;
+                transition-duration: 0.01ms !important;
+                scroll-behavior: auto !important;
+            }
+        }
+        /* Prevent layout shift during font load */
+        body {
+            font-family: system-ui, -apple-system, sans-serif;
+        }
+    </style>
 </head>
 <body>
     {{ partial "header.html" . }}

@@ -375,11 +375,6 @@ img {
   border-bottom: 1px solid var(--surface-border);
   padding: var(--space-3) 0;
   margin-bottom: var(--space-6);
-  position: sticky;
-  top: 0;
-  z-index: var(--z-50);
-  backdrop-filter: blur(10px);
-  background: color-mix(in srgb, var(--surface-panel) 95%, transparent);
 }
 
 .header-container {
@@ -2406,11 +2401,7 @@ p {
 }
 
 /* Safari iOS Webkit Optimization */
-/* Backdrop filter support for Safari */
-.site-header {
-  -webkit-backdrop-filter: blur(10px);
-  backdrop-filter: blur(10px);
-}
+/* Backdrop filter support for Safari - removed for static header */
 
 /* iOS Safari viewport bug fixes */
 @supports (-webkit-touch-callout: none) {
