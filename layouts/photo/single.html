@@ -21,36 +21,6 @@
     {{ partial "camera-metadata.html" . }}
   </div>
 
-  <div class="photo-control-strip">
-    <div class="control-nav">
-      {{ if .Params.prev_photo }}
-      <a href="{{ .Params.prev_photo | relURL }}" class="nav-btn nav-prev">← Previous</a>
-      {{ else }}
-      <span class="nav-btn nav-prev disabled">← Previous</span>
-      {{ end }}
-      
-      <div class="photo-counter">
-        {{ if and .Params.photo_number .Params.total_photos }}
-        Photo {{ .Params.photo_number }} of {{ .Params.total_photos }}
-        {{ end }}
-      </div>
-      
-      {{ if .Params.next_photo }}
-      <a href="{{ .Params.next_photo | relURL }}" class="nav-btn nav-next">Next →</a>
-      {{ else }}
-      <span class="nav-btn nav-next disabled">Next →</span>
-      {{ end }}
-    </div>
-    
-    <div class="control-divider"></div>
-    
-    <div class="control-actions">
-      {{ if .Params.image }}
-      <a href="{{ .Params.image | relURL }}" download class="action-btn">Download</a>
-      {{ end }}
-      <button id="sharePhotoBtn" class="action-btn">Share</button>
-    </div>
-  </div>
 
 </div>
 
@@ -83,36 +53,6 @@ document.addEventListener('DOMContentLoaded', function() {
     window.addEventListener('resize', checkOrientation);
   }
   
-  // Share functionality
-  if (shareBtn) {
-    shareBtn.addEventListener('click', function() {
-      const url = window.location.href;
-      const title = '{{ .Title }}';
-      const text = 'Check out this photo by John Benson - Five Rings Photography';
-      
-      if (navigator.share) {
-        navigator.share({
-          title: title,
-          text: text,
-          url: url
-        }).catch(console.error);
-      } else {
-        navigator.clipboard.writeText(url).then(() => {
-          // Visual feedback
-          const originalText = shareBtn.textContent;
-          shareBtn.textContent = 'Link Copied!';
-          shareBtn.classList.add('btn-success');
-          
-          setTimeout(() => {
-            shareBtn.textContent = originalText;
-            shareBtn.classList.remove('btn-success');
-          }, 2000);
-        }).catch(() => {
-          prompt('Copy this link to share:', url);
-        });
-      }
-    });
-  }
   
   
   // Keyboard navigation
@@ -124,37 +64,6 @@ document.addEventListener('DOMContentLoaded', function() {
     }
   });
   
-  // Swipe navigation for mobile
-  let touchStartX = 0;
-  let touchEndX = 0;
-  
-  function handleSwipe() {
-    const swipeThreshold = 50;
-    const diff = touchStartX - touchEndX;
-    
-    if (Math.abs(diff) > swipeThreshold) {
-      if (diff > 0) {
-        // Swipe left - next photo
-        {{ if .Params.next_photo }}
-        window.location.href = '{{ .Params.next_photo | relURL }}';
-        {{ end }}
-      } else {
-        // Swipe right - previous photo
-        {{ if .Params.prev_photo }}
-        window.location.href = '{{ .Params.prev_photo | relURL }}';
-        {{ end }}
-      }
-    }
-  }
-  
-  document.addEventListener('touchstart', e => {
-    touchStartX = e.changedTouches[0].screenX;
-  });
-  
-  document.addEventListener('touchend', e => {
-    touchEndX = e.changedTouches[0].screenX;
-    handleSwipe();
-  });
 });
 
 </script>

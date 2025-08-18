@@ -1,0 +1,82 @@
+{{/* Universal footer that adapts content based on page type */}}
+<footer class="universal-footer">
+  <div class="footer-content">
+    {{ if eq .Type "photo" }}
+      {{/* Photo page navigation controls */}}
+      <div class="footer-nav">
+        {{ if .Params.prev_photo }}
+        <a href="{{ .Params.prev_photo | relURL }}" class="nav-btn nav-prev">← Previous</a>
+        {{ else }}
+        <span class="nav-btn nav-prev disabled">← Previous</span>
+        {{ end }}
+        
+        {{ if and .Params.photo_number .Params.total_photos }}
+        <span class="photo-counter">Photo {{ .Params.photo_number }} of {{ .Params.total_photos }}</span>
+        {{ end }}
+        
+        {{ if .Params.next_photo }}
+        <a href="{{ .Params.next_photo | relURL }}" class="nav-btn nav-next">Next →</a>
+        {{ else }}
+        <span class="nav-btn nav-next disabled">Next →</span>
+        {{ end }}
+      </div>
+      
+      <div class="footer-divider"></div>
+      
+      <div class="footer-actions">
+        {{ if .Params.image }}
+        <a href="{{ .Params.image | relURL }}" download class="action-btn">Download</a>
+        {{ end }}
+        <button id="sharePhotoBtn" class="action-btn">Share</button>
+        <a href="/about/" class="action-btn">About</a>
+      </div>
+      
+      {{/* Move share button script here */}}
+      <script>
+      document.getElementById('sharePhotoBtn').addEventListener('click', function() {
+        const photoUrl = window.location.href;
+        const photoTitle = '{{ .Title }}';
+        
+        if (navigator.share) {
+          navigator.share({
+            title: photoTitle,
+            text: 'Check out this photo',
+            url: photoUrl
+          });
+        } else {
+          navigator.clipboard.writeText(photoUrl).then(function() {
+            const btn = document.getElementById('sharePhotoBtn');
+            const originalText = btn.textContent;
+            btn.textContent = 'Link Copied!';
+            setTimeout(() => {
+              btn.textContent = originalText;
+            }, 2000);
+          });
+        }
+      });
+      </script>
+      
+    {{ else if or (eq .Kind "home") (eq .Title "About") }}
+      {{/* Home and About page info */}}
+      <div class="footer-info">
+        <span class="footer-copyright">© 2025 John Benson</span>
+        <span class="footer-separator">•</span>
+        <span class="footer-location">Kansas City</span>
+        <span class="footer-separator">•</span>
+        <a href="mailto:john@fiverings.photo" class="footer-link">john@fiverings.photo</a>
+        {{ if not (eq .Title "About") }}
+        <span class="footer-separator">•</span>
+        <a href="/about/" class="footer-link">About</a>
+        {{ end }}
+      </div>
+      
+    {{ else }}
+      {{/* Gallery and other pages - minimal */}}
+      <div class="footer-minimal">
+        <a href="/" class="footer-link">Home</a>
+        <span class="footer-separator">•</span>
+        <a href="/about/" class="footer-link">About</a>
+      </div>
+    {{ end }}
+  </div>
+</footer>

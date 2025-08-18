@@ -101,32 +101,4 @@
   {{ end }}
 </div>
 
-<script>
-// Mobile gallery metadata handling
-if (window.matchMedia('(max-width: 768px)').matches) {
-  document.querySelectorAll('.gallery-item').forEach(item => {
-    // Add info button functionality
-    item.addEventListener('click', function(e) {
-      // Check if clicking on info button area (bottom-right corner)
-      const rect = this.getBoundingClientRect();
-      const clickX = e.clientX - rect.left;
-      const clickY = e.clientY - rect.top;
-      
-      // Info button is in bottom-right corner (44px x 44px from bottom-right)
-      if (clickX > rect.width - 60 && clickY > rect.height - 60) {
-        e.preventDefault();
-        e.stopPropagation();
-        this.classList.toggle('show-metadata');
-        
-        // Auto-hide after 3 seconds
-        if (this.classList.contains('show-metadata')) {
-          setTimeout(() => {
-            this.classList.remove('show-metadata');
-          }, 3000);
-        }
-      }
-    });
-  });
-}
-</script>
 {{ end }}

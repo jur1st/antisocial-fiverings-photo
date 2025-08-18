@@ -834,53 +834,6 @@ p {
     position: relative;
   }
   
-  .gallery-item::after {
-    content: "ⓘ";
-    position: absolute;
-    bottom: 12px;
-    right: 12px;
-    width: 44px;
-    height: 44px;
-    background: rgba(0, 0, 0, 0.8);
-    color: var(--accent-primary);
-    border-radius: 50%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    font-size: 20px;
-    font-weight: 500;
-    z-index: 10;
-    pointer-events: auto;
-    transition: all 0.2s ease;
-    border: 2px solid rgba(255, 215, 0, 0.3);
-  }
-  
-  .gallery-item::after:active {
-    background: rgba(0, 0, 0, 0.9);
-    color: var(--accent-primary-bright);
-    transform: scale(0.95);
-  }
-  
-  /* Show metadata when info button is tapped */
-  .gallery-item.show-metadata .gallery-info {
-    position: absolute;
-    bottom: 0;
-    left: 0;
-    right: 0;
-    background: linear-gradient(180deg, transparent 0%, rgba(0, 0, 0, 0.9) 40%, rgba(0, 0, 0, 0.95) 100%);
-    color: var(--accent-primary);
-    padding: 60px var(--space-3) var(--space-3) var(--space-3);
-    z-index: 8;
-    opacity: 1;
-    visibility: visible;
-  }
-  
-  .gallery-item.show-metadata .gallery-title,
-  .gallery-item.show-metadata .gallery-date,
-  .gallery-item.show-metadata .gallery-meta {
-    opacity: 1;
-    color: var(--accent-primary);
-  }
   
   /* Prevent navigation when metadata is shown */
   .gallery-item.show-metadata {
@@ -4487,6 +4440,101 @@ input, button, select, textarea {
   .nav-btn, .action-btn {
     font-size: var(--text-xs);
   }
+  
+  /* Hide bulky control strip on mobile */
+  .photo-control-strip {
+    display: none !important;
+  }
+  
+  /* Swipe hint indicators */
+  .swipe-hint-left,
+  .swipe-hint-right {
+    position: fixed;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 15px;
+    height: 80px;
+    pointer-events: none;
+    z-index: 50;
+    opacity: 0;
+    animation: pulse-hint 3s ease-in-out;
+  }
+  
+  .swipe-hint-left {
+    left: 0;
+    background: linear-gradient(90deg, rgba(255, 215, 0, 0.15), transparent);
+  }
+  
+  .swipe-hint-right {
+    right: 0;
+    background: linear-gradient(-90deg, rgba(255, 215, 0, 0.15), transparent);
+  }
+  
+  @keyframes pulse-hint {
+    0%, 100% { opacity: 0; }
+    20%, 40% { opacity: 1; }
+  }
+  
+  /* Minimal photo counter */
+  .mobile-photo-counter {
+    position: fixed;
+    top: 60px;
+    left: 50%;
+    transform: translateX(-50%);
+    background: rgba(0, 0, 0, 0.6);
+    color: var(--text-secondary);
+    padding: 3px 10px;
+    border-radius: 14px;
+    font-size: 11px;
+    font-family: var(--font-technical);
+    z-index: 50;
+  }
+  
+  /* Emergency navigation with About */
+  .mobile-emergency-nav {
+    position: fixed;
+    bottom: 20px;
+    left: 50%;
+    transform: translateX(-50%);
+    display: flex;
+    gap: 25px;
+    align-items: center;
+    opacity: 0.2;
+    transition: opacity 0.3s var(--ease-smooth);
+  }
+  
+  .mobile-emergency-nav:active {
+    opacity: 0.6;
+  }
+  
+  .mobile-emergency-nav a,
+  .mobile-emergency-nav span {
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+    background: rgba(0, 0, 0, 0.4);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    color: var(--text-tertiary);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 16px;
+    text-decoration: none;
+    font-family: var(--font-technical);
+  }
+  
+  .mobile-about-dot {
+    font-size: 12px !important;
+    font-style: normal;
+  }
+}
+
+/* Hide mobile elements on desktop */
+@media (min-width: 769px) {
+  .mobile-photo-nav {
+    display: none;
+  }
 }
 
 /* Tablet adjustments */
@@ -4523,4 +4571,139 @@ input, button, select, textarea {
     animation: none;
   }
   
+}
+
+/* ========================================= */
+/* UNIVERSAL FOOTER SYSTEM                  */
+/* ========================================= */
+
+/* Universal Footer System */
+.universal-footer {
+  position: sticky;
+  bottom: 0;
+  background: rgba(0, 0, 0, 0.95);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border-top: 1px solid var(--surface-border);
+  z-index: 100;
+  min-height: 48px;
+  display: flex;
+  align-items: center;
+  padding: 0 var(--space-4);
+  margin-top: auto; /* Push to bottom of viewport */
+}
+
+.footer-content {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--space-4);
+}
+
+/* Photo page navigation layout */
+.footer-nav {
+  display: flex;
+  align-items: center;
+  gap: var(--space-4);
+  flex: 1;
+}
+
+.footer-divider {
+  width: 1px;
+  height: 24px;
+  background: var(--surface-border);
+  opacity: 0.5;
+}
+
+.footer-actions {
+  display: flex;
+  gap: var(--space-3);
+}
+
+/* Info page layout (home/about) */
+.footer-info {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: var(--space-3);
+  font-size: var(--text-sm);
+  color: var(--text-secondary);
+}
+
+.footer-minimal {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: var(--space-3);
+  font-size: var(--text-sm);
+  color: var(--text-secondary);
+}
+
+.footer-link {
+  color: var(--text-secondary);
+  text-decoration: none;
+  transition: color 0.2s var(--ease-smooth);
+}
+
+.footer-link:hover {
+  color: var(--accent-primary);
+}
+
+.footer-separator {
+  color: var(--text-tertiary);
+  opacity: 0.5;
+}
+
+/* Mobile responsive */
+@media (max-width: 768px) {
+  .universal-footer {
+    padding: var(--space-3);
+    min-height: auto;
+  }
+  
+  /* Stack photo controls on mobile */
+  .footer-content {
+    flex-direction: column;
+    gap: var(--space-3);
+  }
+  
+  .footer-nav {
+    width: 100%;
+    justify-content: space-between;
+  }
+  
+  .footer-actions {
+    width: 100%;
+    justify-content: center;
+  }
+  
+  .footer-divider {
+    display: none;
+  }
+  
+  /* Smaller text on mobile */
+  .footer-info,
+  .footer-minimal {
+    flex-wrap: wrap;
+    font-size: var(--text-xs);
+    text-align: center;
+  }
+  
+  .photo-counter {
+    font-size: var(--text-sm);
+  }
+}
+
+/* Ensure main content pushes footer down */
+.container {
+  min-height: calc(100vh - 49px); /* Account for header */
+  display: flex;
+  flex-direction: column;
+}
+
+.main-content {
+  flex: 1;
 }
