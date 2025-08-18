@@ -1,3 +1,20 @@
+{{/*
+  Camera LCD-Style Metadata Display
+  
+  Renders camera metadata in a minimized LCD panel style similar to camera back displays.
+  Features:
+  - Monospace typography with green LCD glow
+  - Icons for exposure triangle (aperture, shutter, ISO)
+  - Collapsible interface to minimize visual weight
+  - Responsive grid layout
+  - Print-friendly fallback styling
+  - Accessibility features (reduced motion support)
+  
+  Data sources: 
+  - Gallery YAML front matter (camera_settings)
+  - Photo page front matter (location, speaker, etc.)
+*/}}
+
 {{ $photoSlug := .File.BaseFileName }}
 {{ $galleryPath := .Params.gallery }}
 {{ $cameraSettings := dict }}
@@ -19,89 +36,122 @@
   {{ $cameraSettings = dict "aperture" "f/2.8" "shutter" "1/125" "iso" "ISO 400" "body" "Camera" "lens" "Lens" }}
 {{ end }}
 
-<div class="camera-metadata">
-  <h3 class="metadata-title">Camera Settings</h3>
-  
-  <div class="metadata-section">
-    <div class="metadata-grid">
-      <!-- Core exposure triangle -->
-      <div class="metadata-item metadata-exposure">
-        <span class="metadata-label">Aperture</span>
-        <span class="metadata-value aperture-value">{{ $cameraSettings.aperture | default "f/2.8" }}</span>
-      </div>
-      
-      <div class="metadata-item metadata-exposure">
-        <span class="metadata-label">Shutter Speed</span>
-        <span class="metadata-value shutter-speed">{{ $cameraSettings.shutter | default "1/125" }}</span>
-      </div>
-      
-      <div class="metadata-item metadata-exposure">
-        <span class="metadata-label">ISO</span>
-        <span class="metadata-value iso-value">{{ $cameraSettings.iso | default "ISO 400" }}</span>
-      </div>
-      
-      {{ if $cameraSettings.focal_length }}
-      <div class="metadata-item metadata-exposure">
-        <span class="metadata-label">Focal Length</span>
-        <span class="metadata-value focal-length">{{ $cameraSettings.focal_length }}</span>
-      </div>
-      {{ end }}
-      
-      {{ if $cameraSettings.exposure_mode }}
-      <div class="metadata-item metadata-exposure">
-        <span class="metadata-label">Exposure Mode</span>
-        <span class="metadata-value exposure-mode">{{ $cameraSettings.exposure_mode }}</span>
-      </div>
-      {{ end }}
-      
-      {{ if $cameraSettings.metering_mode }}
-      <div class="metadata-item metadata-exposure">
-        <span class="metadata-label">Metering</span>
-        <span class="metadata-value metering-mode">{{ $cameraSettings.metering_mode }}</span>
-      </div>
-      {{ end }}
-    </div>
+<div class="camera-lcd-panel" id="camera-lcd-panel">
+  <!-- Camera LCD-style readout -->
+  <div class="lcd-header">
+    <span class="lcd-title">CAMERA DATA</span>
+    <button class="lcd-toggle" id="lcd-toggle" aria-label="Toggle camera data" type="button">
+      <span class="lcd-status">●</span>
+    </button>
   </div>
   
-  <div class="metadata-section">
-    <div class="metadata-grid">
-      <!-- Camera equipment -->
-      <div class="metadata-item metadata-equipment">
-        <span class="metadata-label">Camera</span>
-        <span class="metadata-value camera-model">{{ $cameraSettings.body | default "Camera" }}</span>
-      </div>
-      
-      <div class="metadata-item metadata-equipment">
-        <span class="metadata-label">Lens</span>
-        <span class="metadata-value focal-length">{{ $cameraSettings.lens | default "Lens" }}</span>
-      </div>
+  <div class="lcd-content" id="lcd-content">
+  
+  <!-- Exposure triangle - most prominent -->
+  <div class="lcd-exposure-group">
+    <div class="lcd-exposure-item aperture">
+      <span class="lcd-icon">⌖</span>
+      <span class="lcd-value">{{ $cameraSettings.aperture | default "f/2.8" }}</span>
     </div>
+    
+    <div class="lcd-exposure-item shutter">
+      <span class="lcd-icon">⚡</span>
+      <span class="lcd-value">{{ $cameraSettings.shutter | default "1/125" }}</span>
+    </div>
+    
+    <div class="lcd-exposure-item iso">
+      <span class="lcd-icon">⚙</span>
+      <span class="lcd-value">{{ $cameraSettings.iso | default "ISO 400" }}</span>
+    </div>
+    
+    {{ if $cameraSettings.focal_length }}
+    <div class="lcd-exposure-item focal">
+      <span class="lcd-icon">⊙</span>
+      <span class="lcd-value">{{ $cameraSettings.focal_length }}</span>
+    </div>
+    {{ end }}
   </div>
   
-  {{ if or .Params.speaker .Params.location .Params.original_filename }}
-  <div class="metadata-section">
-    <div class="metadata-grid">
-      {{ if .Params.speaker }}
-      <div class="metadata-item">
-        <span class="metadata-label">Speaker</span>
-        <span class="metadata-value">{{ .Params.speaker }}</span>
-      </div>
-      {{ end }}
-      
-      {{ if .Params.location }}
-      <div class="metadata-item">
-        <span class="metadata-label">Location</span>
-        <span class="metadata-value">{{ .Params.location }}</span>
-      </div>
-      {{ end }}
-      
-      {{ if .Params.original_filename }}
-      <div class="metadata-item">
-        <span class="metadata-label">Original</span>
-        <span class="metadata-value">{{ .Params.original_filename }}</span>
-      </div>
-      {{ end }}
+  <!-- Secondary settings -->
+  {{ if or $cameraSettings.exposure_mode $cameraSettings.metering_mode }}
+  <div class="lcd-settings-group">
+    {{ if $cameraSettings.exposure_mode }}
+    <div class="lcd-setting">
+      <span class="lcd-label">MODE</span>
+      <span class="lcd-data">{{ $cameraSettings.exposure_mode }}</span>
     </div>
+    {{ end }}
+    
+    {{ if $cameraSettings.metering_mode }}
+    <div class="lcd-setting">
+      <span class="lcd-label">METER</span>
+      <span class="lcd-data">{{ $cameraSettings.metering_mode }}</span>
+    </div>
+    {{ end }}
   </div>
   {{ end }}
+  
+  <!-- Equipment info - most compact -->
+  <div class="lcd-equipment-group">
+    <div class="lcd-equipment">
+      <span class="lcd-label">BODY</span>
+      <span class="lcd-data">{{ $cameraSettings.body | default "CAMERA" }}</span>
+    </div>
+    
+    <div class="lcd-equipment">
+      <span class="lcd-label">LENS</span>
+      <span class="lcd-data">{{ $cameraSettings.lens | default "LENS" }}</span>
+    </div>
+  </div>
+  
+  
+  <!-- Context info - minimal -->
+  {{ if or .Params.speaker .Params.location .Params.original_filename }}
+  <div class="lcd-context-group">
+    {{ if .Params.speaker }}
+    <div class="lcd-context">
+      <span class="lcd-label">SPEAKER</span>
+      <span class="lcd-data">{{ .Params.speaker }}</span>
+    </div>
+    {{ end }}
+    
+    {{ if .Params.location }}
+    <div class="lcd-context">
+      <span class="lcd-label">LOC</span>
+      <span class="lcd-data">{{ .Params.location }}</span>
+    </div>
+    {{ end }}
+    
+    {{ if .Params.original_filename }}
+    <div class="lcd-context">
+      <span class="lcd-label">FILE</span>
+      <span class="lcd-data">{{ .Params.original_filename }}</span>
+    </div>
+    {{ end }}
+  </div>
+  {{ end }}
+  </div>
 </div>
+
+<script>
+// LCD Panel Toggle Functionality
+document.addEventListener('DOMContentLoaded', function() {
+  const lcdToggle = document.getElementById('lcd-toggle');
+  const lcdContent = document.getElementById('lcd-content');
+  const lcdPanel = document.getElementById('camera-lcd-panel');
+  
+  if (lcdToggle && lcdContent) {
+    lcdToggle.addEventListener('click', function() {
+      const isCollapsed = lcdContent.style.display === 'none';
+      lcdContent.style.display = isCollapsed ? 'block' : 'none';
+      lcdPanel.classList.toggle('collapsed', !isCollapsed);
+      
+      // Update status indicator
+      const statusIcon = lcdToggle.querySelector('.lcd-status');
+      if (statusIcon) {
+        statusIcon.textContent = isCollapsed ? '●' : '○';
+      }
+    });
+  }
+});
+</script>

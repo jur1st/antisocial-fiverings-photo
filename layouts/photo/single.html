@@ -10,130 +10,65 @@
     <span>{{ .Title }}</span>
   </nav>
 
-  <div class="photo-nav">
-    {{ if .Params.prev_photo }}
-    <a href="{{ .Params.prev_photo | relURL }}" class="btn btn-secondary">← Previous</a>
-    {{ end }}
-    
-    <div class="photo-counter">
-      {{ if and .Params.photo_number .Params.total_photos }}
-      Photo {{ .Params.photo_number }} of {{ .Params.total_photos }}
-      {{ end }}
-    </div>
-    
-    {{ if .Params.next_photo }}
-    <a href="{{ .Params.next_photo | relURL }}" class="btn btn-secondary">Next →</a>
-    {{ end }}
-  </div>
 
   <div class="photo-display-container">
-    <div class="photo-container">
-      {{ if .Params.image }}
-        {{ $imagePath := .Params.image }}
-        {{ $imageResource := resources.Get $imagePath }}
-        {{ if $imageResource }}
-          <!-- Generate responsive image sizes -->
-          {{ $thumbnail := $imageResource.Resize "400x" }}
-          {{ $medium := $imageResource.Resize "800x" }}
-          {{ $large := $imageResource.Resize "1200x" }}
-          {{ $xlarge := $imageResource.Resize "1920x" }}
-          
-          <!-- Generate WebP versions for modern browsers -->
-          {{ $thumbnailWebP := $thumbnail.Process "webp q85" }}
-          {{ $mediumWebP := $medium.Process "webp q85" }}
-          {{ $largeWebP := $large.Process "webp q85" }}
-          {{ $xlargeWebP := $xlarge.Process "webp q85" }}
-          
-          <picture>
-            <!-- WebP sources for modern browsers -->
-            <source 
-              srcset="{{ $thumbnailWebP.RelPermalink }} 400w,
-                      {{ $mediumWebP.RelPermalink }} 800w,
-                      {{ $largeWebP.RelPermalink }} 1200w,
-                      {{ $xlargeWebP.RelPermalink }} 1920w"
-              sizes="(max-width: 400px) 400px,
-                     (max-width: 800px) 800px,
-                     (max-width: 1200px) 1200px,
-                     1920px"
-              type="image/webp">
-            
-            <!-- JPEG fallback for older browsers -->
-            <img 
-              src="{{ $medium.RelPermalink }}"
-              srcset="{{ $thumbnail.RelPermalink }} 400w,
-                      {{ $medium.RelPermalink }} 800w,
-                      {{ $large.RelPermalink }} 1200w,
-                      {{ $xlarge.RelPermalink }} 1920w"
-              sizes="(max-width: 400px) 400px,
-                     (max-width: 800px) 800px,
-                     (max-width: 1200px) 1200px,
-                     1920px"
-              alt="{{ .Title }}" 
-              class="photo-main" 
-              loading="lazy"
-              width="{{ $medium.Width }}"
-              height="{{ $medium.Height }}">
-          </picture>
-        {{ else }}
-          <!-- Fallback for when image resource is not found -->
-          <img src="{{ .Params.image | relURL }}" alt="{{ .Title }}" class="photo-main" loading="lazy">
-        {{ end }}
-      {{ end }}
-      
-      <div class="photo-actions">
-        {{ if .Params.image }}
-        <a href="{{ .Params.image | relURL }}" download class="btn btn-primary btn-large">
-          Download Original
-        </a>
-        {{ end }}
-        
-        <button id="sharePhotoBtn" class="btn btn-secondary">
-          Share Link
-        </button>
-        
-        <a href="#request-removal" class="btn btn-secondary">
-          Remove from Gallery
-        </a>
-      </div>
-    </div>
+    {{/* Slide mount wrapper replaces photo-container */}}
+    {{ partial "slide-mount-detail.html" . }}
+    
+    {{/* Photo actions moved outside slide mount */}}
 
     <!-- Enhanced Camera Metadata Panel -->
     {{ partial "camera-metadata.html" . }}
   </div>
 
-  <!-- Photo removal section -->
-  <div class="photo-removal-section" id="request-removal">
-    <h3>Is This Your Photo?</h3>
-    <p>If you're in this photo and would like it removed from the gallery, I'm happy to honor that request.</p>
-    <div class="removal-options">
-      <p>You can:</p>
-      <div class="removal-actions">
-        <a href="mailto:privacy@fiverings.photo?subject=Photo%20Removal%20Request%20-%20{{ .Title | urlize }}" class="btn btn-secondary">
-          Request Removal via Email
-        </a>
-        <span class="option-separator">and if you'd like</span>
-        <a href="/about#support" class="btn btn-primary">
-          Support the Artist
-        </a>
+  <div class="photo-control-strip">
+    <div class="control-nav">
+      {{ if .Params.prev_photo }}
+      <a href="{{ .Params.prev_photo | relURL }}" class="nav-btn nav-prev">← Previous</a>
+      {{ else }}
+      <span class="nav-btn nav-prev disabled">← Previous</span>
+      {{ end }}
+      
+      <div class="photo-counter">
+        {{ if and .Params.photo_number .Params.total_photos }}
+        Photo {{ .Params.photo_number }} of {{ .Params.total_photos }}
+        {{ end }}
       </div>
-      <p class="removal-note">Your privacy matters. Removal requests are processed promptly, no questions asked.</p>
+      
+      {{ if .Params.next_photo }}
+      <a href="{{ .Params.next_photo | relURL }}" class="nav-btn nav-next">Next →</a>
+      {{ else }}
+      <span class="nav-btn nav-next disabled">Next →</span>
+      {{ end }}
+    </div>
+    
+    <div class="control-divider"></div>
+    
+    <div class="control-actions">
+      {{ if .Params.image }}
+      <a href="{{ .Params.image | relURL }}" download class="action-btn">Download</a>
+      {{ end }}
+      <button id="sharePhotoBtn" class="action-btn">Share</button>
     </div>
   </div>
+
 </div>
 
 <script>
 document.addEventListener('DOMContentLoaded', function() {
   const shareBtn = document.getElementById('sharePhotoBtn');
   const photoMain = document.querySelector('.photo-main');
-  const displayContainer = document.querySelector('.photo-display-container');
+  const slideMount = document.querySelector('.slide-mount-detail');
   
-  // Portrait orientation detection for side-by-side layout
-  if (photoMain && displayContainer) {
+  // Portrait orientation detection for slide mount
+  if (photoMain && slideMount) {
     function checkOrientation() {
       if (photoMain.naturalHeight > photoMain.naturalWidth) {
-        displayContainer.classList.add('portrait-layout');
+        slideMount.classList.remove('landscape');
+        slideMount.classList.add('portrait');
       } else {
-        displayContainer.classList.remove('portrait-layout');
+        slideMount.classList.remove('portrait');
+        slideMount.classList.add('landscape');
       }
     }
     
@@ -178,6 +113,7 @@ document.addEventListener('DOMContentLoaded', function() {
       }
     });
   }
+  
   
   // Keyboard navigation
   document.addEventListener('keydown', function(e) {

@@ -112,6 +112,12 @@
   --transition-base: 0.2s;
   --transition-slow: 0.3s;
   --transition-slower: 0.6s;
+  
+  /* Premium easing curves for smooth animations */
+  --ease-smooth: cubic-bezier(0.4, 0.0, 0.2, 1);
+  --ease-gentle: cubic-bezier(0.25, 0.1, 0.25, 1);
+  --ease-bounce: cubic-bezier(0.68, -0.55, 0.265, 1.55);
+  
   --ease-default: ease;
   --ease-in-out: cubic-bezier(0.4, 0, 0.2, 1);
   --ease-out: cubic-bezier(0, 0, 0.2, 1);
@@ -160,6 +166,7 @@
   --gray-light: var(--text-tertiary);
   --nikon-yellow: var(--accent-primary);
   --nikon-yellow-dim: var(--accent-primary-dim);
+  --nikon-yellow-glow: var(--accent-primary-glow);
 }
 
 /* Flynn Mode - Dark theme with Tron elements */
@@ -193,6 +200,7 @@
   /* Precision engineering typography in Flynn mode */
   --font-display: 'Berkeley Mono', 'Terminus', 'Monaco', ui-monospace, 'Menlo', 'Consolas', 'Liberation Mono', 'Courier New', monospace;
   --font-reading: 'Berkeley Mono', 'Terminus', 'Monaco', ui-monospace, 'Menlo', 'Consolas', 'Liberation Mono', 'Courier New', monospace;
+  --font-body: 'Berkeley Mono', 'Terminus', 'Monaco', ui-monospace, 'Menlo', 'Consolas', 'Liberation Mono', 'Courier New', monospace;
   
   /* Flynn theme Nikon yellow shadows */
   --shadow-subtle: 0 2px 4px rgba(255, 215, 0, 0.2);
@@ -318,17 +326,6 @@
   letter-spacing: -0.015em;
 }
 
-[data-theme="light"] .site-title {
-  font-family: var(--font-reading); /* Crimson Text serif */
-  font-weight: 600;
-  letter-spacing: -0.01em;
-}
-
-[data-theme="light"] .gallery-title {
-  font-family: var(--font-reading); /* Crimson Text serif */
-  font-weight: 400;
-  letter-spacing: 0;
-}
 
 /* Performance Optimization */
 * {
@@ -391,6 +388,7 @@ img {
 }
 
 .site-title {
+  font-family: var(--font-display);
   font-size: var(--text-2xl);
   font-weight: 400;
   text-decoration: none;
@@ -593,7 +591,10 @@ p {
   border-top: 1px solid #3a3a3a; /* Subtle top highlight for dimension */
   border-radius: 3px; /* Sharp corners like actual slides */
   overflow: hidden;
-  transition: transform 0.3s ease, box-shadow 0.3s ease, border-color 0.3s ease;
+  transition: 
+    transform var(--transition-slow) var(--ease-smooth), 
+    box-shadow var(--transition-slow) var(--ease-smooth), 
+    border-color var(--transition-slow) var(--ease-smooth);
   cursor: pointer;
   /* Multi-layer shadows for physical depth */
   box-shadow: 
@@ -617,13 +618,14 @@ p {
 }
 
 .gallery-item:hover {
-  /* Lift effect like picking up the slide */
-  transform: translateY(-4px);
-  /* Enhanced shadows for elevation */
+  /* Enhanced lift effect with subtle scale */
+  transform: translateY(-6px) scale(1.005);
+  /* Premium shadows with Flynn theme glow */
   box-shadow: 
-    0 2px 4px rgba(0, 0, 0, 0.5),    /* Contact shadow */
-    0 8px 16px rgba(0, 0, 0, 0.4),   /* Depth shadow */
-    0 16px 32px rgba(0, 0, 0, 0.3);  /* Ambient shadow */
+    0 3px 6px rgba(0, 0, 0, 0.6),    /* Contact shadow */
+    0 12px 24px rgba(0, 0, 0, 0.5),  /* Depth shadow */
+    0 24px 48px rgba(0, 0, 0, 0.4),  /* Ambient shadow */
+    0 0 0 1px rgba(255, 215, 0, 0.2); /* Nikon yellow glow */
   border-color: var(--accent-primary-dim);
 }
 
@@ -856,6 +858,74 @@ p {
   margin: var(--spacing-md) 0;
 }
 
+/* Ensure vertical stacking below side-by-side breakpoint */
+@media (max-width: 1279px) {
+  .photo-display-container {
+    grid-template-columns: 1fr;
+    gap: var(--spacing-lg);
+    justify-items: center; /* Center both slide mount and LCD panel */
+  }
+  
+  /* Make camera LCD panel match slide mount width and center */
+  .camera-lcd-panel {
+    width: 100%;
+    max-width: 900px !important; /* Match slide mount max-width */
+    margin: var(--space-4) auto !important; /* Center horizontally */
+    position: static !important; /* Remove sticky positioning in vertical stack */
+  }
+}
+
+/* Desktop: Side-by-side layout - comfortable minimum width */
+@media (min-width: 1280px) {
+  .photo-display-container {
+    grid-template-columns: 1fr auto;
+    gap: var(--space-4); /* 32px */
+    align-items: start;
+  }
+  
+  /* Constrain LCD panel width on desktop */
+  .camera-lcd-panel {
+    min-width: 300px;
+    max-width: 360px;
+    position: sticky;
+    top: var(--space-4);
+  }
+}
+
+/* Larger desktop screens */
+@media (min-width: 1400px) {
+  .photo-display-container {
+    gap: var(--space-6); /* 48px */
+  }
+  
+  .camera-lcd-panel {
+    min-width: 320px;
+    max-width: 380px;
+  }
+}
+
+/* Large screens: More breathing room */
+@media (min-width: 1600px) {
+  .photo-display-container {
+    gap: var(--space-16); /* 64px */
+  }
+  
+  .camera-lcd-panel {
+    max-width: 420px;
+  }
+}
+
+/* Extra large screens */
+@media (min-width: 1920px) {
+  .photo-display-container {
+    gap: var(--space-20); /* 80px */
+  }
+  
+  .camera-lcd-panel {
+    max-width: 450px;
+  }
+}
+
 .photo-container {
   background: var(--surface-panel);
   border: 1px solid var(--surface-border);
@@ -873,15 +943,6 @@ p {
   background: var(--surface-overlay);
 }
 
-.photo-actions {
-  padding: var(--spacing-md);
-  background: var(--surface-panel);
-  border-top: 1px solid var(--surface-border);
-  display: flex;
-  flex-wrap: wrap;
-  gap: var(--spacing-sm);
-  justify-content: center;
-}
 
 /* Button System */
 .btn {
@@ -956,20 +1017,6 @@ p {
   opacity: 0.6;
 }
 
-/* Photo Navigation */
-.photo-nav {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  margin: var(--spacing-md) 0;
-}
-
-.photo-counter {
-  color: var(--accent-primary-dim);
-  font-size: 0.9rem;
-  opacity: 0.8;
-  font-family: var(--font-technical);
-}
 
 /* Individual Photo Page Styles */
 .photo-content {
@@ -977,11 +1024,6 @@ p {
   color: var(--text-secondary);
 }
 
-.photo-removal-section {
-  margin-top: var(--spacing-xl);
-  padding-top: var(--spacing-lg);
-  border-top: 1px solid var(--surface-border);
-}
 
 .removal-email-link {
   color: var(--accent-primary);
@@ -1038,6 +1080,248 @@ p {
   font-size: 0.9rem;
   font-weight: 500;
   text-align: right;
+}
+
+/* Camera LCD Panel - Minimized Display */
+.camera-lcd-panel {
+  background: #0a0a0a;
+  border: 2px solid #1a1a1a;
+  border-radius: 6px;
+  padding: var(--space-3);
+  margin: var(--space-4) auto; /* Center by default */
+  font-family: var(--font-technical);
+  box-shadow: 
+    0 0 8px rgba(0, 0, 0, 0.8),
+    inset 0 1px 0 rgba(255, 255, 255, 0.1);
+  position: relative;
+  width: 100%;
+  max-width: 480px;
+}
+
+.camera-lcd-panel::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: 
+    repeating-linear-gradient(
+      90deg,
+      transparent,
+      transparent 2px,
+      rgba(0, 255, 65, 0.02) 2px,
+      rgba(0, 255, 65, 0.02) 4px
+    ),
+    linear-gradient(
+      180deg,
+      rgba(255, 255, 255, 0.02) 0%,
+      transparent 50%,
+      rgba(0, 0, 0, 0.1) 100%
+    );
+  border-radius: 4px;
+  pointer-events: none;
+}
+
+/* Add subtle animation for LCD authenticity */
+@keyframes lcd-flicker {
+  0%, 98%, 100% { opacity: 1; }
+  99% { opacity: 0.98; }
+}
+
+.camera-lcd-panel {
+  animation: lcd-flicker 8s infinite;
+}
+
+/* Respect reduced motion preferences */
+@media (prefers-reduced-motion: reduce) {
+  .camera-lcd-panel {
+    animation: none;
+  }
+  
+  .camera-lcd-panel::before {
+    background: linear-gradient(
+      180deg,
+      rgba(255, 255, 255, 0.02) 0%,
+      transparent 50%,
+      rgba(0, 0, 0, 0.1) 100%
+    );
+  }
+  
+  .lcd-toggle,
+  .lcd-content {
+    transition: none;
+  }
+}
+
+.lcd-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: var(--space-3);
+  padding-bottom: var(--space-1);
+  border-bottom: 1px solid #2a2a2a;
+}
+
+.lcd-title {
+  color: #00ff41;
+  font-size: 0.7rem;
+  font-weight: 700;
+  letter-spacing: 0.8px;
+  text-shadow: 0 0 4px rgba(0, 255, 65, 0.3);
+}
+
+.lcd-toggle {
+  background: none;
+  border: none;
+  padding: 0;
+  cursor: pointer;
+  transition: transform 0.2s ease;
+}
+
+.lcd-toggle:hover {
+  transform: scale(1.1);
+}
+
+.lcd-status {
+  color: #00ff41;
+  font-size: 0.6rem;
+  text-shadow: 0 0 3px rgba(0, 255, 65, 0.5);
+  transition: color 0.2s ease;
+}
+
+.camera-lcd-panel.collapsed {
+  padding: var(--space-2) var(--space-3);
+}
+
+.camera-lcd-panel.collapsed .lcd-status {
+  color: #666;
+  text-shadow: none;
+}
+
+.lcd-content {
+  transition: opacity 0.3s ease;
+}
+
+/* Exposure triangle - most prominent */
+.lcd-exposure-group {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(80px, 1fr));
+  gap: var(--space-2);
+  margin-bottom: var(--space-3);
+  padding: var(--space-2);
+  background: rgba(0, 255, 65, 0.03);
+  border-radius: 4px;
+  border: 1px solid rgba(0, 255, 65, 0.1);
+}
+
+.lcd-exposure-item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: var(--space-1);
+}
+
+.lcd-icon {
+  color: #ffaa00;
+  font-size: 1rem;
+  text-shadow: 0 0 4px rgba(255, 170, 0, 0.4);
+  display: inline-block;
+  width: 16px;
+  text-align: center;
+  font-family: var(--font-technical);
+}
+
+/* Fallback for icons in case unicode doesn't render */
+.lcd-exposure-item.aperture .lcd-icon::before { content: '⌖'; }
+.lcd-exposure-item.shutter .lcd-icon::before { content: '⚡'; }
+.lcd-exposure-item.iso .lcd-icon::before { content: '⚙'; }
+.lcd-exposure-item.focal .lcd-icon::before { content: '⦿'; }
+
+/* Alternative ASCII fallbacks for maximum compatibility */
+@supports not (content: '⌖') {
+  .lcd-exposure-item.aperture .lcd-icon::before { content: 'f/'; }
+  .lcd-exposure-item.shutter .lcd-icon::before { content: 'T'; }
+  .lcd-exposure-item.iso .lcd-icon::before { content: 'I'; }
+  .lcd-exposure-item.focal .lcd-icon::before { content: 'L'; }
+}
+
+.lcd-value {
+  color: #00ff41;
+  font-size: 0.8rem;
+  font-weight: 600;
+  text-align: center;
+  text-shadow: 0 0 2px rgba(0, 255, 65, 0.3);
+  min-width: 60px;
+}
+
+/* Secondary settings */
+.lcd-settings-group {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(100px, 1fr));
+  gap: var(--space-2);
+  margin-bottom: var(--space-3);
+}
+
+.lcd-setting {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: var(--space-1) var(--space-2);
+  background: rgba(255, 255, 255, 0.02);
+  border-radius: 3px;
+}
+
+/* Equipment info - most compact */
+.lcd-equipment-group {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
+  gap: var(--space-1);
+  margin-bottom: var(--space-2);
+}
+
+.lcd-equipment {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: calc(var(--space-1) * 0.5) var(--space-1);
+}
+
+/* Context info - minimal */
+.lcd-context-group {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(100px, 1fr));
+  gap: calc(var(--space-1) * 0.5);
+  border-top: 1px solid #2a2a2a;
+  padding-top: var(--space-2);
+  margin-top: var(--space-2);
+}
+
+.lcd-context {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: calc(var(--space-1) * 0.5);
+  font-size: 0.65rem;
+}
+
+.lcd-label {
+  color: #888;
+  font-size: 0.65rem;
+  font-weight: 500;
+  letter-spacing: 0.3px;
+  text-transform: uppercase;
+}
+
+.lcd-data {
+  color: #ccc;
+  font-size: 0.7rem;
+  font-weight: 400;
+  text-align: right;
+  max-width: 120px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
 }
 
 /* Small Tablet - Homepage button adjustments */
@@ -1180,10 +1464,6 @@ p {
     max-height: 50vh; /* Smaller on ultra-small screens */
   }
   
-  .photo-actions {
-    padding: var(--space-2);
-    gap: var(--space-2);
-  }
   
   /* Metadata ultra-compact */
   .camera-metadata {
@@ -1207,6 +1487,48 @@ p {
   .metadata-value {
     font-size: 0.75rem;
     text-align: left;
+  }
+  
+  /* LCD Panel ultra-compact */
+  .camera-lcd-panel {
+    padding: var(--space-2);
+    margin: var(--space-2) 0;
+    max-width: 100%;
+  }
+  
+  .lcd-title {
+    font-size: 0.6rem;
+  }
+  
+  .lcd-exposure-group {
+    grid-template-columns: repeat(3, 1fr);
+    gap: var(--space-1);
+    padding: var(--space-1);
+  }
+  
+  .lcd-icon {
+    font-size: 0.8rem;
+  }
+  
+  .lcd-value {
+    font-size: 0.7rem;
+    min-width: 45px;
+  }
+  
+  .lcd-settings-group,
+  .lcd-equipment-group,
+  .lcd-context-group {
+    grid-template-columns: 1fr;
+    gap: calc(var(--space-1) * 0.5);
+  }
+  
+  .lcd-label {
+    font-size: 0.6rem;
+  }
+  
+  .lcd-data {
+    font-size: 0.65rem;
+    max-width: 100px;
   }
   
   /* Breadcrumb ultra-compact */
@@ -1269,11 +1591,6 @@ p {
     gap: var(--spacing-sm);
   }
   
-  .photo-actions {
-    padding: var(--spacing-sm);
-    flex-direction: column;
-    align-items: center;
-  }
   
   .btn {
     width: 100%;
@@ -1286,15 +1603,37 @@ p {
     margin: var(--spacing-sm) 0;
   }
   
-  .photo-nav {
-    flex-direction: column;
-    gap: var(--spacing-sm);
-  }
   
   /* Camera metadata mobile optimization */
   .camera-metadata {
     padding: var(--spacing-sm);
     margin: var(--spacing-sm) 0;
+  }
+  
+  /* LCD Panel mobile optimization */
+  .camera-lcd-panel {
+    padding: var(--space-3);
+    margin: var(--space-3) 0;
+    max-width: 100%;
+  }
+  
+  .lcd-exposure-group {
+    grid-template-columns: repeat(auto-fit, minmax(70px, 1fr));
+    gap: var(--space-2);
+  }
+  
+  .lcd-value {
+    font-size: 0.75rem;
+    min-width: 50px;
+  }
+  
+  .lcd-settings-group,
+  .lcd-equipment-group {
+    grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
+  }
+  
+  .lcd-context-group {
+    grid-template-columns: 1fr;
   }
   
   .metadata-grid {
@@ -1335,11 +1674,6 @@ p {
     margin-top: var(--spacing-md);
   }
   
-  /* Photo removal section mobile optimization */
-  .photo-removal-section {
-    margin-top: var(--spacing-lg);
-    padding-top: var(--spacing-md);
-  }
   
   /* Event context sections mobile optimization */
   .event-context, .speaker-bio {
@@ -1369,13 +1703,6 @@ p {
 @media (min-width: 768px) and (max-width: 900px) {
   /* Gallery grid uses auto-fit base rule - no column override needed */
   
-  /* Button layout optimization for cursor interaction */
-  .photo-actions {
-    flex-direction: row;
-    justify-content: center;
-    gap: var(--spacing-md);
-    padding: var(--spacing-md);
-  }
   
   .btn {
     padding: calc(var(--spacing-sm) * 0.75) var(--spacing-md);
@@ -1408,17 +1735,6 @@ p {
     border-radius: 10px;
   }
   
-  .photo-nav {
-    flex-direction: row;
-    justify-content: space-between;
-    align-items: center;
-    margin: var(--spacing-md) 0;
-  }
-  
-  .photo-nav .btn {
-    min-width: 120px;
-    padding: calc(var(--spacing-sm) * 0.75) var(--spacing-sm);
-  }
   
   /* Typography adjustments */
   .nav-breadcrumb {
@@ -1452,12 +1768,6 @@ p {
 @media (min-width: 901px) and (max-width: 1023px) {
   /* Gallery grid uses auto-fit base rule - no column override needed */
   
-  /* Enhanced button layout */
-  .photo-actions {
-    flex-direction: row;
-    justify-content: center;
-    gap: var(--spacing-lg);
-  }
   
   .btn {
     min-width: 160px;
@@ -1499,12 +1809,6 @@ p {
     gap: var(--spacing-lg);
   }
   
-  .photo-actions {
-    flex-direction: row;
-    justify-content: center;
-    gap: var(--spacing-lg);
-    padding: var(--spacing-lg);
-  }
   
   .btn {
     min-width: 180px;
@@ -1518,11 +1822,6 @@ p {
     box-shadow: var(--shadow-glow);
   }
   
-  /* Enhanced navigation buttons */
-  .photo-nav .btn {
-    min-width: 150px;
-    padding: 0.875rem 1.5rem;
-  }
   
   /* Better metadata layout */
   .metadata-grid {
@@ -1570,12 +1869,6 @@ p {
     gap: var(--spacing-lg);
   }
   
-  .photo-actions {
-    flex-direction: row;
-    justify-content: center;
-    gap: 2rem;
-    padding: var(--spacing-xl);
-  }
   
   .btn {
     min-width: 200px;
@@ -1589,11 +1882,6 @@ p {
     box-shadow: var(--shadow-glow);
   }
   
-  /* Enhanced navigation buttons */
-  .photo-nav .btn {
-    min-width: 170px;
-    padding: 1rem 1.75rem;
-  }
   
   /* Better typography for desktop viewing */
   .metadata-title {
@@ -1657,12 +1945,6 @@ p {
     gap: var(--spacing-xl);
   }
   
-  .photo-actions {
-    flex-direction: row;
-    justify-content: center;
-    gap: 2.5rem;
-    padding: var(--spacing-xl);
-  }
   
   .btn {
     min-width: 220px;
@@ -1676,11 +1958,6 @@ p {
     box-shadow: var(--shadow-glow);
   }
   
-  /* Enhanced navigation buttons */
-  .photo-nav .btn {
-    min-width: 190px;
-    padding: 1.125rem 2rem;
-  }
   
   /* Ultra-wide desktop typography */
   .metadata-title {
@@ -1788,15 +2065,6 @@ p {
     font-size: 1rem;
   }
   
-  /* Ultra-wide photo actions */
-  .photo-actions {
-    flex-direction: row;
-    justify-content: center;
-    gap: 3rem;
-    padding: var(--spacing-xl);
-    max-width: 1200px;
-    margin: 0 auto;
-  }
   
   .btn {
     min-width: 250px;
@@ -1923,15 +2191,6 @@ p {
     font-size: 1.1rem;
   }
   
-  /* Extreme ultra-wide photo actions */
-  .photo-actions {
-    flex-direction: row;
-    justify-content: center;
-    gap: 4rem;
-    padding: var(--spacing-xl);
-    max-width: 1400px;
-    margin: 0 auto;
-  }
   
   .btn {
     min-width: 280px;
@@ -2013,16 +2272,23 @@ p {
 }
 
 /* Portrait Photo + Metadata Side-by-Side Layout */
-@media (min-width: 1200px) {
+@media (min-width: 1280px) {
   .photo-display-container.portrait-layout {
-    grid-template-columns: 1fr 400px;
+    grid-template-columns: 1fr 380px;
     align-items: start;
-    gap: 2rem;
+    gap: 1.5rem;
   }
   
   .photo-display-container.portrait-layout .camera-metadata {
     max-height: 80vh;
     overflow-y: auto;
+  }
+}
+
+@media (min-width: 1400px) {
+  .photo-display-container.portrait-layout {
+    grid-template-columns: 1fr 400px;
+    gap: 2rem;
   }
 }
 
@@ -2061,6 +2327,7 @@ p {
 }
 
 .featured-content {
+  font-family: var(--font-reading);
   margin-bottom: var(--spacing-lg);
   line-height: 1.6;
 }
@@ -2107,6 +2374,7 @@ p {
 }
 
 .speaker-title {
+  font-family: var(--font-display);
   color: var(--gray-light);
   font-size: 0.9rem;
   opacity: 0.9;
@@ -2600,8 +2868,8 @@ p {
   .gallery-item:hover,
   .btn:hover,
   .nav-link-prominent:hover {
-    -webkit-transform: translateY(-4px) translateZ(0);
-    transform: translateY(-4px) translateZ(0);
+    -webkit-transform: translateY(-6px) scale(1.005) translateZ(0);
+    transform: translateY(-6px) scale(1.005) translateZ(0);
   }
   
   /* Webkit transition smoothing */
@@ -2681,7 +2949,7 @@ input, button, select, textarea {
   body {
     background: white !important;
     color: black !important;
-    font-family: 'Crimson Text', Georgia, serif !important;
+    font-family: var(--font-technical) !important;
     font-size: 12pt !important;
     line-height: 1.4 !important;
     margin: 0 !important;
@@ -2698,10 +2966,8 @@ input, button, select, textarea {
   .theme-toggle-btn,
   .btn,
   .nav-link-prominent,
-  .photo-actions,
   .site-navigation,
   .site-navigation-prominent,
-  .photo-nav,
   .skip-link {
     display: none !important;
   }
@@ -2813,7 +3079,7 @@ input, button, select, textarea {
     font-size: 13pt !important;
     font-weight: bold !important;
     margin-bottom: 0.05in !important;
-    font-family: 'Crimson Text', serif !important;
+    font-family: var(--font-technical) !important;
     text-transform: none !important;
   }
   
@@ -2821,7 +3087,7 @@ input, button, select, textarea {
     color: #666 !important;
     font-size: 10pt !important;
     margin-bottom: 0.05in !important;
-    font-family: 'Crimson Text', serif !important;
+    font-family: var(--font-technical) !important;
   }
   
   .gallery-speaker {
@@ -2869,7 +3135,7 @@ input, button, select, textarea {
     font-size: 12pt !important;
     font-weight: bold !important;
     margin-bottom: 0.1in !important;
-    font-family: 'Berkeley Mono', monospace !important;
+    font-family: var(--font-technical) !important;
   }
   
   .metadata-grid {
@@ -2890,14 +3156,86 @@ input, button, select, textarea {
   .metadata-label {
     color: black !important;
     font-size: 10pt !important;
-    font-family: 'Berkeley Mono', monospace !important;
+    font-family: var(--font-technical) !important;
   }
   
   .metadata-value {
     color: black !important;
     font-size: 10pt !important;
     font-weight: bold !important;
-    font-family: 'Berkeley Mono', monospace !important;
+    font-family: var(--font-technical) !important;
+  }
+  
+  /* Print LCD Panel */
+  .camera-lcd-panel {
+    background: white !important;
+    border: 2px solid #333 !important;
+    border-radius: 0 !important;
+    padding: 0.15in !important;
+    margin: 0.2in 0 !important;
+    page-break-inside: avoid !important;
+    box-shadow: none !important;
+  }
+  
+  .camera-lcd-panel::before {
+    display: none !important;
+  }
+  
+  .lcd-header {
+    border-bottom: 1px solid #333 !important;
+    margin-bottom: 0.1in !important;
+  }
+  
+  .lcd-title {
+    color: black !important;
+    font-size: 10pt !important;
+    font-weight: bold !important;
+    text-shadow: none !important;
+    font-family: var(--font-technical) !important;
+  }
+  
+  .lcd-status {
+    color: black !important;
+    text-shadow: none !important;
+  }
+  
+  .lcd-exposure-group,
+  .lcd-settings-group,
+  .lcd-equipment-group,
+  .lcd-context-group {
+    display: block !important;
+    background: none !important;
+    border: none !important;
+    padding: 0 !important;
+    margin-bottom: 0.1in !important;
+  }
+  
+  .lcd-exposure-item,
+  .lcd-setting,
+  .lcd-equipment,
+  .lcd-context {
+    display: flex !important;
+    justify-content: space-between !important;
+    border-bottom: 1px dotted #999 !important;
+    padding: 0.03in 0 !important;
+    margin: 0 !important;
+  }
+  
+  .lcd-icon {
+    display: none !important;
+  }
+  
+  .lcd-label,
+  .lcd-data,
+  .lcd-value {
+    color: black !important;
+    font-size: 9pt !important;
+    font-family: var(--font-technical) !important;
+    text-shadow: none !important;
+  }
+  
+  .lcd-value {
+    font-weight: bold !important;
   }
   
   /* Print breadcrumb */
@@ -2905,7 +3243,7 @@ input, button, select, textarea {
     color: #666 !important;
     font-size: 9pt !important;
     margin-bottom: 0.15in !important;
-    font-family: 'Berkeley Mono', monospace !important;
+    font-family: var(--font-technical) !important;
   }
   
   .nav-breadcrumb a {
@@ -3070,65 +3408,7 @@ input, button, select, textarea {
   color: var(--accent-secondary);
 }
 
-/* Enhanced Photo Removal Section */
-.photo-removal-section {
-  background: var(--surface-panel);
-  padding: var(--spacing-xl);
-  margin-top: var(--spacing-2xl);
-  border-radius: var(--radius-lg);
-  border: 1px solid var(--surface-border);
-}
 
-.photo-removal-section h3 {
-  color: var(--text-primary);
-  margin-bottom: var(--spacing-md);
-  font-family: var(--font-display);
-}
-
-.removal-options {
-  margin-top: var(--spacing-md);
-}
-
-.removal-actions {
-  display: flex;
-  flex-wrap: wrap;
-  align-items: center;
-  gap: var(--spacing-md);
-  margin: var(--spacing-lg) 0;
-}
-
-.option-separator {
-  color: var(--text-secondary);
-  font-style: italic;
-  font-size: 0.9rem;
-  opacity: 0.7;
-}
-
-.removal-note {
-  color: var(--text-secondary);
-  font-size: 0.85rem;
-  font-style: italic;
-  margin-top: var(--spacing-md);
-  opacity: 0.8;
-}
-
-/* Responsive adjustments for removal section */
-@media (max-width: 640px) {
-  .removal-actions {
-    flex-direction: column;
-    align-items: stretch;
-  }
-  
-  .removal-actions .btn {
-    width: 100%;
-    text-align: center;
-  }
-  
-  .option-separator {
-    text-align: center;
-    margin: var(--spacing-xs) 0;
-  }
-}
 
 /* Theme-specific support styling */
 [data-theme="flynn"] .support-artist-link:hover {
@@ -3152,7 +3432,7 @@ input, button, select, textarea {
   border-top: 1px solid var(--surface-border);
   margin-top: var(--space-6);
   padding: var(--space-4) 0;
-  font-family: 'Berkeley Mono', 'JetBrains Mono', monospace;
+  font-family: var(--font-technical);
   font-size: var(--mono-sm);
 }
 
@@ -3413,4 +3693,675 @@ input, button, select, textarea {
   max-width: 1200px;
   margin: 0 auto;
   padding: var(--space-6);
+}
+
+/* ============================= */
+/* CONTACT SHEET NAVIGATION STRIP */
+/* ============================= */
+
+
+
+
+
+
+/* ========================================= */
+/* SLIDE MOUNT DETAIL FRAMEWORK            */
+/* ========================================= */
+
+/* Main slide mount container */
+.slide-mount-detail {
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: var(--space-8) auto;
+  max-width: 900px;
+  perspective: 1000px;
+  justify-self: center; /* Center in its grid cell */
+  width: 100%;
+}
+
+/* Slide mount frame - main structure */
+.slide-mount-frame {
+  position: relative;
+  /* Enhanced 35mm slide mount aesthetic for detail view */
+  background: linear-gradient(145deg, #2d2d2d, #2a2a2a);
+  border: 2px solid #1a1a1a;
+  border-top: 2px solid #3a3a3a; /* Dimension highlight */
+  border-radius: 4px; /* Sharp corners like actual slides */
+  padding: 24px; /* Generous frame border */
+  /* Multi-layer shadows for physical depth */
+  box-shadow: 
+    0 2px 4px rgba(0, 0, 0, 0.5),    /* Contact shadow */
+    0 8px 16px rgba(0, 0, 0, 0.4),   /* Depth shadow */
+    0 16px 32px rgba(0, 0, 0, 0.3),  /* Ambient shadow */
+    inset 0 1px 0 rgba(255, 255, 255, 0.1); /* Inner highlight */
+  transform-style: preserve-3d;
+  transition: 
+    transform var(--transition-slower) var(--ease-smooth), 
+    box-shadow var(--transition-slower) var(--ease-smooth);
+}
+
+/* Premium hover effect - enhanced lift with glow */
+.slide-mount-detail:hover .slide-mount-frame {
+  transform: translateY(-3px) rotateX(2deg) scale(1.005);
+  box-shadow: 
+    0 6px 12px rgba(0, 0, 0, 0.7),   /* Contact shadow */
+    0 16px 32px rgba(0, 0, 0, 0.6),  /* Depth shadow */
+    0 32px 64px rgba(0, 0, 0, 0.5),  /* Ambient shadow */
+    inset 0 1px 2px rgba(255, 255, 255, 0.15),
+    0 0 0 1px rgba(255, 215, 0, 0.3); /* Nikon yellow glow */
+}
+
+/* Photo window - contains the actual image */
+.slide-photo-window {
+  position: relative;
+  background: #000;
+  border-radius: 2px;
+  overflow: hidden;
+  /* Recessed photo window effect */
+  box-shadow: 
+    inset 0 2px 4px rgba(0, 0, 0, 0.6),
+    inset 0 1px 2px rgba(0, 0, 0, 0.8);
+}
+
+/* Landscape orientation (default) */
+.slide-mount-detail.landscape .slide-photo-window {
+  width: 100%;
+  aspect-ratio: 3/2; /* Standard 35mm aspect ratio */
+  max-width: 600px;
+}
+
+/* Portrait orientation */
+.slide-mount-detail.portrait .slide-photo-window {
+  width: 100%;
+  aspect-ratio: 2/3; /* Portrait 35mm aspect ratio */
+  max-width: 400px;
+}
+
+/* Slide labels - top bar */
+.slide-label-top {
+  position: absolute;
+  top: 6px;
+  left: 6px;
+  right: 6px;
+  height: 12px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-family: var(--font-technical);
+  font-size: 8px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  color: var(--accent-primary);
+  text-shadow: 0 1px 1px rgba(0, 0, 0, 0.8);
+}
+
+/* Slide labels - bottom bar */
+.slide-label-bottom {
+  position: absolute;
+  bottom: 6px;
+  left: 6px;
+  right: 6px;
+  height: 12px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-family: var(--font-technical);
+  font-size: 8px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  color: var(--accent-primary);
+  text-shadow: 0 1px 1px rgba(0, 0, 0, 0.8);
+}
+
+/* Individual label elements */
+.slide-number,
+.slide-brand,
+.slide-title,
+.slide-date {
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.slide-number {
+  min-width: 20px;
+}
+
+.slide-brand {
+  opacity: 0.7;
+}
+
+.slide-title {
+  flex: 1;
+  text-align: center;
+  margin: 0 12px;
+}
+
+.slide-date {
+  min-width: 40px;
+  text-align: right;
+}
+
+/* Mount depth edges */
+.slide-mount-edge-left,
+.slide-mount-edge-right,
+.slide-mount-edge-top,
+.slide-mount-edge-bottom {
+  position: absolute;
+  background: linear-gradient(135deg, var(--surface-border), var(--surface-panel));  /* Flynn theme edges */
+  z-index: -1;
+}
+
+.slide-mount-edge-left,
+.slide-mount-edge-right {
+  width: 3px;
+  height: 100%;
+  top: 0;
+}
+
+.slide-mount-edge-left {
+  left: -3px;
+  border-radius: 2px 0 0 2px;
+}
+
+.slide-mount-edge-right {
+  right: -3px;
+  border-radius: 0 2px 2px 0;
+}
+
+.slide-mount-edge-top,
+.slide-mount-edge-bottom {
+  height: 3px;
+  width: 100%;
+  left: 0;
+}
+
+.slide-mount-edge-top {
+  top: -3px;
+  border-radius: 2px 2px 0 0;
+}
+
+.slide-mount-edge-bottom {
+  bottom: -3px;
+  border-radius: 0 0 2px 2px;
+}
+
+/* Mount shadow/base */
+.slide-mount-shadow {
+  position: absolute;
+  top: 8px;
+  left: 8px;
+  right: -8px;
+  bottom: -8px;
+  background: rgba(0, 0, 0, 0.3);
+  border-radius: 6px;
+  filter: blur(12px);
+  z-index: -2;
+  opacity: 0.6;
+  transition: opacity 0.4s ease, filter 0.4s ease;
+}
+
+.slide-mount-detail:hover .slide-mount-shadow {
+  opacity: 0.8;
+  filter: blur(16px);
+}
+
+/* Photo styling within slide mount */
+.slide-mount-detail .photo-main {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  object-position: center;
+  display: block;
+  border-radius: 1px;
+}
+
+/* Vertical stacking - full width for slide mount */
+@media (max-width: 1279px) {
+  .slide-mount-detail {
+    max-width: 100%;
+    margin: var(--space-6) auto;
+  }
+  
+  /* Ensure the frame doesn't get too large */
+  .slide-mount-frame {
+    max-width: 900px;
+    margin: 0 auto;
+  }
+}
+
+/* Mobile responsive adjustments */
+@media (max-width: 768px) {
+  .slide-mount-detail {
+    margin: var(--space-6) auto;
+    max-width: 100%;
+    padding: 0 var(--space-4);
+  }
+  
+  .slide-mount-frame {
+    padding: 16px;
+  }
+  
+  .slide-mount-detail.landscape .slide-photo-window {
+    max-width: 100%;
+  }
+  
+  .slide-mount-detail.portrait .slide-photo-window {
+    max-width: 280px;
+  }
+  
+  .slide-label-top,
+  .slide-label-bottom {
+    font-size: 7px;
+  }
+}
+
+@media (max-width: 480px) {
+  .slide-mount-frame {
+    padding: 12px;
+  }
+  
+  .slide-label-top,
+  .slide-label-bottom {
+    height: 10px;
+    font-size: 6px;
+  }
+  
+  .slide-mount-detail.portrait .slide-photo-window {
+    max-width: 240px;
+  }
+}
+
+/* High-DPI display enhancements */
+@media (-webkit-min-device-pixel-ratio: 2), (min-resolution: 192dpi) {
+  .slide-mount-detail:hover .slide-mount-frame {
+    box-shadow: 
+      0 6px 12px rgba(0, 0, 0, 0.7),   /* Contact shadow */
+      0 18px 36px rgba(0, 0, 0, 0.6),  /* Depth shadow */
+      0 36px 72px rgba(0, 0, 0, 0.5),  /* Ambient shadow */
+      inset 0 1px 0 rgba(255, 255, 255, 0.1);
+  }
+}
+
+
+/* Print styles */
+@media print {
+  .slide-mount-detail {
+    break-inside: avoid;
+    margin: 0.2in 0;
+    transform: none !important;
+  }
+  
+  .slide-mount-frame {
+    box-shadow: none !important;
+    border: 2px solid #333 !important;
+    transform: none !important;
+  }
+  
+  .slide-mount-shadow {
+    display: none;
+  }
+  
+}
+
+/* ========================================= */
+/* UNIFIED FLYNN THEME ANIMATION SYSTEM     */
+/* Coordinated transitions across components */
+/* ========================================= */
+
+/* Unified transition timing across components */
+.slide-mount-detail,
+.camera-lcd-panel {
+  transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+/* Coordinated hover effects - no conflicts */
+.slide-mount-detail:hover {
+  transform: translateY(-2px);
+}
+
+.camera-lcd-panel:hover {
+  transform: translateY(-1px);  /* Subtle, secondary */
+}
+
+
+/* Flynn theme glow coordination */
+.slide-mount-detail:hover .slide-mount-frame {
+  box-shadow: 
+    0 4px 8px rgba(0, 0, 0, 0.6),
+    0 12px 24px rgba(0, 0, 0, 0.5),
+    0 0 0 1px rgba(255, 215, 0, 0.2);  /* Nikon yellow glow */
+}
+
+.camera-lcd-panel:hover {
+  box-shadow: 
+    0 2px 4px rgba(0, 0, 0, 0.4),
+    0 0 0 1px rgba(255, 215, 0, 0.15);  /* Subtle Nikon yellow response */
+}
+
+.film-frame:hover:not(.current) {
+  box-shadow: 
+    0 2px 4px rgba(0, 0, 0, 0.3),
+    0 0 0 1px rgba(255, 215, 0, 0.1);  /* Minimal Nikon yellow response */
+}
+
+/* Visual hierarchy enforcement */
+.photo-display-container {
+  /* Ensure components stack in proper visual order */
+  isolation: isolate;
+}
+
+.slide-mount-detail {
+  /* Primary component - highest visual weight */
+  z-index: 10;
+}
+
+.camera-lcd-panel {
+  /* Secondary component - moderate visual weight */
+  z-index: 5;
+}
+
+
+/* ========================================= */
+/* PREMIUM POLISH - KEYFRAMES & ANIMATIONS  */
+/* ========================================= */
+
+/* Subtle LCD pulse animation */
+@keyframes lcd-pulse {
+  0%, 100% { opacity: 0; }
+  50% { opacity: 0.3; }
+}
+
+
+/* Gentle fade-in for page load */
+@keyframes fade-in-up {
+  0% {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Staggered component animations */
+.photo-display-container {
+  animation: fade-in-up 0.6s var(--ease-gentle) forwards;
+}
+
+.slide-mount-detail {
+  animation: fade-in-up 0.8s var(--ease-gentle) 0.1s forwards;
+  opacity: 0;
+  animation-fill-mode: forwards;
+}
+
+.camera-lcd-panel {
+  animation: fade-in-up 0.8s var(--ease-gentle) 0.2s forwards;
+  opacity: 0;
+  animation-fill-mode: forwards;
+}
+
+
+/* ========================================= */
+/* ENHANCED MICRO-INTERACTIONS              */
+/* ========================================= */
+
+/* Gallery items with light leak effect */
+.gallery-item {
+  position: relative;
+  overflow: hidden;
+}
+
+
+/* Enhanced slide mount with depth and glow */
+.slide-mount-detail {
+  transition: 
+    transform var(--transition-slow) var(--ease-smooth),
+    filter var(--transition-slow) var(--ease-smooth);
+}
+
+.slide-mount-detail::before {
+  content: '';
+  position: absolute;
+  top: -10px;
+  left: -10px;
+  right: -10px;
+  bottom: -10px;
+  background: 
+    radial-gradient(circle at center, 
+      rgba(255, 215, 0, 0.1) 0%, 
+      transparent 70%);
+  opacity: 0;
+  border-radius: inherit;
+  transition: opacity var(--transition-slower) var(--ease-smooth);
+  pointer-events: none;
+  z-index: -1;
+}
+
+.slide-mount-detail:hover::before {
+  opacity: 1;
+}
+
+.slide-mount-detail:hover {
+  transform: translateY(-2px);
+  filter: brightness(1.02);
+}
+
+/* LCD panel with enhanced pulse */
+.camera-lcd-panel {
+  position: relative;
+  transition: 
+    transform var(--transition-slow) var(--ease-smooth),
+    box-shadow var(--transition-slow) var(--ease-smooth);
+}
+
+.camera-lcd-panel::before {
+  content: '';
+  position: absolute;
+  top: -1px;
+  left: -1px;
+  right: -1px;
+  bottom: -1px;
+  border: 1px solid var(--nikon-yellow);
+  border-radius: inherit;
+  opacity: 0;
+  animation: lcd-pulse 4s ease-in-out infinite;
+  pointer-events: none;
+}
+
+.camera-lcd-panel:hover {
+  transform: translateY(-1px);
+  box-shadow: 
+    inset 0 2px 4px rgba(0, 0, 0, 0.3),
+    0 2px 8px rgba(0, 0, 0, 0.3),
+    0 0 0 1px rgba(255, 215, 0, 0.2);
+}
+
+
+/* Button enhancements */
+.btn {
+  position: relative;
+  overflow: hidden;
+  transition: 
+    all var(--transition-slow) var(--ease-smooth);
+}
+
+.btn::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(90deg, 
+    transparent, 
+    rgba(255, 255, 255, 0.1), 
+    transparent);
+  transition: left var(--transition-slow) var(--ease-smooth);
+}
+
+.btn:hover::before {
+  left: 100%;
+}
+
+.btn:active {
+  transform: translateY(1px);
+  transition-duration: var(--transition-fast);
+}
+
+/* ========================================= */
+/* INTEGRATED PHOTO CONTROL STRIP          */
+/* ========================================= */
+
+/* Integrated Photo Control Strip */
+.photo-control-strip {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background: rgba(0, 0, 0, 0.8);
+  border-top: 1px solid var(--nikon-yellow-dim);
+  margin-top: var(--space-4);
+  padding: 0 var(--space-4);
+  height: 48px;
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+}
+
+.control-nav {
+  display: flex;
+  align-items: center;
+  gap: var(--space-4);
+  flex: 1;
+}
+
+.nav-btn {
+  padding: var(--space-2) var(--space-3);
+  color: var(--text-secondary);
+  text-decoration: none;
+  transition: all 0.2s ease;
+  font-family: var(--font-technical);
+  font-size: var(--text-sm);
+  white-space: nowrap;
+}
+
+.nav-btn:not(.disabled):hover {
+  color: var(--nikon-yellow);
+  text-shadow: 0 0 8px var(--nikon-yellow-glow);
+}
+
+.nav-btn.disabled {
+  opacity: 0.3;
+  cursor: not-allowed;
+}
+
+.photo-counter {
+  font-family: var(--font-technical);
+  color: var(--text-primary);
+  font-size: var(--text-sm);
+  letter-spacing: 0.05em;
+  padding: 0 var(--space-3);
+}
+
+.control-divider {
+  width: 1px;
+  height: 24px;
+  background: var(--surface-border);
+  margin: 0 var(--space-4);
+}
+
+.control-actions {
+  display: flex;
+  align-items: center;
+  gap: var(--space-3);
+}
+
+.action-btn {
+  padding: var(--space-1) var(--space-3);
+  color: var(--text-secondary);
+  text-decoration: none;
+  background: transparent;
+  border: 1px solid transparent;
+  border-radius: 4px;
+  transition: all 0.2s ease;
+  font-family: var(--font-technical);
+  font-size: var(--text-sm);
+  cursor: pointer;
+  white-space: nowrap;
+}
+
+.action-btn:hover {
+  color: var(--text-primary);
+  border-color: var(--nikon-yellow-dim);
+  background: rgba(255, 215, 0, 0.05);
+}
+
+/* Mobile responsive */
+@media (max-width: 768px) {
+  .photo-control-strip {
+    flex-direction: column;
+    height: auto;
+    padding: var(--space-3);
+    gap: var(--space-3);
+  }
+  
+  .control-nav {
+    width: 100%;
+    justify-content: space-between;
+  }
+  
+  .control-divider {
+    width: 100%;
+    height: 1px;
+    margin: 0;
+  }
+  
+  .control-actions {
+    width: 100%;
+    justify-content: center;
+  }
+  
+  .nav-btn, .action-btn {
+    font-size: var(--text-xs);
+  }
+}
+
+/* Tablet adjustments */
+@media (min-width: 769px) and (max-width: 1199px) {
+  .photo-control-strip {
+    padding: 0 var(--space-3);
+    height: 44px;
+  }
+  
+  .control-nav {
+    gap: var(--space-3);
+  }
+  
+  .control-actions {
+    gap: var(--space-2);
+  }
+}
+
+/* ========================================= */
+/* REDUCED MOTION PREFERENCES               */
+/* ========================================= */
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+  
+  .camera-lcd-panel::before {
+    animation: none;
+  }
+  
 }
