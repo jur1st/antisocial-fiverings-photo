@@ -3029,6 +3029,83 @@ input, button, select, textarea {
   box-shadow: var(--shadow-soft);
 }
 
+/* Site Footer - Minimal antisocial design */
+.site-footer {
+  background: var(--surface-panel);
+  border-top: 1px solid var(--surface-border);
+  margin-top: var(--space-6);
+  padding: var(--space-4) 0;
+  font-family: 'Berkeley Mono', 'JetBrains Mono', monospace;
+  font-size: var(--mono-sm);
+}
+
+.footer-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 var(--space-3);
+  text-align: center;
+}
+
+.footer-primary,
+.footer-secondary {
+  line-height: 1.8;
+  margin: var(--space-1) 0;
+}
+
+.footer-link {
+  color: var(--text-secondary);
+  text-decoration: none;
+  transition: color 0.3s ease;
+}
+
+.footer-link:hover {
+  color: var(--accent-primary);
+}
+
+.footer-separator {
+  color: var(--text-muted);
+  margin: 0 var(--space-2);
+  opacity: 0.5;
+}
+
+.footer-support {
+  color: var(--text-secondary);
+}
+
+.footer-copyright,
+.footer-location {
+  color: var(--text-muted);
+}
+
+/* Responsive footer */
+@media (max-width: 640px) {
+  .footer-separator {
+    display: none;
+  }
+  
+  .footer-primary > *,
+  .footer-secondary > * {
+    display: block;
+    margin: var(--space-1) 0;
+  }
+}
+
+/* Theme-specific footer styles */
+[data-theme="camera"] .site-footer {
+  background: var(--black-matte);
+  border-top-color: var(--border-subtle);
+}
+
+[data-theme="camera"] .footer-link:hover {
+  color: var(--nikon-yellow);
+  text-shadow: 0 0 10px var(--nikon-yellow-glow);
+}
+
+[data-theme="light"] .site-footer {
+  background: var(--surface-panel);
+  border-top-color: var(--surface-border);
+}
+
 /* ============================= */
 /* MISSING COMPONENT CLASSES     */
 /* ============================= */
