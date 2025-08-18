@@ -254,4 +254,3 @@ photos:
       lens: "NIKKOR Z 70-180mm f/2.8"
 ---
 
-# SecKC - Joe Grand
