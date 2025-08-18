@@ -52,11 +52,15 @@
   
   {{ if .Params.photos }}
   <div class="gallery-grid">
+    {{ $titleUpper := upper .Title }}
+    {{ $titleLen := len $titleUpper }}
+    {{ $prefix := cond (lt $titleLen 3) $titleUpper (substr $titleUpper 0 3) }}
     {{ range $index, $photo := .Params.photos }}
       {{ $imagePath := $photo.image }}
       {{ $imageResource := resources.Get $imagePath }}
+      {{ $slideNumber := printf "%s-%03d" $prefix (add $index 1) }}
       
-      <a href="/photos/{{ $photo.photo_slug }}/" class="gallery-item">
+      <a href="/photos/{{ $photo.photo_slug }}/" class="gallery-item" data-slide-number="{{ $slideNumber }}">
         {{ if $imageResource }}
           <!-- Generate optimized thumbnail -->
           {{ $thumbnail := $imageResource.Resize "400x300" }}
@@ -88,7 +92,7 @@
         <div class="gallery-info">
           <div class="gallery-title">{{ $photo.camera_settings.aperture | default "f/2.8" }} • {{ $photo.camera_settings.shutter | default "1/125" }} • {{ $photo.camera_settings.iso | default "ISO 400" }}</div>
           <div class="gallery-meta">{{ $photo.camera_settings.body | default "Camera" }} • {{ $photo.camera_settings.lens | default "Lens" }}</div>
-          <div class="gallery-filename">{{ substr $photo.photo_slug -3 3 }}</div>
+          <div class="gallery-filename">{{ $slideNumber }}</div>
         </div>
       </a>
     {{ end }}

@@ -587,19 +587,26 @@ p {
 }
 
 .gallery-item {
-  background: var(--surface-panel);
-  border: 1px solid var(--surface-border);
-  border-radius: 8px;
+  /* 35mm slide mount aesthetic */
+  background: linear-gradient(145deg, #2d2d2d, #2a2a2a);
+  border: 1px solid #1a1a1a;
+  border-top: 1px solid #3a3a3a; /* Subtle top highlight for dimension */
+  border-radius: 3px; /* Sharp corners like actual slides */
   overflow: hidden;
   transition: transform 0.3s ease, box-shadow 0.3s ease, border-color 0.3s ease;
   cursor: pointer;
-  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.3) !important;
+  /* Multi-layer shadows for physical depth */
+  box-shadow: 
+    0 1px 2px rgba(0, 0, 0, 0.4),    /* Contact shadow */
+    0 4px 8px rgba(0, 0, 0, 0.3),    /* Depth shadow */
+    0 8px 16px rgba(0, 0, 0, 0.2);   /* Ambient shadow */
   display: flex;
   align-items: stretch;
   flex-direction: column; /* VERTICAL STACK - photo on top */
   max-width: 320px; /* Optimal card width */
   margin: 0 auto;
   height: auto; /* Let content determine height */
+  padding: 12px; /* Frame border around photo */
 }
 
 /* Keep main gallery cards horizontal */
@@ -610,8 +617,13 @@ p {
 }
 
 .gallery-item:hover {
-  transform: translateY(-2px);
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.4) !important;
+  /* Lift effect like picking up the slide */
+  transform: translateY(-4px);
+  /* Enhanced shadows for elevation */
+  box-shadow: 
+    0 2px 4px rgba(0, 0, 0, 0.5),    /* Contact shadow */
+    0 8px 16px rgba(0, 0, 0, 0.4),   /* Depth shadow */
+    0 16px 32px rgba(0, 0, 0, 0.3);  /* Ambient shadow */
   border-color: var(--accent-primary-dim);
 }
 
@@ -622,7 +634,9 @@ p {
   object-position: center !important;
   background: #0a0a0a !important;
   display: block;
-  box-shadow: none !important;
+  border-radius: 2px; /* Slight rounding for photo window */
+  /* Inner shadow to show recession into frame */
+  box-shadow: inset 0 1px 3px rgba(0, 0, 0, 0.5) !important;
   filter: none !important;
 }
 
@@ -644,8 +658,10 @@ p {
   object-fit: contain !important;
   object-position: center !important;
   background: #0a0a0a !important;
-  border-radius: 0; /* Square edges within card */
+  border-radius: 2px; /* Slight rounding for photo window */
   flex-shrink: 0;
+  /* Inner shadow to show recession into frame */
+  box-shadow: inset 0 1px 3px rgba(0, 0, 0, 0.5);
 }
 
 /* Keep main gallery card images horizontal */
@@ -687,14 +703,19 @@ p {
 }
 
 .gallery-info {
+  /* Slide label strip styling */
   padding: var(--spacing-xs);
-  background: var(--surface-panel);
+  background: linear-gradient(180deg, #1f1f1f, #1a1a1a);
+  border-top: 1px solid #0a0a0a; /* Separation from photo */
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center; /* Center the filename */
   min-height: 48px; /* Consistent footer height */
   text-align: center;
+  /* Extend to frame edges */
+  margin: 0 -12px -12px -12px;
+  border-radius: 0 0 3px 3px; /* Match frame corners */
 }
 
 .gallery-thumb-img {
@@ -703,10 +724,11 @@ p {
   object-fit: contain !important;
   object-position: center !important;
   background: #0a0a0a !important;
-  border-radius: 6px;
+  border-radius: 2px; /* Match slide photo window rounding */
   transition: all 0.3s ease;
   filter: none; /* Remove grayscale - let photos shine naturally */
-  box-shadow: none !important;
+  /* Inner shadow to show recession into frame */
+  box-shadow: inset 0 1px 3px rgba(0, 0, 0, 0.5) !important;
 }
 
 .gallery-item:hover .gallery-thumb-img {
@@ -1062,7 +1084,7 @@ p {
   
   .gallery-thumb-img {
     height: 100px; /* INCREASED for better mobile photo visibility */
-    border-radius: 4px;
+    border-radius: 2px; /* Match slide photo window rounding */
   }
   
   /* Typography scaling for ultra-small */
@@ -2515,7 +2537,11 @@ p {
   }
   
   .gallery-item:hover {
-    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.8);
+    /* Enhanced Retina shadows for slide lift effect */
+    box-shadow: 
+      0 3px 6px rgba(0, 0, 0, 0.6),    /* Contact shadow */
+      0 12px 24px rgba(0, 0, 0, 0.5),  /* Depth shadow */
+      0 24px 48px rgba(0, 0, 0, 0.4);  /* Ambient shadow */
   }
 }
 
