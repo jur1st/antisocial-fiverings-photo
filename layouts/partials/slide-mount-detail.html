@@ -1,0 +1,110 @@
+{{/* 
+  Slide Mount Detail Wrapper
+  Creates a realistic 35mm slide mount frame for photo detail pages
+  Adapts to portrait/landscape orientation
+  
+  Expected context: Page context with .Params.image and photo metadata
+*/}}
+
+{{ $imagePath := .Params.image }}
+{{ $imageResource := resources.Get $imagePath }}
+{{ $orientation := "landscape" }}
+
+{{/* Determine orientation from image resource */}}
+{{ if $imageResource }}
+  {{ if gt $imageResource.Height $imageResource.Width }}
+    {{ $orientation = "portrait" }}
+  {{ end }}
+{{ end }}
+
+<div class="slide-mount-detail {{ $orientation }}">
+  <!-- Slide Mount Frame -->
+  <div class="slide-mount-frame">
+    <!-- Top Label Bar -->
+    <div class="slide-label-top">
+      <span class="slide-number">
+        {{ if .Params.photo_number }}{{ .Params.photo_number }}{{ else }}01{{ end }}
+      </span>
+      <span class="slide-brand">KODAK</span>
+    </div>
+    
+    <!-- Photo Window -->
+    <div class="slide-photo-window">
+      {{/* Include the photo content directly */}}
+      {{ if .Params.image }}
+        {{ $imagePath := .Params.image }}
+        {{ $imageResource := resources.Get $imagePath }}
+        {{ if $imageResource }}
+          <!-- Generate responsive image sizes -->
+          {{ $thumbnail := $imageResource.Resize "400x" }}
+          {{ $medium := $imageResource.Resize "800x" }}
+          {{ $large := $imageResource.Resize "1200x" }}
+          {{ $xlarge := $imageResource.Resize "1920x" }}
+          
+          <!-- Generate WebP versions for modern browsers -->
+          {{ $thumbnailWebP := $thumbnail.Process "webp q85" }}
+          {{ $mediumWebP := $medium.Process "webp q85" }}
+          {{ $largeWebP := $large.Process "webp q85" }}
+          {{ $xlargeWebP := $xlarge.Process "webp q85" }}
+          
+          <picture>
+            <!-- WebP sources for modern browsers -->
+            <source 
+              srcset="{{ $thumbnailWebP.RelPermalink }} 400w,
+                      {{ $mediumWebP.RelPermalink }} 800w,
+                      {{ $largeWebP.RelPermalink }} 1200w,
+                      {{ $xlargeWebP.RelPermalink }} 1920w"
+              sizes="(max-width: 400px) 400px,
+                     (max-width: 800px) 800px,
+                     (max-width: 1200px) 1200px,
+                     1920px"
+              type="image/webp">
+            
+            <!-- JPEG fallback for older browsers -->
+            <img 
+              src="{{ $medium.RelPermalink }}"
+              srcset="{{ $thumbnail.RelPermalink }} 400w,
+                      {{ $medium.RelPermalink }} 800w,
+                      {{ $large.RelPermalink }} 1200w,
+                      {{ $xlarge.RelPermalink }} 1920w"
+              sizes="(max-width: 400px) 400px,
+                     (max-width: 800px) 800px,
+                     (max-width: 1200px) 1200px,
+                     1920px"
+              alt="{{ .Title }}" 
+              class="photo-main" 
+              loading="lazy"
+              width="{{ $medium.Width }}"
+              height="{{ $medium.Height }}">
+          </picture>
+        {{ else }}
+          <!-- Fallback for when image resource is not found -->
+          <img src="{{ .Params.image | relURL }}" alt="{{ .Title }}" class="photo-main" loading="lazy">
+        {{ end }}
+      {{ end }}
+    </div>
+    
+    <!-- Bottom Label Bar -->
+    <div class="slide-label-bottom">
+      <span class="slide-title">{{ .Title | truncate 20 }}</span>
+      <span class="slide-date">
+        {{ if .Params.date_taken }}
+          {{ dateFormat "01.06" .Params.date_taken }}
+        {{ else if .Date }}
+          {{ dateFormat "01.06" .Date }}
+        {{ else }}
+          {{ dateFormat "01.06" now }}
+        {{ end }}
+      </span>
+    </div>
+    
+    <!-- Side mount edges for depth -->
+    <div class="slide-mount-edge-left"></div>
+    <div class="slide-mount-edge-right"></div>
+    <div class="slide-mount-edge-top"></div>
+    <div class="slide-mount-edge-bottom"></div>
+  </div>
+  
+  <!-- Mount shadow/base -->
+  <div class="slide-mount-shadow"></div>
+</div>
