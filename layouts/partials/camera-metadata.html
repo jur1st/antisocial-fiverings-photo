@@ -47,28 +47,25 @@
   
   <div class="lcd-content" id="lcd-content">
   
-  <!-- Exposure triangle - most prominent -->
-  <div class="lcd-exposure-group">
-    <div class="lcd-exposure-item aperture">
-      <span class="lcd-icon">⌖</span>
-      <span class="lcd-value">{{ $cameraSettings.aperture | default "f/2.8" }}</span>
-    </div>
-    
-    <div class="lcd-exposure-item shutter">
-      <span class="lcd-icon">⚡</span>
-      <span class="lcd-value">{{ $cameraSettings.shutter | default "1/125" }}</span>
-    </div>
-    
-    <div class="lcd-exposure-item iso">
-      <span class="lcd-icon">⚙</span>
-      <span class="lcd-value">{{ $cameraSettings.iso | default "ISO 400" }}</span>
-    </div>
-    
+  <!-- Primary exposure data -->
+  <div class="lcd-exposure-line">
+    <span class="lcd-value">{{ $cameraSettings.aperture | default "f/2.8" }}</span>
+    <span class="lcd-separator">•</span>
+    <span class="lcd-value">{{ $cameraSettings.shutter | default "1/250" }}</span>
+    <span class="lcd-separator">•</span>
+    <span class="lcd-value">{{ $cameraSettings.iso | default "ISO 800" }}</span>
     {{ if $cameraSettings.focal_length }}
-    <div class="lcd-exposure-item focal">
-      <span class="lcd-icon">⊙</span>
-      <span class="lcd-value">{{ $cameraSettings.focal_length }}</span>
-    </div>
+    <span class="lcd-separator">•</span>
+    <span class="lcd-value">{{ $cameraSettings.focal_length }}</span>
+    {{ end }}
+  </div>
+  
+  <!-- Equipment line -->
+  <div class="lcd-equipment-line">
+    <span class="lcd-value">{{ $cameraSettings.body | default "Camera" }}</span>
+    {{ if $cameraSettings.lens }}
+    <span class="lcd-separator">+</span>
+    <span class="lcd-value">{{ $cameraSettings.lens }}</span>
     {{ end }}
   </div>
   
@@ -91,18 +88,6 @@
   </div>
   {{ end }}
   
-  <!-- Equipment info - most compact -->
-  <div class="lcd-equipment-group">
-    <div class="lcd-equipment">
-      <span class="lcd-label">BODY</span>
-      <span class="lcd-data">{{ $cameraSettings.body | default "CAMERA" }}</span>
-    </div>
-    
-    <div class="lcd-equipment">
-      <span class="lcd-label">LENS</span>
-      <span class="lcd-data">{{ $cameraSettings.lens | default "LENS" }}</span>
-    </div>
-  </div>
   
   
   <!-- Context info - minimal -->
@@ -125,7 +110,7 @@
     {{ if .Params.original_filename }}
     <div class="lcd-context">
       <span class="lcd-label">FILE</span>
-      <span class="lcd-data">{{ .Params.original_filename }}</span>
+      <span class="lcd-data lcd-filename">{{ .Params.original_filename }}</span>
     </div>
     {{ end }}
   </div>

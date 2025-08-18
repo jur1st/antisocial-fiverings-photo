@@ -82,6 +82,12 @@
   --spacing-lg: var(--space-8);
   --spacing-xl: var(--space-12);
   
+  /* UI Component Heights for accurate viewport calculations */
+  --header-height: 49px;
+  --breadcrumb-height: 44px;
+  --control-strip-height: 48px;
+  --total-ui-height: calc(var(--header-height) + var(--breadcrumb-height) + var(--control-strip-height) + var(--space-4)); /* ~157px total */
+  
   /* Theme-aware shadows for camera (dark) theme */
   --shadow-subtle: 0 2px 4px rgba(0, 0, 0, 0.5);
   --shadow-medium: 0 4px 8px rgba(0, 0, 0, 0.6);
@@ -881,6 +887,9 @@ p {
     grid-template-columns: 1fr auto;
     gap: var(--space-4); /* 32px */
     align-items: start;
+    /* Better viewport management with accurate heights */
+    max-height: calc(100vh - var(--total-ui-height));
+    overflow-y: auto; /* Allow scrolling within container if needed */
   }
   
   /* Constrain LCD panel width on desktop */
@@ -1204,55 +1213,39 @@ p {
 }
 
 /* Exposure triangle - most prominent */
-.lcd-exposure-group {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(80px, 1fr));
-  gap: var(--space-2);
-  margin-bottom: var(--space-3);
-  padding: var(--space-2);
-  background: rgba(0, 255, 65, 0.03);
-  border-radius: 4px;
-  border: 1px solid rgba(0, 255, 65, 0.1);
-}
-
-.lcd-exposure-item {
+/* New horizontal layout for exposure data */
+.lcd-exposure-line {
   display: flex;
-  flex-direction: column;
   align-items: center;
-  gap: var(--space-1);
-}
-
-.lcd-icon {
-  color: #ffaa00;
-  font-size: 1rem;
-  text-shadow: 0 0 4px rgba(255, 170, 0, 0.4);
-  display: inline-block;
-  width: 16px;
-  text-align: center;
+  justify-content: center;
+  gap: var(--space-3);
+  padding: var(--space-3) 0;
+  border-bottom: 1px solid var(--surface-border);
   font-family: var(--font-technical);
 }
 
-/* Fallback for icons in case unicode doesn't render */
-.lcd-exposure-item.aperture .lcd-icon::before { content: '⌖'; }
-.lcd-exposure-item.shutter .lcd-icon::before { content: '⚡'; }
-.lcd-exposure-item.iso .lcd-icon::before { content: '⚙'; }
-.lcd-exposure-item.focal .lcd-icon::before { content: '⦿'; }
-
-/* Alternative ASCII fallbacks for maximum compatibility */
-@supports not (content: '⌖') {
-  .lcd-exposure-item.aperture .lcd-icon::before { content: 'f/'; }
-  .lcd-exposure-item.shutter .lcd-icon::before { content: 'T'; }
-  .lcd-exposure-item.iso .lcd-icon::before { content: 'I'; }
-  .lcd-exposure-item.focal .lcd-icon::before { content: 'L'; }
+.lcd-equipment-line {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: var(--space-2);
+  padding: var(--space-3) 0;
+  font-family: var(--font-technical);
 }
 
-.lcd-value {
-  color: #00ff41;
+.lcd-separator {
+  color: var(--text-secondary);
+  opacity: 0.5;
   font-size: 0.8rem;
-  font-weight: 600;
-  text-align: center;
-  text-shadow: 0 0 2px rgba(0, 255, 65, 0.3);
-  min-width: 60px;
+}
+
+
+
+.lcd-value {
+  color: var(--text-primary);
+  font-size: 0.95rem;
+  font-weight: 500;
+  font-family: var(--font-technical);
 }
 
 /* Secondary settings */
@@ -1272,20 +1265,6 @@ p {
   border-radius: 3px;
 }
 
-/* Equipment info - most compact */
-.lcd-equipment-group {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
-  gap: var(--space-1);
-  margin-bottom: var(--space-2);
-}
-
-.lcd-equipment {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  padding: calc(var(--space-1) * 0.5) var(--space-1);
-}
 
 /* Context info - minimal */
 .lcd-context-group {
@@ -1306,11 +1285,10 @@ p {
 }
 
 .lcd-label {
-  color: #888;
-  font-size: 0.65rem;
-  font-weight: 500;
-  letter-spacing: 0.3px;
+  color: var(--text-secondary);
+  font-size: 0.7rem;
   text-transform: uppercase;
+  letter-spacing: 0.05em;
 }
 
 .lcd-data {
@@ -1322,6 +1300,32 @@ p {
   overflow: hidden;
   text-overflow: ellipsis;
   white-space: nowrap;
+}
+
+/* Fix filename truncation */
+.lcd-filename {
+  word-break: break-all; /* Allow breaking long filenames */
+  white-space: normal; /* Allow wrapping */
+  max-width: 100%;
+  font-size: 0.85rem; /* Slightly smaller for long names */
+  line-height: 1.3;
+}
+
+/* Ensure context group has enough space */
+.lcd-context-group {
+  width: 100%;
+}
+
+.lcd-context {
+  display: flex;
+  flex-direction: column; /* Stack label above data */
+  gap: var(--space-1);
+  margin-bottom: var(--space-2);
+}
+
+.lcd-context .lcd-data {
+  display: block;
+  width: 100%;
 }
 
 /* Small Tablet - Homepage button adjustments */
@@ -1500,10 +1504,10 @@ p {
     font-size: 0.6rem;
   }
   
-  .lcd-exposure-group {
-    grid-template-columns: repeat(3, 1fr);
-    gap: var(--space-1);
-    padding: var(--space-1);
+  .lcd-exposure-line,
+  .lcd-equipment-line {
+    gap: var(--space-2);
+    padding: var(--space-2) 0;
   }
   
   .lcd-icon {
@@ -1516,7 +1520,6 @@ p {
   }
   
   .lcd-settings-group,
-  .lcd-equipment-group,
   .lcd-context-group {
     grid-template-columns: 1fr;
     gap: calc(var(--space-1) * 0.5);
@@ -1617,9 +1620,10 @@ p {
     max-width: 100%;
   }
   
-  .lcd-exposure-group {
-    grid-template-columns: repeat(auto-fit, minmax(70px, 1fr));
+  .lcd-exposure-line,
+  .lcd-equipment-line {
     gap: var(--space-2);
+    flex-wrap: wrap;
   }
   
   .lcd-value {
@@ -1627,8 +1631,7 @@ p {
     min-width: 50px;
   }
   
-  .lcd-settings-group,
-  .lcd-equipment-group {
+  .lcd-settings-group {
     grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
   }
   
@@ -3199,9 +3202,9 @@ input, button, select, textarea {
     text-shadow: none !important;
   }
   
-  .lcd-exposure-group,
+  .lcd-exposure-line,
+  .lcd-equipment-line,
   .lcd-settings-group,
-  .lcd-equipment-group,
   .lcd-context-group {
     display: block !important;
     background: none !important;
@@ -3779,6 +3782,27 @@ input, button, select, textarea {
   max-width: 400px;
 }
 
+/* Universal portrait photo viewport constraints - no scrolling needed */
+.slide-mount-detail.portrait {
+  max-height: calc(100vh - var(--total-ui-height));
+}
+
+.slide-mount-detail.portrait .slide-mount-frame {
+  max-height: calc(100vh - var(--total-ui-height) - var(--space-4));
+}
+
+.slide-mount-detail.portrait .photo-main {
+  max-height: calc(100vh - var(--total-ui-height) - var(--space-8));
+  object-fit: contain;
+}
+
+/* Additional constraint for very tall portraits on smaller screens */
+@media (max-height: 700px) {
+  .slide-mount-detail.portrait .photo-main {
+    max-height: calc(100vh - var(--total-ui-height) - var(--space-6));
+  }
+}
+
 /* Slide labels - top bar */
 .slide-label-top {
   position: absolute;
@@ -4223,13 +4247,17 @@ input, button, select, textarea {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  background: rgba(0, 0, 0, 0.8);
+  background: rgba(0, 0, 0, 0.9); /* Slightly more opaque for visibility */
   border-top: 1px solid var(--nikon-yellow-dim);
   margin-top: var(--space-4);
   padding: 0 var(--space-4);
   height: 48px;
   backdrop-filter: blur(10px);
   -webkit-backdrop-filter: blur(10px);
+  /* Ensure control strip is always visible */
+  position: sticky;
+  bottom: 0;
+  z-index: 100;
 }
 
 .control-nav {
