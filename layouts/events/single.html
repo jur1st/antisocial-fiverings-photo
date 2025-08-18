@@ -1,0 +1,92 @@
+{{ define "main" }}
+{{ if .Params.photos }}
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "ImageGallery",
+  "name": "{{ .Title }}",
+  "description": "{{ .Description | default .Site.Params.description }}",
+  "url": "{{ .Permalink }}",
+  "datePublished": "{{ .Date.Format "2006-01-02" }}",
+  "author": {
+    "@type": "Person",
+    "name": "{{ .Site.Params.author }}",
+    "url": "{{ .Site.BaseURL }}"
+  },
+  "image": [
+    {{ range $index, $photo := .Params.photos }}{{ if $index }},{{ end }}
+    {
+      "@type": "ImageObject",
+      "url": "{{ $photo.image | absURL }}",
+      "name": "{{ $photo.alt | default .Title }}",
+      "description": "{{ $photo.context | default "Photo from event" }}",
+      "datePublished": "{{ $photo.date | default ($.Date.Format "2006-01-02") }}",
+      "photographer": {
+        "@type": "Person",
+        "name": "{{ $.Site.Params.author }}"
+      }
+    }{{ end }}
+  ]
+}
+</script>
+{{ end }}
+
+<div class="fade-in">
+  <nav class="nav-breadcrumb">
+    <a href="{{ "/" | relURL }}">Gallery Home</a>
+    <span>/</span>
+    <span>{{ .Title }}</span>
+  </nav>
+
+  <h1>{{ .Title }}</h1>
+  
+  {{ if or .Params.event_context .Params.speaker_bio }}
+  <div class="featured-speakers">
+    <h2>Featured Speakers</h2>
+    <div class="featured-date">{{ .Date.Format "January 2, 2006" }} {{ with .Params.location }}• {{ . }}{{ end }}</div>
+    <div class="featured-content">
+      {{ with .Params.event_context }}<p>{{ . | markdownify }}</p>{{ end }}
+      {{ with .Params.speaker_bio }}<p>{{ . | markdownify }}</p>{{ end }}
+      {{ .Content }}
+    </div>
+    
+    {{ if .Params.featured_photos }}
+    <div class="featured-speakers-grid">
+      {{ range .Params.featured_photos }}
+      <a href="/photos/{{ .photo_slug }}/" class="featured-speaker-item">
+        <img src="{{ .image | relURL }}" alt="{{ .alt | default "Photo" }}" loading="lazy" width="280" height="200">
+        <div class="featured-speaker-info">
+          <div class="speaker-name">{{ .speaker_name }}</div>
+          <div class="speaker-title">{{ .speaker_title }}</div>
+        </div>
+      </a>
+      {{ end }}
+    </div>
+    {{ end }}
+  </div>
+  {{ else }}
+  {{ .Content }}
+  {{ end }}
+  
+  {{ if .Params.photos }}
+  <div class="gallery-grid">
+    {{ range $photo := .Params.photos }}
+    {{ $skip := false }}
+    {{ range $.Params.featured_photos }}
+      {{ if eq $photo.photo_slug .photo_slug }}{{ $skip = true }}{{ end }}
+    {{ end }}
+    {{ if not $skip }}
+    <a href="/photos/{{ $photo.photo_slug }}/" class="gallery-item">
+      <img src="{{ $photo.image | relURL }}" alt="{{ $photo.alt | default "Photo" }}" loading="lazy" class="gallery-image" width="280" height="200">
+      <div class="gallery-info">
+        <div class="gallery-title">{{ $photo.camera_settings.aperture | default "f/2.8" }} • {{ $photo.camera_settings.shutter | default "1/125" }} • {{ $photo.camera_settings.iso | default "ISO 400" }}</div>
+        <div class="gallery-meta">{{ $photo.camera_settings.body | default "Camera" }} • {{ $photo.camera_settings.lens | default "Lens" }}</div>
+        <div class="gallery-filename">{{ substr $photo.photo_slug -3 3 }}</div>
+      </div>
+    </a>
+    {{ end }}
+    {{ end }}
+  </div>
+  {{ end }}
+</div>
+{{ end }}

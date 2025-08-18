@@ -2082,6 +2082,72 @@ p {
   }
 }
 
+/* Gallery Description Section - matches Featured Speakers styling */
+.gallery-description {
+  background: var(--black-matte);
+  border: 1px solid var(--gray-charcoal);
+  border-radius: 8px;
+  padding: var(--spacing-lg);
+  margin: var(--spacing-lg) 0;
+}
+
+.gallery-description h1 {
+  color: var(--nikon-yellow);
+  margin-bottom: var(--spacing-xs);
+  font-family: var(--font-display);
+  font-size: var(--text-3xl);
+  font-weight: 600;
+}
+
+.gallery-description .gallery-meta {
+  color: var(--gray-medium);
+  margin-bottom: var(--spacing-md);
+  font-size: var(--text-sm);
+  opacity: 0.8;
+}
+
+.gallery-description .gallery-content {
+  margin-bottom: var(--spacing-lg);
+  line-height: 1.6;
+}
+
+.gallery-description .gallery-content p {
+  margin-bottom: var(--spacing-md);
+  color: var(--gray-light);
+}
+
+/* Mobile responsive for gallery description */
+@media (max-width: 768px) {
+  .gallery-description {
+    padding: var(--spacing-md);
+    margin: var(--spacing-md) 0;
+  }
+}
+
+/* Theme-specific gallery description styles */
+[data-theme="camera"] .gallery-description {
+  background: var(--black-matte);
+  border-color: var(--border-subtle);
+}
+
+[data-theme="camera"] .gallery-description h1 {
+  color: var(--nikon-yellow);
+  text-shadow: 0 2px 4px rgba(0, 0, 0, 0.8);
+}
+
+[data-theme="light"] .gallery-description {
+  background: var(--surface-panel);
+  border-color: var(--surface-border);
+}
+
+[data-theme="light"] .gallery-description h1 {
+  color: var(--accent-primary);
+}
+
+[data-theme="light"] .gallery-description .gallery-content p {
+  color: var(--text-secondary);
+}
+
 /* Loading and transitions */
 .fade-in {
   animation: fadeIn 0.6s ease-in-out;

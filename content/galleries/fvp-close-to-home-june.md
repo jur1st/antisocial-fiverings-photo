@@ -570,10 +570,6 @@ photos:
       lens: "iPhone 16 Pro back triple camera 6.765mm f/1.78"
 ---
 
-# FVP-Close-to-Home-June
-
-July 17, 2025
-
 A collection of 56 photos from this gallery. Click any photo to view full size, download, or share.
 
 Each photo is yours to keep and share as you choose. You control how and when these moments are shared with the world.

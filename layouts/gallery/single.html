@@ -38,7 +38,17 @@
     <span>{{ .Title }}</span>
   </nav>
 
-  {{ .Content }}
+  <div class="gallery-description">
+    <h1>{{ .Title }}</h1>
+    <div class="gallery-meta">
+      {{ .Date.Format "January 2, 2006" }}
+      {{ with .Params.location }} • {{ . }}{{ end }}
+      {{ with .Params.photo_count }} • {{ . }} photos{{ end }}
+    </div>
+    <div class="gallery-content">
+      {{ .Content }}
+    </div>
+  </div>
   
   {{ if .Params.photos }}
   <div class="gallery-grid">
