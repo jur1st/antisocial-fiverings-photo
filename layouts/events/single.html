@@ -88,6 +88,7 @@
         <div class="gallery-title">{{ $photo.camera_settings.aperture | default "f/2.8" }} • {{ $photo.camera_settings.shutter | default "1/125" }} • {{ $photo.camera_settings.iso | default "ISO 400" }}</div>
         <div class="gallery-meta">{{ $photo.camera_settings.body | default "Camera" }} • {{ $photo.camera_settings.lens | default "Lens" }}</div>
         <div class="gallery-filename">{{ $slideNumber }}</div>
+        <div class="gallery-date">{{ $.Date.Format "2006-01-02" }}</div>
       </div>
     </a>
     {{ end }}

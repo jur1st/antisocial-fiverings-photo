@@ -755,6 +755,10 @@ p {
   opacity: 0.8;
 }
 
+.gallery-item:hover .gallery-date {
+  opacity: 0.7;
+}
+
 .gallery-meta {
   color: var(--text-secondary);
   font-family: var(--font-reading);
@@ -775,6 +779,17 @@ p {
   letter-spacing: 0.02em;
 }
 
+.gallery-date {
+  color: var(--text-secondary);
+  font-family: var(--font-technical);
+  font-size: 0.9rem;
+  font-weight: 400;
+  margin-top: var(--spacing-xs);
+  letter-spacing: 0.02em;
+  opacity: 0;
+  transition: opacity var(--transition-base) var(--ease-default);
+}
+
 /* Preserve main gallery cards (event listings) - DO NOT HIDE */
 .gallery-grid > a[href*="/events/"] .gallery-title,
 .gallery-grid > a[href*="/galleries/"] .gallery-title {
@@ -793,11 +808,21 @@ p {
   display: none; /* Hide filename on main gallery cards */
 }
 
+.gallery-grid > a[href*="/events/"] .gallery-date,
+.gallery-grid > a[href*="/galleries/"] .gallery-date {
+  display: none; /* Hide date on main gallery cards */
+}
+
 /* Mobile: show metadata on tap via focus state */
 @media (hover: none) and (pointer: coarse) {
   .gallery-item:focus .gallery-title,
   .gallery-item:active .gallery-title {
     opacity: 0.8;
+  }
+  
+  .gallery-item:focus .gallery-date,
+  .gallery-item:active .gallery-date {
+    opacity: 0.7;
   }
 }
 
