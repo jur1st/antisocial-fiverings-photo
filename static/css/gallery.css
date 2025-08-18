@@ -1630,9 +1630,9 @@ p {
     max-width: 100%;
   }
   
-  /* Start collapsed on mobile to save space */
+  /* Start expanded on mobile for accessibility */
   .camera-lcd-panel .lcd-content {
-    display: none;
+    display: block;
   }
   
   /* Larger touch target for toggle */
@@ -4446,96 +4446,8 @@ input, button, select, textarea {
     display: none !important;
   }
   
-  /* Swipe hint indicators */
-  .swipe-hint-left,
-  .swipe-hint-right {
-    position: fixed;
-    top: 50%;
-    transform: translateY(-50%);
-    width: 15px;
-    height: 80px;
-    pointer-events: none;
-    z-index: 50;
-    opacity: 0;
-    animation: pulse-hint 3s ease-in-out;
-  }
-  
-  .swipe-hint-left {
-    left: 0;
-    background: linear-gradient(90deg, rgba(255, 215, 0, 0.15), transparent);
-  }
-  
-  .swipe-hint-right {
-    right: 0;
-    background: linear-gradient(-90deg, rgba(255, 215, 0, 0.15), transparent);
-  }
-  
-  @keyframes pulse-hint {
-    0%, 100% { opacity: 0; }
-    20%, 40% { opacity: 1; }
-  }
-  
-  /* Minimal photo counter */
-  .mobile-photo-counter {
-    position: fixed;
-    top: 60px;
-    left: 50%;
-    transform: translateX(-50%);
-    background: rgba(0, 0, 0, 0.6);
-    color: var(--text-secondary);
-    padding: 3px 10px;
-    border-radius: 14px;
-    font-size: 11px;
-    font-family: var(--font-technical);
-    z-index: 50;
-  }
-  
-  /* Emergency navigation with About */
-  .mobile-emergency-nav {
-    position: fixed;
-    bottom: 20px;
-    left: 50%;
-    transform: translateX(-50%);
-    display: flex;
-    gap: 25px;
-    align-items: center;
-    opacity: 0.2;
-    transition: opacity 0.3s var(--ease-smooth);
-  }
-  
-  .mobile-emergency-nav:active {
-    opacity: 0.6;
-  }
-  
-  .mobile-emergency-nav a,
-  .mobile-emergency-nav span {
-    width: 30px;
-    height: 30px;
-    border-radius: 50%;
-    background: rgba(0, 0, 0, 0.4);
-    backdrop-filter: blur(10px);
-    -webkit-backdrop-filter: blur(10px);
-    color: var(--text-tertiary);
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    font-size: 16px;
-    text-decoration: none;
-    font-family: var(--font-technical);
-  }
-  
-  .mobile-about-dot {
-    font-size: 12px !important;
-    font-style: normal;
-  }
 }
 
-/* Hide mobile elements on desktop */
-@media (min-width: 769px) {
-  .mobile-photo-nav {
-    display: none;
-  }
-}
 
 /* Tablet adjustments */
 @media (min-width: 769px) and (max-width: 1199px) {
