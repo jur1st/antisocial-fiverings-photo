@@ -5,15 +5,8 @@ title: "Five Rings Anti-Social Media"
 # Five Rings Anti-Social Media
 
 <div class="site-tagline">
-An invitation-only gallery experience where the work speaks for itself.
+<a href="/about/">About</a>
 </div>
-
-<div class="site-navigation-prominent">
-  <a href="/about/" class="nav-link-prominent">About & Contact</a>
-  <a href="/galleries/" class="nav-link-prominent">Galleries</a>
-</div>
-
-## Recent Work
 
 <div class="gallery-grid">
   <a href="/events/seckc-joe-grand/" class="gallery-item">

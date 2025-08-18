@@ -821,16 +821,73 @@ p {
   display: none; /* Hide date on main gallery cards */
 }
 
-/* Mobile: show metadata on tap via focus state */
+/* Mobile: Enhanced gallery interactions */
 @media (hover: none) and (pointer: coarse) {
-  .gallery-item:focus .gallery-title,
-  .gallery-item:active .gallery-title {
-    opacity: 0.8;
+  /* Remove hover effect on mobile to prevent metadata flash */
+  .gallery-item:hover .gallery-title,
+  .gallery-item:hover .gallery-date {
+    opacity: 1; /* Reset opacity on mobile */
   }
   
-  .gallery-item:focus .gallery-date,
-  .gallery-item:active .gallery-date {
-    opacity: 0.7;
+  /* Add explicit metadata button for mobile */
+  .gallery-item {
+    position: relative;
+  }
+  
+  .gallery-item::after {
+    content: "ⓘ";
+    position: absolute;
+    bottom: 12px;
+    right: 12px;
+    width: 44px;
+    height: 44px;
+    background: rgba(0, 0, 0, 0.8);
+    color: var(--accent-primary);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 20px;
+    font-weight: 500;
+    z-index: 10;
+    pointer-events: auto;
+    transition: all 0.2s ease;
+    border: 2px solid rgba(255, 215, 0, 0.3);
+  }
+  
+  .gallery-item::after:active {
+    background: rgba(0, 0, 0, 0.9);
+    color: var(--accent-primary-bright);
+    transform: scale(0.95);
+  }
+  
+  /* Show metadata when info button is tapped */
+  .gallery-item.show-metadata .gallery-info {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background: linear-gradient(180deg, transparent 0%, rgba(0, 0, 0, 0.9) 40%, rgba(0, 0, 0, 0.95) 100%);
+    color: var(--accent-primary);
+    padding: 60px var(--space-3) var(--space-3) var(--space-3);
+    z-index: 8;
+    opacity: 1;
+    visibility: visible;
+  }
+  
+  .gallery-item.show-metadata .gallery-title,
+  .gallery-item.show-metadata .gallery-date,
+  .gallery-item.show-metadata .gallery-meta {
+    opacity: 1;
+    color: var(--accent-primary);
+  }
+  
+  /* Prevent navigation when metadata is shown */
+  .gallery-item.show-metadata {
+    pointer-events: none;
+  }
+  .gallery-item.show-metadata .gallery-info {
+    pointer-events: auto;
   }
 }
 
@@ -1616,8 +1673,27 @@ p {
   /* LCD Panel mobile optimization */
   .camera-lcd-panel {
     padding: var(--space-3);
-    margin: var(--space-3) 0;
+    margin: var(--space-4) 0;
     max-width: 100%;
+  }
+  
+  /* Start collapsed on mobile to save space */
+  .camera-lcd-panel .lcd-content {
+    display: none;
+  }
+  
+  /* Larger touch target for toggle */
+  .lcd-toggle {
+    min-width: 44px;
+    min-height: 44px;
+    padding: var(--space-3);
+  }
+  
+  /* Visual feedback for touch */
+  .lcd-toggle:active {
+    background: var(--accent-primary-dim);
+    transform: scale(0.95);
+    transition: all 0.1s ease;
   }
   
   .lcd-exposure-line,
@@ -1699,6 +1775,31 @@ p {
   
   .gallery-venue {
     font-size: 0.7rem;
+  }
+  
+  /* Mobile performance optimizations */
+  * {
+    animation-duration: 0.2s !important;
+  }
+  
+  /* Disable complex shadows on mobile for better performance */
+  .slide-mount-frame {
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3) !important;
+  }
+  
+  .gallery-item:hover {
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.4) !important;
+  }
+}
+
+/* Respect reduced motion preference */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
   }
 }
 
@@ -2514,14 +2615,23 @@ p {
 /* Site Tagline */
 .site-tagline {
   text-align: center;
-  font-family: var(--font-reading);
-  font-size: clamp(1.125rem, 2.5vw, 1.5rem);
-  font-style: italic;
+  margin: var(--spacing-sm) 0 var(--spacing-xl) 0;
+}
+
+.site-tagline a {
+  color: var(--text-tertiary);
+  font-family: var(--font-technical);
+  font-size: var(--text-sm);
+  text-decoration: none;
+  opacity: 0.6;
+  transition: all var(--transition-base) var(--ease-smooth);
+}
+
+.site-tagline a:hover {
   color: var(--text-secondary);
-  margin: var(--spacing-md) 0 var(--spacing-xl) 0;
-  opacity: 0.9;
-  letter-spacing: 0.01em;
-  line-height: 1.4;
+  opacity: 1;
+  text-decoration: underline;
+  text-underline-offset: 2px;
 }
 
 /* Prominent Navigation */
@@ -3997,6 +4107,27 @@ input, button, select, textarea {
   
   .slide-mount-detail.portrait .slide-photo-window {
     max-width: 240px;
+  }
+}
+
+/* Hero variant - larger size for profile/about pages */
+.slide-mount-hero.portrait .slide-photo-window {
+  max-width: 600px; /* Allow portrait to be prominent */
+  aspect-ratio: auto; /* Let photo use its natural aspect ratio */
+}
+
+.slide-mount-hero .slide-mount-frame {
+  max-width: 650px; /* Frame scales with photo */
+}
+
+/* Mobile responsive for hero variant */
+@media (max-width: 767px) {
+  .slide-mount-hero.portrait .slide-photo-window {
+    max-width: min(90vw, 400px); /* Use most of screen, cap at 400px */
+  }
+  
+  .slide-mount-hero .slide-mount-frame {
+    max-width: min(95vw, 450px);
   }
 }
 

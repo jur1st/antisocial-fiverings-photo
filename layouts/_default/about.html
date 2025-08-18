@@ -1,0 +1,17 @@
+{{ define "main" }}
+<div class="fade-in">
+  <nav class="nav-breadcrumb">
+    <a href="{{ "/" | relURL }}">Home</a>
+    <span>/</span>
+    <span>About</span>
+  </nav>
+
+  <div class="photo-display-container">
+    {{/* Profile photo in slide mount */}}
+    {{ partial "slide-mount-about.html" . }}
+    
+    {{/* Personal metadata LCD panel */}}
+    {{ partial "personal-metadata.html" . }}
+  </div>
+</div>
+{{ end }}

@@ -123,6 +123,38 @@ document.addEventListener('DOMContentLoaded', function() {
       window.location.href = document.querySelector('[href*="next"]').href;
     }
   });
+  
+  // Swipe navigation for mobile
+  let touchStartX = 0;
+  let touchEndX = 0;
+  
+  function handleSwipe() {
+    const swipeThreshold = 50;
+    const diff = touchStartX - touchEndX;
+    
+    if (Math.abs(diff) > swipeThreshold) {
+      if (diff > 0) {
+        // Swipe left - next photo
+        {{ if .Params.next_photo }}
+        window.location.href = '{{ .Params.next_photo | relURL }}';
+        {{ end }}
+      } else {
+        // Swipe right - previous photo
+        {{ if .Params.prev_photo }}
+        window.location.href = '{{ .Params.prev_photo | relURL }}';
+        {{ end }}
+      }
+    }
+  }
+  
+  document.addEventListener('touchstart', e => {
+    touchStartX = e.changedTouches[0].screenX;
+  });
+  
+  document.addEventListener('touchend', e => {
+    touchEndX = e.changedTouches[0].screenX;
+    handleSwipe();
+  });
 });
 
 </script>

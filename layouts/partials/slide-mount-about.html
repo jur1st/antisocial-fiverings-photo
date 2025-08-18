@@ -1,0 +1,91 @@
+{{/* 
+  Slide Mount About Wrapper
+  Adapts slide-mount-detail for About page with profile photo
+  Uses existing CSS classes for consistency
+  
+  Expected context: About page context with .Params.profile_image
+*/}}
+
+{{/* Profile photos are always portrait orientation */}}
+
+<div class="slide-mount-detail slide-mount-hero portrait">
+  <!-- Slide Mount Frame -->
+  <div class="slide-mount-frame">
+    <!-- Top Label Bar -->
+    <div class="slide-label-top">
+      <span class="slide-number">JOHN BENSON</span>
+      <span class="slide-brand">FIVE RINGS</span>
+    </div>
+    
+    <!-- Photo Window -->
+    <div class="slide-photo-window">
+      {{/* Include the profile photo */}}
+      {{ if .Params.profile_image }}
+        {{ $imagePath := .Params.profile_image }}
+        {{ $imageResource := resources.Get $imagePath }}
+        {{ if $imageResource }}
+          <!-- Generate responsive image sizes -->
+          {{ $thumbnail := $imageResource.Resize "400x" }}
+          {{ $medium := $imageResource.Resize "800x" }}
+          {{ $large := $imageResource.Resize "1200x" }}
+          {{ $xlarge := $imageResource.Resize "1920x" }}
+          
+          <!-- Generate WebP versions for modern browsers -->
+          {{ $thumbnailWebP := $thumbnail.Process "webp q85" }}
+          {{ $mediumWebP := $medium.Process "webp q85" }}
+          {{ $largeWebP := $large.Process "webp q85" }}
+          {{ $xlargeWebP := $xlarge.Process "webp q85" }}
+          
+          <picture>
+            <!-- WebP sources for modern browsers -->
+            <source 
+              srcset="{{ $thumbnailWebP.RelPermalink }} 400w,
+                      {{ $mediumWebP.RelPermalink }} 800w,
+                      {{ $largeWebP.RelPermalink }} 1200w,
+                      {{ $xlargeWebP.RelPermalink }} 1920w"
+              sizes="(max-width: 400px) 400px,
+                     (max-width: 800px) 800px,
+                     (max-width: 1200px) 1200px,
+                     1920px"
+              type="image/webp">
+            
+            <!-- JPEG fallback for older browsers -->
+            <img 
+              src="{{ $medium.RelPermalink }}"
+              srcset="{{ $thumbnail.RelPermalink }} 400w,
+                      {{ $medium.RelPermalink }} 800w,
+                      {{ $large.RelPermalink }} 1200w,
+                      {{ $xlarge.RelPermalink }} 1920w"
+              sizes="(max-width: 400px) 400px,
+                     (max-width: 800px) 800px,
+                     (max-width: 1200px) 1200px,
+                     1920px"
+              alt="John Benson - Photographer" 
+              class="photo-main" 
+              loading="lazy"
+              width="{{ $medium.Width }}"
+              height="{{ $medium.Height }}">
+          </picture>
+        {{ else }}
+          <!-- Fallback for when image resource is not found -->
+          <img src="{{ .Params.profile_image | relURL }}" alt="John Benson - Photographer" class="photo-main" loading="lazy">
+        {{ end }}
+      {{ end }}
+    </div>
+    
+    <!-- Bottom Label Bar -->
+    <div class="slide-label-bottom">
+      <span class="slide-title">PHOTOGRAPHER</span>
+      <span class="slide-date">KC</span>
+    </div>
+    
+    <!-- Side mount edges for depth -->
+    <div class="slide-mount-edge-left"></div>
+    <div class="slide-mount-edge-right"></div>
+    <div class="slide-mount-edge-top"></div>
+    <div class="slide-mount-edge-bottom"></div>
+  </div>
+  
+  <!-- Mount shadow/base -->
+  <div class="slide-mount-shadow"></div>
+</div>

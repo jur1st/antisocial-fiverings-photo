@@ -1,0 +1,67 @@
+{{/*
+  Personal Contact LCD-Style Metadata Display
+  
+  Adapts camera-metadata.html structure for personal/contact information
+  Features:
+  - Monospace typography with green LCD glow
+  - Collapsible interface to minimize visual weight
+  - Contact links and support information
+  - Consistent with camera LCD panel aesthetics
+*/}}
+
+<div class="camera-lcd-panel" id="personal-lcd-panel">
+  <!-- LCD-style contact readout -->
+  <div class="lcd-header">
+    <span class="lcd-title">CONTACT</span>
+    <button class="lcd-toggle" id="personal-lcd-toggle" aria-label="Toggle contact data" type="button">
+      <span class="lcd-status">●</span>
+    </button>
+  </div>
+  
+  <div class="lcd-content" id="personal-lcd-content">
+  
+  <!-- Primary contact - single line -->
+  <div class="lcd-exposure-line">
+    <span class="lcd-value">john@fiverings.photo</span>
+  </div>
+  
+  <!-- Social links - horizontal line with separators -->
+  <div class="lcd-exposure-line">
+    <a href="https://john-benson.com" target="_blank" class="lcd-value">Site</a>
+    <span class="lcd-separator">•</span>
+    <a href="https://www.instagram.com/jur1st/" target="_blank" class="lcd-value">Instagram</a>
+    <span class="lcd-separator">•</span>
+    <a href="https://glass.photo/jur1st" target="_blank" class="lcd-value">Glass</a>
+    <span class="lcd-separator">•</span>
+    <a href="https://www.linkedin.com/in/john-benson-kc/" target="_blank" class="lcd-value">LinkedIn</a>
+  </div>
+  
+  <!-- Support - inline format -->
+  <div class="lcd-exposure-line">
+    <span class="lcd-value">Venmo: @jbenson707</span>
+  </div>
+</div>
+</div>
+
+<script>
+// Personal LCD Panel Toggle Functionality
+document.addEventListener('DOMContentLoaded', function() {
+  const lcdToggle = document.getElementById('personal-lcd-toggle');
+  const lcdContent = document.getElementById('personal-lcd-content');
+  const lcdPanel = document.getElementById('personal-lcd-panel');
+  
+  if (lcdToggle && lcdContent) {
+    lcdToggle.addEventListener('click', function() {
+      const isCollapsed = lcdContent.style.display === 'none';
+      lcdContent.style.display = isCollapsed ? 'block' : 'none';
+      lcdPanel.classList.toggle('collapsed', !isCollapsed);
+      
+      // Update status indicator
+      const statusIcon = lcdToggle.querySelector('.lcd-status');
+      if (statusIcon) {
+        statusIcon.textContent = isCollapsed ? '●' : '○';
+      }
+    });
+  }
+});
+</script>
