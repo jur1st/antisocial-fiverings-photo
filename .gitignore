@@ -30,3 +30,27 @@ node_modules/
 
 # Claude AI
 .claude/
+
+# Development files
+SESSION-*.md
+*-AUDIT-*.md
+*-REPORT-*.md
+DECISIONS.md
+STATUS.md
+DESIGN-*.md
+DOMAIN-*.md
+RESPONSIVE-*.md
+Template-*.md
+
+# Archives
+archived-manual/
+
+# Dev configs
+hugo.dev.toml
+dev.sh
+
+# Build directories
+test-*/
+test-build*/
+validation-*/
+public-backup*/
