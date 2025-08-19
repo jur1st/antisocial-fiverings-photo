@@ -4477,3 +4477,44 @@ input, button, select, textarea {
 .main-content {
   flex: 1;
 }
+
+/* Action Button Flynn Theme Styling */
+.action-btn {
+  padding: var(--space-1) var(--space-3);
+  color: var(--text-secondary);
+  text-decoration: none;
+  background: transparent;
+  border: 1px solid transparent;
+  border-radius: 4px;
+  transition: all 0.2s ease;
+  font-family: var(--font-technical);
+  font-size: var(--text-sm);
+  cursor: pointer;
+  white-space: nowrap;
+  display: inline-block;
+}
+
+.action-btn:hover {
+  color: var(--text-primary);
+  border-color: var(--nikon-yellow-dim);
+  background: rgba(255, 215, 0, 0.05);
+  text-decoration: none;
+}
+
+.action-btn:focus {
+  outline: 2px solid var(--nikon-yellow);
+  outline-offset: 2px;
+}
+
+.action-btn:active {
+  background: rgba(255, 215, 0, 0.1);
+  border-color: var(--nikon-yellow);
+}
+
+/* Mobile responsive for action buttons */
+@media (max-width: 768px) {
+  .action-btn {
+    padding: calc(var(--space-1) * 0.75) var(--space-2);
+    font-size: var(--text-xs);
+  }
+}

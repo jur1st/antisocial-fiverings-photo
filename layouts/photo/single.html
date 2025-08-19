@@ -57,10 +57,13 @@ document.addEventListener('DOMContentLoaded', function() {
   
   // Keyboard navigation
   document.addEventListener('keydown', function(e) {
-    if (e.key === 'ArrowLeft' && document.querySelector('[href*="prev"]')) {
-      window.location.href = document.querySelector('[href*="prev"]').href;
-    } else if (e.key === 'ArrowRight' && document.querySelector('[href*="next"]')) {
-      window.location.href = document.querySelector('[href*="next"]').href;
+    const prevLink = document.querySelector('.nav-btn.nav-prev:not(.disabled)');
+    const nextLink = document.querySelector('.nav-btn.nav-next:not(.disabled)');
+    
+    if (e.key === 'ArrowLeft' && prevLink && prevLink.href) {
+      window.location.href = prevLink.href;
+    } else if (e.key === 'ArrowRight' && nextLink && nextLink.href) {
+      window.location.href = nextLink.href;
     }
   });
   
