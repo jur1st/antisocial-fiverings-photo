@@ -4349,13 +4349,12 @@ input, button, select, textarea {
 
 /* Universal Footer System */
 .universal-footer {
-  position: sticky;
-  bottom: 0;
+  position: relative;
   background: rgba(0, 0, 0, 0.95);
   backdrop-filter: blur(20px);
   -webkit-backdrop-filter: blur(20px);
   border-top: 1px solid var(--surface-border);
-  z-index: 100;
+  z-index: 10;
   min-height: 48px;
   display: flex;
   align-items: center;
