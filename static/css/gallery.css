@@ -1799,10 +1799,6 @@ p {
     margin-bottom: var(--spacing-md);
   }
   
-  .photo-counter {
-    font-size: 0.85rem;
-  }
-  
   /* Camera metadata panel optimization */
   .camera-metadata {
     padding: var(--spacing-lg);
@@ -4371,14 +4367,6 @@ input, button, select, textarea {
   cursor: not-allowed;
 }
 
-.photo-counter {
-  font-family: var(--font-technical);
-  color: var(--text-primary);
-  font-size: var(--text-sm);
-  letter-spacing: 0.05em;
-  padding: 0 var(--space-3);
-}
-
 .control-divider {
   width: 1px;
   height: 24px;
@@ -4602,10 +4590,6 @@ input, button, select, textarea {
     flex-wrap: wrap;
     font-size: var(--text-xs);
     text-align: center;
-  }
-  
-  .photo-counter {
-    font-size: var(--text-sm);
   }
 }
 
