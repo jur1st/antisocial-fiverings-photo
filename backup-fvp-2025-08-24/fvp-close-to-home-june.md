@@ -7,7 +7,6 @@ layout: "single"
 gallery_slug: "fvp-close-to-home-june"
 location: ""
 photo_count: 56
-redirect_to: "/archive/2025-08-24-fvp-close-to-home/events/fvp-close-to-home-june/"
 photos:
   - image: "/images/fvp-close-to-home-june/2025-07-17-fvp-close-to-home-june-001.jpg"
     alt: "FVP-Close-to-Home-June - Photo 1"

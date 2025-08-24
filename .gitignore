@@ -42,8 +42,10 @@ DOMAIN-*.md
 RESPONSIVE-*.md
 Template-*.md
 
-# Archives
+# Archives (excluded from GitHub to save space)
 archived-manual/
+/content/archive/
+/static/images/archive/
 
 # Dev configs
 hugo.dev.toml

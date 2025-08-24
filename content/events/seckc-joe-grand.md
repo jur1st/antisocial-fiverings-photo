@@ -5,6 +5,7 @@ description: "Photo gallery from SecKC - Joe Grand"
 event_slug: "seckc-joe-grand"
 location: "Knuckleheads Garage"
 photo_count: 22
+redirect_to: "/archive/2025-08-24-joe-grand/events/seckc-joe-grand/"
 event_context: "A historic night for SecKC - our first event at Knuckleheads, a place that feels like home where the best can be invited to present not only what their work is, but why. Tonight, jur1st introduced *that* Joe Grand to a community that has been building and producing some of the greatest minds in hacking for quite some time."
 speaker_bio: "Joe 'Kingpin' Grand delivered 'Shot Through the Heart: An Introduction to Fault Injection' - a technique to intentionally cause systems to misbehave in ways beneficial to attackers. Once employed only by the hardcore, it's now accessible for any hardware hacker to add to their arsenal. This collection of 22 photos captures the authentic moments of connection between expertise and community. From green room candids to the nerdcore rapper who exceeded all expectations, these images document not just a presentation, but a celebration of the hacker spirit that makes SecKC special."
 featured_photos:

@@ -1,0 +1,58 @@
+{{ define "main" }}
+<div class="fade-in">
+  <nav class="nav-breadcrumb">
+    <a href="{{ "/" | relURL }}">Gallery Home</a>
+    <span>/</span>
+    <span>{{ .Title }}</span>
+  </nav>
+
+  <div class="gallery-description">
+    <h1>{{ .Title }}</h1>
+    <div class="gallery-content">
+      {{ .Content }}
+    </div>
+  </div>
+
+  <div class="gallery-grid">
+    {{ range .Pages.ByDate.Reverse }}
+      {{ $imageResource := resources.Get (index .Params.photos 0).image }}
+      <a href="{{ .Permalink }}" class="gallery-item">
+        {{ if $imageResource }}
+          <!-- Generate optimized thumbnail -->
+          {{ $thumbnail := $imageResource.Resize "400x300" }}
+          {{ $thumbnailWebP := $thumbnail.Process "webp q85" }}
+          
+          <picture>
+            <!-- WebP for modern browsers -->
+            <source srcset="{{ $thumbnailWebP.RelPermalink }}" type="image/webp">
+            <!-- JPEG fallback -->
+            <img 
+              src="{{ $thumbnail.RelPermalink }}" 
+              alt="{{ .Title }}" 
+              loading="lazy" 
+              class="gallery-image" 
+              width="{{ $thumbnail.Width }}" 
+              height="{{ $thumbnail.Height }}">
+          </picture>
+        {{ else }}
+          <!-- Fallback for when image resource is not found -->
+          <img 
+            src="{{ (index .Params.photos 0).image | relURL }}" 
+            alt="{{ .Title }}" 
+            loading="lazy" 
+            class="gallery-image" 
+            width="280" 
+            height="200">
+        {{ end }}
+        
+        <div class="gallery-info">
+          <div class="gallery-title">{{ .Title }}</div>
+          <div class="gallery-meta">{{ .Date.Format "January 2, 2006" }} • {{ .Params.photo_count }} photos</div>
+          <div class="gallery-speaker">{{ .Params.description | default "Photography Collection" }}</div>
+          <div class="gallery-venue">{{ .Params.location | default "Various" }}</div>
+        </div>
+      </a>
+    {{ end }}
+  </div>
+</div>
+{{ end }}
