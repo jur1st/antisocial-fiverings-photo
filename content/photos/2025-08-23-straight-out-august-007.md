@@ -2,7 +2,7 @@
 title: "Straight out of Camera - August 2025 - Photo 7"
 type: "photo"
 layout: "single"
-image: "/images/straight-out-august-2025/20250823-5RP_1594.jpg"
+image: "images/straight-out-august-2025/20250823-5RP_1594.jpg"
 gallery: "/galleries/straight-out-august-2025"
 gallery_name: "Straight out of Camera - August 2025"
 photo_number: 7

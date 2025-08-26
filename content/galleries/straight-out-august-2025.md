@@ -9,7 +9,7 @@ layout: "single"
 photos:
 - filename: "5RP_0840.jpg"
   title: "5RP_0840"
-  image: "/images/straight-out-august-2025/5RP_0840.jpg"
+  image: "images/straight-out-august-2025/5RP_0840.jpg"
   photo_slug: "2025-08-23-straight-out-august-001"
   date: "2025-08-23"
   camera_settings:
@@ -21,7 +21,7 @@ photos:
     lens: "NIKKOR Z 100-400mm f/4.5-5.6 VR S"
 - filename: "5RP_1336.jpg"
   title: "5RP_1336"
-  image: "/images/straight-out-august-2025/5RP_1336.jpg"
+  image: "images/straight-out-august-2025/5RP_1336.jpg"
   photo_slug: "2025-08-23-straight-out-august-002"
   date: "2025-08-23"
   camera_settings:
@@ -33,7 +33,7 @@ photos:
     lens: "NIKKOR Z 24-70mm f/4 S"
 - filename: "5RP_7388.JPG"
   title: "5RP_7388"
-  image: "/images/straight-out-august-2025/5RP_7388.JPG"
+  image: "images/straight-out-august-2025/5RP_7388.JPG"
   photo_slug: "2025-08-07-straight-out-august-003"
   date: "2025-08-07"
   camera_settings:
@@ -45,7 +45,7 @@ photos:
     lens: "NIKKOR Z 50mm f/1.8 S"
 - filename: "5RP_9352.jpg"
   title: "5RP_9352"
-  image: "/images/straight-out-august-2025/5RP_9352.jpg"
+  image: "images/straight-out-august-2025/5RP_9352.jpg"
   photo_slug: "2025-08-08-straight-out-august-004"
   date: "2025-08-08"
   camera_settings:
@@ -57,7 +57,7 @@ photos:
     lens: "NIKKOR Z 70-180mm f/2.8"
 - filename: "DSC_0945.jpg"
   title: "DSC_0945"
-  image: "/images/straight-out-august-2025/DSC_0945.jpg"
+  image: "images/straight-out-august-2025/DSC_0945.jpg"
   photo_slug: "2025-08-09-straight-out-august-005"
   date: "2025-08-09"
   camera_settings:
@@ -69,7 +69,7 @@ photos:
     lens: "NIKKOR Z 35mm f/1.8 S"
 - filename: "DSC_9111_1.jpg"
   title: "DSC_9111_1"
-  image: "/images/straight-out-august-2025/DSC_9111_1.jpg"
+  image: "images/straight-out-august-2025/DSC_9111_1.jpg"
   photo_slug: "2025-08-08-straight-out-august-006"
   date: "2025-08-08"
   camera_settings:
@@ -81,7 +81,7 @@ photos:
     lens: "NIKKOR Z 35mm f/1.8 S"
 - filename: "20250823-5RP_1594.jpg"
   title: "20250823-5RP_1594"
-  image: "/images/straight-out-august-2025/20250823-5RP_1594.jpg"
+  image: "images/straight-out-august-2025/20250823-5RP_1594.jpg"
   photo_slug: "2025-08-23-straight-out-august-007"
   date: "2025-08-23"
   camera_settings:
@@ -93,7 +93,7 @@ photos:
     lens: "NIKKOR Z 85mm f/1.8 S"
 - filename: "20250823-5RP_1612.jpg"
   title: "20250823-5RP_1612"
-  image: "/images/straight-out-august-2025/20250823-5RP_1612.jpg"
+  image: "images/straight-out-august-2025/20250823-5RP_1612.jpg"
   photo_slug: "2025-08-23-straight-out-august-008"
   date: "2025-08-23"
   camera_settings:
@@ -105,7 +105,7 @@ photos:
     lens: "NIKKOR Z 70-180mm f/2.8"
 - filename: "20250823-5RP_1655.jpg"
   title: "20250823-5RP_1655"
-  image: "/images/straight-out-august-2025/20250823-5RP_1655.jpg"
+  image: "images/straight-out-august-2025/20250823-5RP_1655.jpg"
   photo_slug: "2025-08-23-straight-out-august-009"
   date: "2025-08-23"
   camera_settings:
@@ -117,7 +117,7 @@ photos:
     lens: "NIKKOR Z 50mm f/1.8 S"
 - filename: "20250823-5RP_1696.jpg"
   title: "20250823-5RP_1696"
-  image: "/images/straight-out-august-2025/20250823-5RP_1696.jpg"
+  image: "images/straight-out-august-2025/20250823-5RP_1696.jpg"
   photo_slug: "2025-08-23-straight-out-august-010"
   date: "2025-08-23"
   camera_settings:
@@ -129,7 +129,7 @@ photos:
     lens: "NIKKOR Z 100-400mm f/4.5-5.6 VR S"
 - filename: "20250823-5RP_1705.jpg"
   title: "20250823-5RP_1705"
-  image: "/images/straight-out-august-2025/20250823-5RP_1705.jpg"
+  image: "images/straight-out-august-2025/20250823-5RP_1705.jpg"
   photo_slug: "2025-08-23-straight-out-august-011"
   date: "2025-08-23"
   camera_settings:
@@ -141,7 +141,7 @@ photos:
     lens: "NIKKOR Z 24-70mm f/4 S"
 - filename: "20250823-5RP_1718.jpg"
   title: "20250823-5RP_1718"
-  image: "/images/straight-out-august-2025/20250823-5RP_1718.jpg"
+  image: "images/straight-out-august-2025/20250823-5RP_1718.jpg"
   photo_slug: "2025-08-23-straight-out-august-012"
   date: "2025-08-23"
   camera_settings:
@@ -153,7 +153,7 @@ photos:
     lens: "NIKKOR Z 24-70mm f/4 S"
 - filename: "20250823-5RP_1729.jpg"
   title: "20250823-5RP_1729"
-  image: "/images/straight-out-august-2025/20250823-5RP_1729.jpg"
+  image: "images/straight-out-august-2025/20250823-5RP_1729.jpg"
   photo_slug: "2025-08-23-straight-out-august-013"
   date: "2025-08-23"
   camera_settings:
@@ -165,7 +165,7 @@ photos:
     lens: "NIKKOR Z 85mm f/1.8 S"
 - filename: "20250824-5RP_1766.jpg"
   title: "20250824-5RP_1766"
-  image: "/images/straight-out-august-2025/20250824-5RP_1766.jpg"
+  image: "images/straight-out-august-2025/20250824-5RP_1766.jpg"
   photo_slug: "2025-08-24-straight-out-august-014"
   date: "2025-08-24"
   camera_settings:
@@ -177,7 +177,7 @@ photos:
     lens: "NIKKOR Z 100-400mm f/4.5-5.6 VR S"
 - filename: "20250824-5RP_1848.jpg"
   title: "20250824-5RP_1848"
-  image: "/images/straight-out-august-2025/20250824-5RP_1848.jpg"
+  image: "images/straight-out-august-2025/20250824-5RP_1848.jpg"
   photo_slug: "2025-08-24-straight-out-august-015"
   date: "2025-08-24"
   camera_settings:
@@ -189,7 +189,7 @@ photos:
     lens: "NIKKOR Z 70-180mm f/2.8"
 - filename: "20250824-5RP_1930.jpg"
   title: "20250824-5RP_1930"
-  image: "/images/straight-out-august-2025/20250824-5RP_1930.jpg"
+  image: "images/straight-out-august-2025/20250824-5RP_1930.jpg"
   photo_slug: "2025-08-24-straight-out-august-016"
   date: "2025-08-24"
   camera_settings:
@@ -201,7 +201,7 @@ photos:
     lens: "NIKKOR Z 24-70mm f/4 S"
 - filename: "20250824-5RP_2007.jpg"
   title: "20250824-5RP_2007"
-  image: "/images/straight-out-august-2025/20250824-5RP_2007.jpg"
+  image: "images/straight-out-august-2025/20250824-5RP_2007.jpg"
   photo_slug: "2025-08-24-straight-out-august-017"
   date: "2025-08-24"
   camera_settings:
@@ -213,7 +213,7 @@ photos:
     lens: "NIKKOR Z 50mm f/1.8 S"
 - filename: "20250824-5RP_2034.jpg"
   title: "20250824-5RP_2034"
-  image: "/images/straight-out-august-2025/20250824-5RP_2034.jpg"
+  image: "images/straight-out-august-2025/20250824-5RP_2034.jpg"
   photo_slug: "2025-08-24-straight-out-august-018"
   date: "2025-08-24"
   camera_settings:
@@ -225,7 +225,7 @@ photos:
     lens: "NIKKOR Z 70-180mm f/2.8"
 - filename: "20250824-5RP_2044.jpg"
   title: "20250824-5RP_2044"
-  image: "/images/straight-out-august-2025/20250824-5RP_2044.jpg"
+  image: "images/straight-out-august-2025/20250824-5RP_2044.jpg"
   photo_slug: "2025-08-24-straight-out-august-019"
   date: "2025-08-24"
   camera_settings:
@@ -237,7 +237,7 @@ photos:
     lens: "NIKKOR Z 24-70mm f/4 S"
 - filename: "20250824-5RP_2099.jpg"
   title: "20250824-5RP_2099"
-  image: "/images/straight-out-august-2025/20250824-5RP_2099.jpg"
+  image: "images/straight-out-august-2025/20250824-5RP_2099.jpg"
   photo_slug: "2025-08-24-straight-out-august-020"
   date: "2025-08-24"
   camera_settings:
@@ -249,7 +249,7 @@ photos:
     lens: "NIKKOR Z 100-400mm f/4.5-5.6 VR S"
 - filename: "20250824-5RP_2111.jpg"
   title: "20250824-5RP_2111"
-  image: "/images/straight-out-august-2025/20250824-5RP_2111.jpg"
+  image: "images/straight-out-august-2025/20250824-5RP_2111.jpg"
   photo_slug: "2025-08-24-straight-out-august-021"
   date: "2025-08-24"
   camera_settings:
@@ -261,7 +261,7 @@ photos:
     lens: "NIKKOR Z 70-180mm f/2.8"
 - filename: "20250824-5RP_2142.jpg"
   title: "20250824-5RP_2142"
-  image: "/images/straight-out-august-2025/20250824-5RP_2142.jpg"
+  image: "images/straight-out-august-2025/20250824-5RP_2142.jpg"
   photo_slug: "2025-08-24-straight-out-august-022"
   date: "2025-08-24"
   camera_settings:
@@ -273,7 +273,7 @@ photos:
     lens: "NIKKOR Z 85mm f/1.8 S"
 - filename: "20250824-5RP_2151.jpg"
   title: "20250824-5RP_2151"
-  image: "/images/straight-out-august-2025/20250824-5RP_2151.jpg"
+  image: "images/straight-out-august-2025/20250824-5RP_2151.jpg"
   photo_slug: "2025-08-24-straight-out-august-023"
   date: "2025-08-24"
   camera_settings:
@@ -285,7 +285,7 @@ photos:
     lens: "NIKKOR Z 24-70mm f/4 S"
 - filename: "20250824-5RP_2152.jpg"
   title: "20250824-5RP_2152"
-  image: "/images/straight-out-august-2025/20250824-5RP_2152.jpg"
+  image: "images/straight-out-august-2025/20250824-5RP_2152.jpg"
   photo_slug: "2025-08-24-straight-out-august-024"
   date: "2025-08-24"
   camera_settings:
