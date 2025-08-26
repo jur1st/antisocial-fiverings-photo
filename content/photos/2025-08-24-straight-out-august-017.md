@@ -1,18 +1,18 @@
 ---
-title: "Straight out of Camera - August 2025 - Photo 3"
+title: "Straight out of Camera - August 2025 - Photo 17"
 type: "photo"
 layout: "single"
-image: "/images/straight-out-august-2025/5RP_7388.JPG"
+image: "/images/straight-out-august-2025/20250824-5RP_2007.jpg"
 gallery: "/galleries/straight-out-august-2025"
 gallery_name: "Straight out of Camera - August 2025"
-photo_number: 3
+photo_number: 17
 total_photos: 24
-prev_photo: "/photos/2025-08-23-straight-out-august-002"
-next_photo: "/photos/2025-08-08-straight-out-august-004"
-date: 2025-08-07
+prev_photo: "/photos/2025-08-24-straight-out-august-016"
+next_photo: "/photos/2025-08-24-straight-out-august-018"
+date: 2025-08-24
 gallery_slug: "straight-out-august-2025"
 location: ""
-original_filename: "5RP_7388.JPG"
+original_filename: "20250824-5RP_2007.jpg"
 camera_settings:
   aperture: "f/1.8"
   shutter: "1/640"

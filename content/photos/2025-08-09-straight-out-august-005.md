@@ -6,7 +6,7 @@ image: "/images/straight-out-august-2025/DSC_0945.jpg"
 gallery: "/galleries/straight-out-august-2025"
 gallery_name: "Straight out of Camera - August 2025"
 photo_number: 5
-total_photos: 6
+total_photos: 24
 prev_photo: "/photos/2025-08-08-straight-out-august-004"
 next_photo: "/photos/2025-08-08-straight-out-august-006"
 date: 2025-08-09

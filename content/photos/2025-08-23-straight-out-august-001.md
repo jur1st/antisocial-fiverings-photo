@@ -6,7 +6,7 @@ image: "/images/straight-out-august-2025/5RP_0840.jpg"
 gallery: "/galleries/straight-out-august-2025"
 gallery_name: "Straight out of Camera - August 2025"
 photo_number: 1
-total_photos: 6
+total_photos: 24
 next_photo: "/photos/2025-08-23-straight-out-august-002"
 date: 2025-08-23
 gallery_slug: "straight-out-august-2025"
