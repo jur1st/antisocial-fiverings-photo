@@ -1,34 +1,34 @@
 ---
-title: "Straight out of Camera - August 2025 - Photo 7"
+title: "Straight out of Camera - August 2025 - Photo 26"
 type: "photo"
 layout: "single"
-image: "images/straight-out-august-2025/20250823-5RP_1729.jpg"
+image: "images/straight-out-august-2025/5RP_1336.jpg"
 gallery: "/galleries/straight-out-august-2025"
 gallery_name: "Straight out of Camera - August 2025"
-photo_number: 7
+photo_number: 26
 total_photos: 30
-prev_photo: "/photos/2025-08-23-straight-out-august-006"
-next_photo: "/photos/2025-08-24-straight-out-august-008"
-date: 2025-08-23
+prev_photo: "/photos/2025-08-01-straight-out-august-025"
+next_photo: "/photos/2025-08-01-straight-out-august-027"
+date: 2025-08-01
 gallery_slug: "straight-out-august-2025"
 location: ""
-original_filename: "20250823-5RP_1729.jpg"
+original_filename: "5RP_1336.jpg"
 camera_settings:
   aperture: "f/4.0"
   shutter: "1/125"
-  iso: "ISO 6400"
+  iso: "ISO 1000"
   focal_length: "24.0mm"
   body: "NIKON Z6_3"
   lens: "24-70mm f/4 S"
 ---
 
-# 20250823-5RP_1729
+# 5RP_1336
 
 Captured with NIKON Z6_3 using 24-70mm f/4 S
 
 **Camera Settings:**
 - Aperture: f/4.0
 - Shutter Speed: 1/125
-- ISO: ISO 6400
+- ISO: ISO 1000
 - Focal Length: 24.0mm
-- Date: 2025:08:23 20:26:26
+- Date: 2025:08:23 18:18:22
