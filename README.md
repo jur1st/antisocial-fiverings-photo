@@ -96,7 +96,7 @@ Automatic deployment via GitHub Actions:
 ## Support the Artist
 
 If you enjoy these photographs, you can support the work:
-- Venmo: @jbenson707
+- PayPal: https://paypal.me/jur1st
 - Link available in site header
 
 ## Philosophy Notes
