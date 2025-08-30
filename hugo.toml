@@ -9,11 +9,13 @@ canonifyURLs = true
 disableRSS = true
 disableKinds = ["RSS", "taxonomy", "term"]
 
-# Image processing configuration for performance optimization
+# Enhanced image processing configuration - fixes orientation issues
 [imaging]
-  quality = 85
+  quality = 90          # Higher quality for fewer regenerations
   resampleFilter = "Lanczos"
   anchor = "Smart"
+  bgColor = "#000000"   # Black background for consistent thumbnails
+  hint = "photo"        # Optimize processing for photography
   # Enable modern formats with fallbacks
   formats = ["webp", "jpg"]
 
@@ -22,12 +24,21 @@ disableKinds = ["RSS", "taxonomy", "term"]
   description = 'Antisocial FiveRings Photography'
   author = 'John Benson'
   
-  # Image processing parameters for templates
+  # Enhanced thumbnail processing parameters
   [params.images]
     thumbnail = "400x400"
     gallery = "800x800"
     full = ["1200x", "1920x", "2560x"]
     formats = ["webp", "jpg"]
+    
+  # Thumbnail generation settings - prevents orientation issues
+  [params.thumbnails]
+    enabled = true
+    generateOnBuild = true    # Ensure thumbnails exist
+    preserveOrientation = true # Respect EXIF orientation
+    sizes = ["400x400", "800x800"]
+    formats = ["webp", "jpg"]
+    quality = 90
 
 [author]
   name = 'John Benson'
