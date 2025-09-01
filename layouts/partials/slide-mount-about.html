@@ -6,9 +6,18 @@
   Expected context: About page context with .Params.profile_image
 */}}
 
-{{/* Profile photos are always portrait orientation */}}
+{{/* Dynamic orientation detection for profile photos */}}
+{{ $orientation := "portrait" }}
+{{ if .Params.profile_image }}
+  {{ $imageResource := resources.Get .Params.profile_image }}
+  {{ if $imageResource }}
+    {{ if gt $imageResource.Width $imageResource.Height }}
+      {{ $orientation = "landscape" }}
+    {{ end }}
+  {{ end }}
+{{ end }}
 
-<div class="slide-mount-detail slide-mount-hero portrait">
+<div class="slide-mount-detail slide-mount-hero {{ $orientation }}">
   <!-- Slide Mount Frame -->
   <div class="slide-mount-frame">
     <!-- Top Label Bar -->
@@ -60,7 +69,7 @@
                      (max-width: 800px) 800px,
                      (max-width: 1200px) 1200px,
                      1920px"
-              alt="John Benson - Photographer" 
+              alt="John Benson and Spencer - Father and son portrait" 
               class="photo-main" 
               loading="lazy"
               width="{{ $medium.Width }}"
