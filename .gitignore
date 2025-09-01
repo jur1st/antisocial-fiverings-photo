@@ -56,3 +56,64 @@ test-*/
 test-build*/
 validation-*/
 public-backup*/
+
+# === SECURITY RULES FOR PUBLIC WEB SERVER ===
+# This repository is publicly accessible - NO sensitive files
+
+# NO SCRIPTS OR EXECUTABLES EVER
+*.sh
+*.bash
+*.zsh
+*.fish
+*.py
+*.rb
+*.pl
+scripts/
+bin/
+utilities/
+tools/
+
+# NO BACKUP FILES EVER
+*.backup
+*.bak
+*.old
+*~
+backup*/
+*-backup/
+archive*/
+old*/
+
+# NO DEVELOPMENT LOGS
+*.log
+logs/
+*.out
+*.err
+
+# NO INTERNAL DOCUMENTATION
+*-FIX-*
+*-DEV-*
+*-TEST-*
+*-TODO-*
+*-WIP-*
+*-DRAFT-*
+TODO*
+NOTES*
+SCRATCH*
+DESIGN-*
+DOMAIN-*
+
+# NO TEMPORARY FILES
+*.tmp
+*.temp
+*.swp
+*.swo
+
+# NO PRIVATE/LOCAL CONFIGS
+.env*
+*.local
+*.private
+config.local.*
+secrets*
+credentials*
+personal/
+private/
