@@ -48,7 +48,7 @@ title: "Five Rings Anti-Social Media"
     </div>
     <div class="gallery-info">
       <div class="gallery-title">America - No Kings</div>
-      <div class="gallery-meta">June 14, 2025 • 60 Photos</div>
+      <div class="gallery-meta">June 14, 2025 • 42 Photos</div>
       <div class="gallery-speaker">Unedited captures</div>
       <div class="gallery-venue">Various</div>
     </div>
