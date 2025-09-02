@@ -9,18 +9,6 @@ title: "Five Rings Anti-Social Media"
 </div>
 
 <div class="gallery-grid">
-  <a href="/galleries/fvp-close-to-home-june/" class="gallery-item">
-    <div class="gallery-thumbnail">
-      <img src="/images/fvp-close-to-home-june/2025-07-17-fvp-close-to-home-june-060.jpg" alt="FVP Close to Home" class="gallery-thumb-img">
-    </div>
-    <div class="gallery-info">
-      <div class="gallery-title">FVP Close to Home June</div>
-      <div class="gallery-meta">July 17, 2025 • 62 Photos</div>
-      <div class="gallery-speaker">Neighborhood Moments</div>
-      <div class="gallery-venue">Close to Home</div>
-    </div>
-  </a>
-  
   <a href="/galleries/straight-out-june-2025/" class="gallery-item">
     <div class="gallery-thumbnail">
       <img src="/images/straight-out-june-2025/20250607-5RP_9947.jpg" alt="Straight out of Camera - June 2025" class="gallery-thumb-img">
@@ -51,7 +39,7 @@ title: "Five Rings Anti-Social Media"
     </div>
     <div class="gallery-info">
       <div class="gallery-title">Straight out of Camera - August 2025</div>
-      <div class="gallery-meta">August 2025 • 6 Photos</div>
+      <div class="gallery-meta">August 2025 • 25 Photos</div>
       <div class="gallery-speaker">Unedited captures</div>
       <div class="gallery-venue">Various</div>
     </div>
