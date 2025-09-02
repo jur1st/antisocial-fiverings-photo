@@ -136,7 +136,7 @@ photos:
     alt: "America - No Kings - Photo 10"
     date: "June 14, 2025"
     photo_slug: "2025-06-14-america-no-kings-010"
-  - image: "/images/america-no-kings/2025-06-14-america-no-kings-015.jpg"
+  - image: "/images/america-no-kings/2025-06-14-america-no-kings-009.jpg"
     alt: "America - No Kings - Photo 9"
     date: "June 14, 2025"
     photo_slug: "2025-06-14-america-no-kings-009"
