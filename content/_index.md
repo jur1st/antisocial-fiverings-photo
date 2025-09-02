@@ -9,6 +9,17 @@ title: "Five Rings Anti-Social Media"
 </div>
 
 <div class="gallery-grid">
+  <a href="/galleries/labor-day-rally-2025/" class="gallery-item">
+    <div class="gallery-thumbnail">
+      <img src="/images/labor-day-rally-2025/20250901-5RP_4177.jpg" alt="Kansas City Labor Day Rally 2025" class="gallery-thumb-img">
+    </div>
+    <div class="gallery-info">
+      <div class="gallery-title">Kansas City Labor Day Rally 2025</div>
+      <div class="gallery-meta">September 1, 2025 • 74 Photos</div>
+      <div class="gallery-venue">Kansas City</div>
+    </div>
+  </a>
+  
   <a href="/galleries/straight-out-august-2025/" class="gallery-item">
     <div class="gallery-thumbnail">
       <img src="/images/straight-out-august-2025/5RP_0840.jpg" alt="Straight out of Camera - August 2025" class="gallery-thumb-img">
@@ -16,7 +27,6 @@ title: "Five Rings Anti-Social Media"
     <div class="gallery-info">
       <div class="gallery-title">Straight out of Camera - August 2025</div>
       <div class="gallery-meta">August 2025 • 25 Photos</div>
-      <div class="gallery-speaker">Unedited captures</div>
       <div class="gallery-venue">Various</div>
     </div>
   </a>
@@ -28,7 +38,6 @@ title: "Five Rings Anti-Social Media"
     <div class="gallery-info">
       <div class="gallery-title">Straight out of Camera - July 2025</div>
       <div class="gallery-meta">July 2025 • 4 Photos</div>
-      <div class="gallery-speaker">Unedited captures</div>
       <div class="gallery-venue">Various</div>
     </div>
   </a>
@@ -39,7 +48,7 @@ title: "Five Rings Anti-Social Media"
     </div>
     <div class="gallery-info">
       <div class="gallery-title">America - No Kings</div>
-      <div class="gallery-meta">June 14, 2025 • 62 Photos</div>
+      <div class="gallery-meta">June 14, 2025 • 60 Photos</div>
       <div class="gallery-speaker">Unedited captures</div>
       <div class="gallery-venue">Various</div>
     </div>
@@ -52,7 +61,6 @@ title: "Five Rings Anti-Social Media"
     <div class="gallery-info">
       <div class="gallery-title">Straight out of Camera - June 2025</div>
       <div class="gallery-meta">June 2025 • 4 Photos</div>
-      <div class="gallery-speaker">Unedited captures</div>
       <div class="gallery-venue">Various</div>
     </div>
   </a>
