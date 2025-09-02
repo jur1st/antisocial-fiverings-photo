@@ -6,7 +6,7 @@ type: "gallery"
 layout: "single"
 gallery_slug: "america-no-kings"
 location: ""
-photo_count: 42
+photo_count: 41
 photos:
   - image: "/images/america-no-kings/2025-06-14-america-no-kings-062.jpg"
     alt: "America - No Kings - Photo 42"
@@ -116,10 +116,6 @@ photos:
     alt: "America - No Kings - Photo 16"
     date: "June 14, 2025"
     photo_slug: "2025-06-14-america-no-kings-016"
-  - image: "/images/america-no-kings/2025-06-14-america-no-kings-021.jpg"
-    alt: "America - No Kings - Photo 15"
-    date: "June 14, 2025"
-    photo_slug: "2025-06-14-america-no-kings-015"
   - image: "/images/america-no-kings/2025-06-14-america-no-kings-020.jpg"
     alt: "America - No Kings - Photo 14"
     date: "June 14, 2025"

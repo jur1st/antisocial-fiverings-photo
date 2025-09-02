@@ -6,7 +6,7 @@ image: "/images/america-no-kings/2025-06-14-america-no-kings-002.jpg"
 gallery: "/events/america-no-kings"
 gallery_name: "America - No Kings"
 photo_number: 1
-total_photos: 42
+total_photos: 41
 next_photo: "/photos/2025-06-14-america-no-kings-002"
 date: 2025-06-14
 event_slug: "america-no-kings"

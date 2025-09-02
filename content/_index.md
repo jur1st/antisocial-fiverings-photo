@@ -44,11 +44,11 @@ title: "Five Rings Anti-Social Media"
   
   <a href="/galleries/america-no-kings/" class="gallery-item">
     <div class="gallery-thumbnail">
-      <img src="/images/america-no-kings/2025-06-14-america-no-kings-001.jpg" alt="America - No Kings" class="gallery-thumb-img">
+      <img src="/images/america-no-kings/2025-06-14-america-no-kings-002.jpg" alt="America - No Kings" class="gallery-thumb-img">
     </div>
     <div class="gallery-info">
       <div class="gallery-title">America - No Kings</div>
-      <div class="gallery-meta">June 14, 2025 • 42 Photos</div>
+      <div class="gallery-meta">June 14, 2025 • 41 Photos</div>
       <div class="gallery-speaker">Unedited captures</div>
       <div class="gallery-venue">Various</div>
     </div>
