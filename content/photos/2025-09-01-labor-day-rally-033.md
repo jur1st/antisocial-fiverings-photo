@@ -6,8 +6,8 @@ image: "images/labor-day-rally-2025/20250901-5RP_5091.jpg"
 gallery: "/galleries/labor-day-rally-2025"
 gallery_name: "Kansas City Labor Day Rally 2025"
 photo_number: 33
-total_photos: 74
-prev_photo: "/photos/2025-09-01-labor-day-rally-032"
+total_photos: 70
+prev_photo: "/photos/2025-09-01-labor-day-rally-031"
 next_photo: "/photos/2025-09-01-labor-day-rally-034"
 date: 2025-09-01
 gallery_slug: "labor-day-rally-2025"

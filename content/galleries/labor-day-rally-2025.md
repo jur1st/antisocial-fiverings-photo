@@ -2,7 +2,7 @@
 title: Kansas City Labor Day Rally 2025
 date: '2025-09-01'
 gallery_slug: labor-day-rally-2025
-photo_count: 74
+photo_count: 70
 description: Labor Day Rally photography from Kansas City
 type: gallery
 layout: single
@@ -377,18 +377,6 @@ photos:
     shutter: 1/4000
     iso: ISO 6400
     focal_length: 100.0 mm
-    body: NIKON Z6_3
-    lens: NIKKOR Z 100-400mm f/4.5-5.6 VR S
-- filename: 20250901-5RP_5082.jpg
-  title: 20250901-5RP_5082
-  image: images/labor-day-rally-2025/20250901-5RP_5082.jpg
-  photo_slug: 2025-09-01-labor-day-rally-032
-  date: '2025-09-01'
-  camera_settings:
-    aperture: f/5.0
-    shutter: 1/4000
-    iso: ISO 6400
-    focal_length: 190.0 mm
     body: NIKON Z6_3
     lens: NIKKOR Z 100-400mm f/4.5-5.6 VR S
 - filename: 20250901-5RP_5091.jpg
@@ -775,18 +763,6 @@ photos:
     focal_length: 45.0 mm
     body: NIKON Z 6_2
     lens: NIKKOR Z 24-70mm f/4 S
-- filename: 20250901-DSC_3829.jpg
-  title: 20250901-DSC_3829
-  image: images/labor-day-rally-2025/20250901-DSC_3829.jpg
-  photo_slug: 2025-09-01-labor-day-rally-065
-  date: '2025-09-01'
-  camera_settings:
-    aperture: f/4.0
-    shutter: 1/800
-    iso: ISO 720
-    focal_length: 58.0 mm
-    body: NIKON Z 6_2
-    lens: NIKKOR Z 24-70mm f/4 S
 - filename: 20250901-DSC_3836.jpg
   title: 20250901-DSC_3836
   image: images/labor-day-rally-2025/20250901-DSC_3836.jpg
@@ -845,30 +821,6 @@ photos:
     shutter: 1/100
     iso: ISO 100
     focal_length: 24.0 mm
-    body: NIKON Z 6_2
-    lens: NIKKOR Z 24-70mm f/4 S
-- filename: 20250901-DSC_3986.jpg
-  title: 20250901-DSC_3986
-  image: images/labor-day-rally-2025/20250901-DSC_3986.jpg
-  photo_slug: 2025-09-01-labor-day-rally-071
-  date: '2025-09-01'
-  camera_settings:
-    aperture: f/4.0
-    shutter: 1/100
-    iso: ISO 180
-    focal_length: 46.0 mm
-    body: NIKON Z 6_2
-    lens: NIKKOR Z 24-70mm f/4 S
-- filename: 20250901-DSC_4047.jpg
-  title: 20250901-DSC_4047
-  image: images/labor-day-rally-2025/20250901-DSC_4047.jpg
-  photo_slug: 2025-09-01-labor-day-rally-072
-  date: '2025-09-01'
-  camera_settings:
-    aperture: f/4.0
-    shutter: 1/100
-    iso: ISO 220
-    focal_length: 42.0 mm
     body: NIKON Z 6_2
     lens: NIKKOR Z 24-70mm f/4 S
 - filename: 20250901-DSC_4060.jpg

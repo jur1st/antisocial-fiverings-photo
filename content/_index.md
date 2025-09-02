@@ -15,7 +15,7 @@ title: "Five Rings Anti-Social Media"
     </div>
     <div class="gallery-info">
       <div class="gallery-title">Kansas City Labor Day Rally 2025</div>
-      <div class="gallery-meta">September 1, 2025 • 74 Photos</div>
+      <div class="gallery-meta">September 1, 2025 • 70 Photos</div>
       <div class="gallery-venue">Kansas City</div>
     </div>
   </a>
