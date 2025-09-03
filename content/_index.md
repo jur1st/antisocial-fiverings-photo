@@ -41,19 +41,6 @@ title: "Five Rings Anti-Social Media"
       <div class="gallery-venue">Various</div>
     </div>
   </a>
-  
-  <a href="/galleries/america-no-kings/" class="gallery-item">
-    <div class="gallery-thumbnail">
-      <img src="/images/america-no-kings/2025-06-14-america-no-kings-002.jpg" alt="America - No Kings" class="gallery-thumb-img">
-    </div>
-    <div class="gallery-info">
-      <div class="gallery-title">America - No Kings</div>
-      <div class="gallery-meta">June 14, 2025 • 41 Photos</div>
-      <div class="gallery-speaker">Unedited captures</div>
-      <div class="gallery-venue">Various</div>
-    </div>
-  </a>
-  
   <a href="/galleries/straight-out-june-2025/" class="gallery-item">
     <div class="gallery-thumbnail">
       <img src="/images/straight-out-june-2025/20250607-5RP_9947.jpg" alt="Straight out of Camera - June 2025" class="gallery-thumb-img">
