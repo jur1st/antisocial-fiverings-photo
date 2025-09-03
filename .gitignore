@@ -60,6 +60,15 @@ public-backup*/
 # === SECURITY RULES FOR PUBLIC WEB SERVER ===
 # This repository is publicly accessible - NO sensitive files
 
+# CRITICAL: NO INTERNAL DOCUMENTATION
+002-Agent-Workspace/
+*-COMPLETE-*.md
+*-OPERATION-*.md
+*-INVENTORY-*.md
+*-ASSEMBLY-*.md
+*-REPORT-*.md
+static/images/manual/
+
 # NO SCRIPTS OR EXECUTABLES EVER
 *.sh
 *.bash
