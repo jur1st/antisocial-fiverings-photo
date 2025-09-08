@@ -1,0 +1,34 @@
+{{- /*
+    CSS Loader Partial
+    Intelligently loads either optimized or original CSS based on availability
+    Uses optimized CSS in production/test, falls back to original if needed
+*/ -}}
+
+{{- $optimizedProd := "css/dist/gallery.min.css" -}}
+{{- $optimizedDev := "css/dist/gallery.css" -}}
+{{- $originalCSS := "css/gallery.css" -}}
+
+{{- /* Check if optimized CSS exists */ -}}
+{{- $optimizedProdPath := printf "static/%s" $optimizedProd -}}
+{{- $optimizedDevPath := printf "static/%s" $optimizedDev -}}
+{{- $useOptimized := or (fileExists $optimizedProdPath) (fileExists $optimizedDevPath) -}}
+
+{{- if $useOptimized -}}
+    {{- /* Use optimized CSS */ -}}
+    {{- if hugo.IsProduction -}}
+        <!-- Optimized Production CSS (minified) -->
+        <link rel="stylesheet" href="{{ $optimizedProd | relURL }}">
+    {{- else -}}
+        <!-- Optimized Development CSS (with source maps) -->
+        <link rel="stylesheet" href="{{ $optimizedDev | relURL }}">
+    {{- end -}}
+{{- else -}}
+    {{- /* Fallback to original CSS files */ -}}
+    <!-- Original CSS Files (fallback) -->
+    <link rel="preload" href="{{ $originalCSS | relURL }}" as="style" onload="this.onload=null;this.rel='stylesheet'">
+    <noscript><link rel="stylesheet" href="{{ $originalCSS | relURL }}"></noscript>
+    <link rel="stylesheet" href="{{ $originalCSS | relURL }}" media="print" onload="this.media='all'; this.onload=null;">
+    <link rel="stylesheet" href="{{ "/css/typography.css" | relURL }}" media="print" onload="this.media='all'; this.onload=null;">
+    <link rel="stylesheet" href="{{ "/css/camera-theme.css" | relURL }}" media="print" onload="this.media='all'; this.onload=null;">
+    <link rel="stylesheet" href="{{ "/css/manual-typography.css" | relURL }}" media="print" onload="this.media='all'; this.onload=null;">
+{{- end -}}

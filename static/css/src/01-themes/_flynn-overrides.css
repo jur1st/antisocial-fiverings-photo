@@ -1,0 +1,164 @@
+/* ================================================================
+   FLYNN THEME OVERRIDES
+   ================================================================
+   
+   Flynn Mode - Dark theme with Tron-inspired aesthetics
+   Applied when: [data-theme="flynn"]
+   
+   This is the primary production theme for antisocial.fiverings.photo
+   ================================================================ */
+
+/* ================================
+   FLYNN COLOR OVERRIDES
+   ================================ */
+[data-theme="flynn"] {
+  /* Dark surfaces - slightly lighter than camera base */
+  --surface-base: #0f0f0f;
+  --surface-panel: #1a1a1a;
+  --surface-depth: #2a2a2a;
+  --surface-border: #3a3a3a;
+  --surface-overlay: #000000;
+  
+  /* Dark mode text hierarchy */
+  --text-primary: #FFFFFF;
+  --text-secondary: #E8E8E8;
+  --text-tertiary: #999999;
+  --text-inverse: #1a1a1a;
+  --text-muted: #666666;
+  
+  /* Nikon yellow - primary for dark mode */
+  --accent-primary: #FFD700;
+  --accent-primary-dim: #E6C200;
+  --accent-primary-glow: #FFED4E;
+  --accent-primary-dark: #B39700;
+  
+  /* Tron Agent Orange - secondary */
+  --accent-secondary: #FF8C00;
+  --accent-secondary-dim: #CC7000;
+  --accent-secondary-glow: #FFB366;
+  --accent-secondary-dark: #B36200;
+  
+  /* Flynn typography - Berkeley Mono all the way */
+  --font-display: 'Berkeley Mono', 'Terminus', 'Monaco', ui-monospace, 'Menlo', 'Consolas', 'Liberation Mono', 'Courier New', monospace;
+  --font-reading: 'Berkeley Mono', 'Terminus', 'Monaco', ui-monospace, 'Menlo', 'Consolas', 'Liberation Mono', 'Courier New', monospace;
+  --font-body: 'Berkeley Mono', 'Terminus', 'Monaco', ui-monospace, 'Menlo', 'Consolas', 'Liberation Mono', 'Courier New', monospace;
+  
+  /* Flynn theme Nikon yellow shadows */
+  --shadow-subtle: 0 2px 4px rgba(255, 215, 0, 0.2);
+  --shadow-medium: 0 4px 8px rgba(255, 215, 0, 0.3);
+  --shadow-strong: 0 8px 16px rgba(255, 215, 0, 0.4);
+  --shadow-glow: 0 0 20px rgba(255, 215, 0, 0.5);
+  --shadow-small: 0 2px 8px rgba(255, 215, 0, 0.2);
+  
+  /* Flynn overlay colors */
+  --overlay-dark: rgba(0, 0, 0, 0.5);
+  --overlay-light: rgba(255, 215, 0, 0.1);
+  
+  /* Flynn UI states */
+  --surface-border-hover: rgba(255, 215, 0, 0.5);
+  --accent-error: #FF0030;
+}
+
+/* ================================
+   FLYNN TYPOGRAPHY REFINEMENTS
+   ================================ */
+
+/* Heading overrides for Flynn mode */
+[data-theme="flynn"] h1 {
+  letter-spacing: 0.02em;
+  font-weight: 300;
+  text-transform: uppercase;
+  font-size: clamp(1.8rem, 5vw, 3.5rem);
+}
+
+[data-theme="flynn"] h2 {
+  letter-spacing: 0.01em;
+  font-weight: 300;
+  text-transform: uppercase;
+}
+
+[data-theme="flynn"] h3,
+[data-theme="flynn"] h4,
+[data-theme="flynn"] h5,
+[data-theme="flynn"] h6 {
+  font-family: var(--font-display);
+  text-transform: uppercase;
+  letter-spacing: 0.02em;
+}
+
+/* Component-specific Flynn typography */
+[data-theme="flynn"] .site-tagline {
+  font-family: var(--font-display);
+  font-style: normal;
+  letter-spacing: 0.02em;
+  font-size: clamp(0.9rem, 2vw, 1.1rem);
+  text-transform: uppercase;
+}
+
+[data-theme="flynn"] .gallery-title {
+  font-family: var(--font-display);
+  letter-spacing: 0.01em;
+  text-transform: uppercase;
+  font-weight: 400;
+}
+
+[data-theme="flynn"] .gallery-meta {
+  font-family: var(--font-display);
+  letter-spacing: 0.02em;
+  font-size: 0.75rem;
+}
+
+[data-theme="flynn"] .nav-link-prominent {
+  font-family: var(--font-display);
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  font-weight: 600;
+}
+
+/* ================================
+   FLYNN SPECIAL EFFECTS
+   ================================ */
+
+/* Tron-style glow for interactive elements */
+[data-theme="flynn"] .btn:hover,
+[data-theme="flynn"] .gallery-item:hover,
+[data-theme="flynn"] .nav-link-prominent:hover {
+  box-shadow: 0 0 20px var(--accent-primary-glow);
+}
+
+/* Flynn-specific support section styling */
+[data-theme="flynn"] .support-artist-link:hover {
+  color: var(--accent-secondary);
+  text-shadow: 0 0 10px var(--accent-secondary);
+}
+
+[data-theme="flynn"] .support-section {
+  background: rgba(255, 215, 0, 0.05);
+  border-color: rgba(255, 215, 0, 0.2);
+}
+
+/* Enhanced shadows for Retina displays */
+@media (-webkit-min-device-pixel-ratio: 2), (min-resolution: 192dpi) {
+  [data-theme="flynn"] .nikon-yellow-glow,
+  [data-theme="flynn"] .btn:hover {
+    box-shadow: 0 0 40px rgba(255, 215, 0, 0.6);
+  }
+}
+
+/* ================================
+   FLYNN 404 PAGE ANIMATION
+   ================================ */
+@keyframes flynn-glow {
+  from { 
+    opacity: 0.8;
+    text-shadow: 0 0 20px var(--accent-primary-glow);
+  }
+  to { 
+    opacity: 1;
+    text-shadow: 0 0 30px var(--accent-primary-glow);
+  }
+}
+
+[data-theme="flynn"] .error-code {
+  animation: flynn-glow 2s ease-in-out infinite alternate;
+}

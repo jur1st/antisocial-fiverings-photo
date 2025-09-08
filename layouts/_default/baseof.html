@@ -32,16 +32,8 @@
     <link rel="preload" href="https://fonts.googleapis.com/css2?family=Berkeley+Mono:wght@400;500;600&display=swap" as="style" onload="this.onload=null;this.rel='stylesheet'" crossorigin>
     <noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Berkeley+Mono:wght@400;500;600&display=swap" crossorigin></noscript>
     
-    <!-- CSS Performance Optimization -->
-    <!-- Preload critical CSS for faster rendering -->
-    <link rel="preload" href="{{ "/css/gallery.css" | relURL }}" as="style" onload="this.onload=null;this.rel='stylesheet'">
-    <noscript><link rel="stylesheet" href="{{ "/css/gallery.css" | relURL }}"></noscript>
-    <!-- CSS Files in optimal loading order -->
-    <link rel="stylesheet" href="{{ "/css/gallery.css" | relURL }}" media="print" onload="this.media='all'; this.onload=null;">
-    <link rel="stylesheet" href="{{ "/css/typography.css" | relURL }}" media="print" onload="this.media='all'; this.onload=null;">
-    <link rel="stylesheet" href="{{ "/css/camera-theme.css" | relURL }}" media="print" onload="this.media='all'; this.onload=null;">
-    <!-- Manual Typography Enhancements -->
-    <link rel="stylesheet" href="{{ "/css/manual-typography.css" | relURL }}" media="print" onload="this.media='all'; this.onload=null;">
+    <!-- CSS Loading (Optimized or Original) -->
+    {{ partial "css-loader.html" . }}
     <!-- Enhanced reduced motion support -->
     <style>
         /* Critical CSS for faster initial render */

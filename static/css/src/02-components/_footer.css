@@ -1,0 +1,79 @@
+/* ================================================================
+   FOOTER COMPONENT - Five Rings Anti-Social Gallery System
+   ================================================================
+   
+   Universal footer with backdrop blur and responsive layout
+   Extracted from gallery.css production styles
+   ================================================================ */
+
+.universal-footer {
+  position: relative;
+  background: rgba(0, 0, 0, 0.95);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border-top: 1px solid var(--surface-border);
+  z-index: 10;
+  min-height: 48px;
+  display: flex;
+  align-items: center;
+  padding: 0 var(--space-4);
+}
+
+.footer-content {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--space-4);
+}
+
+/* Info page layout (home/about) */
+.footer-info {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: var(--space-3);
+  font-size: var(--text-sm);
+  color: var(--text-secondary);
+}
+
+.footer-minimal {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: var(--space-3);
+  font-size: var(--text-sm);
+  color: var(--text-secondary);
+}
+
+.footer-link {
+  color: var(--text-secondary);
+  text-decoration: none;
+  transition: color 0.2s var(--ease-smooth);
+}
+
+.footer-link:hover {
+  color: var(--accent-primary);
+}
+
+.footer-separator {
+  color: var(--text-tertiary);
+  opacity: 0.5;
+}
+
+/* Mobile responsive */
+@media (max-width: 768px) {
+  .universal-footer {
+    padding: var(--space-3);
+    min-height: auto;
+  }
+  
+  .footer-info,
+  .footer-minimal {
+    flex-wrap: wrap;
+    font-size: var(--text-xs);
+    text-align: center;
+  }
+}

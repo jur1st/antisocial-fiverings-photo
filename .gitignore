@@ -62,6 +62,7 @@ public-backup*/
 
 # CRITICAL: NO INTERNAL DOCUMENTATION
 002-Agent-Workspace/
+docs/
 *-COMPLETE-*.md
 *-OPERATION-*.md
 *-INVENTORY-*.md

@@ -2,6 +2,48 @@
 
 This file provides critical guidance to Claude Code when working with this photography platform repository.
 
+## DOCUMENTATION UPDATE (2025-09-05)
+
+### Critical Theme Discovery: Flynn-Prod
+**IMPORTANT**: Production uses **Flynn-Prod**, a hybrid theme combining:
+- Base: Camera theme defaults in `:root`
+- Overrides: `[data-theme="flynn"]` scattered rules
+- Result: 101KB gallery.css with all production styles
+
+**This is NOT pure Flynn or camera theme** - it's a working hybrid that must be preserved.
+
+### Documentation Architecture
+This project uses a **hybrid documentation approach**:
+- **Patterns** (reusable): Grid at `/00-Meta/03-Grid_Docs/`
+- **Implementation** (specific): Local at `/docs/`
+- **Cross-references**: Connect both locations
+
+### Local Documentation Structure
+```
+/docs/
+├── components/
+│   ├── themes/flynn-prod.md      # Production theme truth
+│   └── working/                  # Production components
+│       ├── gallery-card.md
+│       ├── photo-detail.md
+│       ├── navigation.md
+│       └── metadata-display.md
+├── testing/
+│   └── playwright-tests.md       # Test specifications
+├── configuration/
+│   └── hugo-config.md           # Build configuration
+├── code-warnings.md             # CRITICAL: Do not touch items
+└── DOCUMENTATION-SPLIT.md       # What lives where
+```
+
+### Three-Audience Documentation Format
+All documentation follows the three-audience standard:
+- **For Users**: Clear instructions and outcomes
+- **For Developers**: Technical implementation details
+- **For AI Agents**: Structured YAML/JSON requirements
+
+Reference: `/00-Meta/03-Grid_Docs/Standards/Three-Audience-Documentation-Template.md`
+
 ## CRITICAL LESSONS FROM FAILURES
 
 ### The "No Kings Gallery" Disaster (2025-09-02)
@@ -47,6 +89,14 @@ The homepage (`/content/_index.md`) MUST be updated when:
 - Say: "Implementation finished - awaiting validation"
 - Never say: "Complete" or "Done" without user validation
 - Always test locally before claiming success
+
+### 5. Critical Code Warnings
+**NEVER MODIFY WITHOUT EXTREME CARE** (see `/docs/code-warnings.md`):
+- Theme lock mechanism in `/layouts/partials/header.html`
+- Gallery.css existing rules (101KB file)
+- Thumbnail dimensions (400x300 hardcoded)
+- Homepage gallery order (newest first)
+- CSS file loading order
 
 ## Repository Structure
 
@@ -194,6 +244,21 @@ npm run validate
 
 ## Support Documentation
 
+### Local Implementation Docs
+- Component specifications: `/docs/components/working/`
+- Flynn-Prod theme: `/docs/components/themes/flynn-prod.md`
+- Test specifications: `/docs/testing/playwright-tests.md`
+- Configuration: `/docs/configuration/hugo-config.md`
+- **CRITICAL**: Code warnings: `/docs/code-warnings.md`
+
+### Grid Pattern Documentation
+- Gallery Addition: `/00-Meta/03-Grid_Docs/Grid_User_Documentation_System/04_Quick_Start_Guides/Adding_Photo_Galleries_Guide.md`
+- Gallery Removal: `/00-Meta/03-Grid_Docs/Grid_User_Documentation_System/04_Quick_Start_Guides/Gallery_Removal_Quick_Reference.md`
+- Testing Patterns: `/00-Meta/03-Grid_Docs/Standards/Testing-Validation-Pattern.md`
+- Three-Audience Format: `/00-Meta/03-Grid_Docs/Standards/Three-Audience-Documentation-Template.md`
+- Implementation Examples: `/00-Meta/03-Grid_Docs/Grid_User_Documentation_System/Implementation_References.md`
+
+### Legacy References
 - Gallery operations: `.claude/templates/Gallery-Photo-Removal-Template-v2.md`
 - Agent configs: `.claude/[agent-name].md`
 - Test reports: `playwright-report/index.html`

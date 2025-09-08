@@ -1,0 +1,85 @@
+/* ================================================================
+   GALLERY CARD COMPONENT - Five Rings Anti-Social Gallery System
+   ================================================================
+   
+   35mm slide mount aesthetic with physical depth and shadows
+   Extracted from gallery.css - core gallery functionality
+   ================================================================ */
+
+.gallery-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  gap: var(--spacing-md);
+  margin: var(--spacing-lg) 0;
+  align-items: start; /* Align cards to top */
+}
+
+.gallery-item {
+  /* 35mm slide mount aesthetic */
+  background: linear-gradient(145deg, #2d2d2d, #2a2a2a);
+  border: 1px solid var(--surface-border);
+  border-top: 1px solid var(--surface-border); /* Subtle top highlight for dimension */
+  border-radius: 3px; /* Sharp corners like actual slides */
+  overflow: hidden;
+  transition: 
+    transform var(--transition-slow) var(--ease-smooth), 
+    box-shadow var(--transition-slow) var(--ease-smooth), 
+    border-color var(--transition-slow) var(--ease-smooth);
+  cursor: pointer;
+  /* Multi-layer shadows for physical depth */
+  box-shadow: 
+    0 1px 2px rgba(0, 0, 0, 0.4),    /* Contact shadow */
+    0 4px 8px rgba(0, 0, 0, 0.3),    /* Depth shadow */
+    0 8px 16px rgba(0, 0, 0, 0.2);   /* Ambient shadow */
+  display: flex;
+  align-items: stretch;
+  flex-direction: column; /* VERTICAL STACK - photo on top */
+  max-width: 320px; /* Optimal card width */
+  position: relative;
+}
+
+.gallery-item:hover {
+  /* Enhanced lift effect with subtle scale */
+  transform: translateY(-6px) scale(1.005);
+  /* Premium shadows with Flynn theme glow */
+  box-shadow: 
+    0 3px 6px rgba(0, 0, 0, 0.6),    /* Contact shadow */
+    0 12px 24px rgba(0, 0, 0, 0.5),  /* Depth shadow */
+    0 24px 48px rgba(0, 0, 0, 0.3),  /* Ambient shadow */
+    0 0 20px rgba(255, 215, 0, 0.15); /* Flynn theme glow */
+  border-color: var(--accent-primary);
+}
+
+.gallery-item > .gallery-image {
+  width: 100% !important; /* Full card width */
+  height: 240px; /* Consistent height for all images */
+  object-fit: contain !important;
+  object-position: center !important;
+  background: #0a0a0a !important;
+  border-radius: 2px; /* Slight rounding for photo window */
+  flex-shrink: 0;
+  /* Inner shadow to show recession into frame */
+  box-shadow: inset 0 1px 3px rgba(0, 0, 0, 0.5);
+}
+
+.gallery-image {
+  max-width: 100%;
+  height: auto;
+  display: block;
+  border-radius: var(--radius-sm);
+  box-shadow: var(--shadow-medium);
+}
+
+/* Keep main gallery card images horizontal */
+.gallery-grid > a[href*="/events/"] .gallery-image,
+.gallery-grid > a[href*="/galleries/"] .gallery-image {
+  width: 200px !important; /* Match original horizontal layout */
+  height: 120px !important; /* Match original horizontal height */
+  border-radius: 6px; /* Restore rounded corners for main cards */
+}
+
+.gallery-grid > a[href*="/events/"],
+.gallery-grid > a[href*="/galleries/"] {
+  flex-direction: row !important; /* Keep horizontal for event cards */
+  max-width: 480px !important; /* Restore original width for main cards */
+}

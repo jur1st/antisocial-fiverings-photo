@@ -1,0 +1,956 @@
+/* ================================================================
+   MAIN CSS ORCHESTRATOR - Five Rings Anti-Social Gallery System
+   ================================================================
+   
+   This file controls the import order for all CSS modules.
+   Order is critical for proper cascade and theme switching.
+   
+   Current production theme: Flynn-Prod (Flynn overrides on Camera base)
+   
+   Build commands:
+   - Development: npm run css:dev
+   - Production: npm run css:build
+   ================================================================ */
+
+/* ================================
+   LAYER 1: CORE FOUNDATION
+   Reset, variables, and base styles
+   ================================ */
+
+/* ================================================================
+   CSS RESET - Five Rings Anti-Social Gallery System
+   ================================================================
+   
+   Modern CSS reset with performance optimizations
+   Based on best practices for photography websites
+   ================================================================ */
+
+/* ================================
+   BOX MODEL RESET
+   ================================ */
+
+*,
+*::before,
+*::after {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/* ================================
+   DOCUMENT SETUP
+   ================================ */
+
+html {
+  /* Prevent font size adjustments in iOS */
+  -webkit-text-size-adjust: 100%;
+  /* Smooth scrolling for anchor links */
+  scroll-behavior: smooth;
+  /* Better font rendering */
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+body {
+  /* Inherit line height for consistency */
+  line-height: inherit;
+  /* Prevent horizontal overflow */
+  overflow-x: hidden;
+  /* Minimum height for proper layouts */
+  min-height: 100vh;
+}
+
+/* ================================
+   MEDIA ELEMENTS
+   ================================ */
+
+img,
+picture,
+video,
+canvas,
+svg {
+  display: block;
+  max-width: 100%;
+  height: auto;
+}
+
+/* Specific image optimizations */
+
+img {
+  /* Prevent layout shifts */
+  height: auto;
+  /* Optimize image rendering for photography */
+  image-rendering: -webkit-optimize-contrast;
+  image-rendering: crisp-edges;
+  /* Remove default border in IE */
+  border-style: none;
+}
+
+/* ================================
+   FORM ELEMENTS
+   ================================ */
+
+input,
+button,
+textarea,
+select {
+  font: inherit;
+  color: inherit;
+}
+
+button {
+  cursor: pointer;
+  background: transparent;
+  border: none;
+  padding: 0;
+}
+
+/* ================================
+   TEXT ELEMENTS
+   ================================ */
+
+p,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  overflow-wrap: break-word;
+}
+
+/* Remove default margins */
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p,
+blockquote,
+dl,
+dd {
+  margin: 0;
+}
+
+/* ================================
+   LISTS
+   ================================ */
+
+ul,
+ol {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+/* ================================
+   TABLES
+   ================================ */
+
+table {
+  border-collapse: collapse;
+  border-spacing: 0;
+}
+
+/* ================================
+   ACCESSIBILITY
+   ================================ */
+
+/* Remove animations for users who prefer reduced motion */
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
+
+/* ================================
+   PERFORMANCE OPTIMIZATIONS
+   ================================ */
+
+/* Hardware acceleration for transforms */
+
+.will-change-transform {
+  will-change: transform;
+}
+
+/* Remove will-change after animations */
+
+.will-change-auto {
+  will-change: auto;
+}
+
+/* ================================================================
+   CORE VARIABLES - Five Rings Anti-Social Gallery System
+   ================================================================
+   
+   All CSS custom properties used throughout the system.
+   These variables enable runtime theme switching.
+   
+   Organization:
+   1. Surface Colors
+   2. Text Colors  
+   3. Accent Colors
+   4. Typography
+   5. Spacing
+   6. Shadows
+   7. Borders
+   8. Transitions
+   9. Z-Index
+   10. Opacity
+   11. Breakpoints
+   ================================================================ */
+
+:root {
+  /* ================================
+     1. SURFACE COLORS
+     Camera theme defaults (dark mode)
+     ================================ */
+  --surface-base: #000000;
+  --surface-panel: #0a0a0a;
+  --surface-depth: #111111;
+  --surface-border: #252525;
+  --surface-overlay: #1a1a1a;
+  
+  /* ================================
+     2. TEXT COLORS
+     Dark mode text hierarchy
+     ================================ */
+  --text-primary: #ffffff;
+  --text-secondary: #cccccc;
+  --text-tertiary: #999999;
+  --text-inverse: #000000;
+  --text-muted: #666666;
+  
+  /* ================================
+     3. ACCENT COLORS
+     Nikon signature yellow system
+     ================================ */
+  --accent-primary: #FFD700;
+  --accent-primary-dim: #E6C200;
+  --accent-primary-glow: #FFED4E;
+  --accent-primary-dark: #B39700;
+  
+  /* Technical UI accents */
+  --accent-secondary: #FF8C00;
+  --accent-secondary-dim: #CC7000;
+  --accent-secondary-glow: #FFB366;
+  --accent-secondary-dark: #B36200;
+  
+  /* System state colors */
+  --accent-error: #FF0030;
+  
+  /* ================================
+     4. TYPOGRAPHY
+     Font stacks and size system
+     ================================ */
+  
+  /* Font families */
+  --font-display: 'DIN Next', 'Gotham', 'Futura PT', 'Univers', 'Akzidenz-Grotesk', 'Helvetica Neue', 'Arial', sans-serif;
+  --font-reading: 'Crimson Text', Georgia, 'Times New Roman', serif;
+  --font-technical: 'Berkeley Mono', 'Terminus', 'Monaco', ui-monospace, 'Cascadia Code', 'Roboto Mono', 'Liberation Mono', monospace;
+  
+  /* Font sizes */
+  --text-xs: 0.75rem;    /* 12px */
+  --text-sm: 0.875rem;   /* 14px */
+  --text-base: 1rem;     /* 16px */
+  --text-lg: 1.125rem;   /* 18px */
+  --text-xl: 1.25rem;    /* 20px */
+  --text-2xl: 1.5rem;    /* 24px */
+  --text-3xl: 1.875rem;  /* 30px */
+  --text-4xl: 2.25rem;   /* 36px */
+  
+  /* Letter spacing */
+  --tracking-tighter: -0.05em;
+  --tracking-tight: -0.025em;
+  --tracking-normal: 0;
+  --tracking-wide: 0.025em;
+  --tracking-wider: 0.05em;
+  --tracking-widest: 0.1em;
+  
+  /* Line height */
+  --leading-none: 1;
+  --leading-tight: 1.25;
+  --leading-snug: 1.375;
+  --leading-normal: 1.5;
+  --leading-relaxed: 1.625;
+  --leading-loose: 2;
+  
+  /* ================================
+     5. SPACING
+     4px/8px baseline grid
+     ================================ */
+  --space-0: 0;
+  --space-1: 0.25rem;    /* 4px */
+  --space-2: 0.5rem;     /* 8px */
+  --space-3: 0.75rem;    /* 12px */
+  --space-4: 1rem;       /* 16px */
+  --space-5: 1.25rem;    /* 20px */
+  --space-6: 1.5rem;     /* 24px */
+  --space-8: 2rem;       /* 32px */
+  --space-10: 2.5rem;    /* 40px */
+  --space-12: 3rem;      /* 48px */
+  --space-16: 4rem;      /* 64px */
+  --space-20: 5rem;      /* 80px */
+  
+  /* Legacy spacing (backward compatibility) */
+  --spacing-xs: var(--space-2);
+  --spacing-sm: var(--space-4);
+  --spacing-md: var(--space-6);
+  --spacing-lg: var(--space-8);
+  --spacing-xl: var(--space-12);
+  
+  /* Component heights */
+  --header-height: 49px;
+  --breadcrumb-height: 44px;
+  --control-strip-height: 48px;
+  --total-ui-height: calc(var(--header-height) + var(--breadcrumb-height) + var(--control-strip-height) + var(--space-4));
+  
+  /* ================================
+     6. SHADOWS
+     Theme-aware shadow system
+     ================================ */
+  --shadow-subtle: 0 2px 4px rgba(0, 0, 0, 0.5);
+  --shadow-medium: 0 4px 8px rgba(0, 0, 0, 0.6);
+  --shadow-strong: 0 8px 16px rgba(0, 0, 0, 0.8);
+  --shadow-glow: 0 0 20px rgba(255, 215, 0, 0.3);
+  --shadow-small: 0 2px 8px rgba(0, 0, 0, 0.4);
+  
+  /* Overlay colors */
+  --overlay-dark: rgba(0, 0, 0, 0.3);
+  --overlay-light: rgba(255, 255, 255, 0.3);
+  
+  /* Hover states */
+  --surface-border-hover: rgba(255, 215, 0, 0.3);
+  
+  /* ================================
+     7. BORDERS
+     Radius system
+     ================================ */
+  --radius-none: 0;
+  --radius-sm: 3px;
+  --radius-md: 4px;
+  --radius-lg: 6px;
+  --radius-xl: 8px;
+  --radius-2xl: 12px;
+  --radius-3xl: 16px;
+  --radius-full: 9999px;
+  
+  /* ================================
+     8. TRANSITIONS
+     Animation timing
+     ================================ */
+  --transition-fast: 0.15s;
+  --transition-base: 0.2s;
+  --transition-slow: 0.3s;
+  --transition-slower: 0.6s;
+  
+  /* Easing curves */
+  --ease-smooth: cubic-bezier(0.4, 0.0, 0.2, 1);
+  --ease-gentle: cubic-bezier(0.25, 0.1, 0.25, 1);
+  --ease-bounce: cubic-bezier(0.68, -0.55, 0.265, 1.55);
+  --ease-default: ease;
+  --ease-in-out: cubic-bezier(0.4, 0, 0.2, 1);
+  --ease-out: cubic-bezier(0, 0, 0.2, 1);
+  --ease-in: cubic-bezier(0.4, 0, 1, 1);
+  
+  /* ================================
+     9. Z-INDEX
+     Layering scale
+     ================================ */
+  --z-negative: -1;
+  --z-base: 0;
+  --z-dropdown: 10;
+  --z-sticky: 20;
+  --z-overlay: 30;
+  --z-modal: 40;
+  --z-popover: 50;
+  --z-tooltip: 60;
+  --z-notification: 70;
+  --z-maximum: 100;
+  
+  /* ================================
+     10. OPACITY
+     Transparency scale
+     ================================ */
+  --opacity-0: 0;
+  --opacity-30: 0.3;
+  --opacity-50: 0.5;
+  --opacity-60: 0.6;
+  --opacity-70: 0.7;
+  --opacity-80: 0.8;
+  --opacity-90: 0.9;
+  --opacity-100: 1;
+  
+  /* ================================
+     11. BREAKPOINTS
+     Responsive design points
+     ================================ */
+  --breakpoint-xs: 480px;
+  --breakpoint-sm: 640px;
+  --breakpoint-md: 768px;
+  --breakpoint-lg: 1024px;
+  --breakpoint-xl: 1200px;
+  --breakpoint-2xl: 1440px;
+  --breakpoint-3xl: 1600px;
+  --breakpoint-4xl: 1920px;
+  
+  /* Legacy breakpoints (backward compatibility) */
+  --mobile-max: 767px;
+  --tablet-max: 1023px;
+  
+  /* ================================
+     12. LEGACY ALIASES
+     For backward compatibility
+     ================================ */
+  --black-matte: var(--surface-panel);
+  --black-deep: var(--surface-depth);
+  --gray-charcoal: var(--surface-border);
+  --gray-light: var(--text-tertiary);
+  --nikon-yellow: var(--accent-primary);
+  --nikon-yellow-dim: var(--accent-primary-dim);
+  --nikon-yellow-glow: var(--accent-primary-glow);
+}
+
+/* ================================================================
+   BASE STYLES - Five Rings Anti-Social Gallery System
+   ================================================================
+   
+   Foundation styles that apply to all themes
+   These will be extracted from gallery.css
+   ================================================================ */
+
+/* Foundation styles from gallery.css - critical base elements */
+
+body {
+  background-color: var(--surface-base);
+  color: var(--text-secondary);
+  font-family: var(--font-reading);
+  line-height: 1.618; /* Golden ratio */
+  font-size: 16px;
+  overflow-x: hidden;
+  font-feature-settings: "kern" 1, "liga" 1, "calt" 1;
+}
+
+/* Skip link for accessibility */
+
+.skip-link {
+  position: absolute;
+  top: -40px;
+  left: 6px;
+  background: var(--accent-primary);
+  color: var(--text-inverse);
+  padding: 8px;
+  text-decoration: none;
+  z-index: 100;
+  border-radius: 4px;
+  font-weight: 600;
+  font-size: 14px;
+  transition: top 0.3s ease;
+}
+
+.skip-link:focus {
+  top: 6px;
+}
+
+/* Global link styling */
+
+a {
+  color: var(--accent-primary);
+  text-decoration: none;
+  transition: color 0.3s ease;
+}
+
+a:hover {
+  color: var(--accent-primary-glow);
+}
+
+a:visited {
+  color: var(--accent-primary-dim);
+}
+
+/* Container system */
+
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 var(--spacing-sm);
+  min-height: calc(100vh - 49px); /* Account for header */
+  display: flex;
+  flex-direction: column;
+}
+
+.main-content {
+  min-height: 100vh;
+  padding: var(--spacing-md) 0;
+  flex: 1;
+}
+
+/* Action Button Base Styling */
+
+.action-btn {
+  padding: var(--space-1) var(--space-3);
+  color: var(--text-secondary);
+  text-decoration: none;
+  background: transparent;
+  border: 1px solid var(--surface-border);
+  border-radius: 4px;
+  transition: all 0.3s ease;
+  cursor: pointer;
+  font-family: var(--font-display);
+  font-size: var(--text-sm);
+}
+
+.action-btn:hover {
+  background: var(--surface-overlay);
+  border-color: var(--accent-primary);
+  color: var(--accent-primary);
+}
+
+/* iOS/Safari optimizations */
+
+@supports (-webkit-overflow-scrolling: touch) {
+  body {
+    -webkit-overflow-scrolling: touch;
+    overscroll-behavior: none;
+  }
+}
+
+/* Safari-specific font rendering */
+
+@media screen and (-webkit-min-device-pixel-ratio: 2) {
+  body {
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+}
+
+/* iPhone notch/safe area support */
+
+@supports (padding: max(0px)) {
+  .container {
+    padding-left: max(var(--spacing-sm), env(safe-area-inset-left));
+    padding-right: max(var(--spacing-sm), env(safe-area-inset-right));
+  }
+}
+
+/* ================================
+   LAYER 2: THEME SYSTEM
+   Camera defaults in :root, theme overrides
+   ================================ */
+
+/* Camera base theme - placeholder */
+
+/* ================================================================
+   FLYNN THEME OVERRIDES
+   ================================================================
+   
+   Flynn Mode - Dark theme with Tron-inspired aesthetics
+   Applied when: [data-theme="flynn"]
+   
+   This is the primary production theme for antisocial.fiverings.photo
+   ================================================================ */
+
+/* ================================
+   FLYNN COLOR OVERRIDES
+   ================================ */
+
+[data-theme="flynn"] {
+  /* Dark surfaces - slightly lighter than camera base */
+  --surface-base: #0f0f0f;
+  --surface-panel: #1a1a1a;
+  --surface-depth: #2a2a2a;
+  --surface-border: #3a3a3a;
+  --surface-overlay: #000000;
+  
+  /* Dark mode text hierarchy */
+  --text-primary: #FFFFFF;
+  --text-secondary: #E8E8E8;
+  --text-tertiary: #999999;
+  --text-inverse: #1a1a1a;
+  --text-muted: #666666;
+  
+  /* Nikon yellow - primary for dark mode */
+  --accent-primary: #FFD700;
+  --accent-primary-dim: #E6C200;
+  --accent-primary-glow: #FFED4E;
+  --accent-primary-dark: #B39700;
+  
+  /* Tron Agent Orange - secondary */
+  --accent-secondary: #FF8C00;
+  --accent-secondary-dim: #CC7000;
+  --accent-secondary-glow: #FFB366;
+  --accent-secondary-dark: #B36200;
+  
+  /* Flynn typography - Berkeley Mono all the way */
+  --font-display: 'Berkeley Mono', 'Terminus', 'Monaco', ui-monospace, 'Menlo', 'Consolas', 'Liberation Mono', 'Courier New', monospace;
+  --font-reading: 'Berkeley Mono', 'Terminus', 'Monaco', ui-monospace, 'Menlo', 'Consolas', 'Liberation Mono', 'Courier New', monospace;
+  --font-body: 'Berkeley Mono', 'Terminus', 'Monaco', ui-monospace, 'Menlo', 'Consolas', 'Liberation Mono', 'Courier New', monospace;
+  
+  /* Flynn theme Nikon yellow shadows */
+  --shadow-subtle: 0 2px 4px rgba(255, 215, 0, 0.2);
+  --shadow-medium: 0 4px 8px rgba(255, 215, 0, 0.3);
+  --shadow-strong: 0 8px 16px rgba(255, 215, 0, 0.4);
+  --shadow-glow: 0 0 20px rgba(255, 215, 0, 0.5);
+  --shadow-small: 0 2px 8px rgba(255, 215, 0, 0.2);
+  
+  /* Flynn overlay colors */
+  --overlay-dark: rgba(0, 0, 0, 0.5);
+  --overlay-light: rgba(255, 215, 0, 0.1);
+  
+  /* Flynn UI states */
+  --surface-border-hover: rgba(255, 215, 0, 0.5);
+  --accent-error: #FF0030;
+}
+
+/* ================================
+   FLYNN TYPOGRAPHY REFINEMENTS
+   ================================ */
+
+/* Heading overrides for Flynn mode */
+
+[data-theme="flynn"] h1 {
+  letter-spacing: 0.02em;
+  font-weight: 300;
+  text-transform: uppercase;
+  font-size: clamp(1.8rem, 5vw, 3.5rem);
+}
+
+[data-theme="flynn"] h2 {
+  letter-spacing: 0.01em;
+  font-weight: 300;
+  text-transform: uppercase;
+}
+
+[data-theme="flynn"] h3,
+[data-theme="flynn"] h4,
+[data-theme="flynn"] h5,
+[data-theme="flynn"] h6 {
+  font-family: var(--font-display);
+  text-transform: uppercase;
+  letter-spacing: 0.02em;
+}
+
+/* Component-specific Flynn typography */
+
+[data-theme="flynn"] .site-tagline {
+  font-family: var(--font-display);
+  font-style: normal;
+  letter-spacing: 0.02em;
+  font-size: clamp(0.9rem, 2vw, 1.1rem);
+  text-transform: uppercase;
+}
+
+[data-theme="flynn"] .gallery-title {
+  font-family: var(--font-display);
+  letter-spacing: 0.01em;
+  text-transform: uppercase;
+  font-weight: 400;
+}
+
+[data-theme="flynn"] .gallery-meta {
+  font-family: var(--font-display);
+  letter-spacing: 0.02em;
+  font-size: 0.75rem;
+}
+
+[data-theme="flynn"] .nav-link-prominent {
+  font-family: var(--font-display);
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  font-weight: 600;
+}
+
+/* ================================
+   FLYNN SPECIAL EFFECTS
+   ================================ */
+
+/* Tron-style glow for interactive elements */
+
+[data-theme="flynn"] .btn:hover,
+[data-theme="flynn"] .gallery-item:hover,
+[data-theme="flynn"] .nav-link-prominent:hover {
+  box-shadow: 0 0 20px var(--accent-primary-glow);
+}
+
+/* Flynn-specific support section styling */
+
+[data-theme="flynn"] .support-artist-link:hover {
+  color: var(--accent-secondary);
+  text-shadow: 0 0 10px var(--accent-secondary);
+}
+
+[data-theme="flynn"] .support-section {
+  background: rgba(255, 215, 0, 0.05);
+  border-color: rgba(255, 215, 0, 0.2);
+}
+
+/* Enhanced shadows for Retina displays */
+
+@media (min-resolution: 192dpi) {
+  [data-theme="flynn"] .nikon-yellow-glow,
+  [data-theme="flynn"] .btn:hover {
+    box-shadow: 0 0 40px rgba(255, 215, 0, 0.6);
+  }
+}
+
+/* ================================
+   FLYNN 404 PAGE ANIMATION
+   ================================ */
+
+@keyframes flynn-glow {
+  from { 
+    opacity: 0.8;
+    text-shadow: 0 0 20px var(--accent-primary-glow);
+  }
+  to { 
+    opacity: 1;
+    text-shadow: 0 0 30px var(--accent-primary-glow);
+  }
+}
+
+[data-theme="flynn"] .error-code {
+  animation: flynn-glow 2s ease-in-out infinite alternate;
+}
+
+/* Light theme - placeholder */
+
+/* Theme switcher - placeholder */
+
+/* ================================
+   LAYER 3: COMPONENTS
+   Individual UI components
+   ================================ */
+
+/* Header component - placeholder */
+
+/* Navigation component - placeholder */
+
+/* Breadcrumb component - placeholder */
+
+/* ================================================================
+   GALLERY CARD COMPONENT - Five Rings Anti-Social Gallery System
+   ================================================================
+   
+   35mm slide mount aesthetic with physical depth and shadows
+   Extracted from gallery.css - core gallery functionality
+   ================================================================ */
+
+.gallery-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  gap: var(--spacing-md);
+  margin: var(--spacing-lg) 0;
+  align-items: start; /* Align cards to top */
+}
+
+.gallery-item {
+  /* 35mm slide mount aesthetic */
+  background: linear-gradient(145deg, #2d2d2d, #2a2a2a);
+  border: 1px solid var(--surface-border);
+  border-top: 1px solid var(--surface-border); /* Subtle top highlight for dimension */
+  border-radius: 3px; /* Sharp corners like actual slides */
+  overflow: hidden;
+  transition: 
+    transform var(--transition-slow) var(--ease-smooth), 
+    box-shadow var(--transition-slow) var(--ease-smooth), 
+    border-color var(--transition-slow) var(--ease-smooth);
+  cursor: pointer;
+  /* Multi-layer shadows for physical depth */
+  box-shadow: 
+    0 1px 2px rgba(0, 0, 0, 0.4),    /* Contact shadow */
+    0 4px 8px rgba(0, 0, 0, 0.3),    /* Depth shadow */
+    0 8px 16px rgba(0, 0, 0, 0.2);   /* Ambient shadow */
+  display: flex;
+  align-items: stretch;
+  flex-direction: column; /* VERTICAL STACK - photo on top */
+  max-width: 320px; /* Optimal card width */
+  position: relative;
+}
+
+.gallery-item:hover {
+  /* Enhanced lift effect with subtle scale */
+  transform: translateY(-6px) scale(1.005);
+  /* Premium shadows with Flynn theme glow */
+  box-shadow: 
+    0 3px 6px rgba(0, 0, 0, 0.6),    /* Contact shadow */
+    0 12px 24px rgba(0, 0, 0, 0.5),  /* Depth shadow */
+    0 24px 48px rgba(0, 0, 0, 0.3),  /* Ambient shadow */
+    0 0 20px rgba(255, 215, 0, 0.15); /* Flynn theme glow */
+  border-color: var(--accent-primary);
+}
+
+.gallery-item > .gallery-image {
+  width: 100% !important; /* Full card width */
+  height: 240px; /* Consistent height for all images */
+  -o-object-fit: contain !important;
+     object-fit: contain !important;
+  -o-object-position: center !important;
+     object-position: center !important;
+  background: #0a0a0a !important;
+  border-radius: 2px; /* Slight rounding for photo window */
+  flex-shrink: 0;
+  /* Inner shadow to show recession into frame */
+  box-shadow: inset 0 1px 3px rgba(0, 0, 0, 0.5);
+}
+
+.gallery-image {
+  max-width: 100%;
+  height: auto;
+  display: block;
+  border-radius: var(--radius-sm);
+  box-shadow: var(--shadow-medium);
+}
+
+/* Keep main gallery card images horizontal */
+
+.gallery-grid > a[href*="/events/"] .gallery-image,
+.gallery-grid > a[href*="/galleries/"] .gallery-image {
+  width: 200px !important; /* Match original horizontal layout */
+  height: 120px !important; /* Match original horizontal height */
+  border-radius: 6px; /* Restore rounded corners for main cards */
+}
+
+.gallery-grid > a[href*="/events/"],
+.gallery-grid > a[href*="/galleries/"] {
+  flex-direction: row !important; /* Keep horizontal for event cards */
+  max-width: 480px !important; /* Restore original width for main cards */
+}
+
+/* Photo detail component - placeholder */
+
+/* Slide mount component - placeholder */
+
+/* LCD panel component - placeholder */
+
+/* ================================================================
+   FOOTER COMPONENT - Five Rings Anti-Social Gallery System
+   ================================================================
+   
+   Universal footer with backdrop blur and responsive layout
+   Extracted from gallery.css production styles
+   ================================================================ */
+
+.universal-footer {
+  position: relative;
+  background: rgba(0, 0, 0, 0.95);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border-top: 1px solid var(--surface-border);
+  z-index: 10;
+  min-height: 48px;
+  display: flex;
+  align-items: center;
+  padding: 0 var(--space-4);
+}
+
+.footer-content {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--space-4);
+}
+
+/* Info page layout (home/about) */
+
+.footer-info {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: var(--space-3);
+  font-size: var(--text-sm);
+  color: var(--text-secondary);
+}
+
+.footer-minimal {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: var(--space-3);
+  font-size: var(--text-sm);
+  color: var(--text-secondary);
+}
+
+.footer-link {
+  color: var(--text-secondary);
+  text-decoration: none;
+  transition: color 0.2s var(--ease-smooth);
+}
+
+.footer-link:hover {
+  color: var(--accent-primary);
+}
+
+.footer-separator {
+  color: var(--text-tertiary);
+  opacity: 0.5;
+}
+
+/* Mobile responsive */
+
+@media (max-width: 768px) {
+  .universal-footer {
+    padding: var(--space-3);
+    min-height: auto;
+  }
+  
+  .footer-info,
+  .footer-minimal {
+    flex-wrap: wrap;
+    font-size: var(--text-xs);
+    text-align: center;
+  }
+}
+
+/* Buttons component - placeholder */
+
+/* Forms component - placeholder */
+
+/* Support section component - placeholder */
+
+/* ================================
+   LAYER 4: LAYOUTS
+   Page layouts and grid systems
+   ================================ */
+
+/* Grid layout - placeholder */
+
+/* Homepage layout - placeholder */
+
+/* Gallery page layout - placeholder */
+
+/* Photo page layout - placeholder */
+
+/* About page layout - placeholder */
+
+/* 404 page layout - placeholder */
+
+/* Responsive layout - placeholder */
+
+/* ================================
+   LAYER 5: UTILITIES
+   Helper classes and overrides
+   ================================ */
+
+/* Spacing utilities - placeholder */
+
+/* Typography utilities - placeholder */
+
+/* Animation utilities - placeholder */
+
+/* Accessibility utilities - placeholder */
+
+/* Helper utilities - placeholder */
+
+/* Print styles - placeholder */
+/*# sourceMappingURL=gallery.css.map */

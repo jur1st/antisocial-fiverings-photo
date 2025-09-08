@@ -1,0 +1,155 @@
+/* ================================================================
+   CSS RESET - Five Rings Anti-Social Gallery System
+   ================================================================
+   
+   Modern CSS reset with performance optimizations
+   Based on best practices for photography websites
+   ================================================================ */
+
+/* ================================
+   BOX MODEL RESET
+   ================================ */
+*,
+*::before,
+*::after {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/* ================================
+   DOCUMENT SETUP
+   ================================ */
+html {
+  /* Prevent font size adjustments in iOS */
+  -webkit-text-size-adjust: 100%;
+  /* Smooth scrolling for anchor links */
+  scroll-behavior: smooth;
+  /* Better font rendering */
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+body {
+  /* Inherit line height for consistency */
+  line-height: inherit;
+  /* Prevent horizontal overflow */
+  overflow-x: hidden;
+  /* Minimum height for proper layouts */
+  min-height: 100vh;
+}
+
+/* ================================
+   MEDIA ELEMENTS
+   ================================ */
+img,
+picture,
+video,
+canvas,
+svg {
+  display: block;
+  max-width: 100%;
+  height: auto;
+}
+
+/* Specific image optimizations */
+img {
+  /* Prevent layout shifts */
+  height: auto;
+  /* Optimize image rendering for photography */
+  image-rendering: -webkit-optimize-contrast;
+  image-rendering: crisp-edges;
+  /* Remove default border in IE */
+  border-style: none;
+}
+
+/* ================================
+   FORM ELEMENTS
+   ================================ */
+input,
+button,
+textarea,
+select {
+  font: inherit;
+  color: inherit;
+}
+
+button {
+  cursor: pointer;
+  background: transparent;
+  border: none;
+  padding: 0;
+}
+
+/* ================================
+   TEXT ELEMENTS
+   ================================ */
+p,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  overflow-wrap: break-word;
+}
+
+/* Remove default margins */
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p,
+blockquote,
+dl,
+dd {
+  margin: 0;
+}
+
+/* ================================
+   LISTS
+   ================================ */
+ul,
+ol {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+/* ================================
+   TABLES
+   ================================ */
+table {
+  border-collapse: collapse;
+  border-spacing: 0;
+}
+
+/* ================================
+   ACCESSIBILITY
+   ================================ */
+/* Remove animations for users who prefer reduced motion */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
+
+/* ================================
+   PERFORMANCE OPTIMIZATIONS
+   ================================ */
+/* Hardware acceleration for transforms */
+.will-change-transform {
+  will-change: transform;
+}
+
+/* Remove will-change after animations */
+.will-change-auto {
+  will-change: auto;
+}
