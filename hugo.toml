@@ -48,3 +48,8 @@ disableKinds = ["RSS", "taxonomy", "term"]
   [markup.goldmark]
     [markup.goldmark.renderer]
       unsafe = true
+
+[security]
+  enableInlineShortcodes = false
+  [security.funcs]
+    getenv = ['^HUGO_', '^CI$', '^CSS_MODE$']
