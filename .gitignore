@@ -83,6 +83,29 @@ bin/
 utilities/
 tools/
 
+# Internal testing artifacts (NEVER commit)
+test-*.sh
+visual-regression-*.json
+tests/viewport-*
+tests/screenshots/*-optimized.png
+tests/screenshots/*-original.png
+tests/screenshots/*-production.png
+playwright-report/
+test-results/
+playwright.config.ts
+
+# Grid internal files (NEVER commit)
+CLAUDE.md
+📤 OUTBOX/
+📥 INBOX/
+002-Agent-Workspace/
+backups/
+*Session*.md
+*Report*.md
+*Summary*.md
+UX-*.md
+*.log
+
 # NO BACKUP FILES EVER
 *.backup
 *.bak
