@@ -13,6 +13,6030 @@
    ================================================================ */
 
 /* ================================
+   LAYER 0: PRODUCTION BASELINE
+   Import all original production CSS files first
+   ================================ */
+
+/* Five Rings Anti-Social Gallery System */
+
+/* Mobile-first responsive design */
+
+/* Google Fonts loaded in HTML head for proper loading priority */
+
+:root {
+  /* Camera theme as default - Professional Photography Dark Theme */
+  /* Surface hierarchy */
+  --surface-base: #000000;
+  --surface-panel: #0a0a0a;
+  --surface-depth: #111111;
+  --surface-border: #252525;
+  --surface-overlay: #1a1a1a;
+  
+  /* Dark mode text hierarchy */
+  --text-primary: #ffffff;
+  --text-secondary: #cccccc;
+  --text-tertiary: #999999;
+  --text-inverse: #000000;
+  --text-muted: #666666;
+  
+  /* Nikon signature yellow accent system */
+  --accent-primary: #FFD700;
+  --accent-primary-dim: #E6C200;
+  --accent-primary-glow: #FFED4E;
+  --accent-primary-dark: #B39700;
+  
+  /* Technical UI accents */
+  --accent-secondary: #FF8C00;
+  --accent-secondary-dim: #CC7000;
+  --accent-secondary-glow: #FFB366;
+  --accent-secondary-dark: #B36200;
+  
+  /* Precision engineering typography system */
+  --font-display: 'DIN Next', 'Gotham', 'Futura PT', 'Univers', 'Akzidenz-Grotesk', 'Helvetica Neue', 'Arial', sans-serif;
+  --font-reading: 'Crimson Text', Georgia, 'Times New Roman', serif;
+  --font-technical: 'Berkeley Mono', 'Terminus', 'Monaco', ui-monospace, 'Cascadia Code', 'Roboto Mono', 'Liberation Mono', monospace;
+  
+  /* Typography utilities - common sizes */
+  --text-xs: 0.75rem;    /* 12px */
+  --text-sm: 0.875rem;   /* 14px */
+  --text-base: 1rem;     /* 16px */
+  --text-lg: 1.125rem;   /* 18px */
+  --text-xl: 1.25rem;    /* 20px */
+  --text-2xl: 1.5rem;    /* 24px */
+  --text-3xl: 1.875rem;  /* 30px */
+  --text-4xl: 2.25rem;   /* 36px */
+  
+  /* Letter spacing utilities */
+  --tracking-tighter: -0.05em;
+  --tracking-tight: -0.025em;
+  --tracking-normal: 0;
+  --tracking-wide: 0.025em;
+  --tracking-wider: 0.05em;
+  --tracking-widest: 0.1em;
+  
+  /* Line height utilities */
+  --leading-none: 1;
+  --leading-tight: 1.25;
+  --leading-snug: 1.375;
+  --leading-normal: 1.5;
+  --leading-relaxed: 1.625;
+  --leading-loose: 2;
+  
+  /* Spacing - Comprehensive scale based on 4px/8px baseline */
+  --space-0: 0;
+  --space-1: 0.25rem;    /* 4px */
+  --space-2: 0.5rem;     /* 8px - was --spacing-xs */
+  --space-3: 0.75rem;    /* 12px */
+  --space-4: 1rem;       /* 16px - was --spacing-sm */
+  --space-5: 1.25rem;    /* 20px */
+  --space-6: 1.5rem;     /* 24px - was --spacing-md */
+  --space-8: 2rem;       /* 32px - was --spacing-lg */
+  --space-10: 2.5rem;    /* 40px */
+  --space-12: 3rem;      /* 48px - was --spacing-xl */
+  --space-16: 4rem;      /* 64px */
+  --space-20: 5rem;      /* 80px */
+  
+  /* Legacy spacing variables for backward compatibility */
+  --spacing-xs: var(--space-2);
+  --spacing-sm: var(--space-4);
+  --spacing-md: var(--space-6);
+  --spacing-lg: var(--space-8);
+  --spacing-xl: var(--space-12);
+  
+  /* UI Component Heights for accurate viewport calculations */
+  --header-height: 49px;
+  --breadcrumb-height: 44px;
+  --control-strip-height: 48px;
+  --total-ui-height: calc(var(--header-height) + var(--breadcrumb-height) + var(--control-strip-height) + var(--space-4)); /* ~157px total */
+  
+  /* Theme-aware shadows for camera (dark) theme */
+  --shadow-subtle: 0 2px 4px rgba(0, 0, 0, 0.5);
+  --shadow-medium: 0 4px 8px rgba(0, 0, 0, 0.6);
+  --shadow-strong: 0 8px 16px rgba(0, 0, 0, 0.8);
+  --shadow-glow: 0 0 20px rgba(255, 215, 0, 0.3);
+  --shadow-small: 0 2px 8px rgba(0, 0, 0, 0.4);
+  
+  /* Overlay colors for semi-transparent overlays */
+  --overlay-dark: rgba(0, 0, 0, 0.3);
+  --overlay-light: rgba(255, 255, 255, 0.3);
+  
+  /* Additional UI states */
+  --surface-border-hover: rgba(255, 215, 0, 0.3);
+  --accent-error: #FF0030;
+  
+  /* Border radius system */
+  --radius-none: 0;
+  --radius-sm: 3px;
+  --radius-md: 4px;
+  --radius-lg: 6px;
+  --radius-xl: 8px;
+  --radius-2xl: 12px;
+  --radius-3xl: 16px;
+  --radius-full: 9999px;
+  
+  /* Transition system */
+  --transition-fast: 0.15s;
+  --transition-base: 0.2s;
+  --transition-slow: 0.3s;
+  --transition-slower: 0.6s;
+  
+  /* Premium easing curves for smooth animations */
+  --ease-smooth: cubic-bezier(0.4, 0.0, 0.2, 1);
+  --ease-gentle: cubic-bezier(0.25, 0.1, 0.25, 1);
+  --ease-bounce: cubic-bezier(0.68, -0.55, 0.265, 1.55);
+  
+  --ease-default: ease;
+  --ease-in-out: cubic-bezier(0.4, 0, 0.2, 1);
+  --ease-out: cubic-bezier(0, 0, 0.2, 1);
+  --ease-in: cubic-bezier(0.4, 0, 1, 1);
+  
+  /* Z-index scale */
+  --z-negative: -1;
+  --z-base: 0;
+  --z-dropdown: 10;
+  --z-sticky: 20;
+  --z-overlay: 30;
+  --z-modal: 40;
+  --z-popover: 50;
+  --z-tooltip: 60;
+  --z-notification: 70;
+  --z-maximum: 100;
+  
+  /* Opacity scale */
+  --opacity-0: 0;
+  --opacity-30: 0.3;
+  --opacity-50: 0.5;
+  --opacity-60: 0.6;
+  --opacity-70: 0.7;
+  --opacity-80: 0.8;
+  --opacity-90: 0.9;
+  --opacity-100: 1;
+  
+  /* Complete breakpoint system */
+  --breakpoint-xs: 480px;
+  --breakpoint-sm: 640px;
+  --breakpoint-md: 768px;
+  --breakpoint-lg: 1024px;
+  --breakpoint-xl: 1200px;
+  --breakpoint-2xl: 1440px;
+  --breakpoint-3xl: 1600px;
+  --breakpoint-4xl: 1920px;
+  
+  /* Legacy breakpoints for backward compatibility */
+  --mobile-max: 767px;   /* Use --breakpoint-md - 1px */
+  --tablet-max: 1023px;  /* Use --breakpoint-lg - 1px */
+  
+  /* Theme-agnostic fallbacks for camera-specific variables */
+  --black-matte: var(--surface-panel);
+  --black-deep: var(--surface-depth);
+  --gray-charcoal: var(--surface-border);
+  --gray-light: var(--text-tertiary);
+  --nikon-yellow: var(--accent-primary);
+  --nikon-yellow-dim: var(--accent-primary-dim);
+  --nikon-yellow-glow: var(--accent-primary-glow);
+}
+
+/* Flynn Mode - Dark theme with Tron elements */
+
+[data-theme="flynn"] {
+  /* Dark surfaces */
+  --surface-base: #0f0f0f;
+  --surface-panel: #1a1a1a;
+  --surface-depth: #2a2a2a;
+  --surface-border: #3a3a3a;
+  --surface-overlay: #000000;
+  
+  /* Dark mode text hierarchy */
+  --text-primary: #FFFFFF;
+  --text-secondary: #E8E8E8;
+  --text-tertiary: #999999;
+  --text-inverse: #1a1a1a;
+  --text-muted: #666666;
+  
+  /* Nikon yellow - primary for dark mode, brighter for dark backgrounds */
+  --accent-primary: #FFD700;
+  --accent-primary-dim: #E6C200;
+  --accent-primary-glow: #FFED4E;
+  --accent-primary-dark: #B39700;
+  
+  /* Tron Agent Orange - secondary for dark mode */
+  --accent-secondary: #FF8C00;
+  --accent-secondary-dim: #CC7000;
+  --accent-secondary-glow: #FFB366;
+  --accent-secondary-dark: #B36200;
+  
+  /* Precision engineering typography in Flynn mode */
+  --font-display: 'Berkeley Mono', 'Terminus', 'Monaco', ui-monospace, 'Menlo', 'Consolas', 'Liberation Mono', 'Courier New', monospace;
+  --font-reading: 'Berkeley Mono', 'Terminus', 'Monaco', ui-monospace, 'Menlo', 'Consolas', 'Liberation Mono', 'Courier New', monospace;
+  --font-body: 'Berkeley Mono', 'Terminus', 'Monaco', ui-monospace, 'Menlo', 'Consolas', 'Liberation Mono', 'Courier New', monospace;
+  
+  /* Flynn theme Nikon yellow shadows */
+  --shadow-subtle: 0 2px 4px rgba(255, 215, 0, 0.2);
+  --shadow-medium: 0 4px 8px rgba(255, 215, 0, 0.3);
+  --shadow-strong: 0 8px 16px rgba(255, 215, 0, 0.4);
+  --shadow-glow: 0 0 20px rgba(255, 215, 0, 0.5);
+  --shadow-small: 0 2px 8px rgba(255, 215, 0, 0.2);
+  
+  /* Flynn overlay colors */
+  --overlay-dark: rgba(0, 0, 0, 0.5);
+  --overlay-light: rgba(255, 215, 0, 0.1);
+  
+  /* Flynn UI states */
+  --surface-border-hover: rgba(255, 215, 0, 0.5);
+  --accent-error: #FF0030;
+}
+
+/* Flynn mode precision engineering typography refinements */
+
+[data-theme="flynn"] h1 {
+  letter-spacing: 0.02em;
+  font-weight: 300;
+  text-transform: uppercase;
+  font-size: clamp(1.8rem, 5vw, 3.5rem);
+}
+
+[data-theme="flynn"] h2 {
+  letter-spacing: 0.01em;
+  font-weight: 300;
+  text-transform: uppercase;
+}
+
+[data-theme="flynn"] .site-tagline {
+  font-family: var(--font-display);
+  font-style: normal;
+  letter-spacing: 0.02em;
+  font-size: clamp(0.9rem, 2vw, 1.1rem);
+  text-transform: uppercase;
+}
+
+[data-theme="flynn"] .gallery-title {
+  font-family: var(--font-display);
+  letter-spacing: 0.01em;
+  text-transform: uppercase;
+  font-weight: 400;
+}
+
+[data-theme="flynn"] .gallery-meta {
+  font-family: var(--font-display);
+  letter-spacing: 0.02em;
+  font-size: 0.75rem;
+}
+
+[data-theme="flynn"] .nav-link-prominent {
+  font-family: var(--font-display);
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  font-weight: 600;
+}
+
+/* Light Mode - Gallery aesthetic with stucco foundation */
+
+[data-theme="light"] {
+  /* Stucco foundation light surfaces */
+  --surface-base: #F0EDE5;
+  --surface-panel: #F7F7F7;
+  --surface-depth: #EEEEEE;
+  --surface-border: #E0E0E0;
+  --surface-overlay: #FFFFFF;
+  
+  /* Light mode text hierarchy */
+  --text-primary: #1a1a1a;
+  --text-secondary: #333333;
+  --text-tertiary: #666666;
+  --text-inverse: #FFFFFF;
+  --text-muted: #999999;
+  
+  /* Tron User Blue accent system for light mode */
+  --accent-primary: #0066CC;
+  --accent-primary-dim: #004499;
+  --accent-primary-glow: #0080FF;
+  --accent-primary-dark: #003366;
+  
+  /* Tron Agent Orange secondary system */
+  --accent-secondary: #FF8C00;
+  --accent-secondary-dim: #CC7000;
+  --accent-secondary-glow: #FFB366;
+  --accent-secondary-dark: #B36200;
+  
+  /* Light theme shadows */
+  --shadow-subtle: 0 2px 4px rgba(0, 0, 0, 0.1);
+  --shadow-medium: 0 4px 8px rgba(0, 0, 0, 0.15);
+  --shadow-strong: 0 8px 16px rgba(0, 0, 0, 0.2);
+  --shadow-glow: 0 0 20px rgba(0, 102, 204, 0.2);
+  --shadow-small: 0 2px 8px rgba(0, 0, 0, 0.1);
+  
+  /* Light overlay colors */
+  --overlay-dark: rgba(0, 0, 0, 0.1);
+  --overlay-light: rgba(255, 255, 255, 0.7);
+  
+  /* Light UI states */
+  --surface-border-hover: rgba(0, 102, 204, 0.3);
+  --accent-error: #d73a49;
+}
+
+/* Light theme typography - using serif for headers */
+
+[data-theme="light"] h1,
+[data-theme="light"] h2,
+[data-theme="light"] h3,
+[data-theme="light"] h4,
+[data-theme="light"] h5,
+[data-theme="light"] h6 {
+  font-family: var(--font-reading); /* Crimson Text serif */
+  font-weight: 400;
+  letter-spacing: -0.01em;
+}
+
+[data-theme="light"] h1 {
+  font-weight: 600; /* Slightly heavier for serif */
+  letter-spacing: -0.02em;
+}
+
+[data-theme="light"] h2 {
+  font-weight: 400;
+  letter-spacing: -0.015em;
+}
+
+/* Performance Optimization */
+
+* {
+  /* Enable hardware acceleration for better performance */
+  transform: translateZ(0);
+}
+
+/* Reset and base styles */
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/* Performance optimizations */
+
+img {
+  /* Prevent layout shifts */
+  height: auto;
+  /* Optimize image rendering */
+  image-rendering: -webkit-optimize-contrast;
+  image-rendering: crisp-edges;
+}
+
+/* Will-change hints for elements that animate */
+
+.gallery-item,
+.btn,
+.nav-link-prominent,
+.theme-toggle-btn {
+  will-change: transform, box-shadow;
+}
+
+/* Remove will-change after animation completes */
+
+.gallery-item:not(:hover):not(:focus),
+.btn:not(:hover):not(:focus),
+.nav-link-prominent:not(:hover):not(:focus),
+.theme-toggle-btn:not(:hover):not(:focus) {
+  will-change: auto;
+}
+
+/* Site header */
+
+.site-header {
+  background: var(--surface-panel);
+  border-bottom: 1px solid var(--surface-border);
+  padding: var(--space-3) 0;
+  margin-bottom: var(--space-6);
+}
+
+.header-container {
+  max-width: 1440px;
+  margin: 0 auto;
+  padding: 0 var(--space-4);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.site-branding {
+  flex: 1;
+}
+
+.site-title {
+  font-family: var(--font-display);
+  font-size: var(--text-2xl);
+  font-weight: 400;
+  text-decoration: none;
+  color: var(--text-primary);
+  letter-spacing: -0.025em;
+  transition: color 0.2s ease;
+}
+
+.site-title:hover {
+  color: var(--accent-primary);
+}
+
+/* Header theme toggle specific */
+
+.site-header .theme-toggle-btn {
+  padding: var(--space-2) var(--space-3);
+  font-size: var(--text-sm);
+}
+
+/* Mobile responsive header */
+
+@media (max-width: 640px) {
+  .header-container {
+    padding: 0 var(--space-3);
+  }
+  
+  .site-title {
+    font-size: var(--text-xl);
+  }
+  
+  .site-header .theme-toggle-btn {
+    padding: var(--space-1) var(--space-2);
+    font-size: var(--text-xs);
+  }
+  
+  /* Homepage navigation buttons - mobile */
+  .site-navigation-prominent {
+    flex-direction: column;
+    gap: var(--space-2);
+    padding: var(--space-3) 0;
+    margin: var(--space-3) 0 var(--space-4) 0;
+  }
+  
+  .nav-link-prominent {
+    width: 100%;
+    padding: var(--space-3) var(--space-4);
+    font-size: 1rem;
+    min-height: 44px; /* Accessibility touch target */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+}
+
+body {
+  background-color: var(--surface-base);
+  color: var(--text-secondary);
+  font-family: var(--font-reading);
+  line-height: 1.618; /* Golden ratio */
+  font-size: 16px;
+  overflow-x: hidden;
+  font-feature-settings: "kern" 1, "liga" 1, "calt" 1;
+}
+
+/* Skip link for accessibility */
+
+.skip-link {
+  position: absolute;
+  top: -40px;
+  left: 6px;
+  background: var(--accent-primary);
+  color: var(--text-inverse);
+  padding: 8px;
+  text-decoration: none;
+  z-index: 100;
+  border-radius: 4px;
+  font-weight: 600;
+  font-size: 14px;
+  transition: top 0.3s ease;
+}
+
+.skip-link:focus {
+  top: 6px;
+}
+
+/* Global link styling - override browser defaults */
+
+a {
+  color: var(--accent-primary);
+  text-decoration: none;
+  transition: color 0.3s ease;
+}
+
+a:hover {
+  color: var(--accent-primary-glow);
+}
+
+a:visited {
+  color: var(--accent-primary-dim);
+}
+
+/* Modern typography hierarchy - neighbor-friendly */
+
+h1, h2, h3, h4, h5, h6 {
+  color: var(--accent-primary);
+  font-family: var(--font-display);
+  font-weight: 300;
+  margin-bottom: var(--spacing-sm);
+  line-height: 1.2;
+  font-feature-settings: "kern" 1, "liga" 1;
+  font-variant-numeric: oldstyle-nums;
+  letter-spacing: -0.02em; /* Tighter tracking for less puffiness */
+}
+
+h1 {
+  font-size: clamp(2.25rem, 6vw, 4.5rem);
+  text-align: center;
+  margin-bottom: var(--spacing-lg);
+  letter-spacing: -0.03em; /* Even tighter for large sizes */
+  font-weight: 400; /* Reduced from 600 */
+  line-height: 1.1;
+  color: var(--text-primary); /* Ensure high contrast */
+}
+
+h2 {
+  font-size: clamp(1.618rem, 4.5vw, 2.618rem);
+  margin-bottom: var(--spacing-md);
+  font-weight: 300; /* Reduced from 400 */
+  letter-spacing: -0.025em; /* Tighter */
+  line-height: 1.2;
+}
+
+h3 {
+  font-size: clamp(1.25rem, 3.5vw, 2rem);
+  margin-bottom: var(--spacing-sm);
+  font-weight: 400; /* Reduced from 500 */
+  letter-spacing: -0.02em; /* Tighter */
+  line-height: 1.25;
+}
+
+p {
+  margin-bottom: var(--spacing-sm);
+  max-width: 68ch; /* Slightly wider for serif readability */
+  line-height: 1.55; /* Optimized for Crimson Text's x-height */
+  font-weight: 400;
+  letter-spacing: 0.008em; /* Refined for Crimson Text's character rhythm */
+  color: var(--text-secondary);
+  font-family: var(--font-reading);
+  font-feature-settings: "kern" 1, "liga" 1;
+  font-size: 1rem;
+}
+
+/* Layout Structure */
+
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 var(--spacing-sm);
+}
+
+/* Removed unused camera-surface and camera-panel classes */
+
+.main-content {
+  min-height: 100vh;
+  padding: var(--spacing-md) 0;
+}
+
+/* Event Context Sections - Used for conference photography */
+
+.event-context, .speaker-bio {
+  background: var(--surface-panel);
+  border: 1px solid var(--surface-border);
+  border-radius: 8px;
+  padding: var(--spacing-md);
+  margin: var(--spacing-md) 0;
+  font-family: var(--font-reading);
+}
+
+.event-context h3, .speaker-bio h3 {
+  color: var(--accent-primary);
+  font-size: 1.2rem;
+  margin-bottom: var(--spacing-sm);
+  font-family: var(--font-display);
+}
+
+.event-context p, .speaker-bio p {
+  color: var(--text-secondary);
+  line-height: 1.6;
+  font-size: 0.95rem;
+}
+
+/* Gallery Grid System */
+
+.gallery-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  gap: var(--spacing-md);
+  margin: var(--spacing-lg) 0;
+  align-items: start; /* Align cards to top */
+}
+
+.gallery-item {
+  /* 35mm slide mount aesthetic */
+  background: linear-gradient(145deg, #2d2d2d, #2a2a2a);
+  border: 1px solid #1a1a1a;
+  border-top: 1px solid #3a3a3a; /* Subtle top highlight for dimension */
+  border-radius: 3px; /* Sharp corners like actual slides */
+  overflow: hidden;
+  transition: 
+    transform var(--transition-slow) var(--ease-smooth), 
+    box-shadow var(--transition-slow) var(--ease-smooth), 
+    border-color var(--transition-slow) var(--ease-smooth);
+  cursor: pointer;
+  /* Multi-layer shadows for physical depth */
+  box-shadow: 
+    0 1px 2px rgba(0, 0, 0, 0.4),    /* Contact shadow */
+    0 4px 8px rgba(0, 0, 0, 0.3),    /* Depth shadow */
+    0 8px 16px rgba(0, 0, 0, 0.2);   /* Ambient shadow */
+  display: flex;
+  align-items: stretch;
+  flex-direction: column; /* VERTICAL STACK - photo on top */
+  max-width: 320px; /* Optimal card width */
+  margin: 0 auto;
+  height: auto; /* Let content determine height */
+  padding: 12px; /* Frame border around photo */
+}
+
+/* Keep main gallery cards horizontal */
+
+.gallery-grid > a[href*="/events/"],
+.gallery-grid > a[href*="/galleries/"] {
+  flex-direction: row !important; /* Keep horizontal for event cards */
+  max-width: 480px !important; /* Restore original width for main cards */
+}
+
+.gallery-item:hover {
+  /* Enhanced lift effect with subtle scale */
+  transform: translateY(-6px) scale(1.005);
+  /* Premium shadows with Flynn theme glow */
+  box-shadow: 
+    0 3px 6px rgba(0, 0, 0, 0.6),    /* Contact shadow */
+    0 12px 24px rgba(0, 0, 0, 0.5),  /* Depth shadow */
+    0 24px 48px rgba(0, 0, 0, 0.4),  /* Ambient shadow */
+    0 0 0 1px rgba(255, 215, 0, 0.2); /* Nikon yellow glow */
+  border-color: var(--accent-primary-dim);
+}
+
+.gallery-item img {
+  width: 100%;
+  height: 200px;
+  -o-object-fit: contain !important;
+     object-fit: contain !important;
+  -o-object-position: center !important;
+     object-position: center !important;
+  background: #0a0a0a !important;
+  display: block;
+  border-radius: 2px; /* Slight rounding for photo window */
+  /* Inner shadow to show recession into frame */
+  box-shadow: inset 0 1px 3px rgba(0, 0, 0, 0.5) !important;
+  filter: none !important;
+}
+
+.gallery-thumbnail {
+  width: 200px; /* MAJOR INCREASE - Photo-first design */
+  flex-shrink: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0; /* Remove padding to maximize photo space */
+  background: var(--surface-overlay);
+}
+
+/* Gallery pages - direct .gallery-image (no thumbnail wrapper) */
+
+/* Gallery pages - direct .gallery-image (no thumbnail wrapper) */
+
+.gallery-item > .gallery-image {
+  width: 100% !important; /* Full card width */
+  height: 240px; /* Consistent height for all images */
+  -o-object-fit: contain !important;
+     object-fit: contain !important;
+  -o-object-position: center !important;
+     object-position: center !important;
+  background: #0a0a0a !important;
+  border-radius: 2px; /* Slight rounding for photo window */
+  flex-shrink: 0;
+  /* Inner shadow to show recession into frame */
+  box-shadow: inset 0 1px 3px rgba(0, 0, 0, 0.5);
+}
+
+/* Keep main gallery card images horizontal */
+
+.gallery-grid > a[href*="/events/"] .gallery-image,
+.gallery-grid > a[href*="/galleries/"] .gallery-image {
+  width: 200px !important; /* Match original horizontal layout */
+  height: 120px !important; /* Match original horizontal height */
+  border-radius: 6px; /* Restore rounded corners for main cards */
+}
+
+/* Style guide variation - info before thumbnail */
+
+.gallery-item .gallery-info + .gallery-thumbnail {
+  order: 2; /* Ensure thumbnail comes after info visually */
+}
+
+/* Enhanced responsive thumbnail sizing for Flynn theme integrity */
+
+@media (max-width: 767px) {
+  .gallery-thumbnail {
+    width: 140px; /* Mobile optimization */
+  }
+}
+
+@media (min-width: 768px) and (max-width: 1023px) {
+  .gallery-thumbnail {
+    width: 160px; /* Tablet optimization */
+  }
+}
+
+@media (min-width: 1024px) and (max-width: 1599px) {
+  .gallery-thumbnail {
+    width: 200px; /* Desktop base (already set) */
+  }
+}
+
+@media (min-width: 1600px) {
+  .gallery-thumbnail {
+    width: 220px; /* Large displays */
+  }
+}
+
+.gallery-info {
+  /* Slide label strip styling */
+  padding: var(--spacing-xs);
+  background: linear-gradient(180deg, #1f1f1f, #1a1a1a);
+  border-top: 1px solid #0a0a0a; /* Separation from photo */
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center; /* Center the filename */
+  min-height: 48px; /* Consistent footer height */
+  text-align: center;
+  /* Extend to frame edges */
+  margin: 0 -12px -12px -12px;
+  border-radius: 0 0 3px 3px; /* Match frame corners */
+}
+
+.gallery-thumb-img {
+  width: 100%;
+  height: 120px; /* INCREASE height for better photo visibility */
+  -o-object-fit: contain !important;
+     object-fit: contain !important;
+  -o-object-position: center !important;
+     object-position: center !important;
+  background: #0a0a0a !important;
+  border-radius: 2px; /* Match slide photo window rounding */
+  transition: all 0.3s ease;
+  filter: none; /* Remove grayscale - let photos shine naturally */
+  /* Inner shadow to show recession into frame */
+  box-shadow: inset 0 1px 3px rgba(0, 0, 0, 0.5) !important;
+}
+
+.gallery-item:hover .gallery-thumb-img {
+  filter: none !important;
+  transform: none !important;
+}
+
+/* Progressive disclosure for gallery metadata */
+
+.gallery-title {
+  color: var(--accent-primary);
+  font-family: var(--font-display);
+  font-size: 0.75rem; /* Smaller for technical details */
+  margin-bottom: var(--spacing-xs);
+  font-weight: 400;
+  letter-spacing: -0.01em;
+  line-height: 1.3;
+  /* Progressive disclosure: hidden by default in gallery grids */
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+
+/* Show technical details on hover for gallery items */
+
+.gallery-item:hover .gallery-title {
+  opacity: 0.8;
+}
+
+.gallery-item:hover .gallery-date {
+  opacity: 0.7;
+}
+
+.gallery-meta {
+  color: var(--text-secondary);
+  font-family: var(--font-reading);
+  font-size: 0.8rem;
+  opacity: 0.8;
+  letter-spacing: 0.006em;
+  line-height: 1.5;
+  /* Hide verbose camera body/lens in gallery view */
+  display: none;
+}
+
+.gallery-filename {
+  color: var(--accent-primary);
+  font-family: var(--font-technical);
+  font-size: 1.2rem; /* Larger - this is now the primary text */
+  font-weight: 600;
+  margin-top: 0; /* Remove margin, make it primary */
+  letter-spacing: 0.02em;
+}
+
+.gallery-date {
+  color: var(--text-secondary);
+  font-family: var(--font-technical);
+  font-size: 0.9rem;
+  font-weight: 400;
+  margin-top: var(--spacing-xs);
+  letter-spacing: 0.02em;
+  opacity: 0;
+  transition: opacity var(--transition-base) var(--ease-default);
+}
+
+/* Preserve main gallery cards (event listings) - DO NOT HIDE */
+
+.gallery-grid > a[href*="/events/"] .gallery-title,
+.gallery-grid > a[href*="/galleries/"] .gallery-title {
+  opacity: 1 !important; /* Always show event titles */
+  font-size: 1rem !important; /* Keep larger size for event names */
+  font-weight: 500 !important;
+}
+
+.gallery-grid > a[href*="/events/"] .gallery-meta,
+.gallery-grid > a[href*="/galleries/"] .gallery-meta {
+  display: block !important; /* Show date and photo count */
+}
+
+.gallery-grid > a[href*="/events/"] .gallery-filename,
+.gallery-grid > a[href*="/galleries/"] .gallery-filename {
+  display: none; /* Hide filename on main gallery cards */
+}
+
+.gallery-grid > a[href*="/events/"] .gallery-date,
+.gallery-grid > a[href*="/galleries/"] .gallery-date {
+  display: none; /* Hide date on main gallery cards */
+}
+
+/* Mobile: Enhanced gallery interactions */
+
+@media (hover: none) and (pointer: coarse) {
+  /* Remove hover effect on mobile to prevent metadata flash */
+  .gallery-item:hover .gallery-title,
+  .gallery-item:hover .gallery-date {
+    opacity: 1; /* Reset opacity on mobile */
+  }
+  
+  /* Add explicit metadata button for mobile */
+  .gallery-item {
+    position: relative;
+  }
+  
+  
+  /* Prevent navigation when metadata is shown */
+  .gallery-item.show-metadata {
+    pointer-events: none;
+  }
+  .gallery-item.show-metadata .gallery-info {
+    pointer-events: auto;
+  }
+}
+
+.gallery-speaker {
+  color: var(--text-secondary);
+  font-family: var(--font-reading);
+  font-size: 0.75rem; /* Smaller to de-emphasize */
+  font-weight: 400;
+  margin-top: var(--spacing-xs);
+  letter-spacing: 0.006em;
+  line-height: 1.4;
+  opacity: 0.9;
+}
+
+.gallery-venue {
+  color: var(--text-tertiary);
+  font-family: var(--font-reading);
+  font-size: 0.7rem; /* Even smaller for venue */
+  font-weight: 400;
+  margin-top: calc(var(--spacing-xs) * 0.5); /* Tighter spacing */
+  letter-spacing: 0.007em;
+  line-height: 1.4;
+  opacity: 0.7; /* More subtle */
+}
+
+/* Photo Display */
+
+.photo-display-container {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: var(--spacing-md);
+  margin: var(--spacing-md) 0;
+}
+
+/* Ensure vertical stacking below side-by-side breakpoint */
+
+@media (max-width: 1279px) {
+  .photo-display-container {
+    grid-template-columns: 1fr;
+    gap: var(--spacing-lg);
+    justify-items: center; /* Center both slide mount and LCD panel */
+  }
+  
+  /* Make camera LCD panel match slide mount width and center */
+  .camera-lcd-panel {
+    width: 100%;
+    max-width: 900px !important; /* Match slide mount max-width */
+    margin: var(--space-4) auto !important; /* Center horizontally */
+    position: static !important; /* Remove sticky positioning in vertical stack */
+  }
+}
+
+/* Desktop: Side-by-side layout - comfortable minimum width */
+
+@media (min-width: 1280px) {
+  .photo-display-container {
+    grid-template-columns: 1fr auto;
+    gap: var(--space-4); /* 32px */
+    align-items: start;
+    /* Better viewport management with accurate heights */
+    max-height: calc(100vh - var(--total-ui-height));
+    overflow-y: auto; /* Allow scrolling within container if needed */
+  }
+  
+  /* Constrain LCD panel width on desktop */
+  .camera-lcd-panel {
+    min-width: 300px;
+    max-width: 360px;
+    position: sticky;
+    top: var(--space-4);
+  }
+}
+
+/* Larger desktop screens */
+
+@media (min-width: 1400px) {
+  .photo-display-container {
+    gap: var(--space-6); /* 48px */
+  }
+  
+  .camera-lcd-panel {
+    min-width: 320px;
+    max-width: 380px;
+  }
+}
+
+/* Large screens: More breathing room */
+
+@media (min-width: 1600px) {
+  .photo-display-container {
+    gap: var(--space-16); /* 64px */
+  }
+  
+  .camera-lcd-panel {
+    max-width: 420px;
+  }
+}
+
+/* Extra large screens */
+
+@media (min-width: 1920px) {
+  .photo-display-container {
+    gap: var(--space-20); /* 80px */
+  }
+  
+  .camera-lcd-panel {
+    max-width: 450px;
+  }
+}
+
+.photo-container {
+  background: var(--surface-panel);
+  border: 1px solid var(--surface-border);
+  border-radius: 12px;
+  overflow: hidden;
+  margin: 0;
+  box-shadow: var(--shadow-strong);
+}
+
+.photo-main {
+  width: 100%;
+  max-height: 70vh;
+  -o-object-fit: contain;
+     object-fit: contain;
+  display: block;
+  background: var(--surface-overlay);
+}
+
+/* Button System */
+
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: var(--spacing-sm) var(--spacing-md);
+  min-height: 44px;
+  min-width: 44px;
+  border: 2px solid var(--accent-primary);
+  background: transparent;
+  color: var(--accent-primary);
+  text-decoration: none;
+  font-family: var(--font-display);
+  font-size: 0.875rem;
+  font-weight: 500;
+  font-feature-settings: "kern" 1;
+  border-radius: 6px;
+  transition: all 0.3s ease;
+  cursor: pointer;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+}
+
+.btn:hover {
+  background: var(--accent-primary);
+  color: var(--text-inverse);
+  transform: translateY(-2px);
+  box-shadow: var(--shadow-glow);
+}
+
+.btn-primary {
+  background: var(--accent-primary);
+  color: var(--text-inverse);
+}
+
+.btn-primary:hover {
+  background: var(--accent-primary-glow);
+  border-color: var(--accent-primary-glow);
+}
+
+.btn-secondary {
+  border-color: var(--accent-secondary);
+  color: var(--accent-secondary);
+}
+
+.btn-secondary:hover {
+  background: var(--accent-secondary);
+  color: var(--text-inverse);
+}
+
+/* Navigation */
+
+.nav-breadcrumb {
+  margin-bottom: var(--spacing-md);
+  font-size: 0.9rem;
+  opacity: 0.8;
+  font-family: var(--font-technical);
+}
+
+.nav-breadcrumb a {
+  color: var(--accent-primary-dim);
+  text-decoration: none;
+  transition: color 0.3s ease;
+}
+
+.nav-breadcrumb a:hover {
+  color: var(--accent-primary);
+}
+
+.nav-breadcrumb span {
+  margin: 0 var(--spacing-xs);
+  opacity: 0.6;
+}
+
+/* Individual Photo Page Styles */
+
+.photo-content {
+  margin-top: var(--spacing-lg);
+  color: var(--text-secondary);
+}
+
+.removal-email-link {
+  color: var(--accent-primary);
+  text-decoration: underline;
+}
+
+.removal-email-link:hover {
+  color: var(--accent-primary-glow);
+}
+
+/* Camera Metadata Panel */
+
+.camera-metadata {
+  background: var(--surface-panel);
+  border: 1px solid var(--surface-border);
+  border-radius: 8px;
+  padding: var(--spacing-md);
+  margin: 0;
+  font-family: var(--font-technical);
+}
+
+.metadata-title {
+  margin-bottom: var(--spacing-sm);
+  color: var(--accent-primary);
+  font-size: 1rem;
+  font-family: var(--font-technical);
+}
+
+.metadata-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: var(--spacing-sm);
+}
+
+.metadata-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: var(--spacing-xs);
+  border-bottom: 1px solid var(--surface-border);
+}
+
+.metadata-item:last-child {
+  border-bottom: none;
+}
+
+.metadata-label {
+  color: var(--text-secondary);
+  font-size: 0.85rem;
+  font-weight: 400;
+}
+
+.metadata-value {
+  color: var(--accent-primary);
+  font-size: 0.9rem;
+  font-weight: 500;
+  text-align: right;
+}
+
+/* Camera LCD Panel - Minimized Display */
+
+.camera-lcd-panel {
+  background: #0a0a0a;
+  border: 2px solid #1a1a1a;
+  border-radius: 6px;
+  padding: var(--space-3);
+  margin: var(--space-4) auto; /* Center by default */
+  font-family: var(--font-technical);
+  box-shadow: 
+    0 0 8px rgba(0, 0, 0, 0.8),
+    inset 0 1px 0 rgba(255, 255, 255, 0.1);
+  position: relative;
+  width: 100%;
+  max-width: 480px;
+}
+
+.camera-lcd-panel::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: 
+    repeating-linear-gradient(
+      90deg,
+      transparent,
+      transparent 2px,
+      rgba(0, 255, 65, 0.02) 2px,
+      rgba(0, 255, 65, 0.02) 4px
+    ),
+    linear-gradient(
+      180deg,
+      rgba(255, 255, 255, 0.02) 0%,
+      transparent 50%,
+      rgba(0, 0, 0, 0.1) 100%
+    );
+  border-radius: 4px;
+  pointer-events: none;
+}
+
+/* Add subtle animation for LCD authenticity */
+
+@keyframes lcd-flicker {
+  0%, 98%, 100% { opacity: 1; }
+  99% { opacity: 0.98; }
+}
+
+.camera-lcd-panel {
+  animation: lcd-flicker 8s infinite;
+}
+
+/* Respect reduced motion preferences */
+
+@media (prefers-reduced-motion: reduce) {
+  .camera-lcd-panel {
+    animation: none;
+  }
+  
+  .camera-lcd-panel::before {
+    background: linear-gradient(
+      180deg,
+      rgba(255, 255, 255, 0.02) 0%,
+      transparent 50%,
+      rgba(0, 0, 0, 0.1) 100%
+    );
+  }
+  
+  .lcd-toggle,
+  .lcd-content {
+    transition: none;
+  }
+}
+
+.lcd-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: var(--space-3);
+  padding-bottom: var(--space-1);
+  border-bottom: 1px solid #2a2a2a;
+}
+
+.lcd-title {
+  color: #00ff41;
+  font-size: 0.7rem;
+  font-weight: 700;
+  letter-spacing: 0.8px;
+  text-shadow: 0 0 4px rgba(0, 255, 65, 0.3);
+}
+
+.lcd-toggle {
+  background: none;
+  border: none;
+  padding: 0;
+  cursor: pointer;
+  transition: transform 0.2s ease;
+}
+
+.lcd-toggle:hover {
+  transform: scale(1.1);
+}
+
+.lcd-status {
+  color: #00ff41;
+  font-size: 0.6rem;
+  text-shadow: 0 0 3px rgba(0, 255, 65, 0.5);
+  transition: color 0.2s ease;
+}
+
+.camera-lcd-panel.collapsed {
+  padding: var(--space-2) var(--space-3);
+}
+
+.camera-lcd-panel.collapsed .lcd-status {
+  color: #666;
+  text-shadow: none;
+}
+
+.lcd-content {
+  transition: opacity 0.3s ease;
+}
+
+/* Exposure triangle - most prominent */
+
+/* New horizontal layout for exposure data */
+
+.lcd-exposure-line {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: var(--space-3);
+  padding: var(--space-3) 0;
+  border-bottom: 1px solid var(--surface-border);
+  font-family: var(--font-technical);
+}
+
+.lcd-equipment-line {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: var(--space-2);
+  padding: var(--space-3) 0;
+  font-family: var(--font-technical);
+}
+
+.lcd-separator {
+  color: var(--text-secondary);
+  opacity: 0.5;
+  font-size: 0.8rem;
+}
+
+.lcd-value {
+  color: var(--text-primary);
+  font-size: 0.95rem;
+  font-weight: 500;
+  font-family: var(--font-technical);
+}
+
+/* Secondary settings */
+
+.lcd-settings-group {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(100px, 1fr));
+  gap: var(--space-2);
+  margin-bottom: var(--space-3);
+}
+
+.lcd-setting {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: var(--space-1) var(--space-2);
+  background: rgba(255, 255, 255, 0.02);
+  border-radius: 3px;
+}
+
+/* Context info - minimal */
+
+.lcd-context-group {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(100px, 1fr));
+  gap: calc(var(--space-1) * 0.5);
+  border-top: 1px solid #2a2a2a;
+  padding-top: var(--space-2);
+  margin-top: var(--space-2);
+}
+
+.lcd-context {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: calc(var(--space-1) * 0.5);
+  font-size: 0.65rem;
+}
+
+.lcd-label {
+  color: var(--text-secondary);
+  font-size: 0.7rem;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+
+.lcd-data {
+  color: #ccc;
+  font-size: 0.7rem;
+  font-weight: 400;
+  text-align: right;
+  max-width: 120px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+/* Fix filename truncation */
+
+.lcd-filename {
+  word-break: break-all; /* Allow breaking long filenames */
+  white-space: normal; /* Allow wrapping */
+  max-width: 100%;
+  font-size: 0.85rem; /* Slightly smaller for long names */
+  line-height: 1.3;
+}
+
+/* Ensure context group has enough space */
+
+.lcd-context-group {
+  width: 100%;
+}
+
+.lcd-context {
+  display: flex;
+  flex-direction: column; /* Stack label above data */
+  gap: var(--space-1);
+  margin-bottom: var(--space-2);
+}
+
+.lcd-context .lcd-data {
+  display: block;
+  width: 100%;
+}
+
+/* Small Tablet - Homepage button adjustments */
+
+@media (min-width: 641px) and (max-width: 767px) {
+  .site-navigation-prominent {
+    gap: var(--space-3);
+    padding: var(--space-3) 0;
+  }
+  
+  .nav-link-prominent {
+    padding: var(--space-2) var(--space-3);
+    font-size: 1rem;
+    min-width: 90px;
+  }
+}
+
+/* Ultra-small Mobile - 320px (iPhone SE, older Android) */
+
+@media (max-width: 320px) {
+  /* Ultra-compact container */
+  .container {
+    padding: 0 var(--space-2); /* 8px - minimum viable padding */
+  }
+  
+  /* Ultra-small typography */
+  h1 {
+    font-size: clamp(1.75rem, 7vw, 2.5rem);
+    line-height: 1.15;
+    margin-bottom: var(--space-4);
+  }
+  
+  h2 {
+    font-size: clamp(1.25rem, 5.5vw, 1.75rem);
+    line-height: 1.2;
+  }
+  
+  /* Site tagline ultra-compact */
+  .site-tagline {
+    font-size: clamp(0.9rem, 2.5vw, 1.1rem);
+    margin: var(--space-2) 0 var(--space-4) 0;
+    padding: 0 var(--space-1);
+  }
+  
+  /* Gallery grid ultra-compact */
+  .gallery-grid {
+    grid-template-columns: 1fr; /* Force single column */
+    gap: var(--space-3); /* Reduced gap */
+    margin: var(--space-4) 0;
+  }
+  
+  /* Gallery item ultra-compact layout */
+  .gallery-item {
+    padding: var(--space-2);
+    border-radius: 6px;
+  }
+  
+  .gallery-info {
+    padding: var(--space-2);
+  }
+  
+  .gallery-thumbnail,
+  .gallery-item > .gallery-image {
+    width: 140px; /* INCREASED for photo visibility on mobile */
+    padding: 0;
+  }
+  
+  .gallery-item > .gallery-image {
+    height: 100px; /* Match gallery-thumb-img mobile height */
+  }
+  
+  .gallery-thumb-img {
+    height: 100px; /* INCREASED for better mobile photo visibility */
+    border-radius: 2px; /* Match slide photo window rounding */
+  }
+  
+  /* Typography scaling for ultra-small */
+  .gallery-title {
+    font-size: 0.85rem;
+    line-height: 1.3;
+    margin-bottom: calc(var(--space-1) * 0.5);
+  }
+  
+  .gallery-meta {
+    font-size: 0.75rem;
+    line-height: 1.4;
+  }
+  
+  .gallery-speaker {
+    font-size: 0.7rem;
+    margin-top: calc(var(--space-1) * 0.5);
+  }
+  
+  .gallery-venue {
+    font-size: 0.65rem;
+    margin-top: calc(var(--space-1) * 0.5);
+  }
+  
+  /* Navigation ultra-compact */
+  .site-navigation-prominent {
+    flex-direction: column;
+    gap: var(--space-2);
+    padding: var(--space-2) 0;
+    margin: var(--space-2) 0 var(--space-3) 0;
+  }
+  
+  .nav-link-prominent {
+    width: 100%;
+    padding: var(--space-3) var(--space-2);
+    font-size: 0.9rem;
+    min-height: 44px; /* Maintain touch target */
+    letter-spacing: 0.01em;
+  }
+  
+  /* Header ultra-compact */
+  .header-container {
+    padding: 0 var(--space-2);
+  }
+  
+  .site-title {
+    font-size: var(--text-lg); /* 18px */
+  }
+  
+  .site-header .theme-toggle-btn {
+    padding: var(--space-1) calc(var(--space-2) * 0.75);
+    font-size: 0.7rem;
+    min-width: 44px; /* Maintain touch target */
+  }
+  
+  /* Button system ultra-compact */
+  .btn {
+    width: 100%;
+    max-width: none;
+    padding: var(--space-3) var(--space-2);
+    font-size: 0.8rem;
+    min-height: 44px; /* Critical touch target */
+    border-width: 1px; /* Thinner borders on small screens */
+  }
+  
+  /* Photo display ultra-compact */
+  .photo-main {
+    max-height: 50vh; /* Smaller on ultra-small screens */
+  }
+  
+  
+  /* Metadata ultra-compact */
+  .camera-metadata {
+    padding: var(--space-3);
+    margin: var(--space-3) 0;
+  }
+  
+  .metadata-title {
+    font-size: 0.85rem;
+    margin-bottom: var(--space-2);
+  }
+  
+  .metadata-item {
+    padding: calc(var(--space-1) * 0.75);
+    flex-direction: column;
+    align-items: flex-start;
+    gap: calc(var(--space-1) * 0.5);
+  }
+  
+  .metadata-label,
+  .metadata-value {
+    font-size: 0.75rem;
+    text-align: left;
+  }
+  
+  /* LCD Panel ultra-compact */
+  .camera-lcd-panel {
+    padding: var(--space-2);
+    margin: var(--space-2) 0;
+    max-width: 100%;
+  }
+  
+  .lcd-title {
+    font-size: 0.6rem;
+  }
+  
+  .lcd-exposure-line,
+  .lcd-equipment-line {
+    gap: var(--space-2);
+    padding: var(--space-2) 0;
+  }
+  
+  .lcd-icon {
+    font-size: 0.8rem;
+  }
+  
+  .lcd-value {
+    font-size: 0.7rem;
+    min-width: 45px;
+  }
+  
+  .lcd-settings-group,
+  .lcd-context-group {
+    grid-template-columns: 1fr;
+    gap: calc(var(--space-1) * 0.5);
+  }
+  
+  .lcd-label {
+    font-size: 0.6rem;
+  }
+  
+  .lcd-data {
+    font-size: 0.65rem;
+    max-width: 100px;
+  }
+  
+  /* Breadcrumb ultra-compact */
+  .nav-breadcrumb {
+    font-size: 0.75rem;
+    margin-bottom: var(--space-2);
+  }
+  
+  /* Contact page ultra-compact */
+  .contact-photo {
+    width: 200px;
+    height: 200px;
+  }
+  
+  .contact-email {
+    padding: var(--space-2) var(--space-3);
+    font-size: 0.95rem;
+    width: 100%;
+    text-align: center;
+  }
+  
+  /* Enhanced paragraph readability */
+  p {
+    font-size: 15px; /* Slightly smaller but still readable */
+    line-height: 1.55;
+    letter-spacing: 0.003em;
+  }
+}
+
+/* Responsive Design */
+
+@media (max-width: 767px) {
+  .container {
+    padding: 0 var(--spacing-xs);
+  }
+  
+  /* Main content mobile optimization */
+  .main-content {
+    padding: var(--space-2) 0;  /* 8px vertical - reduced from 24px */
+  }
+  
+  /* Mobile typography improvements */
+  h1 {
+    font-size: clamp(2rem, 8vw, 3.5rem);
+    line-height: 1.2;
+  }
+  
+  h2 {
+    font-size: clamp(1.4rem, 6vw, 2.2rem);
+    line-height: 1.25;
+  }
+  
+  h3 {
+    font-size: clamp(1.2rem, 5vw, 1.8rem);
+    line-height: 1.3;
+  }
+  
+  p {
+    font-size: 16px;
+    line-height: 1.6;
+    letter-spacing: 0.005em;
+  }
+  
+  .gallery-grid {
+    grid-template-columns: 1fr;
+    gap: var(--spacing-sm);
+  }
+  
+  
+  .btn {
+    width: 100%;
+    max-width: 200px;
+  }
+  
+  /* Photo display container mobile optimization */
+  .photo-display-container {
+    gap: var(--space-3);  /* 12px */
+    margin: var(--space-2) 0;  /* 8px */
+  }
+  
+  
+  /* Camera metadata mobile optimization */
+  .camera-metadata {
+    padding: var(--spacing-sm);
+    margin: var(--spacing-sm) 0;
+  }
+  
+  /* LCD Panel mobile optimization */
+  .camera-lcd-panel {
+    padding: var(--space-3);
+    margin: var(--space-4) 0;
+    max-width: 100%;
+  }
+  
+  /* Start expanded on mobile for accessibility */
+  .camera-lcd-panel .lcd-content {
+    display: block;
+  }
+  
+  /* Larger touch target for toggle */
+  .lcd-toggle {
+    min-width: 44px;
+    min-height: 44px;
+    padding: var(--space-3);
+  }
+  
+  /* Visual feedback for touch */
+  .lcd-toggle:active {
+    background: var(--accent-primary-dim);
+    transform: scale(0.95);
+    transition: all 0.1s ease;
+  }
+  
+  .lcd-exposure-line,
+  .lcd-equipment-line {
+    gap: var(--space-2);
+    flex-wrap: wrap;
+  }
+  
+  .lcd-value {
+    font-size: 0.75rem;
+    min-width: 50px;
+  }
+  
+  .lcd-settings-group {
+    grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
+  }
+  
+  .lcd-context-group {
+    grid-template-columns: 1fr;
+  }
+  
+  .metadata-grid {
+    grid-template-columns: 1fr;
+    gap: var(--spacing-xs);
+  }
+  
+  .metadata-title {
+    font-size: 0.95rem;
+  }
+  
+  .metadata-label {
+    font-size: 0.8rem;
+  }
+  
+  .metadata-value {
+    font-size: 0.85rem;
+  }
+  
+  /* Navigation breadcrumb mobile optimization */
+  .nav-breadcrumb {
+    margin-bottom: var(--space-2);  /* 8px - reduced from 16px */
+    font-size: 0.8rem;
+  }
+  
+  /* Photo display mobile optimization */
+  .photo-container {
+    margin: var(--spacing-sm) 0;
+    border-radius: 8px;
+  }
+  
+  .photo-main {
+    max-height: 60vh;
+  }
+  
+  /* Photo content mobile optimization */
+  .photo-content {
+    margin-top: var(--spacing-md);
+  }
+  
+  
+  /* Event context sections mobile optimization */
+  .event-context, .speaker-bio {
+    padding: var(--spacing-sm);
+    margin: var(--spacing-sm) 0;
+  }
+  
+  .event-context h3, .speaker-bio h3 {
+    font-size: 1.1rem;
+  }
+  
+  .event-context p, .speaker-bio p {
+    font-size: 0.9rem;
+  }
+  
+  /* Main page event card mobile optimization */
+  .gallery-speaker {
+    font-size: 0.75rem;
+  }
+  
+  .gallery-venue {
+    font-size: 0.7rem;
+  }
+  
+  /* Mobile performance optimizations */
+  * {
+    animation-duration: 0.2s !important;
+  }
+  
+  /* Disable complex shadows on mobile for better performance */
+  .slide-mount-frame {
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3) !important;
+  }
+  
+  .gallery-item:hover {
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.4) !important;
+  }
+}
+
+/* Respect reduced motion preference */
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}
+
+/* Small Desktop Optimization - 768-900px */
+
+@media (min-width: 768px) and (max-width: 900px) {
+  /* Gallery grid uses auto-fit base rule - no column override needed */
+  
+  
+  .btn {
+    padding: calc(var(--spacing-sm) * 0.75) var(--spacing-md);
+    min-width: 140px;
+    font-size: 0.8rem;
+    border-width: 1px;
+  }
+  
+  /* Metadata grid enhancement */
+  .metadata-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: var(--spacing-sm);
+  }
+  
+  .metadata-item {
+    padding: calc(var(--spacing-xs) * 0.75);
+  }
+  
+  .metadata-label {
+    font-size: 0.8rem;
+  }
+  
+  .metadata-value {
+    font-size: 0.85rem;
+  }
+  
+  /* Photo container refinements */
+  .photo-container {
+    margin: var(--spacing-lg) 0;
+    border-radius: 10px;
+  }
+  
+  
+  /* Typography adjustments */
+  .nav-breadcrumb {
+    font-size: 0.85rem;
+    margin-bottom: var(--spacing-md);
+  }
+  
+  /* Camera metadata panel optimization */
+  .camera-metadata {
+    padding: var(--spacing-lg);
+    margin: 0;
+  }
+  
+  .metadata-title {
+    font-size: 1.1rem;
+    margin-bottom: var(--spacing-md);
+  }
+  
+  /* Photo display container optimization */
+  .photo-display-container {
+    gap: var(--spacing-lg);
+    margin: var(--spacing-lg) 0;
+  }
+}
+
+/* Medium Desktop - 901-1023px */
+
+@media (min-width: 901px) and (max-width: 1023px) {
+  /* Gallery grid uses auto-fit base rule - no column override needed */
+  
+  
+  .btn {
+    min-width: 160px;
+  }
+  
+  /* Metadata grid with 3 columns */
+  .metadata-grid {
+    grid-template-columns: repeat(3, 1fr);
+    gap: var(--spacing-md);
+  }
+  
+  /* Photo display container optimization */
+  .photo-display-container {
+    gap: var(--spacing-lg);
+    margin: var(--spacing-lg) 0;
+  }
+}
+
+/* Desktop Base - 1024-1200px */
+
+@media (min-width: 1024px) and (max-width: 1200px) {
+  /* Wide screen typography refinements */
+  h1 {
+    letter-spacing: -0.015em; /* Slightly tighter for wide viewing */
+    line-height: 1.08;
+  }
+  
+  h2 {
+    letter-spacing: -0.01em;
+    line-height: 1.22;
+  }
+  
+  p {
+    letter-spacing: 0.01em; /* Slightly looser for comfortable wide reading */
+    line-height: 1.58;
+    max-width: 70ch;
+  }
+  
+  .gallery-grid {
+    gap: var(--spacing-lg);
+  }
+  
+  
+  .btn {
+    min-width: 180px;
+    padding: 1rem 2rem;
+    font-size: 0.9rem;
+    border-width: 2px;
+  }
+  
+  .btn:hover {
+    transform: translateY(-3px);
+    box-shadow: var(--shadow-glow);
+  }
+  
+  
+  /* Better metadata layout */
+  .metadata-grid {
+    grid-template-columns: repeat(3, 1fr);
+    gap: var(--spacing-md);
+  }
+  
+  .camera-metadata {
+    padding: var(--spacing-xl);
+    margin: var(--spacing-xl) 0;
+  }
+  
+  .metadata-title {
+    font-size: 1.2rem;
+    margin-bottom: var(--spacing-md);
+  }
+  
+  /* Photo display container optimization */
+  .photo-display-container {
+    gap: var(--spacing-xl);
+    margin: var(--spacing-xl) 0;
+  }
+}
+
+/* Medium Desktop - 1201-1600px */
+
+@media (min-width: 1201px) and (max-width: 1600px) {
+  /* Expert typography for medium-wide screens */
+  h1 {
+    letter-spacing: -0.018em; /* Refined for medium-wide viewing */
+    line-height: 1.05;
+  }
+  
+  h2 {
+    letter-spacing: -0.012em;
+    line-height: 1.2;
+  }
+  
+  p {
+    letter-spacing: 0.012em; /* Optimal for Crimson Text at medium-wide */
+    line-height: 1.6;
+    max-width: 72ch;
+  }
+  
+  .gallery-grid {
+    gap: var(--spacing-lg);
+  }
+  
+  
+  .btn {
+    min-width: 200px;
+    padding: 1.125rem 2.25rem;
+    font-size: 0.95rem;
+    border-width: 2px;
+  }
+  
+  .btn:hover {
+    transform: translateY(-4px);
+    box-shadow: var(--shadow-glow);
+  }
+  
+  
+  /* Better typography for desktop viewing */
+  .metadata-title {
+    font-size: 1.3rem;
+  }
+  
+  .metadata-label {
+    font-size: 0.9rem;
+  }
+  
+  .metadata-value {
+    font-size: 0.95rem;
+  }
+  
+  /* Gallery item enhancements */
+  .gallery-item img {
+    height: 220px;
+  }
+  
+  .gallery-thumbnail,
+  .gallery-item > .gallery-image {
+    width: 160px;
+  }
+  
+  .gallery-info {
+    padding: var(--spacing-md);
+  }
+  
+  .gallery-title {
+    font-size: 1rem;
+  }
+  
+  /* Photo display container optimization */
+  .photo-display-container {
+    gap: var(--spacing-xl);
+    margin: var(--spacing-xl) 0;
+  }
+}
+
+/* Large Desktop - 1601px+ */
+
+@media (min-width: 1601px) {
+  /* Ultra-wide typography mastery */
+  h1 {
+    letter-spacing: -0.02em; /* Tighter for ultra-wide viewing distance */
+    line-height: 1.02;
+  }
+  
+  h2 {
+    letter-spacing: -0.015em;
+    line-height: 1.18;
+  }
+  
+  p {
+    letter-spacing: 0.015em; /* Generous spacing for ultra-wide comfort */
+    line-height: 1.62;
+    max-width: 75ch;
+    font-size: 1.05rem; /* Slightly larger for ultra-wide readability */
+  }
+  
+  .gallery-grid {
+    gap: var(--spacing-xl);
+  }
+  
+  
+  .btn {
+    min-width: 220px;
+    padding: 1.25rem 2.5rem;
+    font-size: 1rem;
+    border-width: 2px;
+  }
+  
+  .btn:hover {
+    transform: translateY(-5px);
+    box-shadow: var(--shadow-glow);
+  }
+  
+  
+  /* Ultra-wide desktop typography */
+  .metadata-title {
+    font-size: 1.4rem;
+  }
+  
+  .metadata-grid {
+    grid-template-columns: repeat(4, 1fr);
+    gap: var(--spacing-lg);
+  }
+  
+  /* Gallery item enhancements for large displays */
+  .gallery-item img {
+    height: 240px;
+  }
+  
+  .gallery-thumbnail,
+  .gallery-item > .gallery-image {
+    width: 180px;
+  }
+  
+  .gallery-info {
+    padding: var(--spacing-lg);
+  }
+  
+  .gallery-title {
+    font-size: 1.1rem;
+  }
+  
+  .gallery-meta {
+    font-size: 0.9rem;
+  }
+  
+  /* Photo container optimization */
+  .photo-container {
+    margin: 0;
+    border-radius: 16px;
+  }
+  
+  .photo-main {
+    max-height: 80vh;
+  }
+  
+  /* Photo display container for large screens */
+  .photo-display-container {
+    gap: var(--spacing-xl);
+    margin: var(--spacing-xl) 0;
+  }
+}
+
+/* Ultra-wide Desktop - 2560px+ (1440p ultrawide, 4K+) */
+
+@media (min-width: 2560px) {
+  /* Container natural expansion for ultra-wide viewing */
+  .container {
+    max-width: none; /* Allow natural expansion */
+    padding: 0 var(--spacing-xl);
+  }
+  
+  /* Ultra-wide typography - optimized for distance viewing */
+  h1 {
+    font-size: clamp(3rem, 4vw, 5rem);
+    letter-spacing: -0.025em;
+    line-height: 1.0;
+  }
+  
+  h2 {
+    font-size: clamp(2rem, 3vw, 3.5rem);
+    letter-spacing: -0.02em;
+    line-height: 1.15;
+  }
+  
+  p {
+    font-size: 1.1rem;
+    letter-spacing: 0.018em;
+    line-height: 1.65;
+    max-width: 80ch;
+  }
+  
+  /* Ultra-wide gallery grid - auto-fit responsive */
+  .gallery-grid {
+    gap: var(--spacing-xl);
+    margin: var(--spacing-xl) 0; /* Natural width, top/bottom margin only */
+  }
+  
+  /* Enhanced gallery items for ultra-wide */
+  .gallery-item img {
+    height: 260px;
+  }
+  
+  .gallery-thumbnail,
+  .gallery-item > .gallery-image {
+    width: 200px;
+  }
+  
+  .gallery-info {
+    padding: var(--spacing-xl);
+  }
+  
+  .gallery-title {
+    font-size: 1.2rem;
+    margin-bottom: var(--space-3);
+  }
+  
+  .gallery-meta {
+    font-size: 1rem;
+  }
+  
+  
+  .btn {
+    min-width: 250px;
+    padding: 1.5rem 3rem;
+    font-size: 1.1rem;
+    border-width: 2px;
+  }
+  
+  .btn:hover {
+    transform: translateY(-6px);
+    box-shadow: var(--shadow-glow);
+  }
+  
+  /* Ultra-wide metadata grid */
+  .metadata-grid {
+    grid-template-columns: repeat(5, 1fr);
+    gap: var(--spacing-xl);
+    max-width: 1800px;
+  }
+  
+  .metadata-title {
+    font-size: 1.6rem;
+    margin-bottom: var(--spacing-lg);
+  }
+  
+  .metadata-label {
+    font-size: 1rem;
+  }
+  
+  .metadata-value {
+    font-size: 1.1rem;
+  }
+  
+  /* Ultra-wide navigation */
+  .site-navigation-prominent {
+    gap: 3rem;
+    margin: var(--spacing-xl) 0;
+    justify-content: center;
+  }
+  
+  .nav-link-prominent {
+    min-width: 200px;
+    padding: var(--spacing-lg) var(--spacing-xl);
+    font-size: 1.2rem;
+    letter-spacing: 0.03em;
+  }
+  
+  /* Ultra-wide photo display */
+  .photo-main {
+    max-height: 85vh;
+  }
+  
+  .photo-container {
+    max-width: 2200px;
+    margin: 0 auto;
+    border-radius: 20px;
+  }
+}
+
+/* Extreme Ultra-wide - 3440px+ (21:9 ultrawide monitors) */
+
+@media (min-width: 3440px) {
+  /* Extreme wide container - allow natural expansion */
+  .container {
+    max-width: none;
+    padding: 0 var(--spacing-xl);
+  }
+  
+  /* Extreme ultra-wide typography - maximum comfort viewing */
+  h1 {
+    font-size: clamp(3.5rem, 3.5vw, 6rem);
+    letter-spacing: -0.03em;
+    line-height: 0.98;
+    max-width: 20ch; /* Prevent overly long lines */
+    margin: 0 auto var(--spacing-xl) auto;
+    text-align: center;
+  }
+  
+  h2 {
+    font-size: clamp(2.5rem, 2.5vw, 4rem);
+    letter-spacing: -0.025em;
+    line-height: 1.1;
+    max-width: 25ch;
+    margin: 0 auto var(--spacing-lg) auto;
+  }
+  
+  p {
+    font-size: 1.15rem;
+    letter-spacing: 0.02em;
+    line-height: 1.7;
+    max-width: 85ch;
+    margin: 0 auto var(--spacing-md) auto;
+  }
+  
+  /* Extreme ultra-wide gallery grid - auto-fit responsive */
+  .gallery-grid {
+    gap: 2rem;
+    margin: var(--spacing-xl) 0; /* Natural width expansion */
+  }
+  
+  /* Enhanced gallery items for extreme ultra-wide */
+  .gallery-item {
+    max-width: 400px; /* Prevent items from becoming too wide */
+  }
+  
+  .gallery-item img {
+    height: 280px;
+  }
+  
+  .gallery-thumbnail,
+  .gallery-item > .gallery-image {
+    width: 220px;
+  }
+  
+  .gallery-info {
+    padding: var(--spacing-xl);
+  }
+  
+  .gallery-title {
+    font-size: 1.3rem;
+    margin-bottom: var(--space-4);
+  }
+  
+  .gallery-meta {
+    font-size: 1.1rem;
+  }
+  
+  
+  .btn {
+    min-width: 280px;
+    padding: 1.75rem 3.5rem;
+    font-size: 1.2rem;
+    border-width: 3px;
+  }
+  
+  .btn:hover {
+    transform: translateY(-8px);
+    box-shadow: var(--shadow-glow);
+  }
+  
+  /* Extreme ultra-wide metadata grid */
+  .metadata-grid {
+    grid-template-columns: repeat(6, 1fr);
+    gap: 2rem;
+    max-width: 2400px;
+    margin: 0 auto;
+  }
+  
+  .metadata-title {
+    font-size: 1.8rem;
+    margin-bottom: var(--spacing-xl);
+    text-align: center;
+  }
+  
+  .metadata-label {
+    font-size: 1.1rem;
+  }
+  
+  .metadata-value {
+    font-size: 1.2rem;
+  }
+  
+  /* Extreme ultra-wide navigation */
+  .site-navigation-prominent {
+    gap: 4rem;
+    margin: var(--spacing-xl) 0;
+    justify-content: center;
+    max-width: 1600px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+  
+  .nav-link-prominent {
+    min-width: 250px;
+    padding: var(--spacing-xl) 2rem;
+    font-size: 1.3rem;
+    letter-spacing: 0.04em;
+  }
+  
+  /* Extreme ultra-wide photo display */
+  .photo-main {
+    max-height: 90vh;
+    max-width: 2800px;
+    margin: 0 auto;
+  }
+  
+  .photo-container {
+    max-width: 2800px;
+    margin: 0 auto;
+    border-radius: 24px;
+  }
+  
+  /* Site tagline for extreme ultra-wide */
+  .site-tagline {
+    font-size: clamp(1.2rem, 1.5vw, 1.8rem);
+    max-width: 50ch;
+    margin: var(--spacing-lg) auto var(--spacing-xl) auto;
+  }
+  
+  /* Center content areas on extreme ultra-wide */
+  .main-content {
+    max-width: 3200px;
+    margin: 0 auto;
+    padding: var(--spacing-xl) var(--spacing-lg);
+  }
+}
+
+/* Portrait Photo + Metadata Side-by-Side Layout */
+
+@media (min-width: 1280px) {
+  .photo-display-container.portrait-layout {
+    grid-template-columns: 1fr 380px;
+    align-items: start;
+    gap: 1.5rem;
+  }
+  
+  .photo-display-container.portrait-layout .camera-metadata {
+    max-height: 80vh;
+    overflow-y: auto;
+  }
+}
+
+@media (min-width: 1400px) {
+  .photo-display-container.portrait-layout {
+    grid-template-columns: 1fr 400px;
+    gap: 2rem;
+  }
+}
+
+@media (min-width: 1601px) {
+  .photo-display-container.portrait-layout {
+    grid-template-columns: 1fr 450px;
+    gap: 2.5rem;
+  }
+  
+  .photo-display-container.portrait-layout .camera-metadata {
+    max-height: 85vh;
+  }
+}
+
+/* Featured Speakers Section */
+
+.featured-speakers {
+  background: var(--black-matte);
+  border: 1px solid var(--gray-charcoal);
+  border-radius: 8px;
+  padding: var(--spacing-lg);
+  margin: var(--spacing-lg) 0;
+}
+
+.featured-speakers h2 {
+  color: var(--nikon-yellow);
+  margin-bottom: var(--spacing-xs);
+  font-family: var(--font-display);
+  font-size: 1.5rem;
+}
+
+.featured-date {
+  color: var(--gray-light);
+  font-size: 0.9rem;
+  margin-bottom: var(--spacing-md);
+  opacity: 0.8;
+}
+
+.featured-content {
+  font-family: var(--font-reading);
+  margin-bottom: var(--spacing-lg);
+  line-height: 1.6;
+}
+
+.featured-content p {
+  margin-bottom: var(--spacing-md);
+  color: var(--gray-light);
+}
+
+.featured-speakers-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: var(--spacing-md);
+}
+
+.featured-speaker-item {
+  background: var(--black-deep);
+  border: 1px solid var(--gray-charcoal);
+  border-radius: 8px;
+  overflow: hidden;
+  transition: transform 0.2s ease, border-color 0.2s ease;
+}
+
+.featured-speaker-item:hover {
+  transform: translateY(-2px);
+  border-color: var(--nikon-yellow-dim);
+}
+
+.featured-speaker-item img {
+  width: 100%;
+  height: 200px;
+  -o-object-fit: cover;
+     object-fit: cover;
+}
+
+.featured-speaker-info {
+  padding: var(--spacing-md);
+}
+
+.speaker-name {
+  color: var(--nikon-yellow);
+  font-weight: 600;
+  font-size: 1.1rem;
+  margin-bottom: var(--spacing-xs);
+}
+
+.speaker-title {
+  font-family: var(--font-display);
+  color: var(--gray-light);
+  font-size: 0.9rem;
+  opacity: 0.9;
+}
+
+/* Mobile responsive for featured speakers */
+
+@media (max-width: 768px) {
+  .featured-speakers {
+    padding: var(--spacing-md);
+    margin: var(--spacing-md) 0;
+  }
+  
+  .featured-speakers-grid {
+    grid-template-columns: 1fr;
+    gap: var(--spacing-sm);
+  }
+  
+  .featured-speaker-item img {
+    height: 150px;
+  }
+}
+
+/* Gallery Description Section - matches Featured Speakers styling */
+
+.gallery-description {
+  background: var(--black-matte);
+  border: 1px solid var(--gray-charcoal);
+  border-radius: 8px;
+  padding: var(--spacing-lg);
+  margin: var(--spacing-lg) 0;
+}
+
+.gallery-description h1 {
+  color: var(--nikon-yellow);
+  margin-bottom: var(--spacing-xs);
+  font-family: var(--font-display);
+  font-size: var(--text-3xl);
+  font-weight: 600;
+}
+
+.gallery-description .gallery-meta {
+  color: var(--gray-medium);
+  margin-bottom: var(--spacing-md);
+  font-size: var(--text-sm);
+  opacity: 0.8;
+}
+
+.gallery-description .gallery-content {
+  margin-bottom: var(--spacing-lg);
+  line-height: 1.6;
+}
+
+.gallery-description .gallery-content p {
+  margin-bottom: var(--spacing-md);
+  color: var(--gray-light);
+}
+
+/* Mobile responsive for gallery description */
+
+@media (max-width: 768px) {
+  .gallery-description {
+    padding: var(--spacing-md);
+    margin: var(--spacing-md) 0;
+  }
+}
+
+/* Theme-specific gallery description styles */
+
+[data-theme="camera"] .gallery-description {
+  background: var(--black-matte);
+  border-color: var(--border-subtle);
+}
+
+[data-theme="camera"] .gallery-description h1 {
+  color: var(--nikon-yellow);
+  text-shadow: 0 2px 4px rgba(0, 0, 0, 0.8);
+}
+
+[data-theme="light"] .gallery-description {
+  background: var(--surface-panel);
+  border-color: var(--surface-border);
+}
+
+[data-theme="light"] .gallery-description h1 {
+  color: var(--accent-primary);
+}
+
+[data-theme="light"] .gallery-description .gallery-content p {
+  color: var(--text-secondary);
+}
+
+/* Loading and transitions */
+
+.fade-in {
+  animation: fadeIn 0.6s ease-in-out;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Site Navigation */
+
+.site-navigation {
+  display: flex;
+  justify-content: center;
+  gap: var(--spacing-lg);
+  margin: var(--spacing-lg) 0;
+  padding: var(--spacing-md) 0;
+  border-top: 1px solid var(--surface-border);
+}
+
+.nav-link {
+  color: var(--text-secondary);
+  text-decoration: none;
+  font-family: var(--font-display);
+  font-size: 0.9rem;
+  font-weight: 400;
+  padding: var(--spacing-xs) var(--spacing-sm);
+  border-radius: 4px;
+  transition: all 0.3s ease;
+  opacity: 0.8;
+  letter-spacing: 0.02em;
+}
+
+.nav-link:hover {
+  color: var(--accent-primary);
+  opacity: 1;
+  transform: translateY(-1px);
+}
+
+/* Site Tagline */
+
+.site-tagline {
+  text-align: center;
+  margin: var(--spacing-sm) 0 var(--spacing-xl) 0;
+}
+
+.site-tagline a {
+  color: var(--text-tertiary);
+  font-family: var(--font-technical);
+  font-size: var(--text-sm);
+  text-decoration: none;
+  opacity: 0.6;
+  transition: all var(--transition-base) var(--ease-smooth);
+}
+
+.site-tagline a:hover {
+  color: var(--text-secondary);
+  opacity: 1;
+  text-decoration: underline;
+  text-underline-offset: 2px;
+}
+
+/* Prominent Navigation */
+
+.site-navigation-prominent {
+  display: flex;
+  justify-content: center;
+  gap: var(--spacing-lg);
+  margin: var(--spacing-lg) 0 var(--spacing-xl) 0;
+  padding: var(--spacing-md) 0;
+}
+
+.nav-link-prominent {
+  color: var(--text-primary);
+  text-decoration: none;
+  font-family: var(--font-display);
+  font-size: 1.1rem;
+  font-weight: 600;
+  padding: var(--spacing-sm) var(--spacing-lg);
+  border: 2px solid var(--accent-primary);
+  border-radius: 8px;
+  transition: all 0.3s ease;
+  letter-spacing: 0.02em;
+  background: transparent;
+  min-width: 100px;
+  text-align: center;
+}
+
+.nav-link-prominent:hover {
+  background: var(--accent-primary);
+  color: var(--text-inverse);
+  transform: translateY(-2px);
+  box-shadow: var(--shadow-glow);
+}
+
+.nav-link-prominent:active {
+  transform: translateY(0);
+  box-shadow: var(--shadow-medium);
+}
+
+/* Contact Page Styles */
+
+.contact-container {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: var(--spacing-xl);
+  max-width: 800px;
+  margin: 0 auto;
+  padding: var(--spacing-lg) 0;
+}
+
+.contact-photo-section {
+  display: flex;
+  justify-content: center;
+  margin-bottom: var(--spacing-md);
+}
+
+.contact-photo {
+  width: 280px;
+  height: 280px;
+  border-radius: 12px;
+  -o-object-fit: cover;
+     object-fit: cover;
+  border: 2px solid var(--surface-border);
+  box-shadow: var(--shadow-strong);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.contact-photo:hover {
+  transform: translateY(-4px);
+  box-shadow: var(--shadow-strong);
+}
+
+.contact-info-section {
+  text-align: center;
+}
+
+.contact-info-section h1 {
+  font-size: clamp(2rem, 5vw, 3rem);
+  margin-bottom: var(--spacing-xs);
+  color: var(--accent-primary);
+  font-family: var(--font-display);
+}
+
+.contact-info-section p {
+  margin-bottom: var(--spacing-lg);
+  color: var(--text-secondary);
+  font-size: 1.1rem;
+  font-family: var(--font-reading);
+}
+
+.contact-details {
+  background: var(--surface-panel);
+  border: 1px solid var(--surface-border);
+  border-radius: 8px;
+  padding: var(--spacing-lg);
+  margin-bottom: var(--spacing-lg);
+}
+
+.contact-details h2 {
+  color: var(--accent-primary);
+  font-size: 1.2rem;
+  margin-bottom: var(--spacing-sm);
+  font-family: var(--font-display);
+}
+
+.contact-details p {
+  margin-bottom: var(--spacing-sm);
+  color: var(--text-secondary);
+  font-size: 1rem;
+}
+
+.contact-email {
+  display: inline-block;
+  padding: var(--spacing-sm) var(--spacing-md);
+  background: var(--surface-overlay);
+  border: 2px solid var(--accent-primary);
+  border-radius: 6px;
+  color: var(--accent-primary);
+  text-decoration: none;
+  font-family: var(--font-technical);
+  font-size: 1.1rem;
+  font-weight: 500;
+  transition: all 0.3s ease;
+  letter-spacing: 0.02em;
+}
+
+.contact-email:hover {
+  background: var(--accent-primary);
+  color: var(--text-inverse);
+  transform: translateY(-2px);
+  box-shadow: var(--shadow-glow);
+}
+
+.social-links {
+  background: var(--surface-panel);
+  border: 1px solid var(--surface-border);
+  border-radius: 8px;
+  padding: var(--spacing-lg);
+}
+
+.social-links h2 {
+  color: var(--accent-primary);
+  font-size: 1.2rem;
+  margin-bottom: var(--spacing-md);
+  font-family: var(--font-display);
+  text-align: center;
+}
+
+.social-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: var(--spacing-sm);
+}
+
+.social-link {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: var(--spacing-sm) var(--spacing-md);
+  background: var(--surface-overlay);
+  border: 1px solid var(--surface-border);
+  border-radius: 6px;
+  text-decoration: none;
+  transition: all 0.3s ease;
+}
+
+.social-link:hover {
+  border-color: var(--accent-secondary-dim);
+  transform: translateY(-2px);
+  box-shadow: var(--shadow-medium);
+}
+
+.social-platform {
+  color: var(--accent-primary);
+  font-family: var(--font-display);
+  font-size: 0.9rem;
+  font-weight: 500;
+}
+
+.social-handle {
+  color: var(--text-secondary);
+  font-family: var(--font-technical);
+  font-size: 0.85rem;
+  opacity: 0.8;
+}
+
+.social-link:hover .social-handle {
+  opacity: 1;
+  color: var(--accent-secondary-dim);
+}
+
+/* Contact Page Responsive Design */
+
+@media (min-width: 768px) {
+  .contact-container {
+    grid-template-columns: 300px 1fr;
+    gap: var(--spacing-xl);
+    align-items: start;
+  }
+  
+  .contact-info-section {
+    text-align: left;
+  }
+  
+  .contact-photo {
+    width: 300px;
+    height: 300px;
+  }
+  
+  .social-grid {
+    grid-template-columns: 1fr 1fr;
+    gap: var(--spacing-md);
+  }
+}
+
+@media (min-width: 1024px) {
+  .contact-container {
+    grid-template-columns: 320px 1fr;
+    gap: 3rem;
+  }
+  
+  .contact-photo {
+    width: 320px;
+    height: 320px;
+  }
+  
+  .social-grid {
+    grid-template-columns: 1fr;
+    gap: var(--spacing-sm);
+  }
+}
+
+/* Theme Controls */
+
+.theme-controls {
+  display: flex;
+  align-items: center;
+}
+
+.theme-toggle-btn {
+  background: var(--surface-panel);
+  border: 1px solid var(--surface-border);
+  border-radius: 6px;
+  padding: var(--spacing-sm) var(--spacing-md);
+  color: var(--text-secondary);
+  font-family: var(--font-technical);
+  font-size: 0.85rem;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  letter-spacing: 0.02em;
+  text-transform: uppercase;
+}
+
+.theme-toggle-btn:hover {
+  background: var(--accent-secondary);
+  color: var(--text-inverse);
+  border-color: var(--accent-secondary);
+  transform: translateY(-2px);
+  box-shadow: var(--shadow-glow);
+}
+
+.theme-label {
+  display: block;
+}
+
+/* Safari iOS Webkit Optimization */
+
+/* Backdrop filter support for Safari - removed for static header */
+
+/* iOS Safari viewport bug fixes */
+
+@supports (-webkit-touch-callout: none) {
+  /* iOS Safari specific viewport height fix */
+  .main-content {
+    min-height: -webkit-fill-available;
+  }
+  
+  /* Fix iOS zoom on input focus */
+  input, textarea, select {
+    font-size: 16px !important;
+  }
+  
+  /* iOS Safari momentum scrolling */
+  .photo-display-container.portrait-layout .camera-metadata {
+    -webkit-overflow-scrolling: touch;
+  }
+  
+  /* iOS Safari touch callout and selection */
+  img {
+    -webkit-touch-callout: none;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+         user-select: none;
+  }
+  
+  /* iOS Safari bounce scroll prevention */
+  body {
+    -webkit-overflow-scrolling: touch;
+    overscroll-behavior: none;
+  }
+}
+
+/* Safari-specific font rendering */
+
+@media screen and (-webkit-min-device-pixel-ratio: 2) {
+  /* High DPI Safari font smoothing */
+  body {
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+  
+  /* Enhanced shadows for Retina displays */
+  [data-theme="flynn"] .nikon-yellow-glow,
+  .btn:hover {
+    box-shadow: 0 0 40px rgba(255, 215, 0, 0.6);
+  }
+  
+  .gallery-item:hover {
+    /* Enhanced Retina shadows for slide lift effect */
+    box-shadow: 
+      0 3px 6px rgba(0, 0, 0, 0.6),    /* Contact shadow */
+      0 12px 24px rgba(0, 0, 0, 0.5),  /* Depth shadow */
+      0 24px 48px rgba(0, 0, 0, 0.4);  /* Ambient shadow */
+  }
+}
+
+/* Safari CSS Grid fixes */
+
+@supports (display: grid) {
+  /* Safari grid gap fallback */
+  .gallery-grid {
+    gap: var(--spacing-md);
+    grid-gap: var(--spacing-md); /* Safari fallback */
+  }
+  
+  .metadata-grid {
+    gap: var(--spacing-sm);
+    grid-gap: var(--spacing-sm); /* Safari fallback */
+  }
+}
+
+/* Webkit-specific transforms and animations */
+
+@media screen and (-webkit-min-device-pixel-ratio: 1) {
+  /* Webkit transform optimization */
+  .gallery-item,
+  .btn,
+  .nav-link-prominent {
+    transform: translateZ(0);
+    backface-visibility: hidden;
+  }
+  
+  /* Webkit animation performance */
+  .gallery-item:hover,
+  .btn:hover,
+  .nav-link-prominent:hover {
+    transform: translateY(-6px) scale(1.005) translateZ(0);
+  }
+  
+  /* Webkit transition smoothing */
+  .gallery-item,
+  .btn,
+  .nav-link-prominent {
+    transition: all 0.3s ease;
+  }
+}
+
+/* iOS Safari safe area support */
+
+@supports (padding: max(0px)) {
+  .container {
+    padding-left: max(var(--spacing-sm), env(safe-area-inset-left));
+    padding-right: max(var(--spacing-sm), env(safe-area-inset-right));
+  }
+  
+  .site-header {
+    padding-top: max(var(--space-3), env(safe-area-inset-top));
+  }
+  
+  @media (max-width: 767px) {
+    .main-content {
+      padding-bottom: max(var(--spacing-md), env(safe-area-inset-bottom));
+    }
+  }
+}
+
+/* Webkit appearance reset for form elements */
+
+input, button, select, textarea {
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+}
+
+/* Safari-specific button styling */
+
+.btn, .nav-link-prominent, .theme-toggle-btn {
+  -webkit-appearance: none;
+  border-radius: 8px;
+  /* Prevent iOS Safari blue highlight */
+  -webkit-tap-highlight-color: transparent;
+  tap-highlight-color: transparent;
+}
+
+/* Safari focus outline enhancement */
+
+.btn:focus,
+.nav-link-prominent:focus,
+.theme-toggle-btn:focus {
+  outline: 2px solid var(--accent-primary);
+  outline-offset: 2px;
+  -webkit-focus-ring-color: transparent;
+}
+
+/* Accessibility */
+
+@media (prefers-reduced-motion: reduce) {
+  * {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    -webkit-animation-duration: 0.01ms !important;
+    -webkit-transition-duration: 0.01ms !important;
+  }
+}
+
+/* Print Styles - Camera Theme Optimized */
+
+@media print {
+  /* Print layout foundation */
+  * {
+    -webkit-print-color-adjust: exact !important;
+    print-color-adjust: exact !important;
+  }
+  
+  /* Reset for print */
+  body {
+    background: white !important;
+    color: black !important;
+    font-family: var(--font-technical) !important;
+    font-size: 12pt !important;
+    line-height: 1.4 !important;
+    margin: 0 !important;
+    padding: 0 !important;
+  }
+  
+  /* Page margins and size */
+  @page {
+    margin: 0.75in;
+    size: letter;
+  }
+  
+  /* Hide interactive elements */
+  .theme-toggle-btn,
+  .btn,
+  .nav-link-prominent,
+  .site-navigation,
+  .site-navigation-prominent,
+  .skip-link {
+    display: none !important;
+  }
+  
+  /* Print header */
+  .site-header {
+    background: transparent !important;
+    border-bottom: 2px solid black !important;
+    position: static !important;
+    backdrop-filter: none !important;
+    -webkit-backdrop-filter: none !important;
+    margin-bottom: 0.5in !important;
+    padding: 0.25in 0 !important;
+  }
+  
+  .site-title {
+    color: black !important;
+    font-size: 18pt !important;
+    font-weight: bold !important;
+    text-decoration: none !important;
+  }
+  
+  /* Print typography */
+  h1 {
+    color: black !important;
+    font-size: 24pt !important;
+    font-weight: bold !important;
+    text-align: center !important;
+    margin: 0.5in 0 0.25in 0 !important;
+    page-break-after: avoid !important;
+    text-transform: none !important;
+    letter-spacing: normal !important;
+    line-height: 1.2 !important;
+  }
+  
+  h2 {
+    color: black !important;
+    font-size: 18pt !important;
+    font-weight: bold !important;
+    margin: 0.3in 0 0.15in 0 !important;
+    page-break-after: avoid !important;
+    text-transform: none !important;
+    letter-spacing: normal !important;
+  }
+  
+  h3 {
+    color: black !important;
+    font-size: 14pt !important;
+    font-weight: bold !important;
+    margin: 0.2in 0 0.1in 0 !important;
+    page-break-after: avoid !important;
+  }
+  
+  p {
+    color: black !important;
+    font-size: 11pt !important;
+    line-height: 1.4 !important;
+    margin: 0 0 0.1in 0 !important;
+    text-align: justify !important;
+    max-width: none !important;
+    orphans: 3;
+    widows: 3;
+  }
+  
+  /* Print site tagline */
+  .site-tagline {
+    color: #666 !important;
+    font-size: 12pt !important;
+    font-style: italic !important;
+    text-align: center !important;
+    margin: 0.2in 0 0.4in 0 !important;
+  }
+  
+  /* Print gallery grid */
+  .gallery-grid {
+    display: block !important;
+    margin: 0.3in 0 !important;
+  }
+  
+  .gallery-item {
+    display: block !important;
+    background: transparent !important;
+    border: 1px solid #ccc !important;
+    border-radius: 0 !important;
+    margin: 0.2in 0 !important;
+    padding: 0.15in !important;
+    page-break-inside: avoid !important;
+    box-shadow: none !important;
+  }
+  
+  .gallery-item:hover {
+    transform: none !important;
+    box-shadow: none !important;
+  }
+  
+  /* Print gallery layout */
+  .gallery-info {
+    background: transparent !important;
+    padding: 0 !important;
+    margin-bottom: 0.1in !important;
+  }
+  
+  .gallery-thumbnail {
+    display: none !important; /* Hide thumbnails in print */
+  }
+  
+  .gallery-title {
+    color: black !important;
+    font-size: 13pt !important;
+    font-weight: bold !important;
+    margin-bottom: 0.05in !important;
+    font-family: var(--font-technical) !important;
+    text-transform: none !important;
+  }
+  
+  .gallery-meta {
+    color: #666 !important;
+    font-size: 10pt !important;
+    margin-bottom: 0.05in !important;
+    font-family: var(--font-technical) !important;
+  }
+  
+  .gallery-speaker {
+    color: black !important;
+    font-size: 11pt !important;
+    font-weight: normal !important;
+    margin-bottom: 0.05in !important;
+  }
+  
+  .gallery-venue {
+    color: #666 !important;
+    font-size: 10pt !important;
+    font-style: italic !important;
+  }
+  
+  /* Print photo display */
+  .photo-container {
+    background: transparent !important;
+    border: 1px solid #ccc !important;
+    border-radius: 0 !important;
+    margin: 0.2in 0 !important;
+    box-shadow: none !important;
+    page-break-inside: avoid !important;
+  }
+  
+  .photo-main {
+    max-height: none !important;
+    max-width: 100% !important;
+    height: auto !important;
+    page-break-inside: avoid !important;
+  }
+  
+  /* Print camera metadata */
+  .camera-metadata {
+    background: #f9f9f9 !important;
+    border: 1px solid #ccc !important;
+    border-radius: 0 !important;
+    padding: 0.15in !important;
+    margin: 0.2in 0 !important;
+    page-break-inside: avoid !important;
+  }
+  
+  .metadata-title {
+    color: black !important;
+    font-size: 12pt !important;
+    font-weight: bold !important;
+    margin-bottom: 0.1in !important;
+    font-family: var(--font-technical) !important;
+  }
+  
+  .metadata-grid {
+    display: block !important;
+  }
+  
+  .metadata-item {
+    display: flex !important;
+    justify-content: space-between !important;
+    border-bottom: 1px dotted #ccc !important;
+    padding: 0.05in 0 !important;
+  }
+  
+  .metadata-item:last-child {
+    border-bottom: none !important;
+  }
+  
+  .metadata-label {
+    color: black !important;
+    font-size: 10pt !important;
+    font-family: var(--font-technical) !important;
+  }
+  
+  .metadata-value {
+    color: black !important;
+    font-size: 10pt !important;
+    font-weight: bold !important;
+    font-family: var(--font-technical) !important;
+  }
+  
+  /* Print LCD Panel */
+  .camera-lcd-panel {
+    background: white !important;
+    border: 2px solid #333 !important;
+    border-radius: 0 !important;
+    padding: 0.15in !important;
+    margin: 0.2in 0 !important;
+    page-break-inside: avoid !important;
+    box-shadow: none !important;
+  }
+  
+  .camera-lcd-panel::before {
+    display: none !important;
+  }
+  
+  .lcd-header {
+    border-bottom: 1px solid #333 !important;
+    margin-bottom: 0.1in !important;
+  }
+  
+  .lcd-title {
+    color: black !important;
+    font-size: 10pt !important;
+    font-weight: bold !important;
+    text-shadow: none !important;
+    font-family: var(--font-technical) !important;
+  }
+  
+  .lcd-status {
+    color: black !important;
+    text-shadow: none !important;
+  }
+  
+  .lcd-exposure-line,
+  .lcd-equipment-line,
+  .lcd-settings-group,
+  .lcd-context-group {
+    display: block !important;
+    background: none !important;
+    border: none !important;
+    padding: 0 !important;
+    margin-bottom: 0.1in !important;
+  }
+  
+  .lcd-exposure-item,
+  .lcd-setting,
+  .lcd-equipment,
+  .lcd-context {
+    display: flex !important;
+    justify-content: space-between !important;
+    border-bottom: 1px dotted #999 !important;
+    padding: 0.03in 0 !important;
+    margin: 0 !important;
+  }
+  
+  .lcd-icon {
+    display: none !important;
+  }
+  
+  .lcd-label,
+  .lcd-data,
+  .lcd-value {
+    color: black !important;
+    font-size: 9pt !important;
+    font-family: var(--font-technical) !important;
+    text-shadow: none !important;
+  }
+  
+  .lcd-value {
+    font-weight: bold !important;
+  }
+  
+  /* Print breadcrumb */
+  .nav-breadcrumb {
+    color: #666 !important;
+    font-size: 9pt !important;
+    margin-bottom: 0.15in !important;
+    font-family: var(--font-technical) !important;
+  }
+  
+  .nav-breadcrumb a {
+    color: #666 !important;
+    text-decoration: none !important;
+  }
+  
+  /* Print links */
+  a {
+    color: black !important;
+    text-decoration: underline !important;
+  }
+  
+  /* Add URL after external links */
+  a[href^="http"]:after,
+  a[href^="https"]:after {
+    content: " (" attr(href) ")";
+    font-size: 9pt;
+    color: #666;
+    font-style: italic;
+  }
+  
+  /* Contact page print styles */
+  .contact-container {
+    display: block !important;
+  }
+  
+  .contact-photo {
+    max-width: 2in !important;
+    height: auto !important;
+    float: right !important;
+    margin: 0 0 0.2in 0.2in !important;
+    border: 1px solid #ccc !important;
+  }
+  
+  .contact-email {
+    background: transparent !important;
+    border: 1px solid #ccc !important;
+    padding: 0.1in !important;
+    color: black !important;
+    text-decoration: none !important;
+    display: inline-block !important;
+  }
+  
+  /* Print-specific spacing */
+  .container {
+    max-width: none !important;
+    padding: 0 !important;
+  }
+  
+  .main-content {
+    min-height: auto !important;
+    padding: 0 !important;
+  }
+  
+  /* Event context for print */
+  .event-context,
+  .speaker-bio {
+    background: #f9f9f9 !important;
+    border: 1px solid #ccc !important;
+    border-radius: 0 !important;
+    padding: 0.15in !important;
+    margin: 0.2in 0 !important;
+    page-break-inside: avoid !important;
+  }
+  
+  .event-context h3,
+  .speaker-bio h3 {
+    color: black !important;
+    font-size: 12pt !important;
+    margin-bottom: 0.1in !important;
+  }
+  
+  .event-context p,
+  .speaker-bio p {
+    color: black !important;
+    font-size: 10pt !important;
+  }
+  
+  /* Print page breaks */
+  .photo-container,
+  .gallery-item,
+  .camera-metadata,
+  .event-context,
+  .speaker-bio {
+    page-break-inside: avoid;
+  }
+  
+  h1, h2, h3 {
+    page-break-after: avoid;
+  }
+  
+  /* Footer for print */
+  .main-content::after {
+    content: "Printed from antisocial.fiverings.photo";
+    display: block;
+    text-align: center;
+    margin-top: 0.5in;
+    padding-top: 0.2in;
+    border-top: 1px solid #ccc;
+    font-size: 9pt;
+    color: #666;
+    font-style: italic;
+  }
+}
+
+/* Support the Artist Styles */
+
+.header-actions {
+  display: flex;
+  align-items: center;
+  gap: var(--spacing-lg);
+}
+
+.support-artist-link {
+  color: var(--text-secondary);
+  font-family: var(--font-body);
+  font-size: 0.9rem;
+  text-decoration: none;
+  padding: var(--spacing-xs) var(--spacing-sm);
+  border-radius: var(--radius-md);
+  transition: all var(--transition-base) ease;
+  opacity: 0.8;
+}
+
+.support-artist-link:hover {
+  color: var(--accent-primary);
+  opacity: 1;
+  background: var(--surface-panel);
+}
+
+/* Support Section on About Page */
+
+.support-section {
+  background: var(--surface-panel);
+  padding: var(--spacing-xl);
+  margin: var(--spacing-xl) 0;
+  border-radius: var(--radius-lg);
+  border: 1px solid var(--surface-border);
+}
+
+.support-section h2 {
+  color: var(--accent-primary);
+  margin-bottom: var(--spacing-md);
+  font-family: var(--font-display);
+}
+
+.support-section ul {
+  list-style: none;
+  padding: 0;
+  margin: var(--spacing-md) 0;
+}
+
+.support-section li {
+  margin: var(--spacing-sm) 0;
+  padding-left: var(--spacing-md);
+  position: relative;
+}
+
+.support-section li:before {
+  content: "→";
+  position: absolute;
+  left: 0;
+  color: var(--accent-secondary);
+}
+
+/* Theme-specific support styling */
+
+[data-theme="flynn"] .support-artist-link:hover {
+  color: var(--accent-secondary);
+  text-shadow: 0 0 10px var(--accent-secondary);
+}
+
+[data-theme="flynn"] .support-section {
+  background: rgba(255, 215, 0, 0.05);
+  border-color: rgba(255, 215, 0, 0.2);
+}
+
+[data-theme="light"] .support-section {
+  background: var(--surface-panel);
+  box-shadow: var(--shadow-soft);
+}
+
+/* Site Footer - Minimal antisocial design */
+
+.site-footer {
+  background: var(--surface-panel);
+  border-top: 1px solid var(--surface-border);
+  margin-top: var(--space-6);
+  padding: var(--space-4) 0;
+  font-family: var(--font-technical);
+  font-size: var(--mono-sm);
+}
+
+.footer-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 var(--space-3);
+  text-align: center;
+}
+
+.footer-primary,
+.footer-secondary {
+  line-height: 1.8;
+  margin: var(--space-1) 0;
+}
+
+.footer-link {
+  color: var(--text-secondary);
+  text-decoration: none;
+  transition: color 0.3s ease;
+}
+
+.footer-link:hover {
+  color: var(--accent-primary);
+}
+
+.footer-separator {
+  color: var(--text-muted);
+  margin: 0 var(--space-2);
+  opacity: 0.5;
+}
+
+.footer-support {
+  color: var(--text-secondary);
+}
+
+.footer-copyright,
+.footer-location {
+  color: var(--text-muted);
+}
+
+/* Responsive footer */
+
+@media (max-width: 640px) {
+  .footer-separator {
+    display: none;
+  }
+  
+  .footer-primary > *,
+  .footer-secondary > * {
+    display: block;
+    margin: var(--space-1) 0;
+  }
+}
+
+/* Theme-specific footer styles */
+
+[data-theme="camera"] .site-footer {
+  background: var(--black-matte);
+  border-top-color: var(--border-subtle);
+}
+
+[data-theme="camera"] .footer-link:hover {
+  color: var(--nikon-yellow);
+  text-shadow: 0 0 10px var(--nikon-yellow-glow);
+}
+
+[data-theme="light"] .site-footer {
+  background: var(--surface-panel);
+  border-top-color: var(--surface-border);
+}
+
+/* ============================= */
+
+/* MISSING COMPONENT CLASSES     */
+
+/* ============================= */
+
+/* Typography f-stop scale classes */
+
+.text-f1 {
+  font-size: var(--text-f1, 16px);
+  line-height: var(--leading-normal);
+}
+
+.text-f14 {
+  font-size: var(--text-f14, 23px);
+  line-height: var(--leading-tight);
+}
+
+.text-f2 {
+  font-size: var(--text-f2, 32px);
+  line-height: var(--leading-tight);
+}
+
+.text-f28 {
+  font-size: var(--text-f28, 45px);
+  line-height: var(--leading-tight);
+}
+
+.text-f4 {
+  font-size: var(--text-f4, 64px);
+  line-height: var(--leading-tight);
+}
+
+.text-f56 {
+  font-size: var(--text-f56, 90px);
+  line-height: var(--leading-tight);
+}
+
+/* Gallery image component */
+
+.gallery-image {
+  max-width: 100%;
+  height: auto;
+  display: block;
+  border-radius: var(--radius-sm);
+  box-shadow: var(--shadow-medium);
+}
+
+/* Camera-specific metadata classes */
+
+.aperture-value {
+  font-family: var(--font-technical);
+  font-variant-numeric: tabular-nums;
+  color: var(--accent-primary);
+}
+
+.shutter-speed {
+  font-family: var(--font-technical);
+  font-variant-numeric: tabular-nums;
+  color: var(--text-primary);
+}
+
+.iso-value {
+  font-family: var(--font-technical);
+  font-variant-numeric: tabular-nums;
+  color: var(--text-primary);
+}
+
+.focal-length {
+  font-family: var(--font-technical);
+  font-variant-numeric: tabular-nums;
+  color: var(--text-secondary);
+}
+
+/* Metadata section types */
+
+.metadata-exposure {
+  /* Exposure triangle emphasis */
+  border-left: 2px solid var(--accent-primary);
+  padding-left: var(--space-2);
+}
+
+.metadata-equipment {
+  /* Equipment information styling */
+  border-left: 2px solid var(--accent-secondary);
+  padding-left: var(--space-2);
+}
+
+.metadata-section {
+  margin-bottom: var(--space-4);
+}
+
+.metadata-section:last-child {
+  margin-bottom: 0;
+}
+
+/* Error page components */
+
+.error-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  min-height: 50vh;
+  text-align: center;
+  padding: var(--space-8);
+}
+
+.error-camera-icon {
+  font-size: 4rem;
+  margin-bottom: var(--space-4);
+  opacity: 0.6;
+}
+
+.error-title {
+  font-size: var(--text-f4);
+  font-weight: 900;
+  color: var(--accent-primary);
+  margin-bottom: var(--space-2);
+}
+
+.error-code {
+  font-family: var(--font-technical);
+  font-size: var(--text-sm);
+  color: var(--text-tertiary);
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  margin-bottom: var(--space-4);
+}
+
+.error-message {
+  font-size: var(--text-lg);
+  color: var(--text-secondary);
+  max-width: 600px;
+  margin-bottom: var(--space-6);
+  line-height: var(--leading-relaxed);
+}
+
+.error-suggestions {
+  display: flex;
+  gap: var(--space-4);
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+/* Component showcase utilities */
+
+.typography-showcase {
+  margin: var(--space-6) 0;
+  padding: var(--space-4);
+  background: var(--surface-panel);
+  border-radius: var(--radius-md);
+  border: 1px solid var(--surface-border);
+}
+
+.typography-showcase > * {
+  margin: var(--space-2) 0;
+}
+
+.button-showcase {
+  display: flex;
+  gap: var(--space-4);
+  flex-wrap: wrap;
+  margin: var(--space-4) 0;
+  padding: var(--space-4);
+  background: var(--surface-panel);
+  border-radius: var(--radius-md);
+}
+
+.color-swatches {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+  gap: var(--space-2);
+  margin: var(--space-4) 0;
+}
+
+.color-swatch {
+  padding: var(--space-3);
+  border-radius: var(--radius-sm);
+  text-align: center;
+  font-family: var(--font-technical);
+  font-size: var(--text-sm);
+  border: 1px solid var(--surface-border);
+}
+
+/* Hero subtitle */
+
+.hero-subtitle {
+  font-size: var(--text-f14);
+  color: var(--text-secondary);
+  font-weight: 400;
+  margin-top: var(--space-2);
+}
+
+/* Page content wrapper */
+
+.page-content {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: var(--space-6);
+}
+
+/* ============================= */
+
+/* CONTACT SHEET NAVIGATION STRIP */
+
+/* ============================= */
+
+/* ========================================= */
+
+/* SLIDE MOUNT DETAIL FRAMEWORK            */
+
+/* ========================================= */
+
+/* Main slide mount container */
+
+.slide-mount-detail {
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: var(--space-8) auto;
+  max-width: 900px;
+  perspective: 1000px;
+  justify-self: center; /* Center in its grid cell */
+  width: 100%;
+}
+
+/* Slide mount frame - main structure */
+
+.slide-mount-frame {
+  position: relative;
+  /* Enhanced 35mm slide mount aesthetic for detail view */
+  background: linear-gradient(145deg, #2d2d2d, #2a2a2a);
+  border: 2px solid #1a1a1a;
+  border-top: 2px solid #3a3a3a; /* Dimension highlight */
+  border-radius: 4px; /* Sharp corners like actual slides */
+  padding: 24px; /* Generous frame border */
+  /* Multi-layer shadows for physical depth */
+  box-shadow: 
+    0 2px 4px rgba(0, 0, 0, 0.5),    /* Contact shadow */
+    0 8px 16px rgba(0, 0, 0, 0.4),   /* Depth shadow */
+    0 16px 32px rgba(0, 0, 0, 0.3),  /* Ambient shadow */
+    inset 0 1px 0 rgba(255, 255, 255, 0.1); /* Inner highlight */
+  transform-style: preserve-3d;
+  transition: 
+    transform var(--transition-slower) var(--ease-smooth), 
+    box-shadow var(--transition-slower) var(--ease-smooth);
+}
+
+/* Premium hover effect - enhanced lift with glow */
+
+.slide-mount-detail:hover .slide-mount-frame {
+  transform: translateY(-3px) rotateX(2deg) scale(1.005);
+  box-shadow: 
+    0 6px 12px rgba(0, 0, 0, 0.7),   /* Contact shadow */
+    0 16px 32px rgba(0, 0, 0, 0.6),  /* Depth shadow */
+    0 32px 64px rgba(0, 0, 0, 0.5),  /* Ambient shadow */
+    inset 0 1px 2px rgba(255, 255, 255, 0.15),
+    0 0 0 1px rgba(255, 215, 0, 0.3); /* Nikon yellow glow */
+}
+
+/* Photo window - contains the actual image */
+
+.slide-photo-window {
+  position: relative;
+  background: #000;
+  border-radius: 2px;
+  overflow: hidden;
+  /* Recessed photo window effect */
+  box-shadow: 
+    inset 0 2px 4px rgba(0, 0, 0, 0.6),
+    inset 0 1px 2px rgba(0, 0, 0, 0.8);
+}
+
+/* Landscape orientation (default) */
+
+.slide-mount-detail.landscape .slide-photo-window {
+  width: 100%;
+  aspect-ratio: 3/2; /* Standard 35mm aspect ratio */
+  max-width: 600px;
+}
+
+/* Portrait orientation */
+
+.slide-mount-detail.portrait .slide-photo-window {
+  width: 100%;
+  aspect-ratio: 2/3; /* Portrait 35mm aspect ratio */
+  max-width: 400px;
+}
+
+/* Universal portrait photo viewport constraints - no scrolling needed */
+
+.slide-mount-detail.portrait {
+  max-height: calc(100vh - var(--total-ui-height));
+}
+
+.slide-mount-detail.portrait .slide-mount-frame {
+  max-height: calc(100vh - var(--total-ui-height) - var(--space-4));
+}
+
+.slide-mount-detail.portrait .photo-main {
+  max-height: calc(100vh - var(--total-ui-height) - var(--space-8));
+  -o-object-fit: contain;
+     object-fit: contain;
+}
+
+/* Additional constraint for very tall portraits on smaller screens */
+
+@media (max-height: 700px) {
+  .slide-mount-detail.portrait .photo-main {
+    max-height: calc(100vh - var(--total-ui-height) - var(--space-6));
+  }
+}
+
+/* Slide labels - top bar */
+
+.slide-label-top {
+  position: absolute;
+  top: 6px;
+  left: 6px;
+  right: 6px;
+  height: 12px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-family: var(--font-technical);
+  font-size: 8px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  color: var(--accent-primary);
+  text-shadow: 0 1px 1px rgba(0, 0, 0, 0.8);
+}
+
+/* Slide labels - bottom bar */
+
+.slide-label-bottom {
+  position: absolute;
+  bottom: 6px;
+  left: 6px;
+  right: 6px;
+  height: 12px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-family: var(--font-technical);
+  font-size: 8px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  color: var(--accent-primary);
+  text-shadow: 0 1px 1px rgba(0, 0, 0, 0.8);
+}
+
+/* Individual label elements */
+
+.slide-number,
+.slide-brand,
+.slide-title,
+.slide-date {
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.slide-number {
+  min-width: 20px;
+}
+
+.slide-brand {
+  opacity: 0.7;
+}
+
+.slide-title {
+  flex: 1;
+  text-align: center;
+  margin: 0 12px;
+}
+
+.slide-date {
+  min-width: 40px;
+  text-align: right;
+}
+
+/* Mount depth edges */
+
+.slide-mount-edge-left,
+.slide-mount-edge-right,
+.slide-mount-edge-top,
+.slide-mount-edge-bottom {
+  position: absolute;
+  background: linear-gradient(135deg, var(--surface-border), var(--surface-panel));  /* Flynn theme edges */
+  z-index: -1;
+}
+
+.slide-mount-edge-left,
+.slide-mount-edge-right {
+  width: 3px;
+  height: 100%;
+  top: 0;
+}
+
+.slide-mount-edge-left {
+  left: -3px;
+  border-radius: 2px 0 0 2px;
+}
+
+.slide-mount-edge-right {
+  right: -3px;
+  border-radius: 0 2px 2px 0;
+}
+
+.slide-mount-edge-top,
+.slide-mount-edge-bottom {
+  height: 3px;
+  width: 100%;
+  left: 0;
+}
+
+.slide-mount-edge-top {
+  top: -3px;
+  border-radius: 2px 2px 0 0;
+}
+
+.slide-mount-edge-bottom {
+  bottom: -3px;
+  border-radius: 0 0 2px 2px;
+}
+
+/* Mount shadow/base */
+
+.slide-mount-shadow {
+  position: absolute;
+  top: 8px;
+  left: 8px;
+  right: -8px;
+  bottom: -8px;
+  background: rgba(0, 0, 0, 0.3);
+  border-radius: 6px;
+  filter: blur(12px);
+  z-index: -2;
+  opacity: 0.6;
+  transition: opacity 0.4s ease, filter 0.4s ease;
+}
+
+.slide-mount-detail:hover .slide-mount-shadow {
+  opacity: 0.8;
+  filter: blur(16px);
+}
+
+/* Photo styling within slide mount */
+
+.slide-mount-detail .photo-main {
+  width: 100%;
+  height: 100%;
+  -o-object-fit: contain;
+     object-fit: contain;
+  -o-object-position: center;
+     object-position: center;
+  display: block;
+  border-radius: 1px;
+}
+
+/* Vertical stacking - full width for slide mount */
+
+@media (max-width: 1279px) {
+  .slide-mount-detail {
+    max-width: 100%;
+    margin: var(--space-6) auto;
+  }
+  
+  /* Ensure the frame doesn't get too large */
+  .slide-mount-frame {
+    max-width: 900px;
+    margin: 0 auto;
+  }
+}
+
+/* Mobile responsive adjustments */
+
+@media (max-width: 768px) {
+  .slide-mount-detail {
+    margin: 0;  /* Remove excessive margins */
+    max-width: 100%;
+    padding: 0 var(--space-2);  /* 8px horizontal - reduced from 16px */
+  }
+  
+  .slide-mount-frame {
+    padding: 16px;
+  }
+  
+  .slide-mount-detail.landscape .slide-photo-window {
+    max-width: 100%;
+  }
+  
+  .slide-mount-detail.portrait .slide-photo-window {
+    max-width: 280px;
+  }
+  
+  .slide-label-top,
+  .slide-label-bottom {
+    font-size: 7px;
+  }
+}
+
+@media (max-width: 480px) {
+  .slide-mount-frame {
+    padding: 12px;
+  }
+  
+  .slide-label-top,
+  .slide-label-bottom {
+    height: 10px;
+    font-size: 6px;
+  }
+  
+  .slide-mount-detail.portrait .slide-photo-window {
+    max-width: 240px;
+  }
+}
+
+/* Hero variant - larger size for profile/about pages */
+
+.slide-mount-hero.portrait .slide-photo-window {
+  max-width: 600px; /* Allow portrait to be prominent */
+  aspect-ratio: auto; /* Let photo use its natural aspect ratio */
+}
+
+.slide-mount-hero .slide-mount-frame {
+  max-width: 650px; /* Frame scales with photo */
+}
+
+/* Mobile responsive for hero variant */
+
+@media (max-width: 767px) {
+  .slide-mount-hero.portrait .slide-photo-window {
+    max-width: min(90vw, 400px); /* Use most of screen, cap at 400px */
+  }
+  
+  .slide-mount-hero .slide-mount-frame {
+    max-width: min(95vw, 450px);
+  }
+}
+
+/* High-DPI display enhancements */
+
+@media (min-resolution: 192dpi) {
+  .slide-mount-detail:hover .slide-mount-frame {
+    box-shadow: 
+      0 6px 12px rgba(0, 0, 0, 0.7),   /* Contact shadow */
+      0 18px 36px rgba(0, 0, 0, 0.6),  /* Depth shadow */
+      0 36px 72px rgba(0, 0, 0, 0.5),  /* Ambient shadow */
+      inset 0 1px 0 rgba(255, 255, 255, 0.1);
+  }
+}
+
+/* Print styles */
+
+@media print {
+  .slide-mount-detail {
+    -moz-column-break-inside: avoid;
+         break-inside: avoid;
+    margin: 0.2in 0;
+    transform: none !important;
+  }
+  
+  .slide-mount-frame {
+    box-shadow: none !important;
+    border: 2px solid #333 !important;
+    transform: none !important;
+  }
+  
+  .slide-mount-shadow {
+    display: none;
+  }
+  
+}
+
+/* ========================================= */
+
+/* UNIFIED FLYNN THEME ANIMATION SYSTEM     */
+
+/* Coordinated transitions across components */
+
+/* ========================================= */
+
+/* Unified transition timing across components */
+
+.slide-mount-detail,
+.camera-lcd-panel {
+  transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+/* Coordinated hover effects - no conflicts */
+
+.slide-mount-detail:hover {
+  transform: translateY(-2px);
+}
+
+.camera-lcd-panel:hover {
+  transform: translateY(-1px);  /* Subtle, secondary */
+}
+
+/* Flynn theme glow coordination */
+
+.slide-mount-detail:hover .slide-mount-frame {
+  box-shadow: 
+    0 4px 8px rgba(0, 0, 0, 0.6),
+    0 12px 24px rgba(0, 0, 0, 0.5),
+    0 0 0 1px rgba(255, 215, 0, 0.2);  /* Nikon yellow glow */
+}
+
+.camera-lcd-panel:hover {
+  box-shadow: 
+    0 2px 4px rgba(0, 0, 0, 0.4),
+    0 0 0 1px rgba(255, 215, 0, 0.15);  /* Subtle Nikon yellow response */
+}
+
+.film-frame:hover:not(.current) {
+  box-shadow: 
+    0 2px 4px rgba(0, 0, 0, 0.3),
+    0 0 0 1px rgba(255, 215, 0, 0.1);  /* Minimal Nikon yellow response */
+}
+
+/* Visual hierarchy enforcement */
+
+.photo-display-container {
+  /* Ensure components stack in proper visual order */
+  isolation: isolate;
+}
+
+.slide-mount-detail {
+  /* Primary component - highest visual weight */
+  z-index: 10;
+}
+
+.camera-lcd-panel {
+  /* Secondary component - moderate visual weight */
+  z-index: 5;
+}
+
+/* ========================================= */
+
+/* PREMIUM POLISH - KEYFRAMES & ANIMATIONS  */
+
+/* ========================================= */
+
+/* Subtle LCD pulse animation */
+
+@keyframes lcd-pulse {
+  0%, 100% { opacity: 0; }
+  50% { opacity: 0.3; }
+}
+
+/* Gentle fade-in for page load */
+
+@keyframes fade-in-up {
+  0% {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Staggered component animations */
+
+.photo-display-container {
+  animation: fade-in-up 0.6s var(--ease-gentle) forwards;
+}
+
+.slide-mount-detail {
+  animation: fade-in-up 0.8s var(--ease-gentle) 0.1s forwards;
+  opacity: 0;
+  animation-fill-mode: forwards;
+}
+
+.camera-lcd-panel {
+  animation: fade-in-up 0.8s var(--ease-gentle) 0.2s forwards;
+  opacity: 0;
+  animation-fill-mode: forwards;
+}
+
+/* ========================================= */
+
+/* ENHANCED MICRO-INTERACTIONS              */
+
+/* ========================================= */
+
+/* Gallery items with light leak effect */
+
+.gallery-item {
+  position: relative;
+  overflow: hidden;
+}
+
+/* Enhanced slide mount with depth and glow */
+
+.slide-mount-detail {
+  transition: 
+    transform var(--transition-slow) var(--ease-smooth),
+    filter var(--transition-slow) var(--ease-smooth);
+}
+
+.slide-mount-detail::before {
+  content: '';
+  position: absolute;
+  top: -10px;
+  left: -10px;
+  right: -10px;
+  bottom: -10px;
+  background: 
+    radial-gradient(circle at center, 
+      rgba(255, 215, 0, 0.1) 0%, 
+      transparent 70%);
+  opacity: 0;
+  border-radius: inherit;
+  transition: opacity var(--transition-slower) var(--ease-smooth);
+  pointer-events: none;
+  z-index: -1;
+}
+
+.slide-mount-detail:hover::before {
+  opacity: 1;
+}
+
+.slide-mount-detail:hover {
+  transform: translateY(-2px);
+  filter: brightness(1.02);
+}
+
+/* LCD panel with enhanced pulse */
+
+.camera-lcd-panel {
+  position: relative;
+  transition: 
+    transform var(--transition-slow) var(--ease-smooth),
+    box-shadow var(--transition-slow) var(--ease-smooth);
+}
+
+.camera-lcd-panel::before {
+  content: '';
+  position: absolute;
+  top: -1px;
+  left: -1px;
+  right: -1px;
+  bottom: -1px;
+  border: 1px solid var(--nikon-yellow);
+  border-radius: inherit;
+  opacity: 0;
+  animation: lcd-pulse 4s ease-in-out infinite;
+  pointer-events: none;
+}
+
+.camera-lcd-panel:hover {
+  transform: translateY(-1px);
+  box-shadow: 
+    inset 0 2px 4px rgba(0, 0, 0, 0.3),
+    0 2px 8px rgba(0, 0, 0, 0.3),
+    0 0 0 1px rgba(255, 215, 0, 0.2);
+}
+
+/* Button enhancements */
+
+.btn {
+  position: relative;
+  overflow: hidden;
+  transition: 
+    all var(--transition-slow) var(--ease-smooth);
+}
+
+.btn::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(90deg, 
+    transparent, 
+    rgba(255, 255, 255, 0.1), 
+    transparent);
+  transition: left var(--transition-slow) var(--ease-smooth);
+}
+
+.btn:hover::before {
+  left: 100%;
+}
+
+.btn:active {
+  transform: translateY(1px);
+  transition-duration: var(--transition-fast);
+}
+
+/* ========================================= */
+
+/* REMOVED UNUSED PHOTO CONTROL STRIP      */
+
+/* Navigation handled by universal-footer   */
+
+/* ========================================= */
+
+/* ========================================= */
+
+/* REDUCED MOTION PREFERENCES               */
+
+/* ========================================= */
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+  
+  .camera-lcd-panel::before {
+    animation: none;
+  }
+  
+}
+
+/* ========================================= */
+
+/* UNIVERSAL FOOTER SYSTEM                  */
+
+/* ========================================= */
+
+/* Universal Footer System */
+
+.universal-footer {
+  position: relative;
+  background: rgba(0, 0, 0, 0.95);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border-top: 1px solid var(--surface-border);
+  z-index: 10;
+  min-height: 48px;
+  display: flex;
+  align-items: center;
+  padding: 0 var(--space-4);
+  margin-top: auto; /* Push to bottom of viewport */
+}
+
+.footer-content {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--space-4);
+}
+
+/* Photo page navigation layout */
+
+.footer-nav {
+  display: flex;
+  align-items: center;
+  gap: var(--space-4);
+  flex: 1;
+}
+
+.footer-divider {
+  width: 1px;
+  height: 24px;
+  background: var(--surface-border);
+  opacity: 0.5;
+}
+
+.footer-actions {
+  display: flex;
+  gap: var(--space-3);
+}
+
+/* Info page layout (home/about) */
+
+.footer-info {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: var(--space-3);
+  font-size: var(--text-sm);
+  color: var(--text-secondary);
+}
+
+.footer-minimal {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: var(--space-3);
+  font-size: var(--text-sm);
+  color: var(--text-secondary);
+}
+
+.footer-link {
+  color: var(--text-secondary);
+  text-decoration: none;
+  transition: color 0.2s var(--ease-smooth);
+}
+
+.footer-link:hover {
+  color: var(--accent-primary);
+}
+
+.footer-separator {
+  color: var(--text-tertiary);
+  opacity: 0.5;
+}
+
+/* Mobile responsive */
+
+@media (max-width: 768px) {
+  .universal-footer {
+    padding: var(--space-3);
+    min-height: auto;
+  }
+  
+  /* Stack photo controls on mobile */
+  .footer-content {
+    flex-direction: column;
+    gap: var(--space-3);
+  }
+  
+  .footer-nav {
+    width: 100%;
+    justify-content: space-between;
+  }
+  
+  .footer-actions {
+    width: 100%;
+    justify-content: center;
+  }
+  
+  .footer-divider {
+    display: none;
+  }
+  
+  /* Smaller text on mobile */
+  .footer-info,
+  .footer-minimal {
+    flex-wrap: wrap;
+    font-size: var(--text-xs);
+    text-align: center;
+  }
+}
+
+/* Ensure main content pushes footer down */
+
+.container {
+  min-height: calc(100vh - 49px); /* Account for header */
+  display: flex;
+  flex-direction: column;
+}
+
+.main-content {
+  flex: 1;
+}
+
+/* Action Button Flynn Theme Styling */
+
+.action-btn {
+  padding: var(--space-1) var(--space-3);
+  color: var(--text-secondary);
+  text-decoration: none;
+  background: transparent;
+  border: 1px solid transparent;
+  border-radius: 4px;
+  transition: all 0.2s ease;
+  font-family: var(--font-technical);
+  font-size: var(--text-sm);
+  cursor: pointer;
+  white-space: nowrap;
+  display: inline-block;
+}
+
+.action-btn:hover {
+  color: var(--text-primary);
+  border-color: var(--nikon-yellow-dim);
+  background: rgba(255, 215, 0, 0.05);
+  text-decoration: none;
+}
+
+.action-btn:focus {
+  outline: 2px solid var(--nikon-yellow);
+  outline-offset: 2px;
+}
+
+.action-btn:active {
+  background: rgba(255, 215, 0, 0.1);
+  border-color: var(--nikon-yellow);
+}
+
+/* Mobile responsive for action buttons */
+
+@media (max-width: 768px) {
+  .action-btn {
+    padding: calc(var(--space-1) * 0.75) var(--space-2);
+    font-size: var(--text-xs);
+  }
+}
+
+/* Camera Theme Typography System - Mathematical Precision */
+
+/* Based on Design Agent's Typography Excellence Systems */
+
+:root {
+  /* Camera-inspired base system */
+  --camera-base: 16px;
+  --camera-ratio: 1.414; /* F-stop progression (√2) */
+  --camera-baseline: 8px;
+  
+  /* Typography scale using f-stop progression */
+  --text-f1: var(--camera-base);                              /* 16px - f/1.0 */
+  --text-f14: calc(var(--text-f1) * var(--camera-ratio));     /* 23px - f/1.4 */
+  --text-f2: calc(var(--text-f14) * var(--camera-ratio));     /* 32px - f/2.0 */
+  --text-f28: calc(var(--text-f2) * var(--camera-ratio));     /* 45px - f/2.8 */
+  --text-f4: calc(var(--text-f28) * var(--camera-ratio));     /* 64px - f/4.0 */
+  --text-f56: calc(var(--text-f4) * var(--camera-ratio));     /* 90px - f/5.6 */
+  
+  /* Technical/mono sizes for specifications */
+  --mono-xs: 12px;
+  --mono-sm: 13px;
+  --mono-md: 14px;
+  --mono-lg: 15px;
+  --mono-xl: 16px;
+  
+  /* Baseline grid spacing (8px multiples) */
+  --space-1: var(--camera-baseline);                    /* 8px */
+  --space-2: calc(var(--camera-baseline) * 2);          /* 16px */
+  --space-3: calc(var(--camera-baseline) * 3);          /* 24px */
+  --space-4: calc(var(--camera-baseline) * 4);          /* 32px */
+  --space-5: calc(var(--camera-baseline) * 5);          /* 40px */
+  --space-6: calc(var(--camera-baseline) * 6);          /* 48px */
+  --space-8: calc(var(--camera-baseline) * 8);          /* 64px */
+  
+  /* Line heights aligned to baseline grid */
+  --leading-tight: calc(var(--camera-baseline) * 2.5);  /* 20px */
+  --leading-normal: calc(var(--camera-baseline) * 3);   /* 24px */
+  --leading-relaxed: calc(var(--camera-baseline) * 4);  /* 32px */
+  --leading-loose: calc(var(--camera-baseline) * 5);    /* 40px */
+  
+  /* Golden ratio measurements for special cases */
+  --phi: 1.618;
+  --inverse-phi: 0.618;
+  
+  /* Focus distance inspired hierarchy */
+  --focus-macro: 2;      /* Very close, large text */
+  --focus-portrait: 1.5; /* Medium distance */
+  --focus-normal: 1;     /* Standard viewing */
+  --focus-landscape: 0.75; /* Distant, smaller text */
+  --focus-infinity: 0.618; /* Far distance (golden ratio inverse) */
+}
+
+/* Camera model/brand names */
+
+.camera-model {
+  font-size: var(--text-f2);
+  line-height: var(--leading-tight);
+  letter-spacing: -0.02em;
+  font-weight: 700;
+  text-transform: uppercase;
+  font-variant-numeric: lining-nums;
+}
+
+/* Camera technical specifications */
+
+.camera-specs {
+  font-family: 'Berkeley Mono', 'Terminus', 'Monaco', ui-monospace, 'JetBrains Mono', 'Fira Code', monospace;
+  font-size: var(--mono-md);
+  line-height: var(--leading-normal);
+  font-variant-numeric: tabular-nums lining-nums;
+  letter-spacing: -0.01em;
+  font-feature-settings: "kern" 1, "liga" 1, "calt" 1, "ss01" 1;
+}
+
+/* Camera descriptions */
+
+.camera-description {
+  font-size: var(--text-f1);
+  line-height: var(--leading-normal);
+  max-width: 66ch;
+  letter-spacing: 0.01em;
+}
+
+/* Technical badges (sensor size, mount type, etc.) */
+
+.tech-badge {
+  font-family: 'Berkeley Mono', 'Terminus', 'Monaco', ui-monospace, 'JetBrains Mono', monospace;
+  font-size: var(--mono-sm);
+  line-height: var(--leading-tight);
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  font-weight: 500;
+  font-variant-numeric: lining-nums;
+}
+
+/* Hero typography with fluid scaling */
+
+.hero-title {
+  font-size: clamp(var(--text-f2), 5vw, var(--text-f4));
+  line-height: 1.1;
+  letter-spacing: -0.03em;
+  font-weight: 900;
+  text-transform: uppercase;
+}
+
+.hero-subtitle {
+  font-size: clamp(var(--text-f1), 2.5vw, var(--text-f14));
+  line-height: var(--leading-normal);
+  opacity: 0.9;
+  letter-spacing: 0.02em;
+}
+
+/* Section headings with f-stop hierarchy */
+
+.section-title {
+  font-size: var(--text-f28);
+  line-height: var(--leading-tight);
+  letter-spacing: -0.02em;
+  margin-bottom: var(--space-3);
+  font-weight: 600;
+}
+
+.subsection-title {
+  font-size: var(--text-f2);
+  line-height: var(--leading-tight);
+  letter-spacing: -0.015em;
+  margin-bottom: var(--space-2);
+  font-weight: 500;
+}
+
+/* Navigation with technical precision */
+
+.nav-link {
+  font-family: 'Berkeley Mono', 'Terminus', 'Monaco', ui-monospace, 'JetBrains Mono', monospace;
+  font-size: var(--mono-md);
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  font-weight: 500;
+  line-height: var(--leading-tight);
+}
+
+/* Special camera value displays */
+
+.aperture-value {
+  font-size: var(--text-f14);
+  font-weight: 300;
+  font-variant-numeric: diagonal-fractions;
+  font-family: 'Berkeley Mono', 'Terminus', 'Monaco', ui-monospace, 'JetBrains Mono', monospace;
+}
+
+.aperture-value::before {
+  content: "f/";
+  font-size: 0.8em;
+  opacity: 0.7;
+}
+
+.shutter-speed {
+  font-family: 'Berkeley Mono', 'Terminus', 'Monaco', ui-monospace, 'JetBrains Mono', monospace;
+  font-variant-numeric: diagonal-fractions;
+  font-size: var(--mono-lg);
+  font-weight: 400;
+}
+
+.iso-value {
+  font-variant-numeric: lining-nums;
+  font-weight: 500;
+  font-family: 'Berkeley Mono', 'Terminus', 'Monaco', ui-monospace, 'JetBrains Mono', monospace;
+  font-size: var(--mono-lg);
+}
+
+.focal-length {
+  font-variant-numeric: lining-nums;
+  font-family: 'Berkeley Mono', 'Terminus', 'Monaco', ui-monospace, 'JetBrains Mono', monospace;
+  font-size: var(--mono-md);
+}
+
+.focal-length::after {
+  content: "mm";
+  font-size: 0.8em;
+  margin-left: 0.1em;
+  opacity: 0.7;
+}
+
+/* Metadata panel typography */
+
+.metadata-section {
+  margin-bottom: var(--space-3);
+}
+
+.metadata-title {
+  font-size: var(--text-f14);
+  line-height: var(--leading-tight);
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  margin-bottom: var(--space-2);
+  padding-bottom: var(--space-1);
+  border-bottom: 1px solid var(--border-subtle);
+}
+
+.metadata-grid {
+  display: grid;
+  gap: var(--space-2);
+}
+
+.metadata-label {
+  font-family: 'Berkeley Mono', 'Terminus', 'Monaco', ui-monospace, 'JetBrains Mono', monospace;
+  font-size: var(--mono-sm);
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  font-weight: 400;
+  opacity: 0.7;
+  line-height: var(--leading-tight);
+}
+
+.metadata-value {
+  font-family: 'Berkeley Mono', 'Terminus', 'Monaco', ui-monospace, 'JetBrains Mono', monospace;
+  font-size: var(--mono-lg);
+  font-weight: 500;
+  line-height: var(--leading-tight);
+  font-variant-numeric: tabular-nums lining-nums;
+}
+
+/* Photo counter with technical styling */
+
+.photo-counter {
+  font-family: 'Berkeley Mono', 'Terminus', 'Monaco', ui-monospace, 'JetBrains Mono', monospace;
+  font-size: var(--mono-md);
+  font-variant-numeric: lining-nums;
+  letter-spacing: 0.02em;
+  text-transform: uppercase;
+}
+
+/* Button typography */
+
+.btn {
+  font-family: 'Berkeley Mono', 'Terminus', 'Monaco', ui-monospace, 'JetBrains Mono', monospace;
+  font-size: var(--mono-md);
+  font-weight: 500;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  line-height: 1;
+}
+
+.btn-large {
+  font-size: var(--mono-lg);
+  padding: var(--space-2) var(--space-4);
+}
+
+/* Responsive typography scaling */
+
+@media (min-width: 640px) {
+  :root {
+    --camera-base: 18px;
+  }
+}
+
+@media (min-width: 1024px) {
+  :root {
+    --camera-base: 20px;
+  }
+  
+  .camera-specs {
+    font-size: var(--mono-lg);
+  }
+  
+  .metadata-value {
+    font-size: var(--mono-xl);
+  }
+}
+
+@media (min-width: 1440px) {
+  :root {
+    --camera-base: 22px;
+  }
+}
+
+/* Dark mode (Camera theme) adjustments */
+
+[data-theme="camera"] {
+  /* Adjust font weights for dark backgrounds */
+  .camera-description {
+    font-weight: 300;
+    letter-spacing: 0.015em;
+  }
+  
+  .camera-specs {
+    font-weight: 400;
+  }
+  
+  .metadata-label {
+    font-weight: 300;
+    opacity: 0.6;
+  }
+  
+  .metadata-value {
+    font-weight: 400;
+  }
+}
+
+/* Light theme typography refinements */
+
+[data-theme="light"],
+:root:not([data-theme]) {
+  /* Lighter weights for better readability on light backgrounds */
+  .camera-model {
+    font-weight: 600; /* down from 700 */
+    letter-spacing: -0.01em; /* tighter */
+  }
+  
+  .section-title {
+    font-weight: 500; /* down from 600 */
+    letter-spacing: -0.01em; /* tighter */
+  }
+  
+  .subsection-title {
+    font-weight: 400; /* down from 500 */
+    letter-spacing: -0.005em; /* tighter */
+  }
+  
+  .hero-title {
+    font-weight: 700; /* down from 900 */
+    letter-spacing: -0.02em; /* tighter */
+  }
+  
+  .metadata-title {
+    font-weight: 500; /* down from 600 */
+    letter-spacing: 0.06em; /* tighter from 0.08em */
+  }
+  
+  .metadata-value {
+    font-weight: 400; /* down from 500 */
+  }
+  
+  .nav-link {
+    font-weight: 400; /* down from 500 */
+    letter-spacing: 0.08em; /* tighter from 0.1em */
+  }
+  
+  .btn {
+    font-weight: 400; /* down from 500 */
+    letter-spacing: 0.06em; /* tighter from 0.08em */
+  }
+  
+  .tech-badge {
+    font-weight: 400; /* down from 500 */
+    letter-spacing: 0.04em; /* tighter from 0.05em */
+  }
+  
+  /* Overall tighter tracking for light theme */
+  h1, h2, h3, h4, h5, h6 {
+    letter-spacing: -0.01em;
+  }
+  
+  p {
+    letter-spacing: 0;
+  }
+}
+
+/* Utility classes for mathematical proportions */
+
+.text-golden {
+  font-size: calc(var(--text-f1) * var(--phi));
+  line-height: calc(var(--text-f1) * var(--phi) * 1.3);
+}
+
+.text-golden-inverse {
+  font-size: calc(var(--text-f1) * var(--inverse-phi));
+  line-height: var(--leading-tight);
+}
+
+/* Performance optimizations */
+
+.camera-model,
+.camera-specs,
+.metadata-value,
+.photo-counter {
+  /* Enable GPU acceleration for smooth scaling */
+  will-change: transform;
+  transform: translateZ(0);
+}
+
+/* Ensure consistent rendering */
+
+* {
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  text-rendering: optimizeLegibility;
+}
+
+/* Monospace elements should maintain exact character widths */
+
+.camera-specs,
+.metadata-value,
+.aperture-value,
+.shutter-speed,
+.iso-value {
+  font-kerning: none;
+  letter-spacing: 0;
+}
+
+/* Camera Theme - Professional Photography Dark Theme */
+
+/* Inspired by Nikon professional camera interfaces */
+
+/* Camera-specific color definitions - only define unique camera colors */
+
+:root {
+  /* Pure blacks and grays - camera body inspired */
+  --black-pure: #000000;
+  --black-matte: #0a0a0a;
+  --black-deep: #111111;
+  --gray-darkest: #1a1a1a;
+  --gray-darker: #252525;
+  --gray-dark: #333333;
+  --gray-medium: #666666;
+  --gray-light: #999999;
+  --gray-lighter: #cccccc;
+  --gray-lightest: #e5e5e5;
+  --white-pure: #ffffff;
+  
+  /* Nikon signature yellow accent */
+  --nikon-yellow: #FFD700;
+  --nikon-yellow-bright: #FFED4E;
+  --nikon-yellow-dim: #E6C200;
+  --nikon-yellow-dark: #B39700;
+  --nikon-yellow-glow: rgba(255, 215, 0, 0.3);
+  
+  /* Technical UI accents */
+  --tech-green: #00FF00;
+  --tech-red: #FF0030;
+  --tech-blue: #0080FF;
+  --tech-orange: #FF8C00;
+}
+
+/* Camera theme activation - only override when camera theme is active */
+
+[data-theme="camera"] {
+  /* Surface hierarchy */
+  --surface-base: var(--black-pure);
+  --surface-panel: var(--black-matte);
+  --surface-raised: var(--black-deep);
+  --surface-overlay: var(--gray-darkest);
+  --surface-border: var(--gray-darker);
+  --border-subtle: rgba(255, 215, 0, 0.1);
+  --border-accent: rgba(255, 215, 0, 0.3);
+  
+  /* Text hierarchy for dark theme */
+  --text-primary: var(--white-pure);
+  --text-secondary: var(--gray-lighter);
+  --text-tertiary: var(--gray-light);
+  --text-muted: var(--gray-medium);
+  --text-inverse: var(--black-pure);
+  
+  /* Component shadows for depth */
+  --shadow-subtle: 0 2px 4px rgba(0, 0, 0, 0.5);
+  --shadow-medium: 0 4px 8px rgba(0, 0, 0, 0.6);
+  --shadow-strong: 0 8px 16px rgba(0, 0, 0, 0.8);
+  --shadow-glow: 0 0 20px var(--nikon-yellow-glow);
+  
+  /* Camera theme activation */
+  background-color: var(--surface-base);
+  color: var(--text-secondary);
+}
+
+/* Override base styles for camera theme */
+
+[data-theme="camera"] body {
+  background-color: var(--black-pure);
+  color: var(--text-secondary);
+}
+
+/* Typography adjustments for dark theme */
+
+[data-theme="camera"] h1,
+[data-theme="camera"] h2,
+[data-theme="camera"] h3,
+[data-theme="camera"] h4,
+[data-theme="camera"] h5,
+[data-theme="camera"] h6 {
+  color: var(--nikon-yellow);
+  text-shadow: 0 2px 4px rgba(0, 0, 0, 0.8);
+}
+
+[data-theme="camera"] p {
+  color: var(--text-secondary);
+}
+
+/* Links in camera theme */
+
+[data-theme="camera"] a {
+  color: var(--nikon-yellow);
+  text-decoration: none;
+  transition: all 0.3s ease;
+}
+
+[data-theme="camera"] a:hover {
+  color: var(--nikon-yellow-bright);
+  text-shadow: var(--shadow-glow);
+}
+
+[data-theme="camera"] a:visited {
+  color: var(--nikon-yellow-dim);
+}
+
+/* Navigation styling */
+
+[data-theme="camera"] .nav-breadcrumb {
+  background: var(--surface-panel);
+  padding: var(--space-2);
+  border-radius: 4px;
+  border: 1px solid var(--border-subtle);
+}
+
+[data-theme="camera"] .nav-breadcrumb a {
+  color: var(--text-tertiary);
+}
+
+[data-theme="camera"] .nav-breadcrumb a:hover {
+  color: var(--nikon-yellow);
+}
+
+[data-theme="camera"] .nav-breadcrumb span {
+  color: var(--text-muted);
+}
+
+/* Photo navigation */
+
+[data-theme="camera"] .photo-nav {
+  background: var(--surface-raised);
+  padding: var(--space-3);
+  border-radius: 8px;
+  border: 1px solid var(--border-subtle);
+  margin: var(--space-3) 0;
+}
+
+[data-theme="camera"] .photo-counter {
+  color: var(--nikon-yellow);
+  font-weight: 600;
+  text-shadow: 0 1px 2px rgba(0, 0, 0, 0.8);
+}
+
+/* Enhanced camera metadata panel */
+
+[data-theme="camera"] .camera-metadata {
+  background: var(--surface-panel);
+  border: 1px solid var(--border-accent);
+  border-radius: 8px;
+  padding: var(--space-4);
+  box-shadow: var(--shadow-medium);
+  position: relative;
+  overflow: hidden;
+}
+
+[data-theme="camera"] .camera-metadata::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 3px;
+  background: linear-gradient(90deg, 
+    var(--nikon-yellow) 0%, 
+    var(--nikon-yellow-bright) 50%, 
+    var(--nikon-yellow) 100%);
+  animation: shimmer 2s ease-in-out infinite;
+}
+
+@keyframes shimmer {
+  0% { transform: translateX(-100%); }
+  100% { transform: translateX(100%); }
+}
+
+[data-theme="camera"] .metadata-title {
+  color: var(--nikon-yellow);
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  border-bottom: 1px solid var(--border-accent);
+  padding-bottom: var(--space-2);
+  margin-bottom: var(--space-3);
+}
+
+[data-theme="camera"] .metadata-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: var(--space-3);
+}
+
+[data-theme="camera"] .metadata-item {
+  background: var(--surface-raised);
+  padding: var(--space-2);
+  border-radius: 4px;
+  border: 1px solid var(--surface-border);
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-1);
+  transition: all 0.3s ease;
+}
+
+[data-theme="camera"] .metadata-item:hover {
+  border-color: var(--border-accent);
+  background: var(--surface-overlay);
+  transform: translateY(-2px);
+  box-shadow: var(--shadow-subtle);
+}
+
+[data-theme="camera"] .metadata-label {
+  color: var(--text-muted);
+  font-size: var(--mono-sm);
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+
+[data-theme="camera"] .metadata-value {
+  color: var(--nikon-yellow);
+  font-size: var(--mono-lg);
+  font-weight: 500;
+  font-family: 'Berkeley Mono', 'Terminus', 'Monaco', ui-monospace, 'JetBrains Mono', monospace;
+}
+
+/* Enhanced button styling */
+
+[data-theme="camera"] .btn {
+  background: var(--surface-raised);
+  border: 2px solid var(--gray-dark);
+  color: var(--text-secondary);
+  transition: all 0.3s ease;
+  position: relative;
+  overflow: hidden;
+}
+
+[data-theme="camera"] .btn::before {
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 0;
+  height: 0;
+  background: var(--nikon-yellow-glow);
+  border-radius: 50%;
+  transform: translate(-50%, -50%);
+  transition: width 0.6s, height 0.6s;
+}
+
+[data-theme="camera"] .btn:hover {
+  color: var(--black-pure);
+  border-color: var(--nikon-yellow);
+  background: var(--nikon-yellow);
+  transform: translateY(-2px);
+  box-shadow: 0 4px 8px rgba(255, 215, 0, 0.3);
+}
+
+[data-theme="camera"] .btn:hover::before {
+  width: 300px;
+  height: 300px;
+}
+
+[data-theme="camera"] .btn-primary {
+  background: var(--nikon-yellow);
+  color: var(--black-pure);
+  border-color: var(--nikon-yellow);
+  font-weight: 600;
+}
+
+[data-theme="camera"] .btn-primary:hover {
+  background: var(--nikon-yellow-bright);
+  border-color: var(--nikon-yellow-bright);
+  box-shadow: 0 4px 12px rgba(255, 215, 0, 0.5);
+}
+
+[data-theme="camera"] .btn-secondary {
+  border-color: var(--gray-dark);
+  color: var(--text-tertiary);
+}
+
+[data-theme="camera"] .btn-secondary:hover {
+  border-color: var(--nikon-yellow-dim);
+  background: var(--surface-overlay);
+  color: var(--nikon-yellow);
+}
+
+/* Photo display enhancements */
+
+[data-theme="camera"] .photo-container {
+  background: var(--black-pure);
+  border: 2px solid var(--surface-border);
+  border-radius: 8px;
+  overflow: hidden;
+  box-shadow: var(--shadow-strong);
+}
+
+[data-theme="camera"] .photo-main {
+  background: var(--black-pure);
+  display: block;
+}
+
+[data-theme="camera"] .photo-actions {
+  background: var(--surface-panel);
+  border-top: 1px solid var(--border-accent);
+  padding: var(--space-3);
+}
+
+/* Gallery grid for camera theme */
+
+[data-theme="camera"] .gallery-grid {
+  gap: var(--space-3);
+}
+
+[data-theme="camera"] .gallery-item {
+  background: var(--surface-panel);
+  border: 1px solid var(--surface-border);
+  transition: all 0.3s ease;
+  box-shadow: var(--shadow-subtle);
+}
+
+[data-theme="camera"] .gallery-item:hover {
+  border-color: var(--nikon-yellow-dim);
+  transform: translateY(-4px);
+  box-shadow: 0 8px 16px rgba(255, 215, 0, 0.2);
+}
+
+[data-theme="camera"] .gallery-title {
+  color: var(--nikon-yellow);
+}
+
+[data-theme="camera"] .gallery-meta {
+  color: var(--text-tertiary);
+}
+
+/* Theme toggle button styling */
+
+[data-theme="camera"] .theme-toggle-btn {
+  background: var(--surface-raised);
+  border: 1px solid var(--nikon-yellow-dark);
+  color: var(--nikon-yellow);
+}
+
+[data-theme="camera"] .theme-toggle-btn:hover {
+  background: var(--nikon-yellow);
+  color: var(--black-pure);
+  border-color: var(--nikon-yellow);
+  box-shadow: var(--shadow-glow);
+}
+
+/* Special effects for camera theme */
+
+[data-theme="camera"] .metadata-value.aperture-value::before {
+  color: var(--text-muted);
+}
+
+[data-theme="camera"] .iso-value {
+  color: var(--tech-orange);
+}
+
+[data-theme="camera"] .shutter-speed {
+  color: var(--tech-blue);
+}
+
+/* Focus states for accessibility */
+
+[data-theme="camera"] *:focus {
+  outline: 2px solid var(--nikon-yellow);
+  outline-offset: 2px;
+}
+
+[data-theme="camera"] .btn:focus {
+  outline-offset: 4px;
+}
+
+/* Loading states */
+
+[data-theme="camera"] .loading {
+  position: relative;
+  color: var(--text-muted);
+}
+
+[data-theme="camera"] .loading::after {
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 20px;
+  height: 20px;
+  margin: -10px 0 0 -10px;
+  border: 2px solid var(--nikon-yellow-dim);
+  border-top-color: var(--nikon-yellow);
+  border-radius: 50%;
+  animation: spin 0.8s linear infinite;
+}
+
+@keyframes spin {
+  to { transform: rotate(360deg); }
+}
+
+/* Responsive adjustments */
+
+@media (max-width: 768px) {
+  [data-theme="camera"] .metadata-grid {
+    grid-template-columns: 1fr;
+    gap: var(--space-2);
+  }
+  
+  [data-theme="camera"] .camera-metadata {
+    padding: var(--space-3);
+  }
+  
+  [data-theme="camera"] .metadata-item {
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+  }
+}
+
+/* Print styles for camera theme */
+
+@media print {
+  [data-theme="camera"] {
+    background: white !important;
+    color: black !important;
+  }
+  
+  [data-theme="camera"] .btn,
+  [data-theme="camera"] .theme-controls,
+  [data-theme="camera"] .photo-actions {
+    display: none !important;
+  }
+}
+
+/* Manual Typography Enhancement - Terminus/Berkeley Mono Integration */
+
+/* NON-BREAKING: Only enhances manual page typography */
+
+/* Font Stack with Terminus preference */
+
+:root {
+  --font-mono-enhanced: 'Berkeley Mono', 'Terminus', 'Monaco', ui-monospace,
+                        'JetBrains Mono', 'Consolas', 'Liberation Mono', 
+                        'Courier New', monospace;
+  
+  /* Enhanced code block colors - adapt to theme */
+  --code-bg-enhanced: var(--surface-raised);
+  --code-text-enhanced: var(--text-secondary);
+  --code-keyword: #66d9ef;
+  --code-string: #a6e22e;
+  --code-comment: #75715e;
+  --code-number: #ae81ff;
+  
+  /* Light theme code block colors */
+  --code-bg-light: #f8f8f8;
+  --code-text-light: #333333;
+  --code-border-light: #e0e0e0;
+}
+
+/* Manual Page Specific Styles (extracted from inline) */
+
+.manual-nav-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 20px;
+  margin: 30px 0;
+}
+
+.manual-nav-item {
+  background: var(--surface-panel);
+  border: 2px solid var(--surface-border);
+  padding: 20px;
+  border-radius: 8px;
+  text-decoration: none;
+  color: var(--text-secondary);
+  transition: all 0.2s;
+}
+
+.manual-nav-item:hover {
+  border-color: var(--accent-primary);
+  transform: translateY(-2px);
+  box-shadow: 0 4px 8px var(--shadow-medium);
+}
+
+.manual-nav-item h3 {
+  margin: 0 0 8px 0;
+  font-size: 1.25rem;
+}
+
+.manual-nav-item p {
+  margin: 0;
+  color: var(--text-secondary);
+  font-size: 0.95rem;
+}
+
+/* Enhanced Command Reference Blocks */
+
+.command-reference {
+  display: grid;
+  gap: 20px;
+  margin: 20px 0;
+}
+
+.command-item {
+  background: var(--surface-panel);
+  padding: 20px;
+  border-radius: 8px;
+  border: 1px solid var(--surface-border);
+}
+
+.command-item h4 {
+  margin: 0 0 10px 0;
+  font-size: 1.1rem;
+  color: var(--text-primary);
+}
+
+/* Enhanced Code Blocks with Better Typography */
+
+.command-item pre,
+pre {
+  margin: 10px 0 0 0;
+  padding: 16px 20px;
+  background: var(--code-bg-enhanced);
+  color: var(--code-text-enhanced);
+  border-radius: 6px;
+  overflow-x: auto;
+  font-family: var(--font-mono-enhanced);
+  font-size: 14px;
+  line-height: 1.6;
+  font-weight: 400;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  -moz-tab-size: 2;
+    -o-tab-size: 2;
+       tab-size: 2;
+}
+
+.command-item code,
+code {
+  font-family: var(--font-mono-enhanced);
+  font-size: 0.9em;
+  background: var(--surface-raised);
+  padding: 2px 6px;
+  border-radius: 3px;
+  font-weight: 400;
+  color: var(--accent-primary);
+}
+
+/* Pre > Code should not have background */
+
+pre code {
+  background: transparent;
+  padding: 0;
+  font-size: inherit;
+}
+
+/* Light theme code block overrides */
+
+[data-theme="light"] .command-item pre,
+[data-theme="light"] pre {
+  background: var(--code-bg-light);
+  color: var(--code-text-light);
+  border: 1px solid var(--code-border-light);
+}
+
+/* Light theme inline code */
+
+[data-theme="light"] code {
+  background: var(--surface-raised);
+  color: var(--accent-error); /* GitHub-style inline code color */
+}
+
+pre code {
+  background: transparent;
+  color: inherit;
+  padding: 0;
+}
+
+[data-theme="light"] .math-explanation pre {
+  background: var(--code-bg-light);
+  color: var(--code-text-light);
+  border: 1px solid var(--code-border-light);
+}
+
+/* Workflow Visual Styles */
+
+.workflow-visual {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+  margin: 30px 0;
+  overflow-x: auto;
+  padding: 20px 0;
+}
+
+.workflow-step {
+  background: var(--surface-panel);
+  border: 2px solid var(--surface-border);
+  padding: 20px;
+  border-radius: 8px;
+  min-width: 150px;
+  text-align: center;
+  position: relative;
+}
+
+.step-number {
+  position: absolute;
+  top: -15px;
+  left: 50%;
+  transform: translateX(-50%);
+  background: var(--accent-primary);
+  color: var(--text-inverse);
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: bold;
+  font-size: 14px;
+}
+
+.workflow-arrow {
+  color: var(--accent-primary);
+  font-size: 24px;
+  flex-shrink: 0;
+}
+
+/* Typography Demo Styles */
+
+.typography-demo > * {
+  margin: 10px 0;
+}
+
+.typography-demo code {
+  font-family: var(--font-mono-enhanced);
+  margin-left: 10px;
+  opacity: 0.7;
+}
+
+/* F-stop typography classes for the demo */
+
+.text-f4 {
+  font-size: 64px;
+  line-height: 1.1;
+  font-weight: 700;
+}
+
+.text-f28 {
+  font-size: 45px;
+  line-height: 1.2;
+  font-weight: 600;
+}
+
+.text-f2 {
+  font-size: 32px;
+  line-height: 1.3;
+  font-weight: 500;
+}
+
+.text-f14 {
+  font-size: 23px;
+  line-height: 1.4;
+  font-weight: 400;
+}
+
+.text-f1 {
+  font-size: 16px;
+  line-height: 1.6;
+  font-weight: 400;
+}
+
+/* Color Grid */
+
+.color-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+  gap: 15px;
+  margin: 20px 0;
+}
+
+.color-swatch {
+  padding: 20px;
+  border-radius: 8px;
+  text-align: center;
+  color: var(--text-inverse);
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+  min-height: 100px;
+  justify-content: center;
+  border: 2px solid transparent;
+  transition: all 0.2s;
+}
+
+.color-swatch:hover {
+  transform: scale(1.05);
+  border-color: var(--surface-border-hover);
+}
+
+.color-swatch code {
+  font-family: var(--font-mono-enhanced);
+  font-size: 14px;
+  background: var(--overlay-dark);
+  padding: 4px 8px;
+  border-radius: 4px;
+}
+
+/* Component Showcase */
+
+.component-showcase {
+  margin: 30px 0;
+}
+
+.component-showcase h4 {
+  margin: 20px 0 15px 0;
+  font-size: 1.2rem;
+}
+
+.button-examples,
+.form-examples {
+  display: flex;
+  gap: 15px;
+  flex-wrap: wrap;
+  align-items: center;
+  margin: 15px 0;
+}
+
+/* Metrics Grid */
+
+.metrics-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+  gap: 20px;
+  margin: 20px 0;
+}
+
+.metric {
+  text-align: center;
+  background: var(--surface-panel);
+  padding: 20px;
+  border-radius: 8px;
+  border: 1px solid var(--surface-border);
+}
+
+.metric h4 {
+  margin: 0 0 10px 0;
+  font-size: 0.9rem;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  opacity: 0.8;
+}
+
+.metric-value {
+  font-size: 32px;
+  font-weight: bold;
+  color: var(--accent-primary);
+  margin: 10px 0;
+  font-family: var(--font-mono-enhanced);
+}
+
+.metric-label {
+  color: var(--text-secondary);
+  font-size: 14px;
+}
+
+/* Math Explanation Block */
+
+.math-explanation {
+  background: var(--surface-panel);
+  padding: 25px;
+  border-radius: 8px;
+  margin: 20px 0;
+  border: 1px solid var(--surface-border);
+}
+
+.math-explanation h4 {
+  margin: 0 0 15px 0;
+}
+
+.math-explanation pre {
+  background: var(--code-bg-enhanced);
+  color: var(--code-text-enhanced);
+  font-family: var(--font-mono-enhanced);
+  line-height: 1.8;
+}
+
+/* Resource Links */
+
+.resource-links {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 20px;
+  margin: 30px 0;
+}
+
+.resource-item {
+  background: var(--surface-panel);
+  border: 2px solid var(--surface-border);
+  padding: 20px;
+  border-radius: 8px;
+  text-decoration: none;
+  color: inherit;
+  text-align: center;
+  transition: all 0.2s;
+}
+
+.resource-item:hover {
+  border-color: var(--accent-primary);
+  transform: translateY(-2px);
+}
+
+.resource-item h4 {
+  margin: 0 0 8px 0;
+  font-size: 1.2rem;
+}
+
+.resource-item p {
+  margin: 0;
+  color: var(--text-secondary);
+  font-size: 0.9rem;
+}
+
+/* File Reference Table */
+
+.file-reference table {
+  width: 100%;
+  border-collapse: collapse;
+  margin: 20px 0;
+}
+
+.file-reference th,
+.file-reference td {
+  padding: 12px;
+  text-align: left;
+  border-bottom: 1px solid var(--surface-border);
+}
+
+.file-reference th {
+  background: var(--surface-panel);
+  font-weight: 600;
+  text-transform: uppercase;
+  font-size: 0.85rem;
+  letter-spacing: 0.05em;
+}
+
+.file-reference td code {
+  font-family: var(--font-mono-enhanced);
+}
+
+.file-reference .edit-link {
+  color: var(--accent-primary);
+  text-decoration: none;
+  font-weight: 500;
+}
+
+.file-reference .edit-link:hover {
+  text-decoration: underline;
+}
+
+/* Dark Theme Adjustments */
+
+[data-theme="camera"] .manual-nav-item,
+[data-theme="camera"] .command-item,
+[data-theme="camera"] .workflow-step,
+[data-theme="camera"] .metric,
+[data-theme="camera"] .resource-item,
+[data-theme="camera"] .file-reference th,
+[data-theme="camera"] .math-explanation {
+  background: var(--surface-depth);
+  border-color: var(--surface-border);
+}
+
+[data-theme="camera"] .command-item pre,
+[data-theme="camera"] pre {
+  background: var(--surface-panel);
+  color: var(--text-secondary);
+}
+
+[data-theme="camera"] code {
+  background: var(--surface-raised);
+}
+
+/* Flynn Theme Adjustments */
+
+[data-theme="flynn"] .manual-nav-item,
+[data-theme="flynn"] .command-item,
+[data-theme="flynn"] .workflow-step,
+[data-theme="flynn"] .metric,
+[data-theme="flynn"] .resource-item {
+  background: var(--surface-base);
+  border-color: var(--accent-primary);
+}
+
+[data-theme="flynn"] .manual-nav-item:hover,
+[data-theme="flynn"] .resource-item:hover {
+  border-color: var(--accent-secondary);
+  box-shadow: 0 0 10px var(--shadow-glow);
+}
+
+[data-theme="flynn"] .step-number {
+  background: var(--accent-primary);
+  color: var(--surface-base);
+}
+
+[data-theme="flynn"] .workflow-arrow {
+  color: var(--accent-primary);
+}
+
+[data-theme="flynn"] .metric-value {
+  color: var(--accent-primary);
+  text-shadow: var(--shadow-glow);
+}
+
+[data-theme="flynn"] code {
+  background: var(--overlay-light);
+  color: var(--accent-primary);
+}
+
+[data-theme="flynn"] pre code {
+  background: transparent;
+  color: inherit;
+}
+
+/* Responsive Adjustments */
+
+@media (max-width: 768px) {
+  .workflow-visual {
+    flex-direction: column;
+  }
+  
+  .workflow-arrow {
+    transform: rotate(90deg);
+  }
+  
+  .manual-nav-grid {
+    grid-template-columns: 1fr;
+  }
+  
+  .resource-links {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* Print Styles */
+
+@media print {
+  .theme-toggle-demo,
+  .edit-link,
+  .manual-quick-access {
+    display: none;
+  }
+  
+  pre {
+    background: #f5f5f5 !important;
+    color: #000 !important;
+    border: 1px solid #ccc;
+  }
+  
+  .color-swatch {
+    border: 2px solid #000 !important;
+  }
+}
+
+/* ================================
    LAYER 1: CORE FOUNDATION
    Reset, variables, and base styles
    ================================ */

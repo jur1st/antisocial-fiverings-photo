@@ -13,6 +13,15 @@
    ================================================================ */
 
 /* ================================
+   LAYER 0: PRODUCTION BASELINE
+   Import all original production CSS files first
+   ================================ */
+@import "../gallery.css";
+@import "../typography.css";
+@import "../camera-theme.css";
+@import "../manual-typography.css";
+
+/* ================================
    LAYER 1: CORE FOUNDATION
    Reset, variables, and base styles
    ================================ */
