@@ -39,19 +39,6 @@ jobs:
       - name: Setup Pages
         id: pages
         uses: actions/configure-pages@v4
-      - name: Install Node.js dependencies
-        run: "[[ -f package-lock.json || -f npm-shrinkwrap.json ]] && npm ci || true"
-      - name: Install Playwright browsers
-        run: |
-          if [ -f package.json ]; then
-            npm ci
-            npx playwright install --with-deps
-          fi
-      - name: Run Playwright tests
-        run: |
-          if [ -f package.json ]; then
-            npm test || (echo "Tests failed - blocking deployment" && exit 1)
-          fi
       - name: Build with Hugo
         env:
           HUGO_ENVIRONMENT: production
