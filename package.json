@@ -1,0 +1,25 @@
+{
+  "name": "antisocial-fiverings-photo",
+  "version": "1.0.0",
+  "description": "Antisocial Photography Platform - Professional portfolio with automated testing",
+  "private": true,
+  "scripts": {
+    "test": "playwright test",
+    "test:ui": "playwright test --ui",
+    "test:headed": "playwright test --headed",
+    "test:gallery": "playwright test gallery.spec.ts",
+    "test:navigation": "playwright test navigation.spec.ts",
+    "test:images": "playwright test images.spec.ts",
+    "test:visual": "playwright test visual.spec.ts",
+    "test:report": "playwright show-report",
+    "validate": "npm test && hugo --quiet",
+    "dev": "hugo server --port 1313",
+    "build": "hugo --minify"
+  },
+  "devDependencies": {
+    "@playwright/test": "^1.55.0"
+  },
+  "engines": {
+    "node": ">=18.0.0"
+  }
+}
