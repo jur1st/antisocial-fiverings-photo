@@ -1,0 +1,58 @@
+---
+title: SecKC July 2025
+date: '2025-07-01'
+gallery_slug: soc-july-2025
+photo_count: 4
+description: Monthly SecKC meeting
+type: gallery
+layout: single
+photos:
+- filename: 20250704-20250704_untitled - untitled shoot - 5rp_8593.jpg
+  title: 20250704-20250704_untitled - untitled shoot - 5RP_8593
+  image: images/soc-july-2025/20250704-20250704_untitled - untitled shoot - 5rp_8593.jpg
+  photo_slug: 2025-07-01-soc-july-2025-001
+  date: '2025-07-01'
+  camera_settings:
+    aperture: f/5.6
+    shutter: 1/1600
+    iso: ISO 100
+    focal_length: 175.0 mm
+    body: NIKON CORPORATION NIKON Z6_3
+    lens: NIKKOR Z 100-400mm f/4.5-5.6 VR S
+- filename: 20250705_untitled - untitled shoot - 5rp_9103.jpg
+  title: 20250705_untitled - untitled shoot - 5RP_9103
+  image: images/soc-july-2025/20250705_untitled - untitled shoot - 5rp_9103.jpg
+  photo_slug: 2025-07-01-soc-july-2025-002
+  date: '2025-07-01'
+  camera_settings:
+    aperture: f/5.6
+    shutter: 1/640
+    iso: ISO 2000
+    focal_length: 210.0 mm
+    body: NIKON CORPORATION NIKON Z6_3
+    lens: NIKKOR Z 100-400mm f/4.5-5.6 VR S
+- filename: 20250720-5rp_1259.jpg
+  title: 20250720-5RP_1259
+  image: images/soc-july-2025/20250720-5rp_1259.jpg
+  photo_slug: 2025-07-01-soc-july-2025-003
+  date: '2025-07-01'
+  camera_settings:
+    aperture: f/4.5
+    shutter: 1/200
+    iso: ISO 800
+    focal_length: 100.0 mm
+    body: NIKON CORPORATION NIKON Z6_3
+    lens: NIKKOR Z 100-400mm f/4.5-5.6 VR S
+- filename: 20250720-5rp_9600.jpg
+  title: 20250720-5RP_9600
+  image: images/soc-july-2025/20250720-5rp_9600.jpg
+  photo_slug: 2025-07-01-soc-july-2025-004
+  date: '2025-07-01'
+  camera_settings:
+    aperture: f/7.1
+    shutter: 1/400
+    iso: ISO 800
+    focal_length: 100.0 mm
+    body: NIKON CORPORATION NIKON Z6_3
+    lens: NIKKOR Z 100-400mm f/4.5-5.6 VR S
+---
